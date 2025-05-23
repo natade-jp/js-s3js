@@ -1,0 +1,55 @@
+{
+	"name": "lumi3d",
+	"version": "0.0.1",
+	"description": "A JavaScript library.",
+	"keywords": [
+		"3dcg"
+	],
+	"author": "natade-jp <natade3@gmail.com> (https://github.com/natade-jp)",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/natade-jp/js-lumi3d.git"
+	},
+	"license": "MIT",
+	"source": "./src/Lumi3D.js",
+	"main": "./build/esm/Lumi3D.js",
+	"types": "./build/type/Lumi3D.d.ts",
+	"exports": {
+		".": {
+			"browser": "./build/umd/Lumi3D.js",
+			"umd": "./build/umd/Lumi3D.js",
+			"import": "./build/esm/Lumi3D.js",
+			"require": "./build/cjs/Lumi3D.js"
+		}
+	},
+	"type": "module",
+	"scripts": {
+		"build": "node ./scripts/package.build.js",
+		"test": "jest",
+		"test_target": "node ./scripts/package.test.js",
+		"doc": "node ./scripts/package.doc.js",
+		"type": "node ./scripts/package.type.js"
+	},
+	"directories": {
+		"src": "./src",
+		"build": "./build"
+	},
+	"bugs": {
+		"url": "https://github.com/natade-jp/js-lumi3d/issues"
+	},
+	"homepage": "https://github.com/natade-jp/js-lumi3d",
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^28.0.3",
+		"@rollup/plugin-node-resolve": "^16.0.1",
+		"@rollup/plugin-terser": "^0.4.4",
+		"docdash": "^2.0.2",
+		"eslint": "^9.27.0",
+		"eslint-config-prettier": "^10.1.5",
+		"jsdoc": "^4.0.4",
+		"jsdoc-export-default-interop": "^0.3.1",
+		"ntfile": "^1.0.0",
+		"prettier": "^3.5.3",
+		"rollup": "^4.40.2",
+		"typescript": "^5.8.3"
+	}
+}
