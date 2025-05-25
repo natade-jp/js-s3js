@@ -46,7 +46,7 @@ const S3MeshLoader = {
 	 *
 	 * @param {S3System} s3system S3Systemインスタンス（S3Mesh生成等に必要）
 	 * @param {string} data 3Dデータ本体またはデータ取得用URL
-	 * @param {string} type データの形式（S3MeshLoader.TYPEのいずれか: "JSON", "MQO", "OBJ"）
+	 * @param {string} type データの拡張子（"JSON", "MQO", "OBJ"）
 	 * @param {function(S3Mesh):void} [callback] データインポート後に呼ばれるコールバック（省略時は即時同期）
 	 * @returns {S3Mesh} 生成されたS3Meshインスタンス（非同期時も仮のインスタンスを返す）
 	 */
@@ -62,7 +62,7 @@ const S3MeshLoader = {
 		const load = function (ldata, ltype, url) {
 			s3mesh._init();
 			for (let i = 0; i < DATA_IO_FUNCTION.length; i++) {
-				if (DATA_IO_FUNCTION[i].name === type) {
+				if (DATA_IO_FUNCTION[i].name === type.toUpperCase()) {
 					const isLoad = DATA_IO_FUNCTION[i].input(s3system, s3mesh, ldata, url);
 					s3mesh.setComplete(isLoad);
 					if (callback) {
@@ -92,12 +92,12 @@ const S3MeshLoader = {
 	 * S3Meshインスタンスを指定フォーマットでエクスポート（テキスト化）します。
 	 *
 	 * @param {S3Mesh} s3mesh 出力対象のメッシュ
-	 * @param {string} type 出力フォーマット（S3MeshLoader.TYPE.JSON等）
+	 * @param {string} type 出力の形式（"JSON"、"MQO"、"OBJ" など）
 	 * @returns {string} 指定フォーマットのテキストデータ
 	 */
 	outputData: function (s3mesh, type) {
 		for (let i = 0; i < DATA_IO_FUNCTION.length; i++) {
-			if (DATA_IO_FUNCTION[i].name === type) {
+			if (DATA_IO_FUNCTION[i].name === type.toUpperCase()) {
 				if (DATA_IO_FUNCTION[i].output) {
 					return DATA_IO_FUNCTION[i].output(s3mesh);
 				}

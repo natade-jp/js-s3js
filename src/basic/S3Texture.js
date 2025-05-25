@@ -24,7 +24,7 @@ export default class S3Texture {
 
 	/**
 	 * テクスチャ情報を初期化します。ロードフラグや画像情報をリセットします。
-	 * @private
+	 * @protect
 	 */
 	_init() {
 		/**

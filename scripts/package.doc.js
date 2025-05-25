@@ -14,7 +14,7 @@ const batch = function () {
 	for (let i = 0; i < text.length; i++) {
 		const line = text[i];
 		if (/"Documentation"/.test(line)) {
-			text[i] = line.replace(/"Documentation"/, '"Lumi3D"');
+			text[i] = line.replace(/"Documentation"/, '"S3js"');
 			break;
 		}
 	}
@@ -25,5 +25,5 @@ batch();
 
 NTFile.exec('npx jsdoc -R "./README.md" -c "./scripts/jsdoc.config.json"');
 
-NTFile.copy("./build/esm/Lumi3D.min.js", "./docs/demo/libs/Lumi3D.min.js");
-NTFile.copy("./build/esm/Lumi3D.min.d.ts", "./docs/demo/libs/Lumi3D.min.d.ts");
+NTFile.copy("./build/esm/S3.min.js", "./docs/demo/libs/S3.min.js");
+NTFile.copy("./build/esm/S3.min.d.ts", "./docs/demo/libs/S3.min.d.ts");

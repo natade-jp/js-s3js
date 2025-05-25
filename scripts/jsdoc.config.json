@@ -12,7 +12,7 @@
 		"dictionaries": ["jsdoc", "closure"]
 	},
 	"templates": {
-		"referenceTitle": "Lumi3D",
+		"referenceTitle": "S3js",
 		"cleverLinks": false,
 		"monospaceLinks": false,
 		"default": {
@@ -29,7 +29,7 @@
 	"docdash": {
 		"menu": {
 			"Github repo": {
-				"href": "https://github.com/natade-jp/js-lumi3d",
+				"href": "https://github.com/natade-jp/js-s3js",
 				"class": "menu-item"
 			}
 		},

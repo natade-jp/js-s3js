@@ -1,5 +1,5 @@
 {
-	"name": "lumi3d",
+	"name": "s3js",
 	"version": "0.0.1",
 	"description": "A JavaScript library.",
 	"keywords": [
@@ -8,18 +8,18 @@
 	"author": "natade-jp <natade3@gmail.com> (https://github.com/natade-jp)",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/natade-jp/js-lumi3d.git"
+		"url": "git+https://github.com/natade-jp/js-s3js.git"
 	},
 	"license": "MIT",
-	"source": "./src/Lumi3D.js",
-	"main": "./build/esm/Lumi3D.js",
-	"types": "./build/type/Lumi3D.d.ts",
+	"source": "./src/S3.js",
+	"main": "./build/esm/S3.js",
+	"types": "./build/type/S3.d.ts",
 	"exports": {
 		".": {
-			"browser": "./build/umd/Lumi3D.js",
-			"umd": "./build/umd/Lumi3D.js",
-			"import": "./build/esm/Lumi3D.js",
-			"require": "./build/cjs/Lumi3D.js"
+			"browser": "./build/umd/S3.js",
+			"umd": "./build/umd/S3.js",
+			"import": "./build/esm/S3.js",
+			"require": "./build/cjs/S3.js"
 		}
 	},
 	"type": "module",
@@ -35,9 +35,9 @@
 		"build": "./build"
 	},
 	"bugs": {
-		"url": "https://github.com/natade-jp/js-lumi3d/issues"
+		"url": "https://github.com/natade-jp/js-s3js/issues"
 	},
-	"homepage": "https://github.com/natade-jp/js-lumi3d",
+	"homepage": "https://github.com/natade-jp/js-s3js",
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^28.0.3",
 		"@rollup/plugin-node-resolve": "^16.0.1",

@@ -17,5 +17,5 @@
 		"sourceMap": true, // ソースマップを出力する
 		"outDir": "../build/type/" // 出力先ディレクトリ
 	},
-	"include": ["../build/esm/Lumi3D.js"] // コンパイル対象のファイル
+	"include": ["../build/esm/S3.js"] // コンパイル対象のファイル
 }

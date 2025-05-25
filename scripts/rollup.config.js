@@ -32,15 +32,15 @@ const createData = function (moduleName, input_name, output_name, format, isUgli
 	return data;
 };
 
-const name = "Lumi3D";
-const input = "./src/Lumi3D.js";
+const name = "S3js";
+const input = "./src/S3.js";
 const data = [];
 
-data.push(createData(name, input, "./build/umd/Lumi3D.js", "umd", false));
-data.push(createData(name, input, "./build/umd/Lumi3D.min.js", "umd", true));
-data.push(createData(name, input, "./build/cjs/Lumi3D.js", "cjs", false));
-data.push(createData(name, input, "./build/cjs/Lumi3D.min.js", "cjs", true));
-data.push(createData(name, input, "./build/esm/Lumi3D.js", "esm", false));
-data.push(createData(name, input, "./build/esm/Lumi3D.min.js", "esm", true));
+data.push(createData(name, input, "./build/umd/S3.js", "umd", false));
+data.push(createData(name, input, "./build/umd/S3.min.js", "umd", true));
+data.push(createData(name, input, "./build/cjs/S3.js", "cjs", false));
+data.push(createData(name, input, "./build/cjs/S3.min.js", "cjs", true));
+data.push(createData(name, input, "./build/esm/S3.js", "esm", false));
+data.push(createData(name, input, "./build/esm/S3.min.js", "esm", true));
 
 export default data;
