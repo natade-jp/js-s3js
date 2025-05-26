@@ -31,28 +31,27 @@ export default class S3GLModel extends S3Model {
 		/**
 		 * @type {{[key: string]: Array<S3GLArray | WebGLTexture>}}
 		 */
-		const uniforms = {};
-		{
-			const MATELIAL_MAX = 4;
-			/**
-			 * @type {Array<S3GLMaterial>}
-			 */
-			const material_array = /** @type {Array<S3GLMaterial>} */ (this.getMesh().getMaterialArray());
-			const materialLength = Math.min(material_array.length, MATELIAL_MAX);
-			for (let i = 0; i < materialLength; i++) {
-				const data = material_array[i].getGLData();
-				for (const key in data) {
-					if (!uniforms[key]) {
-						/**
-						 * @type {Array<S3GLArray | WebGLTexture>}
-						 */
-						uniforms[key] = [];
-					}
-					uniforms[key].push(data[key]);
+		let uniforms = {};
+		const MATELIAL_MAX = 4;
+		/**
+		 * @type {Array<S3GLMaterial>}
+		 */
+		const material_array = /** @type {Array<S3GLMaterial>} */ (this.getMesh().getMaterialArray());
+		const materialLength = Math.min(material_array.length, MATELIAL_MAX);
+		for (let i = 0; i < materialLength; i++) {
+			const data = material_array[i].getGLData();
+			for (const key in data) {
+				if (!uniforms[key]) {
+					/**
+					 * @type {Array<S3GLArray | WebGLTexture>}
+					 */
+					uniforms[key] = [];
 				}
+				uniforms[key].push(data[key]);
 			}
 		}
-		const ret.uniforms = uniforms;
+		const ret = {};
+		ret.uniforms = uniforms;
 		return ret;
 	}
 }

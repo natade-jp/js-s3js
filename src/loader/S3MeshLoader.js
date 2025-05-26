@@ -45,24 +45,25 @@ const S3MeshLoader = {
 	 * - コールバックを指定すると非同期処理後に呼ばれます
 	 *
 	 * @param {S3System} s3system S3Systemインスタンス（S3Mesh生成等に必要）
-	 * @param {string} data 3Dデータ本体またはデータ取得用URL
-	 * @param {string} type データの拡張子（"JSON", "MQO", "OBJ"）
+	 * @param {string|Object} data 3Dデータ本体またはデータ取得用URL
+	 * @param {string} [type] データの拡張子（"JSON", "MQO", "OBJ"）, data がURLの場合は自動判別されます。
 	 * @param {function(S3Mesh):void} [callback] データインポート後に呼ばれるコールバック（省略時は即時同期）
 	 * @returns {S3Mesh} 生成されたS3Meshインスタンス（非同期時も仮のインスタンスを返す）
 	 */
 	inputData: function (s3system, data, type, callback) {
 		const s3mesh = s3system.createMesh();
+		let this_type = type ? type.toUpperCase() : "";
+
 		/**
 		 * データ本体を指定フォーマットでS3Meshに変換し、必要ならコールバックを呼び出します。
 		 *
 		 * @param {string|any} ldata 3Dデータ本体（テキストまたはJSONなど）
-		 * @param {string} ltype データの形式（"JSON"、"MQO"、"OBJ" など）
 		 * @param {string} url データ取得元URL（直接データの場合は空文字列）
 		 */
-		const load = function (ldata, ltype, url) {
+		const load = function (ldata, url) {
 			s3mesh._init();
 			for (let i = 0; i < DATA_IO_FUNCTION.length; i++) {
-				if (DATA_IO_FUNCTION[i].name === type.toUpperCase()) {
+				if (DATA_IO_FUNCTION[i].name === this_type) {
 					const isLoad = DATA_IO_FUNCTION[i].input(s3system, s3mesh, ldata, url);
 					s3mesh.setComplete(isLoad);
 					if (callback) {
@@ -71,20 +72,28 @@ const S3MeshLoader = {
 				}
 			}
 		};
-		// URLが指定されている場合はダウンロードしてから処理
+		/**
+		 * データのダウンロード完了時に呼ばれるコールバック関数。
+		 * ダウンロードしたテキストデータを `load` 関数へ渡し、メッシュへのインポート処理を行います。
+		 * @param {string} text 取得した3Dデータ本体（テキストデータ）
+		 */
+		const downloadCallback = function (text) {
+			load(text, typeof data === "string" ? data : undefined);
+		};
+		// 文字列がある場合
 		if (typeof data === "string" && data.indexOf("\n") === -1) {
-			/**
-			 * データのダウンロード完了時に呼ばれるコールバック関数。
-			 * ダウンロードしたテキストデータを `load` 関数へ渡し、メッシュへのインポート処理を行います。
-			 * @param {string} text 取得した3Dデータ本体（テキストデータ）
-			 */
-			const downloadCallback = function (text) {
-				load(text, type, data);
-			};
-			s3system._download(data, downloadCallback);
-		} else {
-			load(data, type, "");
+			// 拡張子が設定されている場合
+			if (data.indexOf(".") !== -1) {
+				const ext = data.split(".").pop();
+				for (let i = 0; i < DATA_IO_FUNCTION.length; i++) {
+					if (DATA_IO_FUNCTION[i].name === ext.toUpperCase()) {
+						this_type = ext.toUpperCase();
+						s3system._download(data, downloadCallback);
+					}
+				}
+			}
 		}
+		load(data, "");
 		return s3mesh;
 	},
 

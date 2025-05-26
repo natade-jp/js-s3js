@@ -74,13 +74,13 @@ export default class S3Material {
 		 * 色用テクスチャ（拡散色テクスチャ）
 		 * @type {S3Texture}
 		 */
-		this.textureColor = null;
+		this.textureColor = this.sys.createTexture();
 
 		/**
 		 * 法線マップ用テクスチャ
 		 * @type {S3Texture}
 		 */
-		this.textureNormal = null;
+		this.textureNormal = this.sys.createTexture();
 	}
 
 	/**
