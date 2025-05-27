@@ -3620,6 +3620,139 @@ S3System.CULL_MODE = {
 };
 
 /**
+ * WebGL用の配列（バッファ）を生成・管理するクラス。（immutable）
+ * 各種型（S3Vector, S3Matrix, 数値配列等）をWebGLバッファ（Float32Array/Int32Array）に変換し、
+ * 対応するGLSL型（vec3, mat4等）情報も保持します。
+ */
+class S3GLArray {
+	/**
+	 * WebGL用の配列データを作成します（immutable）。
+	 * 渡された値に応じて型変換・整形し、GLSLでそのまま利用可能な形にします。
+	 *
+	 * @param {number[]|number|S3Vector|S3Matrix|Float32Array|Int32Array} data 配列、数値、S3Vector/S3Matrix、あるいは既にTypedArrayの場合も可
+	 * @param {number} dimension 配列の次元（例：3ならvec3やivec3になる）
+	 * @param {S3GLArrayDataType} datatype 使用するバッファ型（S3GLArray.datatype）
+	 */
+	constructor(data, dimension, datatype) {
+		// 引数の情報(S3GLArray.datatype.instance)を用いて、
+		// JS用配列を、WEBGL用配列に変換して保存する
+		if (data instanceof datatype.instance) {
+			this.data = data;
+		} else if (data instanceof S3Vector || data instanceof S3Matrix) {
+			this.data = data.toInstanceArray(datatype.instance, dimension);
+		} else if (data instanceof Array || data instanceof Float32Array || data instanceof Int32Array) {
+			this.data = new datatype.instance(data);
+		} else if (!isNaN(data)) {
+			this.data = new datatype.instance([data]);
+		} else {
+			throw "IllegalArgumentException";
+		}
+		this.dimension = dimension;
+		this.datatype = datatype;
+
+		let instance = "";
+		if (data instanceof S3Vector) {
+			instance = "S3Vector";
+		} else if (data instanceof S3Matrix) {
+			instance = "S3Matrix";
+		} else {
+			instance = "Number";
+		}
+
+		// GLSL型（vec3, mat4など）を自動判別し、型名文字列として保存
+		/**
+		 * GLSL型（vec3, mat4など）
+		 * @type {string}
+		 */
+		this.glsltype = S3GLArray.gltypetable[datatype.name][instance][dimension];
+	}
+}
+
+/**
+ * TypedArrayのコンストラクタ型定義（Int32Array, Float32Array など）。
+ * @typedef {(typeof Float32Array | typeof Int32Array)} TypedArrayConstructor
+ */
+
+/**
+ * WebGL配列で利用できるデータ型情報（各種TypedArray型）。
+ *
+ * - instance: 対応するTypedArrayコンストラクタ（例：Float32Array, Int32Array）
+ * - name:     型の名前文字列（"Float32Array"等）
+ *
+ * @typedef {Object} S3GLArrayDataType
+ * @property {TypedArrayConstructor} instance 対応するTypedArrayのコンストラクタ
+ * @property {string} name 型名（"Float32Array"等）
+ */
+
+/**
+ * WebGLで利用できる配列データ型定数（Float32Array/Int32Array）。
+ * @type {{ Float32Array: S3GLArrayDataType, Int32Array: S3GLArrayDataType }}
+ */
+S3GLArray.datatype = {
+	Float32Array: {
+		instance: Float32Array,
+		name: "Float32Array"
+	},
+	Int32Array: {
+		instance: Int32Array,
+		name: "Int32Array"
+	}
+};
+
+/**
+ * GLSL型名（"vec3"や"mat4"など）を配列次元や入力種別から自動判定するためのテーブル構造。
+ *
+ * - 第一階層キー：データ型名（"Float32Array" または "Int32Array"）
+ * - 第二階層キー：値種別（"Number", "S3Vector", "S3Matrix"）
+ * - 第三階層キー：配列次元や要素数（2, 3, 4, 9, 16など）
+ * - 値：対応するGLSL型名（"vec3"等）を表す文字列
+ *
+ * 例）gltypetable["Float32Array"]["S3Matrix"][16] === "mat4"
+ *
+ * @typedef {Object<string, Object<string, Object<number, string>>>} S3GLArrayGLTypeTable
+ */
+
+/**
+ * GLSL型判定用テーブル。
+ * 値の型により適切なGLSL型名（vec3, mat4等）を自動で取得できます。
+ *
+ * @type {S3GLArrayGLTypeTable}
+ */
+S3GLArray.gltypetable = {
+	Float32Array: {
+		Number: {
+			1: "float",
+			2: "vec2",
+			3: "vec3",
+			4: "vec4"
+		},
+		S3Vector: {
+			2: "vec2",
+			3: "vec3",
+			4: "vec4"
+		},
+		S3Matrix: {
+			4: "mat2",
+			9: "mat3",
+			16: "mat4"
+		}
+	},
+	Int32Array: {
+		Number: {
+			1: "int",
+			2: "ivec2",
+			3: "ivec3",
+			4: "ivec4"
+		},
+		S3Vector: {
+			2: "ivec2",
+			3: "ivec3",
+			4: "ivec4"
+		}
+	}
+};
+
+/**
  * WebGLのシェーダー管理クラス。
  * 頂点シェーダ／フラグメントシェーダのソースコード・型・GLオブジェクトを保持し、コンパイルや破棄、状態取得などの機能を提供します。
  * S3GLProgram 内部で利用され、単体では直接使わないことが多い設計です。
@@ -3756,139 +3889,6 @@ class S3GLShader {
 		return true;
 	}
 }
-
-/**
- * WebGL用の配列（バッファ）を生成・管理するクラス。（immutable）
- * 各種型（S3Vector, S3Matrix, 数値配列等）をWebGLバッファ（Float32Array/Int32Array）に変換し、
- * 対応するGLSL型（vec3, mat4等）情報も保持します。
- */
-class S3GLArray {
-	/**
-	 * WebGL用の配列データを作成します（immutable）。
-	 * 渡された値に応じて型変換・整形し、GLSLでそのまま利用可能な形にします。
-	 *
-	 * @param {number[]|number|S3Vector|S3Matrix|Float32Array|Int32Array} data 配列、数値、S3Vector/S3Matrix、あるいは既にTypedArrayの場合も可
-	 * @param {number} dimension 配列の次元（例：3ならvec3やivec3になる）
-	 * @param {S3GLArrayDatatype} datatype 使用するバッファ型（S3GLArray.datatype）
-	 */
-	constructor(data, dimension, datatype) {
-		// 引数の情報(S3GLArray.datatype.instance)を用いて、
-		// JS用配列を、WEBGL用配列に変換して保存する
-		if (data instanceof datatype.instance) {
-			this.data = data;
-		} else if (data instanceof S3Vector || data instanceof S3Matrix) {
-			this.data = data.toInstanceArray(datatype.instance, dimension);
-		} else if (data instanceof Array || data instanceof Float32Array || data instanceof Int32Array) {
-			this.data = new datatype.instance(data);
-		} else if (!isNaN(data)) {
-			this.data = new datatype.instance([data]);
-		} else {
-			throw "IllegalArgumentException";
-		}
-		this.dimension = dimension;
-		this.datatype = datatype;
-
-		let instance = "";
-		if (data instanceof S3Vector) {
-			instance = "S3Vector";
-		} else if (data instanceof S3Matrix) {
-			instance = "S3Matrix";
-		} else {
-			instance = "Number";
-		}
-
-		// GLSL型（vec3, mat4など）を自動判別し、型名文字列として保存
-		/**
-		 * GLSL型（vec3, mat4など）
-		 * @type {string}
-		 */
-		this.glsltype = S3GLArray.gltypetable[datatype.name][instance][dimension];
-	}
-}
-
-/**
- * TypedArrayのコンストラクタ型定義（Int32Array, Float32Array など）。
- * @typedef {(typeof Float32Array | typeof Int32Array)} TypedArrayConstructor
- */
-
-/**
- * WebGL配列で利用できるデータ型情報（各種TypedArray型）。
- *
- * - instance: 対応するTypedArrayコンストラクタ（例：Float32Array, Int32Array）
- * - name:     型の名前文字列（"Float32Array"等）
- *
- * @typedef {Object} S3GLArrayDatatype
- * @property {TypedArrayConstructor} instance 対応するTypedArrayのコンストラクタ
- * @property {string} name 型名（"Float32Array"等）
- */
-
-/**
- * WebGLで利用できる配列データ型定数（Float32Array/Int32Array）。
- * @type {{ Float32Array: S3GLArrayDatatype, Int32Array: S3GLArrayDatatype }}
- */
-S3GLArray.datatype = {
-	Float32Array: {
-		instance: Float32Array,
-		name: "Float32Array"
-	},
-	Int32Array: {
-		instance: Int32Array,
-		name: "Int32Array"
-	}
-};
-
-/**
- * GLSL型名（"vec3"や"mat4"など）を配列次元や入力種別から自動判定するためのテーブル構造。
- *
- * - 第一階層キー：データ型名（"Float32Array" または "Int32Array"）
- * - 第二階層キー：値種別（"Number", "S3Vector", "S3Matrix"）
- * - 第三階層キー：配列次元や要素数（2, 3, 4, 9, 16など）
- * - 値：対応するGLSL型名（"vec3"等）を表す文字列
- *
- * 例）gltypetable["Float32Array"]["S3Matrix"][16] === "mat4"
- *
- * @typedef {Object<string, Object<string, Object<number, string>>>} S3GLArrayGLTypeTable
- */
-
-/**
- * GLSL型判定用テーブル。
- * 値の型により適切なGLSL型名（vec3, mat4等）を自動で取得できます。
- *
- * @type {S3GLArrayGLTypeTable}
- */
-S3GLArray.gltypetable = {
-	Float32Array: {
-		Number: {
-			1: "float",
-			2: "vec2",
-			3: "vec3",
-			4: "vec4"
-		},
-		S3Vector: {
-			2: "vec2",
-			3: "vec3",
-			4: "vec4"
-		},
-		S3Matrix: {
-			4: "mat2",
-			9: "mat3",
-			16: "mat4"
-		}
-	},
-	Int32Array: {
-		Number: {
-			1: "int",
-			2: "ivec2",
-			3: "ivec3",
-			4: "ivec4"
-		},
-		S3Vector: {
-			2: "ivec2",
-			3: "ivec3",
-			4: "ivec4"
-		}
-	}
-};
 
 /**
  * WebGL描画用のテクスチャクラス。
@@ -4316,6 +4316,10 @@ class S3GLMesh extends S3Mesh {
 	}
 }
 
+/** @typedef {import('./typedefs.js').S3GLProgramBindInputDataSingle} S3GLProgramBindInputDataSingle */
+/** @typedef {import('./typedefs.js').S3GLProgramBindInputData} S3GLProgramBindInputData */
+
+
 /**
  * WebGLのプログラム（Program）管理クラス。
  * 頂点・フラグメント2つのシェーダーと、それらをリンクしたGLプログラムオブジェクトを保持し、
@@ -4401,26 +4405,10 @@ class S3GLProgram {
 		this.enable_vertex_number = {};
 
 		/**
-		 * シェーダ変数情報の型（attribute/uniformの宣言や型などを記録）
-		 * @typedef {Object} S3GLProgramVariableInfo
-		 * @property {Object<string, Object>} attribute attribute変数名→情報（ロケーション・型等）のマップ
-		 * @property {Object<string, Object>} uniform uniform変数名→情報（ロケーション・型等）のマップ
-		 * @property {Array} modifiers 宣言修飾子の一覧
-		 * @property {Array} datatype データ型の一覧
-		 */
-
-		/**
 		 * シェーダ変数管理構造体
-		 * @type {S3GLProgramVariableInfo}
+		 * @type {Object<string, S3GLShaderData>}
 		 */
-		const variable = {
-			attribute: {},
-			uniform: {},
-			modifiers: [],
-			datatype: []
-		};
-
-		this.variable = variable;
+		this.variable = {};
 
 		const _this = this;
 
@@ -4635,11 +4623,28 @@ class S3GLProgram {
 		};
 
 		/**
+		 * ソースコードから解析した変数のデータ
+		 *
+		 * - info オブジェクトのキー（"int", "float", "vec3"など）を使用して、いくつかのデータはコピーされる
+		 *
+		 * @typedef {Object} S3GLShaderData
+		 * @property {string} glsltype GLSL型名（例："vec3"）
+		 * @property {(typeof Float32Array | typeof Int32Array | Image)} instance 対応TypedArrayコンストラクタまたはImage
+		 * @property {number} size 要素数（floatなら1, mat4なら16など）
+		 * @property {string} btype 内部データ型区分（"FLOAT", "INT", "TEXTURE"等）
+		 * @property {function(WebGLUniformLocation, *):void} bind uniform変数へバインドするための関数
+		 * @property {string} name 変数名（例："M"）
+		 * @property {string} modifiers 宣言修飾子（例："uniform"）
+		 * @property {boolean} is_array 配列かどうか（例：`true`なら配列型）
+		 * @property {Array<GLint|WebGLUniformLocation>} location
+		 */
+
+		/**
 		 * 頂点・フラグメントシェーダ内のattribute/uniform宣言を自動解析し、
 		 * 変数型・ロケーションなどを内部情報として登録します。
 		 * （通常はgetProgramで自動的に呼び出されます）
 		 * @param {string} code シェーダーのGLSLソース
-		 * @param {Object<string, Object<string, *>>} variable 内部変数情報管理オブジェクト
+		 * @param {Object<string, S3GLShaderData>} variable 内部変数情報管理オブジェクト
 		 * @private
 		 */
 		this.analysisShader = function (code, variable) {
@@ -4677,20 +4682,27 @@ class S3GLProgram {
 				 * 配列数
 				 */
 				const text_array = data[4];
+
+				/**
+				 * 配列かどうか
+				 */
 				const is_array = text_array !== undefined;
+
 				// 型に応じたテンプレートを取得する
 				// data[1] ... uniform, data[2] ... mat4, data[3] ... M
 				const targetinfo = info[text_type];
-				variable[text_variable] = {};
-				// 参照元データを書き換えないようにディープコピーする
-				for (const key in targetinfo) {
-					variable[text_variable][key] = targetinfo[key]; // glsl, js, size, bind
-				}
-				// さらに情報を保存しておく
-				variable[text_variable].name = text_variable; // M
-				variable[text_variable].modifiers = text_space; // uniform
-				variable[text_variable].is_array = is_array;
-				variable[text_variable].location = [];
+
+				variable[text_variable] = {
+					glsltype: targetinfo.glsltype, // vec3, mat4 など
+					instance: targetinfo.instance, // Float32Array, Int32Array, Image など
+					size: targetinfo.size, // 1, 2, 3, 4, 16 など
+					btype: targetinfo.btype, // FLOAT, INT, TEXTURE など
+					bind: targetinfo.bind, // bind関数（uniform1fvなど）
+					name: text_variable, // 変数名（例："M"）
+					modifiers: text_space, // uniform, attribute などの修飾子
+					is_array: is_array, // 配列かどうか
+					location: [] // ロケーション番号（GLのuniformLocationやattributeLocation）
+				};
 			}
 			return;
 		};
@@ -4880,8 +4892,8 @@ class S3GLProgram {
 	/**
 	 * attribute/uniform変数にデータをバインドします。
 	 * シェーダー内で使用されている変数名に対し、値・バッファ・テクスチャ等を型に応じて結びつけます。
-	 * @param {string} name 変数名（attribute/uniformなど）
-	 * @param {Object} data バインドしたい値やバッファ、テクスチャなど
+	 * @param {string} name 変数名（シェーダー内で宣言された名前）
+	 * @param {S3GLProgramBindInputData} data バインドしたい値やバッファ、テクスチャなど
 	 * @returns {boolean} 正常にバインドできればtrue
 	 */
 	bindData(name, data) {
@@ -4905,10 +4917,12 @@ class S3GLProgram {
 				if (!variable.is_array) {
 					variable.location[0] = gl.getUniformLocation(prg, name);
 				} else {
-					// 配列の場合は、配列の数だけlocationを調査する
-					// 予め、シェーダー内の配列数と一致させておくこと
-					for (let i = 0; i < data.length; i++) {
-						variable.location[i] = gl.getUniformLocation(prg, name + "[" + i + "]");
+					if (Array.isArray(data)) {
+						// 配列の場合は、配列の数だけlocationを調査する
+						// 予め、シェーダー内の配列数と一致させておくこと
+						for (let i = 0; i < data.length; i++) {
+							variable.location[i] = gl.getUniformLocation(prg, name + "[" + i + "]");
+						}
 					}
 				}
 			}
@@ -4923,12 +4937,16 @@ class S3GLProgram {
 		// glslの型をチェックして自動型変換する
 
 		/**
+		 * @typedef {Int32Array|Float32Array|WebGLBuffer|WebGLTexture} S3GLProgramBindData
+		 */
+
+		/**
 		 * WebGL用のuniform/attributeバインド値として、データ型を自動変換する補助関数。
 		 * シェーダー変数の型（glsltype）に応じて、渡された値を適切なTypedArrayや配列に整形します。
 		 * 型不一致や未対応型は例外となります。
 		 *
 		 * @param {Int32Array|Float32Array|WebGLBuffer|WebGLTexture|S3GLArray|S3Matrix|number} data
-		 * @returns {Int32Array|Float32Array|WebGLBuffer|WebGLTexture}
+		 * @returns {S3GLProgramBindData}
 		 */
 		const toArraydata = function (data) {
 			if (data instanceof WebGLBuffer) {
@@ -4953,32 +4971,35 @@ class S3GLProgram {
 					return data.data;
 				}
 			}
-			// 入力型が行列型であり、GLSLも行列であれば
-			if (data instanceof S3Matrix) {
-				if (variable.glsltype === "mat2" || variable.glsltype === "mat3" || variable.glsltype === "mat4") {
-					return data.toInstanceArray(variable.instance, variable.size);
+			// 入力型とGLSLが数値系であれば
+			if (variable.instance === Float32Array || variable.instance === Int32Array) {
+				// 入力型が行列型で
+				if (data instanceof S3Matrix) {
+					if (variable.glsltype === "mat2" || variable.glsltype === "mat3" || variable.glsltype === "mat4") {
+						return data.toInstanceArray(variable.instance, variable.size);
+					}
 				}
-			}
-			// 入力型がベクトル型であり、GLSLも数値であれば
-			if (data instanceof S3Vector) {
-				if (
-					variable.glsltype === "vec2" ||
-					variable.glsltype === "vec3" ||
-					variable.glsltype === "vec4" ||
-					variable.glsltype === "ivec2" ||
-					variable.glsltype === "ivec3" ||
-					variable.glsltype === "ivec4" ||
-					variable.glsltype === "bvec2" ||
-					variable.glsltype === "bvec3" ||
-					variable.glsltype === "bvec4"
-				) {
-					return data.toInstanceArray(variable.instance, variable.size);
+				// 入力型がベクトル型
+				if (data instanceof S3Vector) {
+					if (
+						variable.glsltype === "vec2" ||
+						variable.glsltype === "vec3" ||
+						variable.glsltype === "vec4" ||
+						variable.glsltype === "ivec2" ||
+						variable.glsltype === "ivec3" ||
+						variable.glsltype === "ivec4" ||
+						variable.glsltype === "bvec2" ||
+						variable.glsltype === "bvec3" ||
+						variable.glsltype === "bvec4"
+					) {
+						return data.toInstanceArray(variable.instance, variable.size);
+					}
 				}
-			}
-			// 入力型が数値型であり、GLSLも数値であれば
-			if (typeof data === "number" || data instanceof Number) {
-				if (variable.glsltype === "int" || variable.glsltype === "float" || variable.glsltype === "bool") {
-					return new variable.instance([data]);
+				// 入力型が数値型
+				if (typeof data === "number") {
+					if (variable.glsltype === "int" || variable.glsltype === "float" || variable.glsltype === "bool") {
+						return new variable.instance([data]);
+					}
 				}
 			}
 			console.log(data);
@@ -4989,11 +5010,13 @@ class S3GLProgram {
 		if (!variable.is_array) {
 			data = toArraydata(data);
 		} else {
-			for (let i = 0; i < data.length; i++) {
-				if (variable.location[i] !== -1) {
-					// 配列の値が NULL になっているものは調査しない
-					if (data[i] !== null) {
-						data[i] = toArraydata(data[i]);
+			if (Array.isArray(data)) {
+				for (let i = 0; i < data.length; i++) {
+					if (variable.location[i] !== -1) {
+						// 配列の値が NULL になっているものは調査しない
+						if (data[i] !== null) {
+							data[i] = toArraydata(data[i]);
+						}
 					}
 				}
 			}
@@ -5002,35 +5025,43 @@ class S3GLProgram {
 		// ---- bind Data ----
 		// 装飾子によって bind する方法を変更する
 		if (variable.modifiers === "attribute") {
-			// bindしたいデータ
-			gl.bindBuffer(gl.ARRAY_BUFFER, data);
-			// 有効化していない場合は有効化する
-			if (!this.enable_vertex_number[variable.location[0]]) {
-				gl.enableVertexAttribArray(variable.location[0]);
-				this.enable_vertex_number[variable.location[0]] = true;
+			if (typeof variable.location[0] === "number") {
+				// bindしたいデータ
+				gl.bindBuffer(gl.ARRAY_BUFFER, data);
+				// 有効化していない場合は有効化する
+				if (!this.enable_vertex_number[variable.location[0]]) {
+					gl.enableVertexAttribArray(variable.location[0]);
+					this.enable_vertex_number[variable.location[0]] = true;
+				}
+				// bind。型は適当に設定
+				gl.vertexAttribPointer(
+					variable.location[0],
+					variable.size,
+					variable.btype === "FLOAT" ? gl.FLOAT : gl.SHORT,
+					false,
+					0,
+					0
+				);
+			} else {
+				throw "error location is not number";
 			}
-			// bind。型は適当に設定
-			gl.vertexAttribPointer(
-				variable.location[0],
-				variable.size,
-				variable.btype === "FLOAT" ? gl.FLOAT : gl.SHORT,
-				false,
-				0,
-				0
-			);
 		} else {
 			// uniform の設定
 			if (!variable.is_array) {
 				variable.bind(variable.location[0], data);
 			} else {
 				// 配列の場合は、配列の数だけbindする
-				for (let i = 0; i < data.length; i++) {
-					if (variable.location[i] !== -1) {
-						// 配列の値が NULL になっているものはbindしない
-						if (data[i] !== null) {
-							variable.bind(variable.location[i], data[i]);
+				if (Array.isArray(data)) {
+					for (let i = 0; i < data.length; i++) {
+						if (variable.location[i] !== -1) {
+							// 配列の値が NULL になっているものはbindしない
+							if (data[i] !== null) {
+								variable.bind(variable.location[i], data[i]);
+							}
 						}
 					}
+				} else {
+					throw "error data is not Array";
 				}
 			}
 		}
@@ -5411,7 +5442,7 @@ class S3GLVertex extends S3Vertex {
 }
 
 /**
- * @typedef {Object} S3TriangleIndexData
+ * @typedef {Object} S3GLTriangleIndex
  * @property {number[]} index - 頂点インデックス配列（各頂点のインデックスを3つ持つ）
  * @property {(S3Vector|null)[]} uv - 各頂点のUV座標配列（3つのS3Vector、またはnull）
  * @property {number} materialIndex - 面のマテリアルインデックス（0以上の整数）
@@ -5425,7 +5456,7 @@ class S3GLVertex extends S3Vertex {
 class S3GLTriangleIndexData {
 	/**
 	 * 三角形インデックス情報からGL用データ構造を生成します。
-	 * @param {S3TriangleIndexData} triangle_index S3GLTriangleIndexなどの三角形インデックス情報
+	 * @param {S3GLTriangleIndex} triangle_index S3GLTriangleIndexなどの三角形インデックス情報
 	 */
 	constructor(triangle_index) {
 		/**

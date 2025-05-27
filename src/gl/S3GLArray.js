@@ -13,7 +13,7 @@ export default class S3GLArray {
 	 *
 	 * @param {number[]|number|S3Vector|S3Matrix|Float32Array|Int32Array} data 配列、数値、S3Vector/S3Matrix、あるいは既にTypedArrayの場合も可
 	 * @param {number} dimension 配列の次元（例：3ならvec3やivec3になる）
-	 * @param {S3GLArrayDatatype} datatype 使用するバッファ型（S3GLArray.datatype）
+	 * @param {S3GLArrayDataType} datatype 使用するバッファ型（S3GLArray.datatype）
 	 */
 	constructor(data, dimension, datatype) {
 		// 引数の情報(S3GLArray.datatype.instance)を用いて、
@@ -61,14 +61,14 @@ export default class S3GLArray {
  * - instance: 対応するTypedArrayコンストラクタ（例：Float32Array, Int32Array）
  * - name:     型の名前文字列（"Float32Array"等）
  *
- * @typedef {Object} S3GLArrayDatatype
+ * @typedef {Object} S3GLArrayDataType
  * @property {TypedArrayConstructor} instance 対応するTypedArrayのコンストラクタ
  * @property {string} name 型名（"Float32Array"等）
  */
 
 /**
  * WebGLで利用できる配列データ型定数（Float32Array/Int32Array）。
- * @type {{ Float32Array: S3GLArrayDatatype, Int32Array: S3GLArrayDatatype }}
+ * @type {{ Float32Array: S3GLArrayDataType, Int32Array: S3GLArrayDataType }}
  */
 S3GLArray.datatype = {
 	Float32Array: {

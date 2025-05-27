@@ -3,7 +3,7 @@ import S3GLArray from "./S3GLArray.js";
 import S3GLVertex from "./S3GLVertex.js";
 
 /**
- * @typedef {Object} S3TriangleIndexData
+ * @typedef {Object} S3GLTriangleIndex
  * @property {number[]} index - 頂点インデックス配列（各頂点のインデックスを3つ持つ）
  * @property {(S3Vector|null)[]} uv - 各頂点のUV座標配列（3つのS3Vector、またはnull）
  * @property {number} materialIndex - 面のマテリアルインデックス（0以上の整数）
@@ -17,7 +17,7 @@ import S3GLVertex from "./S3GLVertex.js";
 export default class S3GLTriangleIndexData {
 	/**
 	 * 三角形インデックス情報からGL用データ構造を生成します。
-	 * @param {S3TriangleIndexData} triangle_index S3GLTriangleIndexなどの三角形インデックス情報
+	 * @param {S3GLTriangleIndex} triangle_index S3GLTriangleIndexなどの三角形インデックス情報
 	 */
 	constructor(triangle_index) {
 		/**
