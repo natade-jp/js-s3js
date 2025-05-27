@@ -10,4 +10,13 @@ import S3GLArray from "./S3GLArray.js";
  * @typedef {S3GLProgramBindInputDataSingle|Array<S3GLProgramBindInputDataSingle>} S3GLProgramBindInputData bindDataの入力データ(配列可)
  */
 
+/**
+ * @typedef {Object.<string, S3GLProgramBindInputData>} S3GLProgramBindInputDataTable
+ */
+
+/**
+ * @typedef {Object} S3GLProgramUniforms
+ * @property {S3GLProgramBindInputDataTable} uniforms
+ */
+
 export default {};

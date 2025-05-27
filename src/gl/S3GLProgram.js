@@ -7,6 +7,7 @@ import S3GLShader from "./S3GLShader.js";
 import S3GLSystem from "./S3GLSystem.js";
 import S3GLArray from "./S3GLArray.js";
 import S3GLMesh from "./S3GLMesh.js";
+import typedefs from "./typedefs.js";
 
 /**
  * WebGLのプログラム（Program）管理クラス。
@@ -88,7 +89,7 @@ export default class S3GLProgram {
 
 		/**
 		 * 有効化済みのattributeロケーション番号管理
-		 * @type {Object<string, boolean>}
+		 * @type {Object<number, boolean>}
 		 */
 		this.enable_vertex_number = {};
 
@@ -503,7 +504,9 @@ export default class S3GLProgram {
 		if (gl) {
 			// enable化したデータを解放する
 			for (const key in this.enable_vertex_number) {
-				gl.disableVertexAttribArray(key);
+				if (typeof key === "number") {
+					gl.disableVertexAttribArray(key);
+				}
 			}
 			this.enable_vertex_number = {};
 		}

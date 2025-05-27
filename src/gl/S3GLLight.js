@@ -43,13 +43,16 @@ export default class S3GLLight extends S3Light {
 	}
 
 	/**
+	 * @typedef {Object} S3GLLightGLData
+	 * @property {S3GLArray} lightsData1 モード・レンジ・方向or位置 (vec4)
+	 * @property {S3GLArray} lightsData2 方向or位置Z成分＋カラー情報 (vec4)
+	 */
+
+	/**
 	 * ライト情報をWebGL用に変換し、GLSLのuniform用データ形式で返します。
 	 * 面光源/点光源で内容（direction or position）が切り替わります。
 	 * 各種値はS3GLArrayでラップされ、シェーダ変数名（例: lightsData1, lightsData2）に対応しています。
-	 *
-	 * - lightsData1: S3GLArray, // モード・レンジ・方向or位置 (vec4)
-	 * - lightsData2: S3GLArray  // 方向or位置Z成分＋カラー情報 (vec4)
-	 * @returns {{[key: string]: S3GLArray}}
+	 * @returns {S3GLLightGLData} GL用のライトデータ
 	 */
 	getGLData() {
 		const lightsColor = this.color.mul(this.power);
