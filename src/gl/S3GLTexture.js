@@ -17,6 +17,10 @@ export default class S3GLTexture extends S3Texture {
 		// @ts-ignore
 		super(s3glsystem, data);
 
+		/**
+		 * S3GLSystem アクセス用
+		 * @type {S3GLSystem}
+		 */
 		this._s3gl = s3glsystem;
 
 		/**

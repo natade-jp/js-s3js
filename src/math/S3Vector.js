@@ -381,6 +381,13 @@ export default class S3Vector {
 	}
 
 	/**
+	 * @typedef {Object} S3NormalVector
+	 * @property {S3Vector} normal 平面の法線
+	 * @property {S3Vector} tangent UV座標による接線
+	 * @property {S3Vector} binormal UV座標による従法線
+	 */
+
+	/**
 	 * 3点を通る平面の法線、接線、従法線を計算します。
 	 * A, B, C の3点を通る平面の法線と、UV座標による接線、従法線を求めます。
 	 * A, B, C の3点の時計回りが表だとした場合、表方向へ延びる法線となります。
@@ -390,7 +397,7 @@ export default class S3Vector {
 	 * @param {S3Vector} [uvA] UV座標A
 	 * @param {S3Vector} [uvB] UV座標B
 	 * @param {S3Vector} [uvC] UV座標C
-	 * @returns {{normal:S3Vector, tangent:S3Vector, binormal:S3Vector}}
+	 * @returns {S3NormalVector}
 	 */
 	static getNormalVector(posA, posB, posC, uvA, uvB, uvC) {
 		let N;

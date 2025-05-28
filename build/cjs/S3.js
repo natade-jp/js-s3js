@@ -1079,6 +1079,13 @@ class S3Vector {
 	}
 
 	/**
+	 * @typedef {Object} S3NormalVector
+	 * @property {S3Vector} normal 平面の法線
+	 * @property {S3Vector} tangent UV座標による接線
+	 * @property {S3Vector} binormal UV座標による従法線
+	 */
+
+	/**
 	 * 3点を通る平面の法線、接線、従法線を計算します。
 	 * A, B, C の3点を通る平面の法線と、UV座標による接線、従法線を求めます。
 	 * A, B, C の3点の時計回りが表だとした場合、表方向へ延びる法線となります。
@@ -1088,7 +1095,7 @@ class S3Vector {
 	 * @param {S3Vector} [uvA] UV座標A
 	 * @param {S3Vector} [uvB] UV座標B
 	 * @param {S3Vector} [uvC] UV座標C
-	 * @returns {{normal:S3Vector, tangent:S3Vector, binormal:S3Vector}}
+	 * @returns {S3NormalVector}
 	 */
 	static getNormalVector(posA, posB, posC, uvA, uvB, uvC) {
 		let N;
@@ -3908,6 +3915,10 @@ class S3GLTexture extends S3Texture {
 		// @ts-ignore
 		super(s3glsystem, data);
 
+		/**
+		 * S3GLSystem アクセス用
+		 * @type {S3GLSystem}
+		 */
 		this._s3gl = s3glsystem;
 
 		/**
@@ -3964,200 +3975,703 @@ class S3GLTexture extends S3Texture {
 
 /**
  * The script is part of SenkoJS.
- * 
+ *
  * AUTHOR:
  *  natade (http://twitter.com/natadea)
- * 
+ *
  * LICENSE:
  *  The MIT license https://opensource.org/licenses/MIT
  */
 
 
-class S3GLMesh extends S3Mesh {
-	
+/**
+ * WebGL描画用の頂点（バーテックス）クラス。
+ * S3Vertexを拡張し、GL用データ生成やハッシュ化などを提供します。
+ * 頂点情報（位置）をGL向け形式に変換し、バーテックスシェーダのattributeと連携できます。
+ */
+class S3GLVertex extends S3Vertex {
 	/**
-	 * 既存の部品に WebGL 用の情報を記録するための拡張
-	 * 主に、描写のための VBO と IBO を記録する
-	 * @param {S3System} sys 
+	 * S3GLVertexのインスタンスを生成します。
+	 * @param {S3Vector} position 頂点の3次元位置ベクトル
 	 */
-	constructor(sys) {
-		super(sys);
+	constructor(position) {
+		super(position);
 	}
-	
+
+	/**
+	 * この頂点のクローン（複製）を作成します。
+	 * @returns {S3GLVertex} 複製されたS3GLVertexインスタンス
+	 */
+	clone() {
+		// @ts-ignore
+		return super.clone(S3GLVertex);
+	}
+
+	/**
+	 * WebGL用の一意なハッシュ値を返します。
+	 * 頂点座標情報から3進数文字列で算出されます。
+	 * 頂点共有やVBO再利用の判定等で用います。
+	 * @returns {string} 頂点を識別するハッシュ文字列
+	 */
+	getGLHash() {
+		return this.position.toString(3);
+	}
+
+	/**
+	 * 頂点情報をWebGL用データ形式（attribute変数用）で返します。
+	 * GLSLバーテックスシェーダの「vertexPosition」属性と対応します。
+	 *
+	 * - vertexPosition: 頂点の位置情報（vec3/Float32ArrayとしてGLに渡す）
+	 * @returns {{[key: string]: S3GLArray}}
+	 */
+	getGLData() {
+		return {
+			vertexPosition: new S3GLArray(this.position, 3, S3GLArray.datatype.Float32Array)
+		};
+	}
+}
+
+/**
+ * @typedef {Object} S3GLTriangleIndex
+ * @property {number[]} index - 頂点インデックス配列（各頂点のインデックスを3つ持つ）
+ * @property {(S3Vector|null)[]} uv - 各頂点のUV座標配列（3つのS3Vector、またはnull）
+ * @property {number} materialIndex - 面のマテリアルインデックス（0以上の整数）
+ */
+
+/**
+ * WebGL描画用の三角形インデックス・属性データ格納クラス。
+ * 三角形ごとの頂点インデックス・UV・法線・接線・従法線などを保持し、
+ * WebGL（GLSL）用に最適化されたデータ生成やハッシュ作成も担います。
+ */
+class S3GLTriangleIndexData {
+	/**
+	 * 三角形インデックス情報からGL用データ構造を生成します。
+	 * @param {S3GLTriangleIndex} triangle_index S3GLTriangleIndexなどの三角形インデックス情報
+	 */
+	constructor(triangle_index) {
+		/**
+		 * 各頂点を示すインデックス配列
+		 * @type {number[]}
+		 */
+		this.index = triangle_index.index;
+
+		/**
+		 * 面が使用するマテリアル番号
+		 * @type {number}
+		 */
+		this.materialIndex = triangle_index.materialIndex;
+
+		/**
+		 * 各頂点のUV座標（S3Vectorの配列）
+		 * @type {Array<S3Vector>}
+		 */
+		this.uv = triangle_index.uv;
+
+		/**
+		 * UV情報が有効かどうか
+		 * @type {boolean}
+		 */
+		this._isEnabledTexture = triangle_index.uv[0] !== null;
+
+		/**
+		 * 面（フェース）単位の属性情報型。
+		 * S3Vector.getTangentVector で計算された面の法線・接線・従法線（すべてS3Vector型またはnull）。
+		 *
+		 * @typedef {Object} S3GLFaceAttribute
+		 * @property {?S3Vector} normal   面の法線ベクトル
+		 * @property {?S3Vector} tangent  面の接線ベクトル
+		 * @property {?S3Vector} binormal 面の従法線ベクトル
+		 */
+
+		/**
+		 * 頂点単位の属性情報型。
+		 * 各頂点（3つ）の法線・接線・従法線（いずれもS3Vector型またはnull）の配列。
+		 *
+		 * @typedef {Object} S3GLVertexAttribute
+		 * @property {Array<?S3Vector>} normal   各頂点の法線ベクトル [0], [1], [2]
+		 * @property {Array<?S3Vector>} tangent  各頂点の接線ベクトル [0], [1], [2]
+		 * @property {Array<?S3Vector>} binormal 各頂点の従法線ベクトル [0], [1], [2]
+		 */
+
+		/**
+		 * 面の法線・接線・従法線
+		 * @type {S3GLFaceAttribute}
+		 */
+		this.face = {
+			normal: null,
+			tangent: null,
+			binormal: null
+		};
+
+		/**
+		 * 各頂点（3つ）の法線・接線・従法線の配列
+		 * @type {S3GLVertexAttribute}
+		 */
+		this.vertex = {
+			normal: [null, null, null],
+			tangent: [null, null, null],
+			binormal: [null, null, null]
+		};
+	}
+
+	/**
+	 * この三角形の、指定頂点（number番目）についてWebGL用一意ハッシュ値を生成します。
+	 * 頂点情報・UV・法線などを元にGLバッファのキャッシュや識別に使えます。
+	 * @param {number} number 三角形の頂点番号（0, 1, 2）
+	 * @param {Array<S3GLVertex>} vertexList 全頂点配列
+	 * @returns {string} 頂点＋属性を加味したハッシュ文字列
+	 */
+	getGLHash(number, vertexList) {
+		const uvdata = this._isEnabledTexture
+			? this.uv[number].toString(2) + this.face.binormal.toString(2) + this.face.tangent.toString(2)
+			: "";
+		const vertex = vertexList[this.index[number]].getGLHash();
+		return vertex + this.materialIndex + uvdata + this.vertex.normal[number].toString(3);
+	}
+
+	/**
+	 * 指定頂点のWebGL向け頂点属性データ（GLSL用attribute名に合わせたデータ群）を返します。
+	 * 位置・マテリアル番号・UV・法線・接線・従法線などがGLArray形式で格納されます。
+	 *
+	 * - vertexPosition: 頂点位置(vec3)
+	 * - vertexTextureCoord: UV座標(vec2)
+	 * - vertexMaterialFloat: マテリアル番号(float)
+	 * - vertexNormal: 法線ベクトル(vec3)
+	 * - vertexBinormal: 従法線ベクトル(vec3)
+	 * - vertexTangent: 接線ベクトル(vec3)
+	 *
+	 * @param {number} number 三角形内の何番目の頂点データを取得するか（0, 1, 2）
+	 * @param {Array<S3GLVertex>} vertexList 頂点の配列
+	 * @returns {{[key: string]: S3GLArray}}
+	 */
+	getGLData(number, vertexList) {
+		/**
+		 * @type {{[key: string]: S3GLArray}}
+		 */
+		const vertex = {};
+		const vertexdata_list = vertexList[this.index[number]].getGLData();
+		for (const key in vertexdata_list) {
+			vertex[key] = vertexdata_list[key];
+		}
+		const uvdata = this._isEnabledTexture ? this.uv[number] : new S3Vector(0.0, 0.0);
+		vertex.vertexTextureCoord = new S3GLArray(uvdata, 2, S3GLArray.datatype.Float32Array);
+		vertex.vertexMaterialFloat = new S3GLArray(this.materialIndex, 1, S3GLArray.datatype.Float32Array);
+		vertex.vertexNormal = new S3GLArray(this.vertex.normal[number], 3, S3GLArray.datatype.Float32Array);
+		vertex.vertexBinormal = new S3GLArray(this.vertex.binormal[number], 3, S3GLArray.datatype.Float32Array);
+		vertex.vertexTangent = new S3GLArray(this.vertex.tangent[number], 3, S3GLArray.datatype.Float32Array);
+		return vertex;
+	}
+}
+
+/**
+ * WebGL描画用の三角形インデックスクラス。
+ * 基本のS3TriangleIndexを拡張し、GL用属性データ生成（S3GLTriangleIndexData化）などを追加しています。
+ * 頂点インデックス・マテリアル番号・UV座標などの情報を持ち、WebGL向け処理の土台となります。
+ */
+class S3GLTriangleIndex extends S3TriangleIndex {
+	/**
+	 * ABCの頂点を囲む三角形ポリゴンを作成します。
+	 * @param {number} i1 配列内の頂点Aのインデックス
+	 * @param {number} i2 配列内の頂点Bのインデックス
+	 * @param {number} i3 配列内の頂点Cのインデックス
+	 * @param {Array<number>} indexlist 頂点インデックス配列
+	 * @param {number} [materialIndex] 使用するマテリアルのインデックス（省略時や負値の場合は0）
+	 * @param {Array<S3Vector>} [uvlist] UV座標配列（S3Vector配列、なくても可）
+	 */
+	constructor(i1, i2, i3, indexlist, materialIndex, uvlist) {
+		super(i1, i2, i3, indexlist, materialIndex, uvlist);
+	}
+
+	/**
+	 * この三角形インデックスのクローン（複製）を作成します。
+	 * @returns {S3GLTriangleIndex} 複製されたS3GLTriangleIndexインスタンス
+	 */
+	clone() {
+		// @ts-ignore
+		return super.clone(S3GLTriangleIndex);
+	}
+
+	/**
+	 * 三角形の頂点順序を反転した新しいインスタンスを作成します。
+	 * モデルの表裏を逆転したい場合などに利用します。
+	 * @returns {S3GLTriangleIndex} 頂点順序を逆にした新しい三角形インデックス
+	 */
+	inverseTriangle() {
+		// @ts-ignore
+		return super.inverseTriangle(S3GLTriangleIndex);
+	}
+	/**
+	 * この三角形の情報をWebGL用属性データ（S3GLTriangleIndexData）として生成します。
+	 * 法線・UV・接線等も含めた拡張情報付きで返します。
+	 * @returns {S3GLTriangleIndexData} WebGL向け属性データ
+	 */
+	createGLTriangleIndexData() {
+		return new S3GLTriangleIndexData(this);
+	}
+}
+
+/**
+ * WebGL描画用のマテリアル（材質）クラス。
+ * 基本のS3Materialを拡張し、GL用データ生成・ハッシュ管理などWebGL用途向けの機能を追加します。
+ * 色、拡散/反射/発光/環境光、テクスチャ情報などを保持し、GLSLシェーダへのuniformデータ化を担います。
+ */
+class S3GLMaterial extends S3Material {
+	/**
+	 * マテリアル情報を初期化します。
+	 * @param {S3GLSystem} s3glsystem GL用システムインスタンス（テクスチャ生成等に必要）
+	 * @param {string} name マテリアル名（一意識別のためGLハッシュにも使用）
+	 */
+	constructor(s3glsystem, name) {
+		// @ts-ignore
+		super(s3glsystem, name);
+		this._s3gl = s3glsystem;
+	}
+
+	/**
+	 * このマテリアルの一意なハッシュ文字列を取得します。
+	 * 通常はマテリアル名がそのままハッシュ値になります。
+	 * @returns {string} マテリアルの識別用ハッシュ値（名前）
+	 */
+	getGLHash() {
+		// 名前は被らないので、ハッシュに使用する
+		return this.name;
+	}
+
+	/**
+	 * 頂点データを作成して取得する
+	 * 頂点データ内に含まれるデータは、S3GLArray型となる。
+	 * なお、ここでつけているメンバの名前は、そのままバーテックスシェーダで使用する変数名となる
+	 * uniform の数がハードウェア上限られているため、送る情報は選定すること
+	 *
+	 *   - materialsColorAndDiffuse: 色(RGB)+拡散率（vec4/Float32Array）
+	 *   - materialsSpecularAndPower: 鏡面色(RGB)+光沢度（vec4/Float32Array）
+	 *   - materialsEmission: 発光色（vec3/Float32Array）
+	 *   - materialsAmbientAndReflect: 環境光(RGB)+反射率（vec4/Float32Array）
+	 *   - materialsTextureExist: テクスチャ有無フラグ（[color有:1/0, normal有:1/0]）
+	 *   - materialsTextureColor: カラーテクスチャのGLオブジェクト
+	 *   - materialsTextureNormal: 法線テクスチャのGLオブジェクト
+	 *
+	 * @returns {{[key: string]: S3GLArray | WebGLTexture }}
+	 */
+	getGLData() {
+		/**
+		 * @type {S3GLTexture}
+		 */
+		const textureColorGl = /** @type {S3GLTexture} */ (this.textureColor);
+
+		/**
+		 * @type {S3GLTexture}
+		 */
+		const textureNormalGl = /** @type {S3GLTexture} */ (this.textureNormal);
+
+		// テクスチャを取得
+		let tex_color = textureColorGl.getGLData();
+		let tex_normal = textureNormalGl.getGLData();
+		// テクスチャのありなしフラグを作成。ない場合はダミーデータを入れる。
+		const tex_exist = [tex_color === null ? 0 : 1, tex_normal === null ? 0 : 1];
+		tex_color = tex_color === null ? this._s3gl._getDummyTexture() : tex_color;
+		tex_normal = tex_normal === null ? this._s3gl._getDummyTexture() : tex_normal;
+		return {
+			materialsColorAndDiffuse: new S3GLArray(
+				[this.color.x, this.color.y, this.color.z, this.diffuse],
+				4,
+				S3GLArray.datatype.Float32Array
+			),
+			materialsSpecularAndPower: new S3GLArray(
+				[this.specular.x, this.specular.y, this.specular.z, this.power],
+				4,
+				S3GLArray.datatype.Float32Array
+			),
+			materialsEmission: new S3GLArray(this.emission, 3, S3GLArray.datatype.Float32Array),
+			materialsAmbientAndReflect: new S3GLArray(
+				[this.ambient.x, this.ambient.y, this.ambient.z, this.reflect],
+				4,
+				S3GLArray.datatype.Float32Array
+			),
+			materialsTextureExist: new S3GLArray(tex_exist, 2, S3GLArray.datatype.Float32Array),
+			materialsTextureColor: tex_color,
+			materialsTextureNormal: tex_normal
+		};
+	}
+}
+
+/**
+ * WebGL用のメッシュ（立体形状データ）を管理するクラスです。
+ * S3Meshを拡張し、WebGL描画に必要なVBOやIBO情報、GL用データ生成・解放機能などを持ちます。
+ * モデルの描画時にGLにバインドできるバッファ形式への変換・管理も行います。
+ */
+class S3GLMesh extends S3Mesh {
+	/**
+	 * S3GLMeshのインスタンスを生成します。
+	 * @param {S3GLSystem} s3glsystem WebGLシステム（GLContext等の管理）インスタンス
+	 */
+	constructor(s3glsystem) {
+		super(s3glsystem);
+
+		/**
+		 * S3GLSystem アクセス用
+		 * @type {S3GLSystem}
+		 */
+		this._s3gl = s3glsystem;
+	}
+
+	/**
+	 * メッシュの内部状態とWebGL用データ（gldata）を初期化します。
+	 * 通常はコンストラクタから自動的に呼ばれます。
+	 */
 	_init() {
 		super._init();
-		// webgl用
-		this.gldata = {};
-		this.is_compile_gl	= false;
+
+		/**
+		 * WebGL用バッファデータ格納オブジェクト
+		 * @type {S3GLMeshArrayData}
+		 */
+		this.gldata = null;
+
+		/**
+		 * GL用データのコンパイル状態
+		 * @type {boolean}
+		 */
+		this.is_compile_gl = false;
 	}
-	
+
+	/**
+	 * このメッシュのクローン（複製）を生成します。
+	 * @returns {S3GLMesh} 複製されたS3GLMeshインスタンス
+	 */
 	clone() {
-		return super.clone(S3GLMesh);
+		// @ts-ignore
+		return /** @type {S3GLMesh} */ super.clone(S3GLMesh);
 	}
-	
+
+	/**
+	 * メッシュが保持する頂点配列を取得します。
+	 * @returns {Array<S3GLVertex>} 頂点配列
+	 */
+	getVertexArray() {
+		// @ts-ignore
+		return /** @type {Array<S3GLVertex>} */ super.getVertexArray();
+	}
+
+	/**
+	 * メッシュが保持する三角形インデックス配列を取得します。
+	 * @returns {Array<S3GLTriangleIndex>} 三角形インデックス配列
+	 */
+	getTriangleIndexArray() {
+		// @ts-ignore
+		return /** @type {Array<S3GLTriangleIndex>} */ super.getTriangleIndexArray();
+	}
+
+	/**
+	 * メッシュが保持するマテリアル配列を取得します。
+	 * @returns {Array<S3GLMaterial>} マテリアル配列
+	 */
+	getMaterialArray() {
+		// @ts-ignore
+		return /** @type {Array<S3GLMaterial>} */ super.getMaterialArray();
+	}
+
+	/**
+	 * 頂点（ S3GLVertex またはその配列）をメッシュに追加します。
+	 * @param {S3GLVertex|Array<S3GLVertex>} vertex 追加する頂点またはその配列
+	 */
+	addVertex(vertex) {
+		// @ts-ignore
+		super.addVertex(vertex);
+	}
+
+	/**
+	 * 三角形インデックス（ S3GLTriangleIndex またはその配列）をメッシュに追加します。
+	 * 反転モード時は面を裏返して追加します。
+	 * @param {S3GLTriangleIndex|Array<S3GLTriangleIndex>} ti 追加する三角形インデックスまたはその配列
+	 */
+	addTriangleIndex(ti) {
+		// @ts-ignore
+		super.addTriangleIndex(ti);
+	}
+
+	/**
+	 * マテリアル（ S3GLMaterial またはその配列）をメッシュに追加します。
+	 * @param {S3GLMaterial|Array<S3GLMaterial>} material 追加するマテリアルまたはその配列
+	 */
+	addMaterial(material) {
+		// @ts-ignore
+		super.addMaterial(material);
+	}
+
+	/**
+	 * WebGL用データがすでに作成済みかどうかを返します。
+	 * @returns {boolean} 作成済みならtrue
+	 */
 	isCompileGL() {
 		return this.is_compile_gl;
 	}
-	
+
+	/**
+	 * WebGL用データのコンパイル状態を設定します。
+	 * @param {boolean} is_compile_gl コンパイル済みかどうか
+	 */
 	setCompileGL(is_compile_gl) {
 		this.is_compile_gl = is_compile_gl;
 	}
-	
+
 	/**
-	 * 三角形インデックス情報（頂点ごとのYV、法線）などを求める
-	 * 具体的には共有している頂点をしらべて、法線の平均値をとる
-	 * @returns {S3GLTriangleIndexData}
+	 * 各三角形ごとに、WebGL用属性データ（頂点ごとの法線・接線等）を生成します。
+	 * 頂点の共有を考慮して法線のスムージングも自動計算します。
+	 * @returns {Array<S3GLTriangleIndexData>} 三角形ごとのGL用属性データリスト
 	 */
 	createTriangleIndexData() {
-		const vertex_list			= this.getVertexArray();
-		const triangleindex_list	= this.getTriangleIndexArray();
+		const vertex_list = this.getVertexArray();
+		const triangleindex_list = this.getTriangleIndexArray();
+
+		/**
+		 * @typedef {Object} S3NormalVector
+		 * @property {S3Vector} normal 平面の法線
+		 * @property {S3Vector} tangent UV座標による接線
+		 * @property {S3Vector} binormal UV座標による従法線
+		 */
+
+		/**
+		 * 三角形ごとのWebGL属性データリスト
+		 * @type {Array<S3GLTriangleIndexData & { face : S3NormalVector }>}
+		 */
 		const tid_list = [];
-		
+
+		/**
+		 * @typedef {"normal"|"tangent"|"binormal"} NormalListKey
+		 */
+
+		/**
+		 * 面ごとの法線・接線・従法線名をまとめたオブジェクト
+		 * @type {{ normal: boolean, tangent: boolean, binormal: boolean }}
+		 */
 		const normallist = {
-			normal		: null,
-			tangent		: null,
-			binormal	: null
+			normal: false,
+			tangent: false,
+			binormal: false
 		};
-		
+
 		// 各面の法線、接線、従法線を調べる
-		for(let i = 0; i < triangleindex_list.length; i++) {
+		for (let i = 0; i < triangleindex_list.length; i++) {
 			const triangleindex = triangleindex_list[i];
-			const index	= triangleindex.index;
-			const uv		= triangleindex.uv;
-			tid_list[i]	= triangleindex.createGLTriangleIndexData();
-			const triangledata = tid_list[i];
+			const index = triangleindex.index;
+			const uv = triangleindex.uv;
+			tid_list[i] = triangleindex.createGLTriangleIndexData();
 			let vector_list = null;
 			// 3点を時計回りで通る平面が表のとき
-			if(this.sys.dimensionmode === S3System.DIMENSION_MODE.RIGHT_HAND) {
+			if (this.sys.dimensionmode === S3System.DIMENSION_MODE.RIGHT_HAND) {
 				vector_list = S3Vector.getNormalVector(
-					vertex_list[index[0]].position, vertex_list[index[1]].position, vertex_list[index[2]].position,
-					uv[0], uv[1], uv[2]
+					vertex_list[index[0]].position,
+					vertex_list[index[1]].position,
+					vertex_list[index[2]].position,
+					uv[0],
+					uv[1],
+					uv[2]
+				);
+			} else {
+				vector_list = S3Vector.getNormalVector(
+					vertex_list[index[2]].position,
+					vertex_list[index[1]].position,
+					vertex_list[index[0]].position,
+					uv[2],
+					uv[1],
+					uv[0]
 				);
 			}
-			else {
-				vector_list = S3Vector.getNormalVector(
-					vertex_list[index[2]].position, vertex_list[index[1]].position, vertex_list[index[0]].position,
-					uv[2], uv[1], uv[0]
-				);
-			}
-			for(const vector_name in normallist) {
-				triangledata.face[vector_name] = vector_list[vector_name];
-			}
+
+			tid_list[i].face = {
+				normal: vector_list.normal,
+				tangent: vector_list.tangent,
+				binormal: vector_list.binormal
+			};
 		}
-		
+
 		// 素材ごとに、三角形の各頂点に、面の法線情報を追加する
 		// 後に正規化する（平均値をとる）が、同じベクトルを加算しないようにキャッシュでチェックする
+
+		/**
+		 * マテリアルごと、頂点ごとの属性ベクトル情報リスト
+		 * @type {Array<Array<{ normal: S3Vector, tangent: S3Vector, binormal: S3Vector }>>}
+		 */
 		const vertexdatalist_material = [];
+
+		/**
+		 * 各マテリアル・頂点ごと、法線等ベクトルごとのキャッシュ管理
+		 * @type {Array<Array<{ normal: Object<string, boolean>, tangent: Object<string, boolean>, binormal: Object<string, boolean> }>>}
+		 */
 		const vertexdatalist_material_cash = [];
-		for(let i = 0; i < triangleindex_list.length; i++) {
+		for (let i = 0; i < triangleindex_list.length; i++) {
 			const triangleindex = triangleindex_list[i];
 			const material = triangleindex.materialIndex;
 			const triangledata = tid_list[i];
 			// 未登録なら新規作成する
-			if(vertexdatalist_material[material] === undefined) {
+			if (vertexdatalist_material[material] === undefined) {
 				vertexdatalist_material[material] = [];
 				vertexdatalist_material_cash[material] = [];
 			}
 			const vertexdata_list = vertexdatalist_material[material];
 			const vertexdata_list_cash = vertexdatalist_material_cash[material];
 			// 素材ごとの三角形の各頂点に対応する法線情報に加算していく
-			for(let j = 0; j < 3; j++) {
+			for (let j = 0; j < 3; j++) {
 				// 未登録なら新規作成する
 				const index = triangleindex.index[j];
-				if(vertexdata_list[index] === undefined) {
+				if (vertexdata_list[index] === undefined) {
 					vertexdata_list[index] = {
-						normal		: new S3Vector(0, 0, 0),
-						tangent		: new S3Vector(0, 0, 0),
-						binormal	: new S3Vector(0, 0, 0)
+						normal: new S3Vector(0, 0, 0),
+						tangent: new S3Vector(0, 0, 0),
+						binormal: new S3Vector(0, 0, 0)
 					};
 					vertexdata_list_cash[index] = {
-						normal		: [],
-						tangent		: [],
-						binormal	: []
+						normal: {},
+						tangent: {},
+						binormal: {}
 					};
 				}
 				const vertexdata = vertexdata_list[index];
 				const vertexdata_cash = vertexdata_list_cash[index];
-				
+
 				// 加算する
-				for(const vector_name in normallist) {
-					if(triangledata.face[vector_name] !== null) {
+				for (const vector_name in normallist) {
+					const key = /** @type {NormalListKey} */ (vector_name);
+					if (triangledata.face[key] !== null) {
 						// データが入っていたら加算する
-						const id = triangledata.face[vector_name].toHash(3);
-						if(vertexdata_cash[vector_name][id]) continue;
-						vertexdata[vector_name] = vertexdata[vector_name].add(triangledata.face[vector_name]);
-						vertexdata_cash[vector_name][id] = true;
+						const id = triangledata.face[key].toHash(3);
+						if (vertexdata_cash[key][id]) continue;
+						vertexdata[key] = vertexdata[key].add(triangledata.face[key]);
+						vertexdata_cash[key][id] = true;
 					}
 				}
 			}
 		}
-		
+
 		// マテリアルごとの頂点の法線を、正規化して1とする（平均値をとる）
-		for(const material in vertexdatalist_material) {
+		for (const material in vertexdatalist_material) {
 			const vertexdata_list = vertexdatalist_material[material];
-			for(const index in vertexdata_list) {
+			for (const index in vertexdata_list) {
 				const vertexdata = vertexdata_list[index];
-				for(const vectorname in normallist) {
+				for (const vector_name in normallist) {
+					const key = /** @type {NormalListKey} */ (vector_name);
 					// あまりに小さいと、0で割ることになるためチェックする
-					if(vertexdata[vectorname].normFast() > 0.000001) {
-						vertexdata[vectorname] = vertexdata[vectorname].normalize();
+					if (vertexdata[key].normFast() > 0.000001) {
+						vertexdata[key] = vertexdata[key].normalize();
 					}
 				}
 			}
 		}
-		
+
 		// 面法線と、頂点（スムーズ）法線との角度の差が、下記より大きい場合は面法線を優先
 		const SMOOTH = {};
-		SMOOTH.normal	= Math.cos((50/360)*(2*Math.PI));
-		SMOOTH.tangent	= Math.cos((50/360)*(2*Math.PI));
-		SMOOTH.binormal	= Math.cos((50/360)*(2*Math.PI));
-		
+		SMOOTH.normal = Math.cos((50 / 360) * (2 * Math.PI));
+		SMOOTH.tangent = Math.cos((50 / 360) * (2 * Math.PI));
+		SMOOTH.binormal = Math.cos((50 / 360) * (2 * Math.PI));
+
 		// 最終的に三角形の各頂点の法線を求める
-		for(let i = 0; i < triangleindex_list.length; i++) {
+		for (let i = 0; i < triangleindex_list.length; i++) {
 			const triangleindex = triangleindex_list[i];
 			const material = triangleindex.materialIndex;
 			const triangledata = tid_list[i];
 			const vertexdata_list = vertexdatalist_material[material];
-			
+
 			// 法線ががあまりに違うのであれば、面の法線を採用する
-			for(let j = 0; j < 3; j++) {
+			for (let j = 0; j < 3; j++) {
 				const index = triangleindex.index[j];
 				const vertexdata = vertexdata_list[index];
-				for(const vectorname in normallist) {
+				for (const vector_name in normallist) {
+					const key = /** @type {NormalListKey} */ (vector_name);
 					let targetdata;
-					if(triangledata.face[vectorname]) {
+					if (triangledata.face[key]) {
 						// 面で計算した値が入っているなら、
 						// 面で計算した値と、頂点の値とを比較してどちらかを採用する
-						const rate  = triangledata.face[vectorname].dot(vertexdata[vectorname]);
+						const rate = triangledata.face[key].dot(vertexdata[key]);
 						// 指定した度以上傾いていたら、面の法線を採用する
-						targetdata = (rate < SMOOTH[vectorname]) ? triangledata.face : vertexdata;
-					}
-					else {
+						targetdata = rate < SMOOTH[key] ? triangledata.face : vertexdata;
+					} else {
 						targetdata = vertexdata;
 					}
 					// コピー
-					triangledata.vertex[vectorname][j]	= targetdata[vectorname];
+					triangledata.vertex[key][j] = targetdata[key];
 				}
 			}
 		}
-		
+
 		return tid_list;
 	}
 
 	/**
-	 * メッシュの頂点情報やインデックス情報を、WebGLで扱うIBO/VBO形式に計算して変換する
-	 * @returns {undefined}
+	 * IBO（インデックスバッファオブジェクト）データ構造
+	 * @typedef {Object} S3GLMeshIBOData
+	 * @property {number} array_length 配列の要素数（インデックス総数）
+	 * @property {Int16Array} array インデックス値の配列（WebGL用）
+	 * @property {WebGLBuffer} [data] GL生成後のバッファオブジェクト（未生成時はundefined）
+	 */
+
+	/**
+	 * VBO（頂点バッファオブジェクト）1要素のデータ構造
+	 * @typedef {Object} S3GLMeshVBOElement
+	 * @property {string} name 属性名（例："position", "normal", "uv" など）
+	 * @property {number} dimension 配列の次元（例：位置なら3、UVなら2など）
+	 * @property {typeof Float32Array | typeof Int32Array} datatype 使用する配列型
+	 * @property {number} array_length 配列の要素数（全頂点×次元）
+	 * @property {Float32Array | Int32Array} array 属性データ本体
+	 * @property {WebGLBuffer} [data] GL生成後のバッファオブジェクト（未生成時はundefined）
+	 */
+
+	/**
+	 * VBO（頂点バッファオブジェクト）全体のデータ構造
+	 * @typedef {Object.<string, S3GLMeshVBOElement>} S3GLMeshVBOData
+	 * 属性名（position/normal/uv等）→S3GLVBOElementの連想配列
+	 */
+
+	/**
+	 * _getGLArrayDataの返却値（IBOとVBOまとめて返す構造）
+	 * @typedef {Object} S3GLMeshArrayData
+	 * @property {S3GLMeshIBOData} ibo インデックスバッファ情報
+	 * @property {S3GLMeshVBOData} vbo 頂点バッファ情報
+	 */
+
+	/**
+	 * メッシュ全体の頂点・インデックス情報をWebGL用のバッファ形式（VBO/IBO）に変換します。
+	 * すでに計算済みなら再計算は行いません。
+	 *
+	 * - IBOはポリゴン（三角形）の頂点インデックス列
+	 * - VBOは各頂点の属性（位置、法線、UV等）の配列
+	 * - 戻り値の各dataプロパティは、GLバッファ生成後のみセットされます
+	 *
+	 * @returns {S3GLMeshArrayData} IBO/VBOデータをまとめたオブジェクト
 	 */
 	_getGLArrayData() {
-		
-		const vertex_list			= this.getVertexArray();
-		const triangleindex_list	= this.createTriangleIndexData();
-		const hashlist = [];
+		/**
+		 * 頂点配列
+		 * @type {Array<S3GLVertex>}
+		 */
+		const vertex_list = this.getVertexArray();
+
+		/**
+		 * 三角形インデックスデータ配列
+		 * @type {Array<S3GLTriangleIndexData>}
+		 */
+		const triangleindex_list = this.createTriangleIndexData();
+
+		/**
+		 * 頂点ハッシュ文字列→頂点配列インデックスの対応表
+		 * @type {Object<string, number>}
+		 */
+		const hashlist = {};
+
 		let vertex_length = 0;
-		
-		const triangle			= [];
-		const vertextypelist	= {};
-		
+
+		/**
+		 * 三角形ごとの頂点インデックス配列
+		 * @type {Array<Int16Array>}
+		 */
+		const triangle = [];
+
+		/**
+		 * 属性ごとの頂点データリスト（raw属性値の配列）
+		 * @type {Object<string, Array<any>>}
+		 */
+		const vertextypelist = {};
+
 		// インデックスを再構築して、VBOとIBOを作る
 		// 今の生データだと、頂点情報、素材情報がばらばらに保存されているので
 		// 1つの頂点情報（位置、色等）を1つのセットで保存する必要がある
@@ -4165,26 +4679,31 @@ class S3GLMesh extends S3Mesh {
 		// それらの面の素材情報によって、別の頂点として扱う必要がある
 		// なので基本的には頂点情報を毎回作り直す必要があるが、
 		// 1度作ったものと等しいものが必要であれば、キャッシュを使用する
-		for(let i = 0; i < triangleindex_list.length; i++) {
+		for (let i = 0; i < triangleindex_list.length; i++) {
 			const triangleindex = triangleindex_list[i];
+
+			/**
+			 * 1つの三角形(face)に対する3頂点のインデックス番号リスト
+			 * @type {Array<number>}
+			 */
 			const indlist = [];
 			// ポリゴンの各頂点を調べる
-			for(let j = 0; j < 3; j++) {
+			for (let j = 0; j < 3; j++) {
 				// その頂点（面の情報（UVなど）も含めたデータ）のハッシュ値を求める
 				const hash = triangleindex.getGLHash(j, vertex_list);
 				// すでに以前と同一の頂点があるならば、その頂点アドレスを選択。ない場合は新しいアドレス
 				const hit = hashlist[hash];
-				indlist[j] = (hit !== undefined) ? hit : vertex_length;
+				indlist[j] = hit !== undefined ? hit : vertex_length;
 				// 頂点がもしヒットしていなかったら
-				if(hit === undefined) {
+				if (hit === undefined) {
 					// 頂点データを作成して
 					const vertexdata = triangleindex.getGLData(j, vertex_list);
-					hashlist[hash]  = vertex_length;
+					hashlist[hash] = vertex_length;
 					// 頂点にはどういった情報があるか分からないので、in を使用する。
 					// key には、position / normal / color / uv などがおそらく入っている
-					for(const key in vertexdata) {
-						if(vertextypelist[key] === undefined) {
-							vertextypelist[key]		= [];
+					for (const key in vertexdata) {
+						if (vertextypelist[key] === undefined) {
+							vertextypelist[key] = [];
 						}
 						vertextypelist[key].push(vertexdata[key]);
 					}
@@ -4194,46 +4713,56 @@ class S3GLMesh extends S3Mesh {
 			// 3つの頂点のインデックスを記録
 			triangle[i] = new Int16Array(indlist);
 		}
-		
+
 		// データ結合処理
 		// これまでは複数の配列にデータが入ってしまっているので、
 		// 1つの指定した型の配列に全てをまとめる必要がある
-		
+
 		let pt = 0;
+
+		/**
+		 * IBOデータ格納用
+		 * @type {S3GLMeshIBOData}
+		 */
 		const ibo = {};
 		{
 			// IBOの結合（インデックス）
-			ibo.array_length	= triangleindex_list.length * 3;
-			ibo.array			= new Int16Array(ibo.array_length);
+			ibo.array_length = triangleindex_list.length * 3;
+			ibo.array = new Int16Array(ibo.array_length);
 			pt = 0;
-			for(let i = 0; i < triangleindex_list.length; i++) {
-				for(let j = 0; j < 3; j++) {
+			for (let i = 0; i < triangleindex_list.length; i++) {
+				for (let j = 0; j < 3; j++) {
 					ibo.array[pt++] = triangle[i][j];
 				}
 			}
 		}
+
+		/**
+		 * VBOデータ格納用
+		 * @type {S3GLMeshVBOData}
+		 */
 		const vbo = {};
 		{
 			// VBOの結合（頂点）
 			// 位置、法線、色などを、それぞれ1つの配列として記録する
-			for(const key in vertextypelist) {
-				const srcdata		= vertextypelist[key];
-				const dimension	= srcdata[0].dimension;
-				const dstdata	= {};
+			for (const key in vertextypelist) {
+				const srcdata = vertextypelist[key];
+				const dimension = srcdata[0].dimension;
+				const dstdata = {};
 				// 情報の名前(position / uv / normal など)
-				dstdata.name			= key;
+				dstdata.name = key;
 				// 1つの頂点あたり、いくつの値が必要か。例えばUVなら2次元情報
-				dstdata.dimension		= srcdata[0].dimension;
+				dstdata.dimension = srcdata[0].dimension;
 				// 型情報 Float32Array / Int32Array なのかどうか
-				dstdata.datatype		= srcdata[0].datatype;
+				dstdata.datatype = srcdata[0].datatype;
 				// 配列の長さ
-				dstdata.array_length	= dimension * vertex_length;
+				dstdata.array_length = dimension * vertex_length;
 				// 型情報と、配列の長さから、メモリを確保する
-				dstdata.array			= new dstdata.datatype.instance(dstdata.array_length);
+				dstdata.array = new dstdata.datatype.instance(dstdata.array_length);
 				// data を1つの配列に結合する
 				pt = 0;
-				for(let i = 0; i < vertex_length; i++) {
-					for(let j = 0; j < dimension; j++) {
+				for (let i = 0; i < vertex_length; i++) {
+					for (let j = 0; j < dimension; j++) {
 						dstdata.array[pt++] = srcdata[i].data[j];
 					}
 				}
@@ -4241,75 +4770,78 @@ class S3GLMesh extends S3Mesh {
 				vbo[key] = dstdata;
 			}
 		}
-		
+
 		const arraydata = {};
-		arraydata.ibo		= ibo;
-		arraydata.vbo		= vbo;
+		arraydata.ibo = ibo;
+		arraydata.vbo = vbo;
 		return arraydata;
 	}
 
+	/**
+	 * WebGL用バッファ（IBO/VBO）やテクスチャなどのGLリソースを開放し、再利用不可にします。
+	 * テクスチャを含むマテリアルのリソースも解放対象です。
+	 * @returns {void}
+	 */
 	disposeGLData() {
 		// コンパイルしていなかったら抜ける
-		if(!this.isCompileGL()) {
+		if (!this.isCompileGL()) {
 			return;
 		}
 		const gldata = this.getGLData();
-		if(gldata !== null) {
-			if(gldata.ibo !== undefined) {
-				if(gldata.ibo.data !== undefined) {
-					this.sys.glfunc.deleteBuffer(gldata.ibo.data);
+		if (gldata !== null) {
+			if (gldata.ibo !== undefined) {
+				if (gldata.ibo.data !== undefined) {
+					this._s3gl.glfunc.deleteBuffer(gldata.ibo.data);
 				}
 				delete gldata.ibo;
 			}
-			if(gldata.vbo !== undefined) {
-				for(const key in gldata.vbo) {
-					if(gldata.vbo[key].data !== undefined) {
-						this.sys.glfunc.deleteBuffer(gldata.vbo[key].data);
+			if (gldata.vbo !== undefined) {
+				for (const key in gldata.vbo) {
+					if (gldata.vbo[key].data !== undefined) {
+						this._s3gl.glfunc.deleteBuffer(gldata.vbo[key].data);
 					}
 				}
 				delete gldata.vbo;
 			}
 			{
 				const material_list = this.getMaterialArray();
-				for(let i = 0; i < material_list.length; i++) {
+				for (let i = 0; i < material_list.length; i++) {
 					const mat = material_list[i];
-					for(const key in mat) {
-						const obj = mat[key];
-						if(obj instanceof S3GLTexture) {
-							obj.dispose();
-						}
-					}
+					mat.textureColor.dispose();
+					mat.textureNormal.dispose();
 				}
 			}
 		}
 		delete this.gldata;
-		this.gldata = {};
+		this.gldata = null;
 		this.setCompileGL(false);
 	}
 
 	/**
-	 * VBO/IBOを作成するため、使用中のWEBGL情報を設定し、データを作成する
-	 * @returns {S3GLMesh.gldata}
+	 * メッシュのGLデータ（VBO/IBO）を取得・生成します。
+	 * すでに生成済みならキャッシュを返します。
+	 * メッシュが未完成または GLContext が未セットの場合はnullを返します。
+	 * @returns {S3GLMeshArrayData|null} WebGL用バッファデータ（ibo, vbo等を含む）またはnull
 	 */
 	getGLData() {
 		// すでに存在している場合は、返す
-		if(this.isCompileGL()) {
+		if (this.isCompileGL()) {
 			return this.gldata;
 		}
 		// 完成していない場合は null
-		if(this.isComplete() === false) {
+		if (this.isComplete() === false) {
 			return null;
 		}
 		// GLを取得できない場合も、この時点で終了させる
-		if(!this.sys.isSetGL()) {
+		if (!this._s3gl.isSetGL()) {
 			return null;
 		}
 		const gldata = this._getGLArrayData(); // GL用の配列データを作成
-		
+
 		// IBO / VBO 用のオブジェクトを作成
-		gldata.ibo.data = this.sys.glfunc.createBufferIBO(gldata.ibo.array);
-		for(const key in gldata.vbo) {
-			gldata.vbo[key].data = this.sys.glfunc.createBufferVBO(gldata.vbo[key].array);
+		gldata.ibo.data = this._s3gl.glfunc.createBufferIBO(gldata.ibo.array);
+		for (const key in gldata.vbo) {
+			gldata.vbo[key].data = this._s3gl.glfunc.createBufferVBO(gldata.vbo[key].array);
 		}
 		// 代入
 		this.gldata = gldata;
@@ -5196,91 +5728,6 @@ class S3GLLight extends S3Light {
 }
 
 /**
- * WebGL描画用のマテリアル（材質）クラス。
- * 基本のS3Materialを拡張し、GL用データ生成・ハッシュ管理などWebGL用途向けの機能を追加します。
- * 色、拡散/反射/発光/環境光、テクスチャ情報などを保持し、GLSLシェーダへのuniformデータ化を担います。
- */
-class S3GLMaterial extends S3Material {
-	/**
-	 * マテリアル情報を初期化します。
-	 * @param {S3GLSystem} s3glsystem GL用システムインスタンス（テクスチャ生成等に必要）
-	 * @param {string} name マテリアル名（一意識別のためGLハッシュにも使用）
-	 */
-	constructor(s3glsystem, name) {
-		// @ts-ignore
-		super(s3glsystem, name);
-		this._s3gl = s3glsystem;
-	}
-
-	/**
-	 * このマテリアルの一意なハッシュ文字列を取得します。
-	 * 通常はマテリアル名がそのままハッシュ値になります。
-	 * @returns {string} マテリアルの識別用ハッシュ値（名前）
-	 */
-	getGLHash() {
-		// 名前は被らないので、ハッシュに使用する
-		return this.name;
-	}
-
-	/**
-	 * 頂点データを作成して取得する
-	 * 頂点データ内に含まれるデータは、S3GLArray型となる。
-	 * なお、ここでつけているメンバの名前は、そのままバーテックスシェーダで使用する変数名となる
-	 * uniform の数がハードウェア上限られているため、送る情報は選定すること
-	 *
-	 *   - materialsColorAndDiffuse: 色(RGB)+拡散率（vec4/Float32Array）
-	 *   - materialsSpecularAndPower: 鏡面色(RGB)+光沢度（vec4/Float32Array）
-	 *   - materialsEmission: 発光色（vec3/Float32Array）
-	 *   - materialsAmbientAndReflect: 環境光(RGB)+反射率（vec4/Float32Array）
-	 *   - materialsTextureExist: テクスチャ有無フラグ（[color有:1/0, normal有:1/0]）
-	 *   - materialsTextureColor: カラーテクスチャのGLオブジェクト
-	 *   - materialsTextureNormal: 法線テクスチャのGLオブジェクト
-	 *
-	 * @returns {{[key: string]: S3GLArray | WebGLTexture }}
-	 */
-	getGLData() {
-		/**
-		 * @type {S3GLTexture}
-		 */
-		const textureColorGl = /** @type {S3GLTexture} */ (this.textureColor);
-
-		/**
-		 * @type {S3GLTexture}
-		 */
-		const textureNormalGl = /** @type {S3GLTexture} */ (this.textureNormal);
-
-		// テクスチャを取得
-		let tex_color = textureColorGl.getGLData();
-		let tex_normal = textureNormalGl.getGLData();
-		// テクスチャのありなしフラグを作成。ない場合はダミーデータを入れる。
-		const tex_exist = [tex_color === null ? 0 : 1, tex_normal === null ? 0 : 1];
-		tex_color = tex_color === null ? this._s3gl._getDummyTexture() : tex_color;
-		tex_normal = tex_normal === null ? this._s3gl._getDummyTexture() : tex_normal;
-		return {
-			materialsColorAndDiffuse: new S3GLArray(
-				[this.color.x, this.color.y, this.color.z, this.diffuse],
-				4,
-				S3GLArray.datatype.Float32Array
-			),
-			materialsSpecularAndPower: new S3GLArray(
-				[this.specular.x, this.specular.y, this.specular.z, this.power],
-				4,
-				S3GLArray.datatype.Float32Array
-			),
-			materialsEmission: new S3GLArray(this.emission, 3, S3GLArray.datatype.Float32Array),
-			materialsAmbientAndReflect: new S3GLArray(
-				[this.ambient.x, this.ambient.y, this.ambient.z, this.reflect],
-				4,
-				S3GLArray.datatype.Float32Array
-			),
-			materialsTextureExist: new S3GLArray(tex_exist, 2, S3GLArray.datatype.Float32Array),
-			materialsTextureColor: tex_color,
-			materialsTextureNormal: tex_normal
-		};
-	}
-}
-
-/**
  * WebGL描画用のモデル（Model）クラス。
  * 基本のS3Modelを拡張し、WebGL向けuniformデータの生成（getUniforms）機能を追加します。
  * モデルごとの材質（マテリアル）情報をuniformデータとしてまとめ、GLSLシェーダに渡せる形に整形します。
@@ -5395,243 +5842,6 @@ class S3GLScene extends S3Scene {
 
 		const ret = { uniforms: uniforms };
 		return ret;
-	}
-}
-
-/**
- * The script is part of SenkoJS.
- *
- * AUTHOR:
- *  natade (http://twitter.com/natadea)
- *
- * LICENSE:
- *  The MIT license https://opensource.org/licenses/MIT
- */
-
-
-/**
- * WebGL描画用の頂点（バーテックス）クラス。
- * S3Vertexを拡張し、GL用データ生成やハッシュ化などを提供します。
- * 頂点情報（位置）をGL向け形式に変換し、バーテックスシェーダのattributeと連携できます。
- */
-class S3GLVertex extends S3Vertex {
-	/**
-	 * S3GLVertexのインスタンスを生成します。
-	 * @param {S3Vector} position 頂点の3次元位置ベクトル
-	 */
-	constructor(position) {
-		super(position);
-	}
-
-	/**
-	 * この頂点のクローン（複製）を作成します。
-	 * @returns {S3GLVertex} 複製されたS3GLVertexインスタンス
-	 */
-	clone() {
-		// @ts-ignore
-		return super.clone(S3GLVertex);
-	}
-
-	/**
-	 * WebGL用の一意なハッシュ値を返します。
-	 * 頂点座標情報から3進数文字列で算出されます。
-	 * 頂点共有やVBO再利用の判定等で用います。
-	 * @returns {string} 頂点を識別するハッシュ文字列
-	 */
-	getGLHash() {
-		return this.position.toString(3);
-	}
-
-	/**
-	 * 頂点情報をWebGL用データ形式（attribute変数用）で返します。
-	 * GLSLバーテックスシェーダの「vertexPosition」属性と対応します。
-	 *
-	 * - vertexPosition: 頂点の位置情報（vec3/Float32ArrayとしてGLに渡す）
-	 * @returns {{[key: string]: S3GLArray}}
-	 */
-	getGLData() {
-		return {
-			vertexPosition: new S3GLArray(this.position, 3, S3GLArray.datatype.Float32Array)
-		};
-	}
-}
-
-/**
- * @typedef {Object} S3GLTriangleIndex
- * @property {number[]} index - 頂点インデックス配列（各頂点のインデックスを3つ持つ）
- * @property {(S3Vector|null)[]} uv - 各頂点のUV座標配列（3つのS3Vector、またはnull）
- * @property {number} materialIndex - 面のマテリアルインデックス（0以上の整数）
- */
-
-/**
- * WebGL描画用の三角形インデックス・属性データ格納クラス。
- * 三角形ごとの頂点インデックス・UV・法線・接線・従法線などを保持し、
- * WebGL（GLSL）用に最適化されたデータ生成やハッシュ作成も担います。
- */
-class S3GLTriangleIndexData {
-	/**
-	 * 三角形インデックス情報からGL用データ構造を生成します。
-	 * @param {S3GLTriangleIndex} triangle_index S3GLTriangleIndexなどの三角形インデックス情報
-	 */
-	constructor(triangle_index) {
-		/**
-		 * 各頂点を示すインデックス配列
-		 * @type {number[]}
-		 */
-		this.index = triangle_index.index;
-
-		/**
-		 * 面が使用するマテリアル番号
-		 * @type {number}
-		 */
-		this.materialIndex = triangle_index.materialIndex;
-
-		/**
-		 * 各頂点のUV座標（S3Vectorの配列）
-		 * @type {Array<S3Vector>}
-		 */
-		this.uv = triangle_index.uv;
-
-		/**
-		 * UV情報が有効かどうか
-		 * @type {boolean}
-		 */
-		this._isEnabledTexture = triangle_index.uv[0] !== null;
-
-		/**
-		 * 面（フェース）単位の属性情報型。
-		 * S3Vector.getTangentVector で計算された面の法線・接線・従法線（すべてS3Vector型またはnull）。
-		 *
-		 * @typedef {Object} S3GLFaceAttribute
-		 * @property {?S3Vector} normal   面の法線ベクトル
-		 * @property {?S3Vector} tangent  面の接線ベクトル
-		 * @property {?S3Vector} binormal 面の従法線ベクトル
-		 */
-
-		/**
-		 * 頂点単位の属性情報型。
-		 * 各頂点（3つ）の法線・接線・従法線（いずれもS3Vector型またはnull）の配列。
-		 *
-		 * @typedef {Object} S3GLVertexAttribute
-		 * @property {Array<?S3Vector>} normal   各頂点の法線ベクトル [0], [1], [2]
-		 * @property {Array<?S3Vector>} tangent  各頂点の接線ベクトル [0], [1], [2]
-		 * @property {Array<?S3Vector>} binormal 各頂点の従法線ベクトル [0], [1], [2]
-		 */
-
-		/**
-		 * 面の法線・接線・従法線
-		 * @type {S3GLFaceAttribute}
-		 */
-		this.face = {
-			normal: null,
-			tangent: null,
-			binormal: null
-		};
-
-		/**
-		 * 各頂点（3つ）の法線・接線・従法線の配列
-		 * @type {S3GLVertexAttribute}
-		 */
-		this.vertex = {
-			normal: [null, null, null],
-			tangent: [null, null, null],
-			binormal: [null, null, null]
-		};
-	}
-
-	/**
-	 * この三角形の、指定頂点（number番目）についてWebGL用一意ハッシュ値を生成します。
-	 * 頂点情報・UV・法線などを元にGLバッファのキャッシュや識別に使えます。
-	 * @param {number} number 三角形の頂点番号（0, 1, 2）
-	 * @param {Array<S3GLVertex>} vertexList 全頂点配列
-	 * @returns {string} 頂点＋属性を加味したハッシュ文字列
-	 */
-	getGLHash(number, vertexList) {
-		const uvdata = this._isEnabledTexture
-			? this.uv[number].toString(2) + this.face.binormal.toString(2) + this.face.tangent.toString(2)
-			: "";
-		const vertex = vertexList[this.index[number]].getGLHash();
-		return vertex + this.materialIndex + uvdata + this.vertex.normal[number].toString(3);
-	}
-
-	/**
-	 * 指定頂点のWebGL向け頂点属性データ（GLSL用attribute名に合わせたデータ群）を返します。
-	 * 位置・マテリアル番号・UV・法線・接線・従法線などがGLArray形式で格納されます。
-	 *
-	 * - vertexPosition: 頂点位置(vec3)
-	 * - vertexTextureCoord: UV座標(vec2)
-	 * - vertexMaterialFloat: マテリアル番号(float)
-	 * - vertexNormal: 法線ベクトル(vec3)
-	 * - vertexBinormal: 従法線ベクトル(vec3)
-	 * - vertexTangent: 接線ベクトル(vec3)
-	 *
-	 * @param {number} number 三角形内の何番目の頂点データを取得するか（0, 1, 2）
-	 * @param {Array<S3GLVertex>} vertexList 頂点の配列
-	 * @returns {{[key: string]: S3GLArray}}
-	 */
-	getGLData(number, vertexList) {
-		/**
-		 * @type {{[key: string]: S3GLArray}}
-		 */
-		const vertex = {};
-		const vertexdata_list = vertexList[this.index[number]].getGLData();
-		for (const key in vertexdata_list) {
-			vertex[key] = vertexdata_list[key];
-		}
-		const uvdata = this._isEnabledTexture ? this.uv[number] : new S3Vector(0.0, 0.0);
-		vertex.vertexTextureCoord = new S3GLArray(uvdata, 2, S3GLArray.datatype.Float32Array);
-		vertex.vertexMaterialFloat = new S3GLArray(this.materialIndex, 1, S3GLArray.datatype.Float32Array);
-		vertex.vertexNormal = new S3GLArray(this.vertex.normal[number], 3, S3GLArray.datatype.Float32Array);
-		vertex.vertexBinormal = new S3GLArray(this.vertex.binormal[number], 3, S3GLArray.datatype.Float32Array);
-		vertex.vertexTangent = new S3GLArray(this.vertex.tangent[number], 3, S3GLArray.datatype.Float32Array);
-		return vertex;
-	}
-}
-
-/**
- * WebGL描画用の三角形インデックスクラス。
- * 基本のS3TriangleIndexを拡張し、GL用属性データ生成（S3GLTriangleIndexData化）などを追加しています。
- * 頂点インデックス・マテリアル番号・UV座標などの情報を持ち、WebGL向け処理の土台となります。
- */
-class S3GLTriangleIndex extends S3TriangleIndex {
-	/**
-	 * ABCの頂点を囲む三角形ポリゴンを作成します。
-	 * @param {number} i1 配列内の頂点Aのインデックス
-	 * @param {number} i2 配列内の頂点Bのインデックス
-	 * @param {number} i3 配列内の頂点Cのインデックス
-	 * @param {Array<number>} indexlist 頂点インデックス配列
-	 * @param {number} [materialIndex] 使用するマテリアルのインデックス（省略時や負値の場合は0）
-	 * @param {Array<S3Vector>} [uvlist] UV座標配列（S3Vector配列、なくても可）
-	 */
-	constructor(i1, i2, i3, indexlist, materialIndex, uvlist) {
-		super(i1, i2, i3, indexlist, materialIndex, uvlist);
-	}
-
-	/**
-	 * この三角形インデックスのクローン（複製）を作成します。
-	 * @returns {S3GLTriangleIndex} 複製されたS3GLTriangleIndexインスタンス
-	 */
-	clone() {
-		// @ts-ignore
-		return super.clone(S3GLTriangleIndex);
-	}
-
-	/**
-	 * 三角形の頂点順序を反転した新しいインスタンスを作成します。
-	 * モデルの表裏を逆転したい場合などに利用します。
-	 * @returns {S3GLTriangleIndex} 頂点順序を逆にした新しい三角形インデックス
-	 */
-	inverseTriangle() {
-		// @ts-ignore
-		return super.inverseTriangle(S3GLTriangleIndex);
-	}
-	/**
-	 * この三角形の情報をWebGL用属性データ（S3GLTriangleIndexData）として生成します。
-	 * 法線・UV・接線等も含めた拡張情報付きで返します。
-	 * @returns {S3GLTriangleIndexData} WebGL向け属性データ
-	 */
-	createGLTriangleIndexData() {
-		return new S3GLTriangleIndexData(this);
 	}
 }
 
