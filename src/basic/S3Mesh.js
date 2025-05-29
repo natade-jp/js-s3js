@@ -39,6 +39,16 @@ export default class S3Mesh {
 	}
 
 	/**
+	 * データを開放します
+	 * @returns {void}
+	 */
+	dispose() {
+		this.src = null;
+		this.sys = null;
+		this.is_complete = false;
+	}
+
+	/**
 	 * メッシュが確定済みかどうかを返します。
 	 * @returns {boolean} 確定済みならtrue
 	 */
@@ -106,19 +116,20 @@ export default class S3Mesh {
 
 	/**
 	 * 頂点（S3Vertexまたはその配列）をメッシュに追加します。
-	 * @param {S3Vertex|Array<S3Vertex>} vertex 追加する頂点またはその配列
+	 * @param {S3Vertex|Array<S3Vertex>} [vertex] 追加する頂点またはその配列
 	 */
 	addVertex(vertex) {
 		// immutableなのでシャローコピー
 		this.setComplete(false);
-		const meshvertex = this.getVertexArray();
-		if (vertex === undefined) {
-			// 引数なし時は何もしない
-		} else if (vertex instanceof S3Vertex) {
-			meshvertex[meshvertex.length] = vertex;
-		} else {
-			for (let i = 0; i < vertex.length; i++) {
-				meshvertex[meshvertex.length] = vertex[i];
+		// 引数があった場合にのみ処理
+		if (vertex) {
+			const meshvertex = this.getVertexArray();
+			if (vertex instanceof S3Vertex) {
+				meshvertex[meshvertex.length] = vertex;
+			} else {
+				for (let i = 0; i < vertex.length; i++) {
+					meshvertex[meshvertex.length] = vertex[i];
+				}
 			}
 		}
 	}
@@ -126,38 +137,40 @@ export default class S3Mesh {
 	/**
 	 * 三角形インデックス（S3TriangleIndexまたはその配列）をメッシュに追加します。
 	 * 反転モード時は面を裏返して追加します。
-	 * @param {S3TriangleIndex|Array<S3TriangleIndex>} ti 追加する三角形インデックスまたはその配列
+	 * @param {S3TriangleIndex|Array<S3TriangleIndex>} [ti] 追加する三角形インデックスまたはその配列
 	 */
 	addTriangleIndex(ti) {
 		// immutableなのでシャローコピー
 		this.setComplete(false);
-		const meshtri = this.getTriangleIndexArray();
-		if (ti === undefined) {
-			// 引数なし時は何もしない
-		} else if (ti instanceof S3TriangleIndex) {
-			meshtri[meshtri.length] = this.is_inverse ? ti.inverseTriangle() : ti;
-		} else {
-			for (let i = 0; i < ti.length; i++) {
-				meshtri[meshtri.length] = this.is_inverse ? ti[i].inverseTriangle() : ti[i];
+		// 引数がある場合に動作する
+		if (ti !== undefined) {
+			const meshtri = this.getTriangleIndexArray();
+			if (ti instanceof S3TriangleIndex) {
+				meshtri[meshtri.length] = this.is_inverse ? ti.inverseTriangle() : ti;
+			} else {
+				for (let i = 0; i < ti.length; i++) {
+					meshtri[meshtri.length] = this.is_inverse ? ti[i].inverseTriangle() : ti[i];
+				}
 			}
 		}
 	}
 
 	/**
 	 * マテリアル（S3Materialまたはその配列）をメッシュに追加します。
-	 * @param {S3Material|Array<S3Material>} material 追加するマテリアルまたはその配列
+	 * @param {S3Material|Array<S3Material>} [material] 追加するマテリアルまたはその配列
 	 */
 	addMaterial(material) {
 		// immutableなのでシャローコピー
 		this.setComplete(false);
 		const meshmat = this.getMaterialArray();
-		if (material === undefined) {
-			// 引数なし時は何もしない
-		} else if (material instanceof S3Material) {
-			meshmat[meshmat.length] = material;
-		} else {
-			for (let i = 0; i < material.length; i++) {
-				meshmat[meshmat.length] = material[i];
+		// 引数が設定されたとき動作する
+		if (material) {
+			if (material instanceof S3Material) {
+				meshmat[meshmat.length] = material;
+			} else {
+				for (let i = 0; i < material.length; i++) {
+					meshmat[meshmat.length] = material[i];
+				}
 			}
 		}
 	}

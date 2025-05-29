@@ -495,7 +495,7 @@ export default class S3GLMesh extends S3Mesh {
 	 * テクスチャを含むマテリアルのリソースも解放対象です。
 	 * @returns {void}
 	 */
-	disposeGLData() {
+	dispose() {
 		// コンパイルしていなかったら抜ける
 		if (!this.isCompileGL()) {
 			return;
@@ -528,6 +528,7 @@ export default class S3GLMesh extends S3Mesh {
 		delete this.gldata;
 		this.gldata = null;
 		this.setCompileGL(false);
+		super.dispose();
 	}
 
 	/**

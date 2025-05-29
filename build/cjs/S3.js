@@ -1675,6 +1675,19 @@ class S3Texture {
 		if (image instanceof HTMLImageElement || image instanceof HTMLCanvasElement) {
 			const original_width = image.width;
 			const original_height = image.height;
+			/**
+			 * 指定された値以上の最小の2のべき乗の値を返します。
+			 * 例えば、5を渡すと8を返し、8を渡すと8を返します。
+			 * Math.log2 が使えない環境（例: IE）でも動作します。
+			 *
+			 * @param {number} x - 2のべき乗に切り上げたい対象の数値
+			 * @returns {number} x以上の最小の2のべき乗の値
+			 *
+			 * @example
+			 * ceil_power_of_2(5); // 8
+			 * ceil_power_of_2(8); // 8
+			 * ceil_power_of_2(15); // 16
+			 */
 			const ceil_power_of_2 = function (x) {
 				// IE には Math.log2 がない
 				const a = Math.log(x) / Math.log(2);
@@ -1713,9 +1726,16 @@ class S3Texture {
 		} else if (typeof image === "string") {
 			this.url = image;
 			const that = this;
-			this.sys._download(this.url, function (image) {
-				that.setImage(image);
-			});
+			this.sys._download(
+				this.url,
+				/**
+				 * @param {ImageData|HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} image
+				 * @returns {void}
+				 */
+				function (image) {
+					that.setImage(image);
+				}
+			);
 			return;
 		} else {
 			console.log("not setImage");
@@ -2048,6 +2068,16 @@ class S3Mesh {
 	}
 
 	/**
+	 * データを開放します
+	 * @returns {void}
+	 */
+	dispose() {
+		this.src = null;
+		this.sys = null;
+		this.is_complete = false;
+	}
+
+	/**
 	 * メッシュが確定済みかどうかを返します。
 	 * @returns {boolean} 確定済みならtrue
 	 */
@@ -2115,17 +2145,20 @@ class S3Mesh {
 
 	/**
 	 * 頂点（S3Vertexまたはその配列）をメッシュに追加します。
-	 * @param {S3Vertex|Array<S3Vertex>} vertex 追加する頂点またはその配列
+	 * @param {S3Vertex|Array<S3Vertex>} [vertex] 追加する頂点またはその配列
 	 */
 	addVertex(vertex) {
 		// immutableなのでシャローコピー
 		this.setComplete(false);
-		const meshvertex = this.getVertexArray();
-		if (vertex === undefined) ; else if (vertex instanceof S3Vertex) {
-			meshvertex[meshvertex.length] = vertex;
-		} else {
-			for (let i = 0; i < vertex.length; i++) {
-				meshvertex[meshvertex.length] = vertex[i];
+		// 引数があった場合にのみ処理
+		if (vertex) {
+			const meshvertex = this.getVertexArray();
+			if (vertex instanceof S3Vertex) {
+				meshvertex[meshvertex.length] = vertex;
+			} else {
+				for (let i = 0; i < vertex.length; i++) {
+					meshvertex[meshvertex.length] = vertex[i];
+				}
 			}
 		}
 	}
@@ -2133,34 +2166,40 @@ class S3Mesh {
 	/**
 	 * 三角形インデックス（S3TriangleIndexまたはその配列）をメッシュに追加します。
 	 * 反転モード時は面を裏返して追加します。
-	 * @param {S3TriangleIndex|Array<S3TriangleIndex>} ti 追加する三角形インデックスまたはその配列
+	 * @param {S3TriangleIndex|Array<S3TriangleIndex>} [ti] 追加する三角形インデックスまたはその配列
 	 */
 	addTriangleIndex(ti) {
 		// immutableなのでシャローコピー
 		this.setComplete(false);
-		const meshtri = this.getTriangleIndexArray();
-		if (ti === undefined) ; else if (ti instanceof S3TriangleIndex) {
-			meshtri[meshtri.length] = this.is_inverse ? ti.inverseTriangle() : ti;
-		} else {
-			for (let i = 0; i < ti.length; i++) {
-				meshtri[meshtri.length] = this.is_inverse ? ti[i].inverseTriangle() : ti[i];
+		// 引数がある場合に動作する
+		if (ti !== undefined) {
+			const meshtri = this.getTriangleIndexArray();
+			if (ti instanceof S3TriangleIndex) {
+				meshtri[meshtri.length] = this.is_inverse ? ti.inverseTriangle() : ti;
+			} else {
+				for (let i = 0; i < ti.length; i++) {
+					meshtri[meshtri.length] = this.is_inverse ? ti[i].inverseTriangle() : ti[i];
+				}
 			}
 		}
 	}
 
 	/**
 	 * マテリアル（S3Materialまたはその配列）をメッシュに追加します。
-	 * @param {S3Material|Array<S3Material>} material 追加するマテリアルまたはその配列
+	 * @param {S3Material|Array<S3Material>} [material] 追加するマテリアルまたはその配列
 	 */
 	addMaterial(material) {
 		// immutableなのでシャローコピー
 		this.setComplete(false);
 		const meshmat = this.getMaterialArray();
-		if (material === undefined) ; else if (material instanceof S3Material) {
-			meshmat[meshmat.length] = material;
-		} else {
-			for (let i = 0; i < material.length; i++) {
-				meshmat[meshmat.length] = material[i];
+		// 引数が設定されたとき動作する
+		if (material) {
+			if (material instanceof S3Material) {
+				meshmat[meshmat.length] = material;
+			} else {
+				for (let i = 0; i < material.length; i++) {
+					meshmat[meshmat.length] = material[i];
+				}
 			}
 		}
 	}
@@ -4033,13 +4072,6 @@ class S3GLVertex extends S3Vertex {
 }
 
 /**
- * @typedef {Object} S3GLTriangleIndex
- * @property {number[]} index - 頂点インデックス配列（各頂点のインデックスを3つ持つ）
- * @property {(S3Vector|null)[]} uv - 各頂点のUV座標配列（3つのS3Vector、またはnull）
- * @property {number} materialIndex - 面のマテリアルインデックス（0以上の整数）
- */
-
-/**
  * WebGL描画用の三角形インデックス・属性データ格納クラス。
  * 三角形ごとの頂点インデックス・UV・法線・接線・従法線などを保持し、
  * WebGL（GLSL）用に最適化されたデータ生成やハッシュ作成も担います。
@@ -4783,7 +4815,7 @@ class S3GLMesh extends S3Mesh {
 	 * テクスチャを含むマテリアルのリソースも解放対象です。
 	 * @returns {void}
 	 */
-	disposeGLData() {
+	dispose() {
 		// コンパイルしていなかったら抜ける
 		if (!this.isCompileGL()) {
 			return;
@@ -4816,6 +4848,7 @@ class S3GLMesh extends S3Mesh {
 		delete this.gldata;
 		this.gldata = null;
 		this.setCompileGL(false);
+		super.dispose();
 	}
 
 	/**
@@ -4851,9 +4884,22 @@ class S3GLMesh extends S3Mesh {
 	}
 }
 
-/** @typedef {import('./typedefs.js').S3GLProgramBindInputDataSingle} S3GLProgramBindInputDataSingle */
-/** @typedef {import('./typedefs.js').S3GLProgramBindInputData} S3GLProgramBindInputData */
+/**
+ * @typedef {Int32Array|Float32Array|WebGLBuffer|WebGLTexture|S3GLArray|S3Matrix|S3Vector|number} S3GLProgramBindInputDataSingle bindDataの入力データ(単体)
+ */
 
+/**
+ * @typedef {S3GLProgramBindInputDataSingle|Array<S3GLProgramBindInputDataSingle>} S3GLProgramBindInputData bindDataの入力データ(配列可)
+ */
+
+/**
+ * @typedef {Object.<string, S3GLProgramBindInputData>} S3GLProgramBindInputDataTable
+ */
+
+/**
+ * @typedef {Object} S3GLProgramUniforms
+ * @property {S3GLProgramBindInputDataTable} uniforms
+ */
 
 /**
  * WebGLのプログラム（Program）管理クラス。

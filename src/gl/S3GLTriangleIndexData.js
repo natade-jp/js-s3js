@@ -1,13 +1,7 @@
 ﻿import S3Vector from "../math/S3Vector.js";
+import S3GLTriangleIndex from "./S3GLTriangleIndex.js";
 import S3GLArray from "./S3GLArray.js";
 import S3GLVertex from "./S3GLVertex.js";
-
-/**
- * @typedef {Object} S3GLTriangleIndex
- * @property {number[]} index - 頂点インデックス配列（各頂点のインデックスを3つ持つ）
- * @property {(S3Vector|null)[]} uv - 各頂点のUV座標配列（3つのS3Vector、またはnull）
- * @property {number} materialIndex - 面のマテリアルインデックス（0以上の整数）
- */
 
 /**
  * WebGL描画用の三角形インデックス・属性データ格納クラス。

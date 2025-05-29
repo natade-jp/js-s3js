@@ -52,22 +52,22 @@ varying vec2 interpolationTextureCoord;
 // ---------- メイン関数 ----------------------------------------------
 
 void main(void) {
-    // マテリアル番号をそのまま渡す（int化はfsで行う）
-    interpolationMaterialFloat = vertexMaterialFloat;
+	// マテリアル番号をそのまま渡す（int化はfsで行う）
+	interpolationMaterialFloat = vertexMaterialFloat;
 
-    // 各種ベクトルもフラグメントシェーダへ伝達
-    interpolationNormal   = vertexNormal;
-    interpolationBinormal = vertexBinormal;
-    interpolationTangent  = vertexTangent;
+	// 各種ベクトルもフラグメントシェーダへ伝達
+	interpolationNormal   = vertexNormal;
+	interpolationBinormal = vertexBinormal;
+	interpolationTangent  = vertexTangent;
 
-    // ワールド空間の頂点位置を計算して渡す（照明/反射などで使う）
-    interpolationPosition = (matrixLocalToWorld4 * vec4(vertexPosition, 1.0)).xyz;
+	// ワールド空間の頂点位置を計算して渡す（照明/反射などで使う）
+	interpolationPosition = (matrixLocalToWorld4 * vec4(vertexPosition, 1.0)).xyz;
 
-    // UV座標
-    interpolationTextureCoord = vertexTextureCoord;
+	// UV座標
+	interpolationTextureCoord = vertexTextureCoord;
 
-    // 頂点を最終的にどこに描画するか計算（射影空間座標）
-    gl_Position = matrixLocalToPerspective4 * vec4(vertexPosition, 1.0);
+	// 頂点を最終的にどこに描画するか計算（射影空間座標）
+	gl_Position = matrixLocalToPerspective4 * vec4(vertexPosition, 1.0);
 
-    // ※このgl_Positionの値が、画面上の頂点の位置になる
+	// ※このgl_Positionの値が、画面上の頂点の位置になる
 }

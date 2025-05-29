@@ -75,6 +75,19 @@ export default class S3Texture {
 		if (image instanceof HTMLImageElement || image instanceof HTMLCanvasElement) {
 			const original_width = image.width;
 			const original_height = image.height;
+			/**
+			 * 指定された値以上の最小の2のべき乗の値を返します。
+			 * 例えば、5を渡すと8を返し、8を渡すと8を返します。
+			 * Math.log2 が使えない環境（例: IE）でも動作します。
+			 *
+			 * @param {number} x - 2のべき乗に切り上げたい対象の数値
+			 * @returns {number} x以上の最小の2のべき乗の値
+			 *
+			 * @example
+			 * ceil_power_of_2(5); // 8
+			 * ceil_power_of_2(8); // 8
+			 * ceil_power_of_2(15); // 16
+			 */
 			const ceil_power_of_2 = function (x) {
 				// IE には Math.log2 がない
 				const a = Math.log(x) / Math.log(2);
@@ -113,9 +126,16 @@ export default class S3Texture {
 		} else if (typeof image === "string") {
 			this.url = image;
 			const that = this;
-			this.sys._download(this.url, function (image) {
-				that.setImage(image);
-			});
+			this.sys._download(
+				this.url,
+				/**
+				 * @param {ImageData|HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} image
+				 * @returns {void}
+				 */
+				function (image) {
+					that.setImage(image);
+				}
+			);
 			return;
 		} else {
 			console.log("not setImage");

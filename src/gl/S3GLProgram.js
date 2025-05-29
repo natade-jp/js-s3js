@@ -1,13 +1,26 @@
-﻿/** @typedef {import('./typedefs.js').S3GLProgramBindInputDataSingle} S3GLProgramBindInputDataSingle */
-/** @typedef {import('./typedefs.js').S3GLProgramBindInputData} S3GLProgramBindInputData */
-
-import S3Matrix from "../math/S3Matrix.js";
+﻿import S3Matrix from "../math/S3Matrix.js";
 import S3Vector from "../math/S3Vector.js";
 import S3GLShader from "./S3GLShader.js";
 import S3GLSystem from "./S3GLSystem.js";
 import S3GLArray from "./S3GLArray.js";
 import S3GLMesh from "./S3GLMesh.js";
-import typedefs from "./typedefs.js";
+
+/**
+ * @typedef {Int32Array|Float32Array|WebGLBuffer|WebGLTexture|S3GLArray|S3Matrix|S3Vector|number} S3GLProgramBindInputDataSingle bindDataの入力データ(単体)
+ */
+
+/**
+ * @typedef {S3GLProgramBindInputDataSingle|Array<S3GLProgramBindInputDataSingle>} S3GLProgramBindInputData bindDataの入力データ(配列可)
+ */
+
+/**
+ * @typedef {Object.<string, S3GLProgramBindInputData>} S3GLProgramBindInputDataTable
+ */
+
+/**
+ * @typedef {Object} S3GLProgramUniforms
+ * @property {S3GLProgramBindInputDataTable} uniforms
+ */
 
 /**
  * WebGLのプログラム（Program）管理クラス。
