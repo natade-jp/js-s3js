@@ -17,7 +17,6 @@ export default class S3Scene {
 	/**
 	 * シーン構成要素を初期化します。
 	 * カメラは新規作成、モデル・ライトは空配列となります。
-	 * @private
 	 */
 	_init() {
 		/**

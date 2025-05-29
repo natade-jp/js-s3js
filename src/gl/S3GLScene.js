@@ -1,6 +1,8 @@
 ﻿import S3Scene from "../basic/S3Scene.js";
+import S3Camera from "../basic/S3Camera.js";
 import S3GLLight from "./S3GLLight.js";
 import S3GLArray from "./S3GLArray.js";
+import S3GLModel from "./S3GLModel.js";
 import S3Vector from "../math/S3Vector.js";
 
 /**
@@ -15,6 +17,60 @@ export default class S3GLScene extends S3Scene {
 	 */
 	constructor() {
 		super();
+	}
+
+	/**
+	 * シーン構成要素を初期化します。
+	 * カメラは新規作成、モデル・ライトは空配列となります。
+	 */
+	_init() {
+		/**
+		 * シーン全体のカメラ
+		 * @type {S3Camera}
+		 */
+		this.camera = null;
+		/**
+		 * シーン内の3Dモデル配列
+		 * @type {Array<S3GLModel>}
+		 */
+		this.model = [];
+		/**
+		 * シーン内のライト配列
+		 * @type {Array<S3GLLight>}
+		 */
+		this.light = [];
+	}
+
+	/**
+	 * シーンにモデルを追加します。
+	 * @param {S3GLModel} model 追加する3Dモデル（型はS3Model等を想定）
+	 */
+	addModel(model) {
+		this.model[this.model.length] = model;
+	}
+
+	/**
+	 * シーンにライトを追加します。
+	 * @param {S3GLLight} light 追加するライト（型はS3Light等を想定）
+	 */
+	addLight(light) {
+		this.light[this.light.length] = light;
+	}
+
+	/**
+	 * シーン内の全モデルを取得します。
+	 * @returns {Array<S3GLModel>} モデル配列
+	 */
+	getModels() {
+		return /** @type {Array<S3GLModel>} */ (this.model);
+	}
+
+	/**
+	 * シーン内の全ライトを取得します。
+	 * @returns {Array<S3GLLight>} ライト配列
+	 */
+	getLights() {
+		return /** @type {Array<S3GLLight>} */ (this.light);
 	}
 
 	/**

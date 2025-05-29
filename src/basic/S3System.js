@@ -859,8 +859,10 @@ export default class S3System {
 
 	/**
 	 * 不要になったリソースを解放します（未実装）。
+	 * @param {Object} obj 解放対象のオブジェクト
+	 * @returns {void}
 	 */
-	_disposeObject() {}
+	_disposeObject(obj) {}
 
 	/**
 	 * 新しい頂点インスタンスを生成します。

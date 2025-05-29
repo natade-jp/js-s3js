@@ -48,7 +48,7 @@ export default class S3GLTexture extends S3Texture {
 		if (!this.is_dispose) {
 			this.is_dispose = true;
 			if (this.gldata !== null) {
-				this._s3gl._disposeObject(this);
+				this._s3gl.glfunc.deleteTexture(this.url);
 				this.gldata = null;
 			}
 		}
