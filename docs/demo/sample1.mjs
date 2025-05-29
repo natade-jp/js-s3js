@@ -4,7 +4,7 @@ import GuiBlocks from "./libs/GuiBlocks.min.js";
 // 入力デバイス（マウスやタッチ）操作用ライブラリ
 import InputDetect from "./libs/InputDetect.min.js";
 // 3DCGエンジン本体（あなたが作ったS3ライブラリ）
-import S3 from "./libs/S3.js";
+import S3 from "./libs/S3.min.js";
 
 /**
  * S3ライブラリ内の数値計算クラスのデモ関数

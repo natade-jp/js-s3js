@@ -1,7 +1,7 @@
 // 外部UIライブラリやS3エンジンの読み込み
 import GuiBlocks from "./libs/GuiBlocks.min.js";
 import InputDetect from "./libs/InputDetect.min.js";
-import S3 from "./libs/S3.js";
+import S3 from "./libs/S3.min.js";
 
 /**
  * WebGLによる3D描画テスト用クラス

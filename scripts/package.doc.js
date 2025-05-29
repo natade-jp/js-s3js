@@ -23,7 +23,10 @@ const batch = function () {
 
 batch();
 
-NTFile.exec('npx jsdoc -R "./README.md" -c "./scripts/jsdoc.config.json"');
+const files = ["S3.min.js", "S3.min.d.ts", "S3GL.frag", "S3GL.vert"];
 
-NTFile.copy("./build/esm/S3.min.js", "./docs/demo/libs/S3.min.js");
-NTFile.copy("./build/esm/S3.min.d.ts", "./docs/demo/libs/S3.min.d.ts");
+files.forEach((file) => {
+	NTFile.copy(`./build/esm/${file}`, `./docs/demo/libs/${file}`);
+});
+
+NTFile.exec('npx jsdoc -R "./README.md" -c "./scripts/jsdoc.config.json"');
