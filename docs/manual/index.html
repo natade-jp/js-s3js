@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | s3js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A JavaScript library."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="s3js"><meta property="twitter:description" content="A JavaScript library."></head>
+<body class="layout-container manual-root manual-index" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/natade-jp/js-s3js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html" data-ice="link">&#x4E00;&#x822C;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x6982;&#x8981;" data-ice="link">&#x6982;&#x8981;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x5168;&#x4F53;&#x56F3;&#xFF08;&#x6982;&#x8981;&#xFF09;" data-ice="link">&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x5168;&#x4F53;&#x56F3;&#xFF08;&#x6982;&#x8981;&#xFF09;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x30B3;&#x30A2;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x8CAC;&#x52D9;" data-ice="link">&#x30B3;&#x30A2;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x8CAC;&#x52D9;</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3system" data-ice="link">S3System</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3scene" data-ice="link">S3Scene</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3model" data-ice="link">S3Model</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3mesh" data-ice="link">S3Mesh</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3vertex---s3triangleindex" data-ice="link">S3Vertex / S3TriangleIndex</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3material" data-ice="link">S3Material</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3texture" data-ice="link">S3Texture</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3light" data-ice="link">S3Light</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3camera" data-ice="link">S3Camera</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x6570;&#x5B66;&#x7CFB;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;" data-ice="link">&#x6570;&#x5B66;&#x7CFB;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30ED;&#x30FC;&#x30C0;&#x30FC;&#xFF08;&#x30C7;&#x30FC;&#x30BF;&#x5165;&#x51FA;&#x529B;&#xFF09;" data-ice="link">&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30ED;&#x30FC;&#x30C0;&#x30FC;&#xFF08;&#x30C7;&#x30FC;&#x30BF;&#x5165;&#x51FA;&#x529B;&#xFF09;</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3meshloader&#xFF08;facade&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x7684;&#x5F79;&#x5272;&#xFF09;" data-ice="link">S3MeshLoader&#xFF08;Facade&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x7684;&#x5F79;&#x5272;&#xFF09;</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3meshloaderobj" data-ice="link">S3MeshLoaderOBJ</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3meshloadermqo" data-ice="link">S3MeshLoaderMQO</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#s3meshloaderjson" data-ice="link">S3MeshLoaderJSON</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x62E1;&#x5F35;&#x6027;&#x306B;&#x3064;&#x3044;&#x3066;" data-ice="link">&#x62E1;&#x5F35;&#x6027;&#x306B;&#x3064;&#x3044;&#x3066;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x3068;&#x6D41;&#x308C;" data-ice="link">&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x3068;&#x6D41;&#x308C;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x5229;&#x7528;&#x4F8B;" data-ice="link">&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x5229;&#x7528;&#x4F8B;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/ARCHITECTURE.html"><a href="manual/ARCHITECTURE.html#&#x307E;&#x3068;&#x3081;" data-ice="link">&#x307E;&#x3068;&#x3081;</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html" data-ice="link">WebGL &#x62E1;&#x5F35;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#&#x6982;&#x8981;" data-ice="link">&#x6982;&#x8981;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x5168;&#x4F53;&#x56F3;" data-ice="link">&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x5168;&#x4F53;&#x56F3;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#&#x30EC;&#x30A4;&#x30E4;&#x30FB;&#x4E3B;&#x306A;&#x8CAC;&#x52D9;" data-ice="link">&#x30EC;&#x30A4;&#x30E4;&#x30FB;&#x4E3B;&#x306A;&#x8CAC;&#x52D9;</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#1--&#x62BD;&#x8C61;&#x30FB;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30EC;&#x30A4;&#x30E4;&#xFF08;-code-s3system--code-&#x306A;&#x3069;&#xFF09;" data-ice="link">1. &#x62BD;&#x8C61;&#x30FB;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30EC;&#x30A4;&#x30E4;&#xFF08;S3System&#x306A;&#x3069;&#xFF09;</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#2--webgl&#x30EC;&#x30A4;&#x30E4;&#xFF08;-code-s3gl---code--&#x30AF;&#x30E9;&#x30B9;&#x7FA4;&#xFF09;" data-ice="link">2. WebGL&#x30EC;&#x30A4;&#x30E4;&#xFF08;S3GL* &#x30AF;&#x30E9;&#x30B9;&#x7FA4;&#xFF09;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x69CB;&#x6210;" data-ice="link">&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x69CB;&#x6210;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#&#x4E3B;&#x8981;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x5F79;&#x5272;" data-ice="link">&#x4E3B;&#x8981;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x5F79;&#x5272;</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3glsystem" data-ice="link">S3GLSystem</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3glscene" data-ice="link">S3GLScene</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3glmodel" data-ice="link">S3GLModel</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3glmesh" data-ice="link">S3GLMesh</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3gltriangleindex---s3gltriangleindexdata" data-ice="link">S3GLTriangleIndex / S3GLTriangleIndexData</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3glvertex" data-ice="link">S3GLVertex</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3glmaterial" data-ice="link">S3GLMaterial</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3gltexture" data-ice="link">S3GLTexture</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3gllight" data-ice="link">S3GLLight</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#s3glprogram" data-ice="link">S3GLProgram</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#&#x30C7;&#x30FC;&#x30BF;&#x30D5;&#x30ED;&#x30FC;&#xFF0F;&#x63CF;&#x753B;&#x30D1;&#x30A4;&#x30D7;&#x30E9;&#x30A4;&#x30F3;&#x4F8B;" data-ice="link">&#x30C7;&#x30FC;&#x30BF;&#x30D5;&#x30ED;&#x30FC;&#xFF0F;&#x63CF;&#x753B;&#x30D1;&#x30A4;&#x30D7;&#x30E9;&#x30A4;&#x30F3;&#x4F8B;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;" data-ice="link">&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/WEBGL.html"><a href="manual/WEBGL.html#&#x8A2D;&#x8A08;&#x306E;&#x7279;&#x5FB4;&#x30FB;&#x610F;&#x56F3;" data-ice="link">&#x8A2D;&#x8A08;&#x306E;&#x7279;&#x5FB4;&#x30FB;&#x610F;&#x56F3;</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/DEMO1.html"><a href="manual/DEMO1.html" data-ice="link">&#x901A;&#x5E38;&#x306E;3D&#x63CF;&#x5199;&#x306E;&#x30C7;&#x30E2;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/DEMO1.html"><a href="manual/DEMO1.html#sample1-mjs" data-ice="link">sample1.mjs</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/DEMO2.html"><a href="manual/DEMO2.html" data-ice="link">WebGL&#x306E;3D&#x63CF;&#x5199;&#x306E;&#x30C7;&#x30E2;</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/DEMO2.html"><a href="manual/DEMO2.html#sample2-mjs" data-ice="link">sample2.mjs</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/DEMO2.html"><a href="manual/DEMO2.html#s3gl-vert" data-ice="link">S3GL.vert</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/DEMO2.html"><a href="manual/DEMO2.html#s3gl-frag" data-ice="link">S3GL.frag</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown">
+  
+
+  
+
+  <div class="manual-cards">
+    
+  <div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>&#x4E00;&#x822C;</h1><h2>&#x6982;&#x8981;</h2><p>&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;&#x3001;&#x7D14;&#x7C8B;&#x306A;JavaScript&#x3067;3DCG&#x63CF;&#x753B;&#x3084;&#x30E2;&#x30C7;&#x30EB;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x7BA1;&#x7406;&#x3001;&#x5404;&#x7A2E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#x5BFE;&#x5FDC;&#xFF08;OBJ, MQO, JSON&#x7B49;&#xFF09;&#x3092;&#x53EF;&#x80FD;&#x306B;&#x3059;&#x308B;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;3DCG&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3067;&#x3059;&#x3002;
+&#x4E3B;&#x306A;&#x69CB;&#x6210;&#x8981;&#x7D20;&#x306F;&#x3001;&#x30B8;&#x30AA;&#x30E1;&#x30C8;&#x30EA;&#xFF08;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30FB;&#x9802;&#x70B9;&#x30FB;&#x9762;&#xFF09;&#x3001;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x3001;&#x30E9;&#x30A4;&#x30C8;&#x3001;&#x30AB;&#x30E1;&#x30E9;&#x3001;&#x30B7;&#x30FC;&#x30F3;&#x7BA1;&#x7406;&#x3001;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;&#x3001;&#x5404;&#x7A2E;&#x30C7;&#x30FC;&#x30BF;&#x30ED;&#x30FC;&#x30C0;&#x30FC;/&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30BF;&#x30FC;&#x306A;&#x3069;&#x3067;&#x3059;&#x3002;</p><h2>&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x5168;&#x4F53;&#x56F3;&#xFF08;&#x6982;&#x8981;&#xFF09;</h2><pre><code><code class="source-code prettyprint">[S3System] &#x2500;&#x2500;&#x252C;&#x2500;&gt; [S3Scene] &#x2500;&#x252C;&#x2500;&gt; [S3Model] &#x2500;&#x2500;&gt; [S3Mesh]
+             &#x2502;               &#x2502;                &#x251C;&#x2500;&gt; [S3Vertex]
+             &#x2502;               &#x2502;                &#x251C;&#x2500;&gt; [S3TriangleIndex]
+             &#x2502;               &#x2502;                &#x2514;&#x2500;&gt; [S3Material]
+             &#x2502;               &#x251C;&#x2500;&gt; [S3Light]
+             &#x2502;               &#x2514;&#x2500;&gt; [S3Camera]
+             &#x251C;&#x2500;&gt; [S3MeshLoader] &lt;&#x2500; [OBJ/MQO/JSON File]
+             &#x2514;&#x2500;&gt; [Utility: Math, Vector, Matrix, Angles]</code>
+</code></pre><h2>&#x30B3;&#x30A2;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x8CAC;&#x52D9;</h2><h3>S3System</h3><ul>
+<li><p><strong>&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x4E2D;&#x6838;&#x30AF;&#x30E9;&#x30B9;&#x3002;</strong></p>
+<ul>
+<li>&#x5404;&#x7A2E;&#x30D5;&#x30A1;&#x30AF;&#x30C8;&#x30EA;&#xFF08;&#x30B7;&#x30FC;&#x30F3;/&#x30E2;&#x30C7;&#x30EB;/&#x30E1;&#x30C3;&#x30B7;&#x30E5;/&#x9802;&#x70B9;/&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;/&#x30E9;&#x30A4;&#x30C8;/&#x30AB;&#x30E1;&#x30E9;&#x7B49;&#x306E;&#x751F;&#x6210;&#xFF09;&#x3002;</li>
+<li>&#x5EA7;&#x6A19;&#x5909;&#x63DB;&#xFF08;&#x5E73;&#x884C;&#x79FB;&#x52D5;&#x3001;&#x56DE;&#x8EE2;&#x3001;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#x3001;&#x5C04;&#x5F71;&#x3001;&#x30D3;&#x30E5;&#x30FC;&#x30DD;&#x30FC;&#x30C8;&#x7B49;&#xFF09;&#x3001;MVP&#x8A08;&#x7B97;&#x3001;&#x30AB;&#x30EA;&#x30F3;&#x30B0;&#x306A;&#x3069;&#x3002;</li>
+<li>2D Canvas&#x63CF;&#x753B;&#x306E;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#xFF08;&#x30E9;&#x30A4;&#x30F3;&#x30EC;&#x30F3;&#x30C0;&#x3001;&#x8EF8;&#x63CF;&#x753B;&#x306A;&#x3069;&#xFF09;&#x3002;</li>
+<li>&#x63CF;&#x753B;&#x30E2;&#x30FC;&#x30C9;&#x3084;&#x5EA7;&#x6A19;&#x7CFB;&#xFF08;OpenGL/DirectX&#x7CFB;&#xFF09;&#x5207;&#x308A;&#x66FF;&#x3048;&#x7B49;&#x306E;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x8A2D;&#x5B9A;&#x3002;</li>
+</ul>
+</li>
+</ul><h3>S3Scene</h3><ul>
+<li><p><strong>&#x30B7;&#x30FC;&#x30F3;&#xFF08;&#x63CF;&#x753B;&#x5358;&#x4F4D;&#xFF09;&#x306E;&#x7BA1;&#x7406;&#x30AF;&#x30E9;&#x30B9;&#x3002;</strong></p>
+<ul>
+<li>&#x8907;&#x6570;&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30E9;&#x30A4;&#x30C8;&#x30FB;&#x30AB;&#x30E1;&#x30E9;&#x306E;&#x767B;&#x9332;&#x3001;&#x30B7;&#x30FC;&#x30F3;&#x5168;&#x4F53;&#x306E;&#x4FDD;&#x6301;&#x3002;</li>
+<li>&#x30B7;&#x30FC;&#x30F3;&#x306E;&#x7A7A;&#x5316;&#x3084;&#x30E2;&#x30C7;&#x30EB;/&#x30E9;&#x30A4;&#x30C8;&#x8FFD;&#x52A0;&#x3001;&#x30AB;&#x30E1;&#x30E9;&#x5207;&#x66FF;&#x304C;&#x53EF;&#x80FD;&#x3002;</li>
+</ul>
+</li>
+</ul><h3>S3Model</h3><ul>
+<li><p><strong>&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x5909;&#x63DB;&#x3092;&#x542B;&#x3080;3D&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x5358;&#x4F4D;&#x3002;</strong></p>
+<ul>
+<li>&#x4F4D;&#x7F6E;&#x30FB;&#x56DE;&#x8EE2;&#xFF08;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#xFF09;&#x30FB;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#x30FB;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x60C5;&#x5831;&#x3092;&#x4FDD;&#x6301;&#x3002;</li>
+</ul>
+</li>
+</ul><h3>S3Mesh</h3><ul>
+<li><p><strong>&#x30B8;&#x30AA;&#x30E1;&#x30C8;&#x30EA;&#xFF08;&#x7ACB;&#x4F53;&#x5F62;&#x72B6;&#xFF09;&#x306E;&#x307E;&#x3068;&#x307E;&#x308A;&#x3002;</strong></p>
+<ul>
+<li>&#x9802;&#x70B9;&#xFF08;S3Vertex&#xFF09;&#x3001;&#x9762;&#xFF08;S3TriangleIndex&#xFF09;&#x3001;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08;S3Material&#xFF09;&#x3092;&#x307E;&#x3068;&#x3081;&#x308B;&#x3002;</li>
+<li>&#x9762;&#x306E;&#x53CD;&#x8EE2;&#x3084;&#x8907;&#x6570;&#x7D20;&#x6750;&#x5BFE;&#x5FDC;&#x3001;&#x78BA;&#x5B9A;&#x5316;&#x30D5;&#x30E9;&#x30B0;&#x306A;&#x3069;&#x3002;</li>
+</ul>
+</li>
+</ul><h3>S3Vertex / S3TriangleIndex</h3><ul>
+<li><p><strong>&#x9802;&#x70B9;&#x5EA7;&#x6A19;&#x3001;&#x9762;&#x60C5;&#x5831;&#x306E;&#x57FA;&#x672C;&#x30AF;&#x30E9;&#x30B9;&#x3002;</strong></p>
+<ul>
+<li>&#x9802;&#x70B9;&#xFF08;S3Vertex&#xFF09;&#xFF1A;&#x4F4D;&#x7F6E;&#xFF08;S3Vector&#xFF09;&#x3060;&#x3051;&#x3092;&#x6301;&#x3064;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;immutable&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3002;</li>
+<li>&#x4E09;&#x89D2;&#x5F62;&#x9762;&#xFF08;S3TriangleIndex&#xFF09;&#xFF1A;3&#x9802;&#x70B9;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3001;UV&#x5EA7;&#x6A19;&#x3001;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x4FDD;&#x6301;&#x3002;</li>
+</ul>
+</li>
+</ul><h3>S3Material</h3><ul>
+<li><p><strong>&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08;&#x6750;&#x8CEA;&#x30FB;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x7B49;&#xFF09;&#x306E;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x3092;&#x7BA1;&#x7406;&#x3002;</strong></p>
+<ul>
+<li>&#x62E1;&#x6563;&#x8272;&#x3001;&#x74B0;&#x5883;&#x5149;&#x3001;&#x93E1;&#x9762;&#x3001;&#x767A;&#x5149;&#x3001;&#x53CD;&#x5C04;&#x7387;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x753B;&#x50CF;&#x7B49;&#x3002;</li>
+</ul>
+</li>
+</ul><h3>S3Texture</h3><ul>
+<li><p><strong>&#x753B;&#x50CF;&#x3084;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x7BA1;&#x7406;&#x3002;</strong></p>
+<ul>
+<li>&#x5404;&#x7A2E;Image&#x578B;&#x3084;URL&#x306E;&#x5BFE;&#x5FDC;&#x3001;2&#x306E;&#x7D2F;&#x4E57;&#x3078;&#x306E;&#x81EA;&#x52D5;&#x5909;&#x63DB;&#x7B49;&#x3002;</li>
+</ul>
+</li>
+</ul><h3>S3Light</h3><ul>
+<li><p><strong>&#x30B7;&#x30FC;&#x30F3;&#x5185;&#x306E;&#x5149;&#x6E90;&#x60C5;&#x5831;&#x7BA1;&#x7406;&#x3002;</strong></p>
+<ul>
+<li>&#x7A2E;&#x985E;&#xFF08;&#x74B0;&#x5883;&#x5149;/&#x5E73;&#x884C;&#x5149;&#x6E90;/&#x70B9;&#x5149;&#x6E90;&#xFF09;&#x3001;&#x5F37;&#x5EA6;&#x3001;&#x65B9;&#x5411;&#x3001;&#x8272;&#x306A;&#x3069;&#x3092;&#x4FDD;&#x6301;&#x3002;</li>
+</ul>
+</li>
+</ul><h3>S3Camera</h3><ul>
+<li><p><strong>&#x8996;&#x70B9;&#x60C5;&#x5831;&#x30FB;&#x5C04;&#x5F71;/&#x30D3;&#x30E5;&#x30FC;/&#x30D3;&#x30E5;&#x30FC;&#x30DD;&#x30FC;&#x30C8;&#x884C;&#x5217;&#x7BA1;&#x7406;&#x3002;</strong></p>
+<ul>
+<li>&#x8996;&#x70B9;&#x3001;&#x6CE8;&#x8996;&#x70B9;&#x3001;&#x8996;&#x91CE;&#x89D2;&#x3001;&#x30CB;&#x30A2;&#x30FB;&#x30D5;&#x30A1;&#x30FC;&#x30AF;&#x30EA;&#x30C3;&#x30D7;&#x3001;&#x5404;&#x7A2E;&#x884C;&#x5217;&#x53D6;&#x5F97;API&#x3042;&#x308A;&#x3002;</li>
+</ul>
+</li>
+</ul><h2>&#x6570;&#x5B66;&#x7CFB;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</h2><ul>
+<li><p><strong>S3Vector / S3Matrix / S3Angles &#x306A;&#x3069;</strong></p>
+<ul>
+<li>&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x30FB;&#x884C;&#x5217;&#x8A08;&#x7B97;&#x3001;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#x5909;&#x63DB;&#x3001;&#x7DDA;&#x5F62;&#x88DC;&#x9593;&#x306A;&#x3069;&#x6C4E;&#x7528;&#x7684;&#x306A;3DCG&#x6570;&#x5024;&#x51E6;&#x7406;&#x3092;&#x63D0;&#x4F9B;&#x3002;</li>
+</ul>
+</li>
+</ul><h2>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30ED;&#x30FC;&#x30C0;&#x30FC;&#xFF08;&#x30C7;&#x30FC;&#x30BF;&#x5165;&#x51FA;&#x529B;&#xFF09;</h2><h3>S3MeshLoader&#xFF08;Facade&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x7684;&#x5F79;&#x5272;&#xFF09;</h3><ul>
+<li>&#x5404;&#x7A2E;3D&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#xFF08;OBJ/MQO/JSON&#xFF09;&#x3092;&#x4E00;&#x5143;&#x7684;&#x306B;S3Mesh&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3078;&#x5909;&#x63DB;&#xFF08;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#xFF09;&#x3001;&#x9006;&#x306B;&#x5404;&#x5F62;&#x5F0F;&#x3078;&#x306E;&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;&#xFF08;&#x51FA;&#x529B;&#xFF09;&#x3092;&#x63D0;&#x4F9B;&#x3002;</li>
+</ul><h4>S3MeshLoaderOBJ</h4><ul>
+<li>Wavefront OBJ&#x5F62;&#x5F0F;&#x306E;&#x8AAD;&#x307F;&#x66F8;&#x304D;&#x3002;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x2192;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3078;&#x306E;&#x5909;&#x63DB;&#x3001;&#x5404;&#x8981;&#x7D20;&#x306E;&#x89E3;&#x6790;&#x3002;</li>
+</ul><h4>S3MeshLoaderMQO</h4><ul>
+<li>Metasequoia MQO&#x5F62;&#x5F0F;&#x306E;&#x8AAD;&#x307F;&#x66F8;&#x304D;&#x3002;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x2192;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3001;&#x7D20;&#x6750;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3084;UV&#x3082;&#x4E00;&#x90E8;&#x5BFE;&#x5FDC;&#x3002;</li>
+</ul><h4>S3MeshLoaderJSON</h4><ul>
+<li>&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;JSON&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x5BFE;&#x5FDC;&#x3002;&#x81EA;&#x524D;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;&#x7528;&#x3002;</li>
+</ul><h2>&#x62E1;&#x5F35;&#x6027;&#x306B;&#x3064;&#x3044;&#x3066;</h2><ul>
+<li><strong>&#x8FFD;&#x52A0;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#xFF1A;</strong> <code>S3MeshLoader</code>&#x306B;&#x65B0;&#x3057;&#x3044;&#x30ED;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308C;&#x3070;&#x826F;&#x3044;&#x8A2D;&#x8A08;&#x3002;</li>
+<li><strong>&#x30EC;&#x30F3;&#x30C0;&#x30E9;&#x7F6E;&#x63DB;&#xFF1A;</strong> &#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306F;2D Canvas&#x63CF;&#x753B;&#x3060;&#x304C;&#x3001;<code>S3GLSystem</code>&#x306A;&#x3069;&#x3067;WebGL&#x62E1;&#x5F35;&#x3082;&#x5BB9;&#x6613;&#x3002;</li>
+<li><strong>&#x72EC;&#x81EA;&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF1A;</strong> S3Model/S3Material/S3Mesh&#x3092;&#x7D99;&#x627F;&#x3057;&#x72EC;&#x81EA;&#x62E1;&#x5F35;&#x53EF;&#x80FD;&#x3002;</li>
+<li><strong>&#x30B7;&#x30FC;&#x30F3;&#x69CB;&#x6210;/&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;&#xFF1A;</strong> &#x6570;&#x5B66;&#x7CFB;&#x3084;&#x30AB;&#x30E1;&#x30E9;&#x5236;&#x5FA1;&#x7B49;&#x3082;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x5206;&#x96E2;&#x3067;&#x72EC;&#x81EA;&#x5B9F;&#x88C5;&#x3057;&#x3084;&#x3059;&#x3044;&#x3002;</li>
+</ul><h2>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x3068;&#x6D41;&#x308C;</h2><ol>
+<li><strong>S3System</strong>&#x304C;&#x3059;&#x3079;&#x3066;&#x306E;&#x30D5;&#x30A1;&#x30AF;&#x30C8;&#x30EA;&#x30FB;&#x7BA1;&#x7406;&#x30FB;&#x8A08;&#x7B97;&#x306E;&#x4E2D;&#x6838;&#x3068;&#x306A;&#x308A;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x751F;&#x6210;&#x3082;&#x62C5;&#x5F53;&#x3002;</li>
+<li><strong>S3Scene</strong>&#x304C;&#x3001;&#x5404;&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30E9;&#x30A4;&#x30C8;&#x30FB;&#x30AB;&#x30E1;&#x30E9;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;<code>S3System</code>&#x304B;&#x3089;&#x306E;&#x63CF;&#x753B;&#x8981;&#x6C42;&#x3067;&#x5185;&#x5BB9;&#x3092;&#x6E21;&#x3059;&#x3002;</li>
+<li><strong>S3MeshLoader</strong>&#x3092;&#x901A;&#x3058;&#x3066;&#x3001;&#x5916;&#x90E8;3D&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x3001;<code>S3Mesh</code>&#x3078;&#x5C55;&#x958B;&#x3002;</li>
+<li>&#x5404;&#x30E2;&#x30C7;&#x30EB;&#x306F;&#x81EA;&#x8EAB;&#x306E;<code>S3Mesh</code>&#x3092;&#x6301;&#x3061;&#x3001;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5909;&#x63DB;&#x884C;&#x5217;&#x306F;<code>S3System</code>&#x3067;&#x7B97;&#x51FA;&#x3002;</li>
+<li>&#x63CF;&#x753B;&#x6642;&#x306F;&#x3001;S3System&#x304C;&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30AB;&#x30E1;&#x30E9;&#x30FB;&#x30B7;&#x30FC;&#x30F3;&#x60C5;&#x5831;&#x304B;&#x3089;MVP&#x884C;&#x5217;&#x7B49;&#x3092;&#x7D44;&#x307F;&#x7ACB;&#x3066;&#x3001;Canvas&#x306B;&#x30E9;&#x30A4;&#x30F3;/&#x30B7;&#x30A7;&#x30FC;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x7B49;&#x3092;&#x63CF;&#x304F;&#x3002;</li>
+</ol><h2>&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x5229;&#x7528;&#x4F8B;</h2><pre><code class="lang-js"><code class="source-code prettyprint">import S3 from &quot;./S3.js&quot;;
+const sys = new S3.System();
+const scene = sys.createScene();
+const camera = sys.createCamera();
+scene.setCamera(camera);
+
+const mesh = sys.createMesh();
+// ... mesh&#x306B;&#x9802;&#x70B9;&#x30FB;&#x9762;&#x30FB;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x8FFD;&#x52A0; ...
+
+const model = sys.createModel();
+model.setMesh(mesh);
+scene.addModel(model);
+
+sys.setCanvas(document.getElementById(&quot;canvas&quot;));
+sys.drawScene(scene);</code>
+</code></pre><h2>&#x307E;&#x3068;&#x3081;</h2><ul>
+<li><strong>&#x8CAC;&#x52D9;&#x5206;&#x96E2;&#x30FB;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x8A2D;&#x8A08;&#x3002;</strong></li>
+<li><strong>&#x6570;&#x5024;&#x7CFB;/&#x30B8;&#x30AA;&#x30E1;&#x30C8;&#x30EA;/&#x30B7;&#x30FC;&#x30F3;&#x7BA1;&#x7406;/&#x5404;&#x7A2E;&#x30ED;&#x30FC;&#x30C0;&#x30FC;&#x306F;&#x72EC;&#x7ACB;&#x6027;&#x9AD8;&#x304F;&#x62E1;&#x5F35;&#x5BB9;&#x6613;&#x3002;</strong></li>
+<li><strong>WebGL&#x5316;&#x3084;&#x72EC;&#x81EA;&#x30EC;&#x30F3;&#x30C0;&#x30E9;&#x3001;&#x62E1;&#x5F35;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#x5BFE;&#x5FDC;&#x3082;&#x8996;&#x91CE;&#x306B;&#x5165;&#x308C;&#x305F;&#x67D4;&#x8EDF;&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x3002;</strong></li>
+</ul></div>
+        <a data-ice="link" href="manual/ARCHITECTURE.html"></a>
+      </div>
+    </div>
+<div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>WebGL &#x62E1;&#x5F35;</h1><h2>&#x6982;&#x8981;</h2><p>WebGL &#x5B9F;&#x88C5;&#x7CFB; (<code>S3GL*</code> &#x30AF;&#x30E9;&#x30B9;&#x7FA4;) &#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p><ul>
+<li><strong>&#x7D14;&#x7C8B;&#x306A; JS &#x306E;&#x30AF;&#x30E9;&#x30B9;&#x69CB;&#x6210;</strong>&#xFF08;ES Modules &#x69CB;&#x6210;&#xFF09;</li>
+<li><strong>&#x62BD;&#x8C61;&#x30EC;&#x30A4;&#x30E4;&#x30FC;</strong>&#xFF08;&#x57FA;&#x672C;&#x5F62;&#x72B6;&#x30FB;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30FB;&#x30AB;&#x30E1;&#x30E9;&#x30FB;&#x30E9;&#x30A4;&#x30C8;&#x30FB;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB; etc...&#xFF09;</li>
+<li><strong>WebGL &#x30EC;&#x30A4;&#x30E4;&#x30FC;</strong>&#xFF08;GL &#x30D0;&#x30C3;&#x30D5;&#x30A1;&#xFF0F;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#xFF0F;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#xFF0F;&#x63CF;&#x753B;&#x30D1;&#x30A4;&#x30D7;&#x30E9;&#x30A4;&#x30F3;&#x7BA1;&#x7406;&#xFF09;</li>
+</ul><h2>&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x5168;&#x4F53;&#x56F3;</h2><pre><code><code class="source-code prettyprint">+-----------------------------------------------------------+
+|                        S3GLSystem                        |
+| (WebGL&#x5168;&#x4F53;&#x306E;&#x7BA1;&#x7406;&#xFF0F;&#x63CF;&#x753B;&#x30D1;&#x30A4;&#x30D7;&#x30E9;&#x30A4;&#x30F3;&#x30FB;GLContext&#x7BA1;&#x7406;)        |
++---------------------+---------+--------------------------+
+                      |         |
+           +----------+         +--------------+
+           |                                    |
+    +------v-------+                      +-----v------+
+    |  S3GLScene   |                      |  S3GLMesh  |
+    |(Scene&#x5168;&#x4F53;&#x7BA1;&#x7406;|                      |(&#x30E1;&#x30C3;&#x30B7;&#x30E5;/VBO|
+    +------+-------+                      +-----+------+
+           |                                    |
+    +------v-----------+                +-------v---------+
+    |  S3GLModel       |                | S3GLTriangle... |
+    |(&#x30E2;&#x30C7;&#x30EB;/&#x5F62;&#x72B6;/&#x5909;&#x63DB;) |                |(&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;)|
+    +------------------+                +-----------------+
+           |                                    |
+    +------v----------+                +--------v-------+
+    |  S3GLMaterial   |                |  S3GLVertex    |
+    |  (&#x6750;&#x8CEA;&#x30FB;uniform) |                |  (&#x9802;&#x70B9;&#x60C5;&#x5831;)    |
+    +-----------------+                +----------------+</code>
+</code></pre><h2>&#x30EC;&#x30A4;&#x30E4;&#x30FB;&#x4E3B;&#x306A;&#x8CAC;&#x52D9;</h2><h3>1. &#x62BD;&#x8C61;&#x30FB;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30EC;&#x30A4;&#x30E4;&#xFF08;<code>S3System</code>&#x306A;&#x3069;&#xFF09;</h3><ul>
+<li><strong>&#x30B7;&#x30FC;&#x30F3;&#x7BA1;&#x7406;</strong>&#xFF08;S3Scene&#xFF09;&#x30FB;<strong>&#x30E2;&#x30C7;&#x30EB;/&#x30AB;&#x30E1;&#x30E9;/&#x30E9;&#x30A4;&#x30C8;&#x751F;&#x6210;</strong></li>
+<li><strong>&#x884C;&#x5217;&#x6F14;&#x7B97;&#x30FB;&#x5EA7;&#x6A19;&#x5909;&#x63DB;</strong>&#xFF08;&#x30E2;&#x30C7;&#x30EB;/&#x30D3;&#x30E5;&#x30FC;/&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#xFF09;</li>
+<li><strong>&#x9802;&#x70B9;&#x30FB;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30FB;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x306E;&#x30D5;&#x30A1;&#x30AF;&#x30C8;&#x30EA;&#x6A5F;&#x80FD;</strong></li>
+</ul><h3>2. WebGL&#x30EC;&#x30A4;&#x30E4;&#xFF08;<code>S3GL*</code> &#x30AF;&#x30E9;&#x30B9;&#x7FA4;&#xFF09;</h3><ul>
+<li><strong>GLContext &#x306E;&#x521D;&#x671F;&#x5316;&#x30FB;&#x7BA1;&#x7406;</strong>&#xFF08;<code>S3GLSystem</code>&#xFF09;</li>
+<li><strong>GL&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x751F;&#x6210;&#xFF0F;VBO/IBO &#x5316;</strong>&#xFF08;<code>S3GLMesh</code>&#xFF09;</li>
+<li><strong>GL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x7BA1;&#x7406;</strong>&#xFF08;<code>S3GLShader</code>, <code>S3GLProgram</code>&#xFF09;</li>
+<li><strong>&#x30B7;&#x30FC;&#x30F3;/&#x30E2;&#x30C7;&#x30EB;/&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;/&#x30E9;&#x30A4;&#x30C8;&#x306E; uniform &#x5909;&#x63DB;</strong>&#xFF08;<code>getUniforms</code> &#x7CFB;&#xFF09;</li>
+<li><strong>GL&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#xFF08;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;/&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#xFF09;&#x7BA1;&#x7406;&#x30FB;&#x7834;&#x68C4;</strong></li>
+</ul><h2>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x69CB;&#x6210;</h2><ul>
+<li><code>S3GLSystem.js</code>: WebGL&#x63CF;&#x753B;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x672C;&#x4F53;</li>
+<li><code>S3GLMesh.js</code>: GL&#x7528;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;VBO/IBO&#x7BA1;&#x7406;&#x3001;&#x5C5E;&#x6027;&#x751F;&#x6210;&#xFF09;</li>
+<li><code>S3GLModel.js</code>: GL&#x7528;&#x30E2;&#x30C7;&#x30EB;&#xFF08;uniforms&#x751F;&#x6210;&#xFF09;</li>
+<li><code>S3GLMaterial.js</code>: GL&#x7528;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08;uniforms&#x751F;&#x6210;&#x30FB;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x7BA1;&#x7406;&#xFF09;</li>
+<li><code>S3GLScene.js</code>: GL&#x7528;&#x30B7;&#x30FC;&#x30F3;&#x7BA1;&#x7406;</li>
+<li><code>S3GLProgram.js</code>: &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FB;GL&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x7BA1;&#x7406;</li>
+<li><code>S3GLVertex.js</code>, <code>S3GLTriangleIndex.js</code>, <code>S3GLTriangleIndexData.js</code>: &#x9802;&#x70B9;&#x30FB;&#x9762;&#x30FB;&#x5C5E;&#x6027;&#x751F;&#x6210;</li>
+<li><code>S3GLArray.js</code>: GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x5909;&#x63DB;&#x30FB;&#x578B;&#x7BA1;&#x7406;</li>
+<li><code>S3GLTexture.js</code>: GL&#x7528;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;</li>
+<li><code>S3GLLight.js</code>: GL&#x7528;&#x30E9;&#x30A4;&#x30C8;</li>
+</ul><h2>&#x4E3B;&#x8981;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x5F79;&#x5272;</h2><h3>S3GLSystem</h3><ul>
+<li><p><strong>WebGL &#x63CF;&#x753B;&#x5168;&#x4F53;&#x306E;&#x7BA1;&#x7406;&#x8005;</strong></p>
+<ul>
+<li>GLContext &#x306E;&#x521D;&#x671F;&#x5316;&#xFF0F;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x5207;&#x308A;&#x66FF;&#x3048;</li>
+<li>&#x63CF;&#x753B;&#x30E2;&#x30FC;&#x30C9;&#x30FB;&#x30AB;&#x30EA;&#x30F3;&#x30B0;&#x30FB;&#x6DF1;&#x5EA6;&#x30FB;&#x80CC;&#x666F;&#x8272;&#x7BA1;&#x7406;</li>
+<li>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3078;&#x306E;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x30FB;&#x63CF;&#x753B;&#x30EB;&#x30FC;&#x30D7;&#x51E6;&#x7406;</li>
+<li>&#x5404;&#x7A2E;&#x30D5;&#x30A1;&#x30AF;&#x30C8;&#x30EA;&#xFF08;&#x30E1;&#x30C3;&#x30B7;&#x30E5;/&#x30E2;&#x30C7;&#x30EB;/&#x30AB;&#x30E1;&#x30E9; etc...&#xFF09;</li>
+</ul>
+</li>
+</ul><h3>S3GLScene</h3><ul>
+<li><p><strong>&#x30B7;&#x30FC;&#x30F3;&#x5358;&#x4F4D;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x7D71;&#x62EC;</strong></p>
+<ul>
+<li>&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30AB;&#x30E1;&#x30E9;&#x30FB;&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x7BA1;&#x7406;</li>
+<li>&#x5168; uniform &#x751F;&#x6210;&#xFF08;<code>getUniforms</code>&#xFF1A;&#x30AB;&#x30E1;&#x30E9;&#x65B9;&#x5411;&#x3084;&#x30E9;&#x30A4;&#x30C8;&#x914D;&#x5217;&#x3092; uniform &#x5F62;&#x5F0F;&#x3067;&#x8FD4;&#x3059;&#xFF09;</li>
+</ul>
+</li>
+</ul><h3>S3GLModel</h3><ul>
+<li><p><strong>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;&#x5F62;&#x72B6;&#xFF09;&#x306E;&#x4F4D;&#x7F6E;&#x30FB;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#x30FB;&#x56DE;&#x8EE2;&#x30FB;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x53C2;&#x7167;</strong></p>
+<ul>
+<li>&#x8907;&#x6570;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x3092;&#x96C6;&#x7D04;&#x3057;&#x3001;uniform &#x3092;&#x751F;&#x6210;</li>
+<li>&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x5909;&#x63DB;&#x884C;&#x5217;&#x3082;&#x3053;&#x3053;&#x3067;&#x7B97;&#x51FA;</li>
+</ul>
+</li>
+</ul><h3>S3GLMesh</h3><ul>
+<li><p><strong>WebGL&#x306B;&#x9069;&#x3057;&#x305F;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;&#x9802;&#x70B9;&#x914D;&#x5217;&#x30FB;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x914D;&#x5217;&#xFF09;</strong></p>
+<ul>
+<li>VBO/IBO &#x751F;&#x6210;&#x30FB;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x7BA1;&#x7406;</li>
+<li>&#x5404;&#x4E09;&#x89D2;&#x5F62;&#x3054;&#x3068;&#x306B;&#x6CD5;&#x7DDA;/&#x63A5;&#x7DDA;/&#x5F93;&#x6CD5;&#x7DDA;&#x306A;&#x3069;&#x3082;&#x8A08;&#x7B97;</li>
+<li>&#x9802;&#x70B9;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x306B;&#x3088;&#x308A;&#x3001;&#x7570;&#x306A;&#x308B;&#x5C5E;&#x6027;&#x6BCE;&#x306B;&#x9802;&#x70B9;&#x3092;&#x30E6;&#x30CB;&#x30FC;&#x30AF;&#x5316;</li>
+</ul>
+</li>
+</ul><h3>S3GLTriangleIndex / S3GLTriangleIndexData</h3><ul>
+<li><p><strong>&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x60C5;&#x5831;</strong>&#xFF08;&#x5404;&#x9762;&#x3054;&#x3068;&#x306E;UV, &#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x7B49;&#x3092;&#x542B;&#x3080;&#xFF09;</p>
+<ul>
+<li>&#x9762;&#x5358;&#x4F4D;/&#x9802;&#x70B9;&#x5358;&#x4F4D;&#x3067;&#x6CD5;&#x7DDA;&#x30FB;&#x63A5;&#x7DDA;&#x7B49;&#x3082;&#x683C;&#x7D0D;</li>
+</ul>
+</li>
+</ul><h3>S3GLVertex</h3><ul>
+<li><p><strong>&#x5404;&#x9802;&#x70B9;&#x306E; 3D &#x4F4D;&#x7F6E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x3092; GL &#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;&#x3067;&#x7BA1;&#x7406;</strong></p>
+<ul>
+<li>attribute &#x3078;&#x306E;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x7528;&#x30C7;&#x30FC;&#x30BF;&#xFF08;Float32Array&#x5316;&#x306A;&#x3069;&#xFF09;</li>
+</ul>
+</li>
+</ul><h3>S3GLMaterial</h3><ul>
+<li><p><strong>&#x8272;/&#x62E1;&#x6563;/&#x53CD;&#x5C04;/&#x767A;&#x5149;/&#x74B0;&#x5883;&#x5149;/&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x7B49;&#x306E; uniform &#x5316;</strong></p>
+<ul>
+<li>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x6709;&#x7121;&#x3092;&#x542B;&#x3080;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x307E;&#x3068;&#x3081;&#x3066;&#x8FD4;&#x3059;</li>
+<li>GLSL &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x5074;&#x306E; uniform &#x5909;&#x6570;&#x540D;&#x3068;&#x4E00;&#x81F4;</li>
+</ul>
+</li>
+</ul><h3>S3GLTexture</h3><ul>
+<li><strong>&#x753B;&#x50CF;&#x304B;&#x3089; WebGL &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x751F;&#x6210;&#xFF0F;&#x7BA1;&#x7406;</strong></li>
+</ul><h3>S3GLLight</h3><ul>
+<li><strong>&#x5E73;&#x884C;&#x5149;&#x6E90;/&#x70B9;&#x5149;&#x6E90;/&#x74B0;&#x5883;&#x5149;&#x306A;&#x3069;&#x306E; uniform &#x751F;&#x6210;</strong></li>
+</ul><h3>S3GLProgram</h3><ul>
+<li><p><strong>&#x9802;&#x70B9;&#x30FB;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306E;&#x7BA1;&#x7406;&#xFF0F;GLSL uniform&#x30FB;attribute &#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x7BA1;&#x7406;</strong></p>
+<ul>
+<li>GLSL &#x5909;&#x6570;&#x540D;&#x3054;&#x3068;&#x306B;&#x578B;&#x30FB;&#x30ED;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30FB;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x95A2;&#x6570;&#x3092;&#x81EA;&#x52D5;&#x7BA1;&#x7406;</li>
+<li>VBO/IBO &#x306E; bind, uniform &#x306E; bind &#x3092;&#x3059;&#x3079;&#x3066;&#x7BA1;&#x7406;</li>
+</ul>
+</li>
+</ul><h2>&#x30C7;&#x30FC;&#x30BF;&#x30D5;&#x30ED;&#x30FC;&#xFF0F;&#x63CF;&#x753B;&#x30D1;&#x30A4;&#x30D7;&#x30E9;&#x30A4;&#x30F3;&#x4F8B;</h2><ol>
+<li><strong>S3GLSystem</strong>: <code>setCanvas</code>, <code>setProgram</code>, <code>setBackgroundColor</code> &#x306A;&#x3069;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x521D;&#x671F;&#x5316;</li>
+<li><strong>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30FB;&#x30E2;&#x30C7;&#x30EB;&#x751F;&#x6210;</strong>: <code>createMesh</code>, <code>createModel</code>&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;/&#x30C7;&#x30FC;&#x30BF;&#x304B;&#x3089;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x751F;&#x6210;&#xFF08;&#x4F8B;: MQO&#x30ED;&#x30FC;&#x30C0;&#xFF09;</li>
+<li><strong>&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x30FB;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x30FB;&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x30BB;&#x30C3;&#x30C8;</strong></li>
+<li><strong>&#x30B7;&#x30FC;&#x30F3;&#x751F;&#x6210;&#xFF0F;&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30E9;&#x30A4;&#x30C8;&#x767B;&#x9332;</strong></li>
+<li><p><strong>drawScene(scene)</strong> &#x3067;&#x30B7;&#x30FC;&#x30F3;&#x5168;&#x4F53;&#x63CF;&#x753B;</p>
+<ul>
+<li>(a) <strong>Uniforms</strong>: &#x30B7;&#x30FC;&#x30F3;/&#x30AB;&#x30E1;&#x30E9;/&#x30E9;&#x30A4;&#x30C8;/&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x306E; uniform &#x3092;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x30D0;&#x30A4;&#x30F3;&#x30C9;</li>
+<li>(b) <strong>VBO/IBO &#x30D0;&#x30A4;&#x30F3;&#x30C9;</strong>: &#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3054;&#x3068;&#x306B;&#x5C5E;&#x6027;&#x30FB;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x3092;GL&#x3078;</li>
+<li>(c) <strong>Draw Call</strong>: <code>drawElements</code> &#x5B9F;&#x884C;&#x3067; WebGL &#x3078;&#x63CF;&#x753B;&#x6307;&#x793A;</li>
+</ul>
+</li>
+</ol><pre><code class="lang-js"><code class="source-code prettyprint">const s3 = new S3GLSystem();
+const program = s3.createProgram();
+program.setVertexShader(&quot;...&quot;);
+program.setFragmentShader(&quot;...&quot;);
+s3.setProgram(program);
+
+const mesh = s3.createMesh(); // &#x9802;&#x70B9;&#x30FB;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x30FB;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x8FFD;&#x52A0;
+const model = s3.createModel();
+model.setMesh(mesh);
+
+const scene = s3.createScene();
+scene.setCamera(s3.createCamera());
+scene.addModel(model);
+
+s3.drawScene(scene); // &#x21D2; &#x63CF;&#x753B;&#x30D1;&#x30A4;&#x30D7;&#x30E9;&#x30A4;&#x30F3;&#x304C;&#x3059;&#x3079;&#x3066;&#x81EA;&#x52D5;&#x51E6;&#x7406;</code>
+</code></pre><h2>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;</h2><ul>
+<li>math/ : S3Vector, S3Matrix, S3Math &#x306A;&#x3069;&#x6570;&#x5B66;&#x7CFB;</li>
+<li>basic/ : S3Vertex, S3Material, S3TriangleIndex, S3Mesh, S3Model, S3Scene, S3Camera &#x306A;&#x3069;</li>
+<li>GL&#x7528;: S3GLSystem, S3GLMesh, S3GLModel, S3GLScene, S3GLMaterial, S3GLTexture, S3GLTriangleIndex, S3GLVertex, S3GLLight, S3GLProgram, S3GLShader, S3GLArray, S3GLTriangleIndexData</li>
+</ul><h2>&#x8A2D;&#x8A08;&#x306E;&#x7279;&#x5FB4;&#x30FB;&#x610F;&#x56F3;</h2><ul>
+<li><p><strong>&#x62BD;&#x8C61;&#xFF08;basic&#xFF09;&#x3068;WebGL&#x5C64;&#xFF08;GL&#xFF09;&#x3092;&#x660E;&#x78BA;&#x306B;&#x5206;&#x96E2;</strong></p>
+<ul>
+<li>&#x62BD;&#x8C61;&#x7684;&#x306A;3D&#x5F62;&#x72B6;&#x64CD;&#x4F5C;&#xFF08;&#x5EA7;&#x6A19;/&#x5909;&#x63DB;/&#x8AD6;&#x7406;&#xFF09;&#x3068;&#x3001;WebGL&#x7528;&#x6700;&#x9069;&#x5316;&#x30C7;&#x30FC;&#x30BF;&#xFF08;&#x30D0;&#x30C3;&#x30D5;&#x30A1;/&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;/&#x30B7;&#x30A7;&#x30FC;&#x30C0;/GL&#x7BA1;&#x7406;&#xFF09;&#x3092;&#x5206;&#x3051;&#x3066;&#x8A2D;&#x8A08;</li>
+</ul>
+</li>
+<li><p><strong>&#x53EF;&#x642C;&#x6027;&#xFF0F;&#x6C4E;&#x7528;&#x6027;</strong></p>
+<ul>
+<li>&#x4F8B;&#x3048;&#x3070;&#x300C;CPU&#x8A08;&#x7B97;&#x306E;&#x307F;&#x3067;&#x753B;&#x50CF;&#x3092;&#x51FA;&#x3059;&#x300D;&#x7528;&#x9014;&#x3084;&#x3001;&#x300C;&#x5C06;&#x6765;&#x306E;&#x4ED6;API&#x5BFE;&#x5FDC;&#x300D;&#x3082;&#x898B;&#x636E;&#x3048;&#x3066;&#x3044;&#x308B;</li>
+</ul>
+</li>
+<li><strong>&#x30C7;&#x30FC;&#x30BF;&#x306E; immutable &#x6E96;&#x62E0;&#xFF08;&#x9802;&#x70B9;/&#x4E09;&#x89D2;&#x5F62;/&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF09;&#x3068;&#x3001;mutable&#x306A; Scene/Model/Camera</strong></li>
+<li><strong>GLSL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x5909;&#x6570;&#x3068;&#x306E;&#x81EA;&#x52D5;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x7BA1;&#x7406;&#xFF08;S3GLProgram&#x3067;&#x81EA;&#x52D5;&#x89E3;&#x6790;&#xFF09;</strong></li>
+</ul></div>
+        <a data-ice="link" href="manual/WEBGL.html"></a>
+      </div>
+    </div>
+<div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>&#x901A;&#x5E38;&#x306E;3D&#x63CF;&#x5199;&#x306E;&#x30C7;&#x30E2;</h1><p>&#x4EE5;&#x4E0B;&#x3067;&#x5B9F;&#x969B;&#x3092;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p><ul>
+<li><a href="./manual/../demo/sample1.html">demo1</a></li>
+</ul><h2>sample1.mjs</h2><pre><code class="lang-js"><code class="source-code prettyprint">// --- &#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x8AAD;&#x307F;&#x8FBC;&#x307F; ---
+// UI&#x64CD;&#x4F5C;&#x7528;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;
+import GuiBlocks from &quot;./libs/GuiBlocks.min.js&quot;;
+// &#x5165;&#x529B;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#xFF08;&#x30DE;&#x30A6;&#x30B9;&#x3084;&#x30BF;&#x30C3;&#x30C1;&#xFF09;&#x64CD;&#x4F5C;&#x7528;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;
+import InputDetect from &quot;./libs/InputDetect.min.js&quot;;
+// 3DCG&#x30A8;&#x30F3;&#x30B8;&#x30F3;&#x672C;&#x4F53;&#xFF08;&#x3042;&#x306A;&#x305F;&#x304C;&#x4F5C;&#x3063;&#x305F;S3&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#xFF09;
+import S3 from &quot;./libs/S3.min.js&quot;;
+
+/**
+ * S3&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x5185;&#x306E;&#x6570;&#x5024;&#x8A08;&#x7B97;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30C7;&#x30E2;&#x95A2;&#x6570;
+ * &#x884C;&#x5217;&#x306E;&#x4F5C;&#x6210;&#x30FB;&#x8A08;&#x7B97;&#x30FB;&#x9006;&#x884C;&#x5217;&#x306A;&#x3069;&#x3001;&#x57FA;&#x672C;&#x7684;&#x306A;&#x6570;&#x5024;&#x51E6;&#x7406;&#x306E;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x3092;&#x8868;&#x793A;&#x3057;&#x307E;&#x3059;&#x3002;
+ */
+const testMath = function() {
+    console.log(&quot;Math &#x306E;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&quot;);
+
+    // 4x4&#x884C;&#x5217;&#x306E;&#x751F;&#x6210;
+    const m4 = new S3.Matrix(
+        3, -2, -6, 4,
+        -7, -6, 8, 21,
+        -4, -7, 9, 11,
+        2, -3, -5, 8
+    );
+
+    console.log(&quot;&#x884C;&#x5217;&#x3092;&#x4F5C;&#x6210;&quot;);
+    console.log(m4.toString());
+
+    // 4x4&#x884C;&#x5217;&#x306E;&#x884C;&#x5217;&#x5F0F;&#x3092;&#x8A08;&#x7B97;&#xFF08;det4&#xFF09;
+    console.log(&quot;4x4&#x884C;&#x5217;&#x306E;&#x884C;&#x5217;&#x5F0F;&quot;);
+    console.log(m4.det4().toString());
+
+    // 4x4&#x884C;&#x5217;&#x306E;&#x9006;&#x884C;&#x5217;&#x3092;&#x8A08;&#x7B97;&#xFF08;inverse4&#xFF09;
+    console.log(&quot;4x4&#x884C;&#x5217;&#x306E;&#x9006;&#x884C;&#x5217;&quot;);
+    console.log(m4.inverse4().toString());
+
+    // &#x884C;&#x5217;&#x540C;&#x58EB;&#x306E;&#x639B;&#x3051;&#x7B97;
+    console.log(&quot;&#x884C;&#x5217;&#x306E;&#x639B;&#x3051;&#x7B97;&quot;);
+    console.log(m4.mulMatrix(m4).toString());
+
+    // 3x3&#x884C;&#x5217;&#x306E;&#x751F;&#x6210;
+    const m3 = new S3.Matrix(
+        1, 2, 1,
+        2, 1, 0,
+        1, 1, 2
+    );
+
+    // 3x3&#x884C;&#x5217;&#x306E;&#x884C;&#x5217;&#x5F0F;
+    console.log(&quot;3x3&#x884C;&#x5217;&#x306E;&#x884C;&#x5217;&#x5F0F;&quot;);
+    console.log(m3.det3().toString());
+
+    // 3x3&#x884C;&#x5217;&#x306E;&#x9006;&#x884C;&#x5217;
+    console.log(&quot;3x3&#x884C;&#x5217;&#x306E;&#x9006;&#x884C;&#x5217;&quot;);
+    console.log(m3.inverse3().toString());
+};
+
+/**
+ * &#x30E1;&#x30A4;&#x30F3;&#x51E6;&#x7406;&#xFF08;&#x30A6;&#x30A3;&#x30F3;&#x30C9;&#x30A6;&#x8868;&#x793A;&#x30FB;3D&#x63CF;&#x753B;&#xFF09;
+ */
+const main = function() {
+    testMath(); // &#x307E;&#x305A;&#x6570;&#x5024;&#x8A08;&#x7B97;&#x30C7;&#x30E2;&#x3092;&#x5B9F;&#x884C;
+
+    console.log(&quot;S3 &#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&quot;);
+
+    // &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3092;&#x6291;&#x6B62;&#xFF08;&#x30DE;&#x30A6;&#x30B9;&#x3084;&#x30BF;&#x30C3;&#x30C1;&#x64CD;&#x4F5C;&#x304C;3D&#x64CD;&#x4F5C;&#x7528;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x3068;&#x3057;&#x3066;&#x512A;&#x5148;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#xFF09;
+    InputDetect.noScroll();
+
+    // --- GUI&#x30D1;&#x30CD;&#x30EB;&#xFF08;&#x63CF;&#x753B;&#x7528;&#x30AD;&#x30E3;&#x30F3;&#x30D0;&#x30B9;&#xFF09;&#x3092;&#x4F5C;&#x6210; ---
+    // 640x480&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x306E;&#x63CF;&#x753B;&#x30D1;&#x30CD;&#x30EB;&#xFF08;HTML canvas&#xFF09;&#x3092;&#x4F5C;&#x6210;
+    const panel = new GuiBlocks.SCanvas();
+    // id=&quot;scomponent&quot; &#x306E;&#x8981;&#x7D20;&#x5185;&#x306B;&#x3053;&#x306E;&#x30D1;&#x30CD;&#x30EB;&#x3092;&#x8FFD;&#x52A0;
+    panel.putMe(&quot;scomponent&quot;, GuiBlocks.PUT_TYPE.IN);
+    // &#x30B5;&#x30A4;&#x30BA;&#x5358;&#x4F4D;&#x3092;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x3067;&#x8A2D;&#x5B9A;
+    panel.setUnit(GuiBlocks.UNIT_TYPE.PX);
+    panel.setPixelSize(640, 480);  // &#x5B9F;&#x969B;&#x306E;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x30B5;&#x30A4;&#x30BA;
+    panel.setSize(640, 480);       // &#x8AD6;&#x7406;&#x30B5;&#x30A4;&#x30BA;
+
+    {
+        // HTMLCanvasElement&#x3092;&#x53D6;&#x5F97;
+        const canvas = panel.getCanvas();
+
+        // S3&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x672C;&#x4F53;&#xFF08;&#x63CF;&#x753B;&#x30A8;&#x30F3;&#x30B8;&#x30F3;&#x7BA1;&#x7406;&#x30AF;&#x30E9;&#x30B9;&#xFF09;&#x3092;&#x4F5C;&#x6210;
+        const sys = new S3.System();
+        // &#x30AB;&#x30E1;&#x30E9;&#x64CD;&#x4F5C;&#x7528;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x3092;&#x4F5C;&#x6210;
+        const controller = new S3.CameraController();
+        // &#x30AB;&#x30E1;&#x30E9;&#xFF08;&#x8996;&#x70B9;&#xFF09;&#x3092;&#x751F;&#x6210;
+        const camera = sys.createCamera();
+
+        // S3&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306B;canvas&#x3092;&#x767B;&#x9332;&#xFF08;&#x63CF;&#x753B;&#x306E;&#x51FA;&#x529B;&#x5148;&#x3092;&#x6307;&#x5B9A;&#xFF09;
+        sys.setCanvas(canvas);
+        // &#x30AB;&#x30E1;&#x30E9;&#x64CD;&#x4F5C;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x306B;&#x3082;canvas&#x3092;&#x767B;&#x9332;&#xFF08;&#x30DE;&#x30A6;&#x30B9;&#x64CD;&#x4F5C;&#x53D6;&#x5F97;&#xFF09;
+        controller.setCanvas(canvas);
+
+        // &#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x5EA7;&#x6A19;&#x7CFB;&#x30E2;&#x30FC;&#x30C9;&#x3092;OpenGL&#x4E92;&#x63DB;&#x306B;&#x8A2D;&#x5B9A;&#xFF08;&#x53F3;&#x624B;&#x7CFB;&#x3001;&#x9006;&#x9806;&#x30AB;&#x30EA;&#x30F3;&#x30B0;&#x306A;&#x3069;&#xFF09;
+        sys.setSystemMode(S3.SYSTEM_MODE.OPEN_GL);
+        // DirectX&#x4E92;&#x63DB;&#x306E;&#x5834;&#x5408;&#x306F;&#x3053;&#x3061;&#x3089;
+        // sys.setSystemMode(S3.SYSTEM_MODE.DIRECT_X);
+
+        // --- 3D&#x30E2;&#x30C7;&#x30EB;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x4F5C;&#x6210;&#x3068;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x30C7;&#x30E2; ---
+        console.log(&quot;json&#x5F62;&#x5F0F;&#x3067;&#x306E;&#x8AAD;&#x307F;&#x66F8;&#x304D;&#x306E;&#x30C6;&#x30B9;&#x30C8;&quot;);
+        // &#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x7528;&#x306E;&#x7C21;&#x5358;&#x306A;&#x30DD;&#x30EA;&#x30B4;&#x30F3;&#xFF08;&#x56DB;&#x9762;&#x4F53;&#x3063;&#x307D;&#x3044;&#xFF09;&#x30C7;&#x30FC;&#x30BF;
+        const meshdata = {
+            Indexes:{
+                body:[
+                    [ 0, 1, 2],
+                    [ 3, 1, 0],
+                    [ 3, 0, 2],
+                    [ 3, 2, 1]
+                ]
+            },
+            Vertices:[
+                [  0,  0,  -5],
+                [  0, 20,  -5],
+                [ 10,  0,  -5],
+                [  0,  0, -20]
+            ]
+        };
+
+        let mesh;
+        // JSON&#x30C7;&#x30FC;&#x30BF;&#x304B;&#x3089;S3Mesh&#x306B;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;
+        console.log(&quot;.json&quot;);
+        mesh = S3.MeshLoader.inputData(sys, meshdata, &quot;json&quot;);
+        // S3Mesh&#x3092;JSON&#x5F62;&#x5F0F;&#x3067;&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;&#xFF08;&#x9006;&#x5909;&#x63DB;&#xFF09;
+        console.log(S3.MeshLoader.outputData(mesh, &quot;json&quot;));
+
+        // MQO&#x5F62;&#x5F0F;&#xFF08;Metasequoia 3D&#x30E2;&#x30C7;&#x30E9;&#x30FC;&#x7528;&#xFF09;&#x306E;&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;&#x30C6;&#x30B9;&#x30C8;
+        console.log(&quot;MQO&#x3067;&#x306E;&#x51FA;&#x529B;&#x30C6;&#x30B9;&#x30C8;&quot;);
+        console.log(&quot;.mqo&quot;);
+        console.log(S3.MeshLoader.outputData(mesh, &quot;mqo&quot;));
+
+        // MQO&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#x30C6;&#x30B9;&#x30C8;&#xFF08;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F; ./resource/teapot.mqo &#x3092;&#x60F3;&#x5B9A;&#xFF09;
+        console.log(&quot;MQO&#x3067;&#x306E;&#x5165;&#x529B;&#x30C6;&#x30B9;&#x30C8;&quot;);
+        mesh = S3.MeshLoader.inputData(sys, &quot;./resource/teapot.mqo&quot;);
+
+        // --- &#x30E2;&#x30C7;&#x30EB;&#xFF08;&#x4F4D;&#x7F6E;&#x30FB;&#x56DE;&#x8EE2;&#x30FB;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#x3092;&#x6301;&#x3064;3D&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF09;&#x3092;&#x4F5C;&#x6210; ---
+        const model = sys.createModel();
+        model.setMesh(mesh);    // &#x5F62;&#x72B6;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x30BB;&#x30C3;&#x30C8;
+        model.setScale(5);      // &#x5168;&#x4F53;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#x3092;5&#x500D;&#x306B;&#x8A2D;&#x5B9A;
+
+        // --- &#x30AB;&#x30E1;&#x30E9;&#xFF08;&#x8996;&#x70B9;&#xFF09;&#x306E;&#x521D;&#x671F;&#x8A2D;&#x5B9A; ---
+        camera.setEye(new S3.Vector( 20,  30,  50));   // &#x8996;&#x70B9;&#xFF08;&#x30AB;&#x30E1;&#x30E9;&#x4F4D;&#x7F6E;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;
+        camera.setCenter(new S3.Vector( 0,  0,  0));   // &#x6CE8;&#x8996;&#x70B9;&#xFF08;&#x30AB;&#x30E1;&#x30E9;&#x304C;&#x5411;&#x304F;&#x4E2D;&#x5FC3;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;
+        controller.setCamera(camera);                  // &#x30AB;&#x30E1;&#x30E9;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x306B;&#x30AB;&#x30E1;&#x30E9;&#x3092;&#x767B;&#x9332;
+
+        // --- &#x30B7;&#x30FC;&#x30F3;&#xFF08;3D&#x7A7A;&#x9593;&#xFF09;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x30E2;&#x30C7;&#x30EB;&#x3068;&#x30AB;&#x30E1;&#x30E9;&#x3092;&#x914D;&#x7F6E; ---
+        const scene = sys.createScene();
+        scene.setCamera(camera);        // &#x30B7;&#x30FC;&#x30F3;&#x306B;&#x30AB;&#x30E1;&#x30E9;&#x3092;&#x30BB;&#x30C3;&#x30C8;
+        scene.addModel(model);          // &#x30E2;&#x30C7;&#x30EB;&#x3092;&#x30B7;&#x30FC;&#x30F3;&#x306B;&#x8FFD;&#x52A0;
+
+        /**
+         * &#x753B;&#x9762;&#x3092;&#x5B9A;&#x671F;&#x7684;&#x306B;&#x518D;&#x63CF;&#x753B;&#x3059;&#x308B;&#x95A2;&#x6570;&#xFF08;&#x30A2;&#x30CB;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x30EB;&#x30FC;&#x30D7;&#xFF09;
+         * &#x30E2;&#x30C7;&#x30EB;&#x3092;&#x56DE;&#x8EE2;&#x3055;&#x305B;&#x305F;&#x308A;&#x3001;&#x30AB;&#x30E1;&#x30E9;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x3067;&#x52D5;&#x7684;&#x306B;&#x8996;&#x70B9;&#x64CD;&#x4F5C;&#x3067;&#x304D;&#x308B;
+         */
+        const redraw = function() {
+            // &#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x306E;&#x5165;&#x529B;&#x306B;&#x5408;&#x308F;&#x305B;&#x3066;&#x30AB;&#x30E1;&#x30E9;&#x3092;&#x66F4;&#x65B0;
+            scene.setCamera(controller.getCamera());
+            sys.clear();           // &#x63CF;&#x753B;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x3092;&#x30AF;&#x30EA;&#x30A2;
+            model.addRotateY(3);   // &#x30E2;&#x30C7;&#x30EB;&#x3092;Y&#x8EF8;&#x56DE;&#x8EE2;&#x3055;&#x305B;&#x308B;&#xFF08;&#x6BCE;&#x30D5;&#x30EC;&#x30FC;&#x30E0;3&#x5EA6;&#xFF09;
+            sys.drawAxis(scene);   // XYZ&#x8EF8;&#x3092;&#x63CF;&#x753B;&#xFF08;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x30FB;&#x53EF;&#x8996;&#x5316;&#x7528;&#xFF09;
+            sys.drawScene(scene);  // &#x30B7;&#x30FC;&#x30F3;&#x5168;&#x4F53;&#x3092;&#x63CF;&#x753B;&#xFF08;&#x5168;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8868;&#x793A;&#xFF09;
+        };
+
+        console.log(model);
+
+        // 50&#x30DF;&#x30EA;&#x79D2;&#x3054;&#x3068;&#x306B;redraw()&#x3092;&#x5B9F;&#x884C;&#xFF08;1&#x79D2;&#x3042;&#x305F;&#x308A;&#x7D04;20&#x56DE;&#x306E;&#x63CF;&#x753B;&#x66F4;&#x65B0;&#xFF1D;&#x30A2;&#x30CB;&#x30E1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#xFF09;
+        setInterval(redraw, 50);
+    }
+};
+
+// &#x30E1;&#x30A4;&#x30F3;&#x95A2;&#x6570;&#x5B9F;&#x884C;&#xFF08;&#x6700;&#x521D;&#x306B;&#x547C;&#x3070;&#x308C;&#x308B;&#xFF09;
+main();</code>
+</code></pre></div>
+        <a data-ice="link" href="manual/DEMO1.html"></a>
+      </div>
+    </div>
+<div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>WebGL&#x306E;3D&#x63CF;&#x5199;&#x306E;&#x30C7;&#x30E2;</h1><p>&#x4EE5;&#x4E0B;&#x3067;&#x5B9F;&#x969B;&#x3092;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p><ul>
+<li><a href="./manual/../demo/sample1.html">demo2</a></li>
+</ul><h2>sample2.mjs</h2><pre><code class="lang-js"><code class="source-code prettyprint">// &#x5916;&#x90E8;UI&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3084;S3&#x30A8;&#x30F3;&#x30B8;&#x30F3;&#x306E;&#x8AAD;&#x307F;&#x8FBC;&#x307F;
+import GuiBlocks from &quot;./libs/GuiBlocks.min.js&quot;;
+import InputDetect from &quot;./libs/InputDetect.min.js&quot;;
+import S3 from &quot;./libs/S3.min.js&quot;;
+
+/**
+ * WebGL&#x306B;&#x3088;&#x308B;3D&#x63CF;&#x753B;&#x30C6;&#x30B9;&#x30C8;&#x7528;&#x30AF;&#x30E9;&#x30B9;
+ * S3&#x30A8;&#x30F3;&#x30B8;&#x30F3;&#x3068;GUI&#x90E8;&#x54C1;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x30C7;&#x30E2;&#x30A2;&#x30D7;&#x30EA;&#x3067;&#x3059;&#x3002;
+ */
+class S3DGLTest {
+
+    constructor() {
+        // S3&#x306E;WebGL&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#xFF08;&#x30EC;&#x30F3;&#x30C0;&#x30EA;&#x30F3;&#x30B0;&#x7BA1;&#x7406;&#xFF09;&#x3092;&#x521D;&#x671F;&#x5316;
+        this.s3 = new S3.GLSystem();
+
+        // &#x30AB;&#x30E1;&#x30E9;&#x64CD;&#x4F5C;&#x7528;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;&#x3092;&#x521D;&#x671F;&#x5316;
+        this.controller = new S3.CameraController();
+
+        // &#x30AB;&#x30E1;&#x30E9;&#x3001;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3001;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x53C2;&#x7167;&#x3092;&#x521D;&#x671F;&#x5316;
+        this.camera = null;
+        this.mesh = null;
+        this.model = null;
+    }
+
+    /**
+     * WebGL&#x63CF;&#x753B;&#x7528;Canvas&#x306E;&#x521D;&#x671F;&#x5316;&#x51E6;&#x7406;
+     * @param {HTMLCanvasElement} canvas - &#x63CF;&#x753B;&#x5BFE;&#x8C61;&#x306E;Canvas&#x8981;&#x7D20;
+     */
+    initCanvas(canvas) {
+        const s3 = this.s3;
+        // &#x80CC;&#x666F;&#x8272;&#x3092;&#x9ED2;&#x306B;&#x8A2D;&#x5B9A;
+        s3.setBackgroundColor(new S3.Vector(0, 0, 0));
+        // WebGL&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x3092;Canvas&#x306B;&#x30BB;&#x30C3;&#x30C8;
+        s3.setCanvas(canvas);
+        // &#x30AB;&#x30E1;&#x30E9;&#x64CD;&#x4F5C;&#x7528;&#x306E;Canvas&#x3082;&#x767B;&#x9332;
+        this.controller.setCanvas(canvas);
+
+        // 3D&#x30AB;&#x30E1;&#x30E9;&#x3092;&#x751F;&#x6210;
+        this.camera = s3.createCamera();
+
+        // &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#xFF08;GLSL&#xFF09;&#x3092;&#x4F5C;&#x6210;&#x30FB;&#x30BB;&#x30C3;&#x30C8;
+        const program = s3.createProgram();
+        program.setFragmentShader(&quot;./libs/S3GL.frag&quot;); // &#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;
+        program.setVertexShader(&quot;./libs/S3GL.vert&quot;);   // &#x30D0;&#x30FC;&#x30C6;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;
+        s3.setProgram(program);
+
+        // &#x63CF;&#x753B;&#x65B9;&#x5F0F;&#x306A;&#x3069;&#x306E;&#x521D;&#x671F;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;
+        s3.setSystemMode(S3.SYSTEM_MODE.OPEN_GL);       // OpenGL&#x65B9;&#x5F0F;
+        s3.setFrontMode(S3.FRONT_FACE.CLOCKWISE);       // &#x9762;&#x306E;&#x8868;&#x88CF;&#x5224;&#x5B9A;&#x3092;&#x6642;&#x8A08;&#x56DE;&#x308A;&#x306B;
+
+        // &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x8996;&#x70B9;&#x3068;&#x6CE8;&#x8996;&#x70B9;&#x3092;&#x8A2D;&#x5B9A;
+        this.camera.setEye(new S3.Vector(20, 30, 50));  // &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x4F4D;&#x7F6E;
+        this.camera.setCenter(new S3.Vector(0, 0, 0));  // &#x6CE8;&#x8996;&#x70B9;&#xFF08;&#x539F;&#x70B9;&#xFF09;
+
+        // &#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;&#x306B;&#x30AB;&#x30E1;&#x30E9;&#x3092;&#x30BB;&#x30C3;&#x30C8;&#xFF08;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x64CD;&#x4F5C;&#x53CD;&#x6620;&#x7528;&#xFF09;
+        this.controller.setCamera(this.camera);
+    }
+
+    /**
+     * &#x73FE;&#x5728;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x30AF;&#x30EA;&#x30A2;&#xFF08;&#x524A;&#x9664;&#xFF09;&#x3059;&#x308B;
+     * &#x7834;&#x68C4;&#x30FB;&#x53C2;&#x7167;&#x5207;&#x308A;&#x96E2;&#x3057;&#x3067;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x30EA;&#x30FC;&#x30AF;&#x3092;&#x9632;&#x3050;
+     */
+    clearModel() {
+        if (this.model) {
+            this.model = null;
+        }
+        if (this.mesh) {
+            this.mesh.dispose(); // GL&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x89E3;&#x653E;
+            this.mesh = null;
+        }
+    }
+
+    /**
+     * &#x30E2;&#x30C7;&#x30EB;&#xFF08;3D&#x5F62;&#x72B6;&#x30C7;&#x30FC;&#x30BF;&#xFF09;&#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x30BB;&#x30C3;&#x30C8;&#x3059;&#x308B;
+     * @param {string} url - MQO&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306A;&#x3069;&#x306E;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x30D1;&#x30B9;
+     */
+    setModel(url) {
+        const s3 = this.s3;
+        // &#x65B0;&#x3057;&#x3044;3D&#x30E2;&#x30C7;&#x30EB;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x751F;&#x6210;
+        const newmodel = s3.createModel();
+        // &#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30ED;&#x30FC;&#x30C0;&#x30FC;&#x3067;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304B;&#x3089;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;
+        const newmesh = S3.MeshLoader.inputData(s3, url);
+        // &#x30E2;&#x30C7;&#x30EB;&#x306B;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x767B;&#x9332;
+        newmodel.setMesh(newmesh);
+
+        // &#x65E2;&#x5B58;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x30AF;&#x30EA;&#x30A2;
+        this.clearModel();
+
+        // &#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3060;&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x4FDD;&#x6301;
+        this.model = newmodel;
+        this.mesh = newmesh;
+    }
+
+    /**
+     * &#x30B7;&#x30FC;&#x30F3;&#x306E;&#x63CF;&#x753B;&#x51E6;&#x7406;
+     * &#x30AB;&#x30E1;&#x30E9;&#x3001;&#x30E9;&#x30A4;&#x30C8;&#x3001;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x307E;&#x3068;&#x3081;&#x3066;S3&#x30A8;&#x30F3;&#x30B8;&#x30F3;&#x3067;&#x30EC;&#x30F3;&#x30C0;&#x30EA;&#x30F3;&#x30B0;
+     */
+    draw() {
+        const s3 = this.s3;
+        // &#x30B7;&#x30FC;&#x30F3;&#xFF08;Scene&#xFF09;&#x3092;&#x4F5C;&#x6210;
+        const scene = s3.createScene();
+
+        // &#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;&#x304B;&#x3089;&#x30AB;&#x30E1;&#x30E9;&#x53D6;&#x5F97;&#x3057;&#x3001;&#x30B7;&#x30FC;&#x30F3;&#x306B;&#x767B;&#x9332;
+        scene.setCamera(this.controller.getCamera());
+
+        // &#x30E2;&#x30C7;&#x30EB;&#x304C;&#x30BB;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x3066;&#x3044;&#x308C;&#x3070;&#x30B7;&#x30FC;&#x30F3;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x3001;&#x52D5;&#x304D;&#x3092;&#x3064;&#x3051;&#x308B;
+        if (this.model !== null) {
+            scene.addModel(this.model);
+            this.model.setScale(5);      // &#x30E2;&#x30C7;&#x30EB;&#x3092;&#x62E1;&#x5927;
+            this.model.addRotateY(3);    // &#x30E2;&#x30C7;&#x30EB;&#x3092;Y&#x8EF8;&#x5468;&#x308A;&#x306B;&#x56DE;&#x8EE2;
+        }
+
+        // &#x74B0;&#x5883;&#x306B;3&#x3064;&#x306E;&#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x5149;&#x6E90;&#xFF09;&#x3092;&#x8FFD;&#x52A0;
+        // 1. &#x4E0A;&#x65B9;&#x5411;&#x304B;&#x3089;&#x306E;&#x5E73;&#x884C;&#x5149;&#x6E90;
+        const light_down = s3.createLight();
+        light_down.setMode(S3.LIGHT_MODE.DIRECTIONAL_LIGHT);
+        light_down.setColor(new S3.Vector(0.6, 0.6, 1.0));
+        light_down.setDirection(new S3.Vector(0, -1, 0));
+        scene.addLight(light_down);
+
+        // 2. &#x74B0;&#x5883;&#x5149;
+        const light_ambient = s3.createLight();
+        light_ambient.setMode(S3.LIGHT_MODE.AMBIENT_LIGHT);
+        light_ambient.setColor(new S3.Vector(0.0, 0.1, 0.05));
+        scene.addLight(light_ambient);
+
+        // 3. &#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x4F4D;&#x7F6E;&#x6307;&#x5B9A;&#x306E;&#x70B9;&#x5149;&#x6E90;&#xFF09;
+        const light_point = s3.createLight();
+        light_point.setMode(S3.LIGHT_MODE.POINT_LIGHT);
+        light_point.setColor(new S3.Vector(0.9, 0.9, 1.0));
+        light_point.setPosition(new S3.Vector(100, 0, 0));
+        light_point.setRange(200); // &#x6709;&#x52B9;&#x7BC4;&#x56F2;
+        scene.addLight(light_point);
+
+        // &#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x7B49;&#x306E;&#x521D;&#x671F;&#x5316;
+        s3.clear();
+
+        // &#x30B7;&#x30FC;&#x30F3;&#x3092;&#x63CF;&#x753B;
+        s3.drawScene(scene);
+    }
+
+}
+
+// &#x3053;&#x306E;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x751F;&#x6210;&#x3057;&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x53C2;&#x7167;
+const gl = new S3DGLTest();
+
+/**
+ * WebGL&#x63CF;&#x753B;&#x30D1;&#x30CD;&#x30EB;&#xFF08;Canvas&#x3068;&#x9023;&#x643A;&#x3057;&#x305F;UI&#x90E8;&#x54C1;&#xFF09;&#x306E;&#x751F;&#x6210;
+ * - &#x753B;&#x9762;&#x4E0A;&#x306B;1280x720&#x306E;WebGL&#x30AD;&#x30E3;&#x30F3;&#x30D0;&#x30B9;&#x3092;&#x914D;&#x7F6E;
+ * - &#x30C6;&#x30B9;&#x30C8;&#x7528;&#x306E;3D&#x30E2;&#x30C7;&#x30EB;&#xFF08;teapot.mqo&#xFF09;&#x3092;&#x521D;&#x671F;&#x8868;&#x793A;
+ * - 50ms&#x3054;&#x3068;&#x306B;&#x63CF;&#x753B;&#x3092;&#x66F4;&#x65B0;
+ */
+const createWebGLPanel2 = function() {
+    const panel = new GuiBlocks.SCanvas();
+    panel.putMe(&quot;webglpanel&quot;, GuiBlocks.PUT_TYPE.IN);
+    panel.setUnit(GuiBlocks.UNIT_TYPE.PX);
+    panel.setPixelSize(1280, 720);
+
+    const canvas = panel.getCanvas();
+
+    gl.initCanvas(canvas); // WebGL&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;
+    gl.setModel(&quot;./resource/teapot.mqo&quot;); // &#x30C6;&#x30A3;&#x30FC;&#x30DD;&#x30C3;&#x30C8;3D&#x30E2;&#x30C7;&#x30EB;&#x8AAD;&#x307F;&#x8FBC;&#x307F;
+
+    const redraw = function() {
+        gl.draw(); // &#x753B;&#x9762;&#x66F4;&#x65B0;
+    };
+
+    // &#x63CF;&#x753B;&#x30EB;&#x30FC;&#x30D7;&#xFF08;50ms&#x9593;&#x9694;&#xFF09;
+    setInterval(redraw, 50);
+    // &#x203B;setTimeout&#x306B;&#x3088;&#x308B;&#x5358;&#x767A;&#x63CF;&#x753B;&#x3082;&#x53EF;&#x80FD;
+};
+
+/**
+ * &#x64CD;&#x4F5C;&#x7528;&#x30D1;&#x30CD;&#x30EB;&#x306E;&#x751F;&#x6210;
+ * - &#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x9078;&#x629E;&#x7528;&#x306E;&#x30B3;&#x30F3;&#x30DC;&#x30DC;&#x30C3;&#x30AF;&#x30B9;&#xFF08;mqo&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#xFF09;
+ * - &#x300C;load&#x300D;&#x30DC;&#x30BF;&#x30F3;&#x3067;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x5207;&#x308A;&#x66FF;&#x3048;&#x304C;&#x53EF;&#x80FD;
+ */
+const createOperationPanel = function() {
+    const filepanel = new GuiBlocks.SPanel(&quot;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&quot;);
+    filepanel.putMe(&quot;operationpanel&quot;, GuiBlocks.PUT_TYPE.IN);
+
+    const filebox = new GuiBlocks.SComboBox([
+        &quot;./resource/teapot.mqo&quot;,
+        &quot;./resource/bumptest.mqo&quot;
+    ]);
+    filebox.putMe(filepanel, GuiBlocks.PUT_TYPE.IN);
+
+    const loadbutton = new GuiBlocks.SButton(&quot;load&quot;);
+    loadbutton.putMe(filebox, GuiBlocks.PUT_TYPE.NEWLINE);
+    loadbutton.addListener(function () {
+        const filename = filebox.getSelectedItem();
+        console.log(filename);
+        gl.setModel(filename); // &#x65B0;&#x3057;&#x3044;&#x30E2;&#x30C7;&#x30EB;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;
+    });
+};
+
+/**
+ * &#x30E1;&#x30A4;&#x30F3;&#x51E6;&#x7406;
+ * - &#x30B3;&#x30F3;&#x30BD;&#x30FC;&#x30EB;&#x51FA;&#x529B;
+ * - &#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x6291;&#x6B62;
+ * - WebGL&#x30D1;&#x30CD;&#x30EB;&#x3068;&#x64CD;&#x4F5C;&#x30D1;&#x30CD;&#x30EB;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;
+ */
+const main = function() {
+    console.log(&quot;S3DGL &#x30AF;&#x30E9;&#x30B9;&#x306E;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&quot;);
+
+    // &#x30B9;&#x30DE;&#x30DB;&#x7B49;&#x3067;&#x306E;&#x30B9;&#x30AF;&#x30ED;&#x30FC;&#x30EB;&#x3092;&#x6291;&#x5236;
+    InputDetect.noScroll();
+
+    // WebGL&#x63CF;&#x753B;&#x30D1;&#x30CD;&#x30EB;&#x751F;&#x6210;
+    createWebGLPanel2();
+    // &#x64CD;&#x4F5C;&#x30D1;&#x30CD;&#x30EB;&#x751F;&#x6210;
+    createOperationPanel();
+};
+
+// &#x30A2;&#x30D7;&#x30EA;&#x8D77;&#x52D5;
+main();</code>
+</code></pre><h2>S3GL.vert</h2><pre><code class="lang-c"><code class="source-code prettyprint">// ========================================================================
+// &#x30D0;&#x30FC;&#x30C6;&#x30C3;&#x30AF;&#x30B9;&#xFF08;&#x9802;&#x70B9;&#xFF09;&#x30B7;&#x30A7;&#x30FC;&#x30C0;
+// &#x3053;&#x306E;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306F;&#x3001;3D&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x5404;&#x9802;&#x70B9;&#x3054;&#x3068;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x3001;
+// &#x9802;&#x70B9;&#x4F4D;&#x7F6E;&#x306E;&#x5EA7;&#x6A19;&#x5909;&#x63DB;&#x3084;&#x3001;&#x6CD5;&#x7DDA;&#x30FB;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x5EA7;&#x6A19;&#x306A;&#x3069;&#x306E;&#x5404;&#x7A2E;&#x5C5E;&#x6027;&#x3092;
+// &#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#xFF08;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#xFF09;&#x306B;&#x6E21;&#x3057;&#x307E;&#x3059;&#x3002;
+// ========================================================================
+
+// ---------- &#x9802;&#x70B9;&#x5C5E;&#x6027;&#xFF08;JavaScript&#x304B;&#x3089;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3055;&#x308C;&#x308B;&#xFF09; -------------------
+
+// &#x9802;&#x70B9;&#x6CD5;&#x7DDA;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF08;&#x7167;&#x660E;&#x8A08;&#x7B97;&#x3084;&#x6CD5;&#x7DDA;&#x30DE;&#x30C3;&#x30D7;&#x3067;&#x4F7F;&#x3046;&#xFF09;
+attribute vec3 vertexNormal;
+
+// &#x63A5;&#x7DDA;&#x30FB;&#x5F93;&#x6CD5;&#x7DDA;&#xFF08;&#x30BF;&#x30F3;&#x30B8;&#x30A7;&#x30F3;&#x30C8;/&#x30D0;&#x30A4;&#x30CE;&#x30FC;&#x30DE;&#x30EB;&#xFF09;
+// &#x6CD5;&#x7DDA;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#xFF08;&#x30CE;&#x30FC;&#x30DE;&#x30EB;&#x30DE;&#x30C3;&#x30D7;&#xFF09;&#x3067;&#x5FC5;&#x8981;
+attribute vec3 vertexBinormal;
+attribute vec3 vertexTangent;
+
+// &#x9802;&#x70B9;&#x306E;3D&#x7A7A;&#x9593;&#x4F4D;&#x7F6E;&#xFF08;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x7A7A;&#x9593;&#x3067;&#x306E;&#x9802;&#x70B9;&#x5EA7;&#x6A19;&#xFF09;
+attribute vec3 vertexPosition;
+
+// &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306E;UV&#x5EA7;&#x6A19;&#xFF08;2&#x6B21;&#x5143;&#x3001;0.0&#xFF5E;1.0&#x306A;&#x3069;&#xFF09;
+attribute vec2 vertexTextureCoord;
+
+// &#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08;&#x6750;&#x8CEA;&#xFF09;&#x306E;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x756A;&#x53F7;&#xFF08;float&#x578B;&#x3067;&#x6301;&#x3064;&#xFF09;
+// &#x9762;&#x3054;&#x3068;&#x306B;&#x7570;&#x306A;&#x308B;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x60C5;&#x5831;&#x3092;&#x6301;&#x3064;&#x5834;&#x5408;&#x306B;&#x5229;&#x7528;
+attribute float vertexMaterialFloat;
+
+// ---------- &#x884C;&#x5217;&#xFF08;uniform: &#x5168;&#x9802;&#x70B9;&#x3067;&#x5171;&#x901A;&#x306E;&#x5B9A;&#x6570;&#x5024;&#xFF09; ----------------------
+
+// &#x30E2;&#x30C7;&#x30EB;&#x5EA7;&#x6A19;&#x2192;&#x30AB;&#x30E1;&#x30E9;&#x2192;&#x5C04;&#x5F71;&#x7A7A;&#x9593;&#x3078;&#x306E;&#x5909;&#x63DB;&#x884C;&#x5217;&#xFF08;&#x6700;&#x7D42;&#x7684;&#x306B;gl_Position&#x306B;&#x4F7F;&#x3046;&#xFF09;
+uniform mat4 matrixLocalToPerspective4;
+
+// &#x30E2;&#x30C7;&#x30EB;&#x5EA7;&#x6A19;&#x2192;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x7A7A;&#x9593;&#x3078;&#x306E;&#x5909;&#x63DB;&#x884C;&#x5217;
+uniform mat4 matrixLocalToWorld4;
+
+// ---------- &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x9593;&#x306E;&#x53D7;&#x3051;&#x6E21;&#x3057;&#xFF08;varying: &#x9802;&#x70B9;&#x2192;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#xFF09; --------
+
+// &#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x756A;&#x53F7;
+varying float interpolationMaterialFloat;
+
+// &#x6CD5;&#x7DDA;&#x30FB;&#x63A5;&#x7DDA;&#x30FB;&#x5F93;&#x6CD5;&#x7DDA;&#xFF08;&#x5404;&#x9802;&#x70B9;&#x306E;&#x3082;&#x306E;&#x3092;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x306B;&#x6E21;&#x3059;&#xFF09;
+varying vec3 interpolationNormal;
+varying vec3 interpolationBinormal;
+varying vec3 interpolationTangent;
+
+// &#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x7A7A;&#x9593;&#x3067;&#x306E;&#x9802;&#x70B9;&#x4F4D;&#x7F6E;&#xFF08;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306E;&#x30E9;&#x30A4;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x306A;&#x3069;&#x306B;&#x4F7F;&#x3046;&#xFF09;
+varying vec3 interpolationPosition;
+
+// &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x5EA7;&#x6A19;&#xFF08;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x3067;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x3054;&#x3068;&#x306E;UV&#x8A08;&#x7B97;&#x306B;&#x4F7F;&#x3046;&#xFF09;
+varying vec2 interpolationTextureCoord;
+
+// ---------- &#x30E1;&#x30A4;&#x30F3;&#x95A2;&#x6570; ----------------------------------------------
+
+void main(void) {
+    // &#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x756A;&#x53F7;&#x3092;&#x305D;&#x306E;&#x307E;&#x307E;&#x6E21;&#x3059;&#xFF08;int&#x5316;&#x306F;fs&#x3067;&#x884C;&#x3046;&#xFF09;
+    interpolationMaterialFloat = vertexMaterialFloat;
+
+    // &#x5404;&#x7A2E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x3082;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x3078;&#x4F1D;&#x9054;
+    interpolationNormal   = vertexNormal;
+    interpolationBinormal = vertexBinormal;
+    interpolationTangent  = vertexTangent;
+
+    // &#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x7A7A;&#x9593;&#x306E;&#x9802;&#x70B9;&#x4F4D;&#x7F6E;&#x3092;&#x8A08;&#x7B97;&#x3057;&#x3066;&#x6E21;&#x3059;&#xFF08;&#x7167;&#x660E;/&#x53CD;&#x5C04;&#x306A;&#x3069;&#x3067;&#x4F7F;&#x3046;&#xFF09;
+    interpolationPosition = (matrixLocalToWorld4 * vec4(vertexPosition, 1.0)).xyz;
+
+    // UV&#x5EA7;&#x6A19;
+    interpolationTextureCoord = vertexTextureCoord;
+
+    // &#x9802;&#x70B9;&#x3092;&#x6700;&#x7D42;&#x7684;&#x306B;&#x3069;&#x3053;&#x306B;&#x63CF;&#x753B;&#x3059;&#x308B;&#x304B;&#x8A08;&#x7B97;&#xFF08;&#x5C04;&#x5F71;&#x7A7A;&#x9593;&#x5EA7;&#x6A19;&#xFF09;
+    gl_Position = matrixLocalToPerspective4 * vec4(vertexPosition, 1.0);
+
+    // &#x203B;&#x3053;&#x306E;gl_Position&#x306E;&#x5024;&#x304C;&#x3001;&#x753B;&#x9762;&#x4E0A;&#x306E;&#x9802;&#x70B9;&#x306E;&#x4F4D;&#x7F6E;&#x306B;&#x306A;&#x308B;
+}</code>
+</code></pre><h2>S3GL.frag</h2><pre><code class="lang-c"><code class="source-code prettyprint">// ========================================================================
+// &#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#xFF08;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#xFF09;&#x30B7;&#x30A7;&#x30FC;&#x30C0;
+// &#x3053;&#x306E;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306F;&#x3001;&#x5404;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#xFF08;&#x753B;&#x9762;&#x4E0A;&#x306E;1&#x70B9;&#xFF09;&#x3054;&#x3068;&#x306B;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;
+// &#x30E9;&#x30A4;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3001;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x3001;&#x30CE;&#x30FC;&#x30DE;&#x30EB;&#x30DE;&#x30C3;&#x30D7;&#x306A;&#x3069;&#x306E;&#x60C5;&#x5831;&#x3092;&#x4F7F;&#x3063;&#x3066;
+// &#x6700;&#x7D42;&#x7684;&#x306A;&#x8272;&#xFF08;gl_FragColor&#xFF09;&#x3092;&#x6C7A;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+// ========================================================================
+
+// ---------- &#x7CBE;&#x5EA6;&#x306E;&#x6307;&#x5B9A;&#xFF08;&#x5FC5;&#x9808;&#xFF1A;ES&#x306E;GLSL&#xFF09; ------------------------------
+precision mediump float;
+
+// ---------- &#x6750;&#x8CEA;&#xFF08;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF09;&#x95A2;&#x9023;&#x306E;uniform&#x5909;&#x6570; -------------------------
+// JavaScript&#x5074;&#x304B;&#x3089;&#x5404;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x3054;&#x3068;&#x306B;&#x30BB;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x308B;&#xFF08;&#x6700;&#x5927;4&#x3064;&#x307E;&#x3067;&#xFF09;
+
+#define MATERIALS_MAX 4
+
+uniform vec4 materialsColorAndDiffuse[MATERIALS_MAX];
+//  [R, G, B, &#x62E1;&#x6563;&#x7387;]&#xFF08;&#x30AB;&#x30E9;&#x30FC;&#xFF0B;&#x30C7;&#x30A3;&#x30D5;&#x30E5;&#x30FC;&#x30BA;&#xFF09;
+
+uniform vec4 materialsSpecularAndPower[MATERIALS_MAX];
+//  [R, G, B, &#x5149;&#x6CA2;&#x5EA6;]&#xFF08;&#x30B9;&#x30DA;&#x30AD;&#x30E5;&#x30E9;&#xFF0B;&#x30D1;&#x30EF;&#x30FC;&#xFF09;
+
+uniform vec3 materialsEmission[MATERIALS_MAX];
+//  &#x767A;&#x5149;&#x8272;&#xFF08;&#x30A8;&#x30DF;&#x30C3;&#x30B7;&#x30D6;&#xFF09;
+
+uniform vec4 materialsAmbientAndReflect[MATERIALS_MAX];
+//  [R, G, B, &#x53CD;&#x5C04;&#x7387;]&#xFF08;&#x30A2;&#x30F3;&#x30D3;&#x30A8;&#x30F3;&#x30C8;&#xFF0B;&#x30EA;&#x30D5;&#x30EC;&#x30AF;&#x30C8;&#xFF09;
+
+uniform vec2 materialsTextureExist[MATERIALS_MAX];
+//  [&#x30AB;&#x30E9;&#x30FC;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306E;&#x6709;&#x7121;, &#x30CE;&#x30FC;&#x30DE;&#x30EB;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306E;&#x6709;&#x7121;]&#xFF08;1:&#x3042;&#x308A;, 0:&#x306A;&#x3057;&#xFF09;
+
+uniform sampler2D materialsTextureColor[MATERIALS_MAX];
+//  &#x30AB;&#x30E9;&#x30FC;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#xFF08;&#x753B;&#x50CF;&#xFF09;
+
+uniform sampler2D materialsTextureNormal[MATERIALS_MAX];
+//  &#x30CE;&#x30FC;&#x30DE;&#x30EB;&#x30DE;&#x30C3;&#x30D7;&#xFF08;&#x6CD5;&#x7DDA;&#x30DE;&#x30C3;&#x30D7;&#x7528;&#x753B;&#x50CF;&#xFF09;
+
+// ---------- &#x5909;&#x63DB;&#x884C;&#x5217;&#x306E;uniform&#xFF08;&#x4E3B;&#x306B;&#x6CD5;&#x7DDA;&#x5909;&#x63DB;&#x3067;&#x4F7F;&#x3046;&#xFF09; ----------------------
+uniform mat4 matrixWorldToLocal4; // &#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x2192;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x63DB;&#xFF08;&#x9006;&#x884C;&#x5217;&#x306A;&#x3069;&#xFF09;
+uniform mat3 matrixLocalToWorld3; // &#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x2192;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5909;&#x63DB;&#xFF08;&#x56DE;&#x8EE2;&#x306E;&#x307F;3x3&#x884C;&#x5217;&#xFF09;
+
+// ---------- &#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x5149;&#x6E90;&#xFF09;&#x60C5;&#x5831;&#x306E;uniform ---------------------------------
+
+#define LIGHTS_MAX 4
+#define LIGHT_MODE_NONE        0
+#define LIGHT_MODE_AMBIENT     1
+#define LIGHT_MODE_DIRECTIONAL 2
+#define LIGHT_MODE_POINT       3
+
+uniform int lightsLength;                 // &#x5B9F;&#x969B;&#x306B;&#x4F7F;&#x3046;&#x5149;&#x6E90;&#x306E;&#x6570;
+uniform vec4 lightsData1[LIGHTS_MAX];     // &#x5149;&#x6E90;&#x306E;&#x7A2E;&#x985E;&#x30FB;&#x30EC;&#x30F3;&#x30B8;&#x30FB;&#x65B9;&#x5411;/&#x4F4D;&#x7F6E;(XY)
+uniform vec4 lightsData2[LIGHTS_MAX];     // &#x65B9;&#x5411;/&#x4F4D;&#x7F6E;(Z), &#x5149;&#x6E90;&#x8272;(RGB)
+
+// ---------- &#x30AB;&#x30E1;&#x30E9;&#x60C5;&#x5831;&#xFF08;&#x8996;&#x7DDA;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF09; ---------------------------------
+uniform vec3 eyeWorldDirection;
+
+// ---------- &#x9802;&#x70B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x304B;&#x3089;&#x6E21;&#x3055;&#x308C;&#x305F;&#x88DC;&#x9593;&#x5024; ------------------------------
+varying float interpolationMaterialFloat;    // &#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x756A;&#x53F7;&#xFF08;float&#x578B;&#xFF09;
+varying vec3 interpolationNormal;           // &#x6CD5;&#x7DDA;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+varying vec3 interpolationBinormal;         // &#x30D0;&#x30A4;&#x30CE;&#x30FC;&#x30DE;&#x30EB;
+varying vec3 interpolationTangent;          // &#x30BF;&#x30F3;&#x30B8;&#x30A7;&#x30F3;&#x30C8;
+varying vec3 interpolationPosition;         // &#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x7A7A;&#x9593;&#x3067;&#x306E;&#x9802;&#x70B9;&#x4F4D;&#x7F6E;
+varying vec2 interpolationTextureCoord;     // &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;UV&#x5EA7;&#x6A19;
+
+// ========================================================================
+// &#x30E1;&#x30A4;&#x30F3;&#x51E6;&#x7406;&#x958B;&#x59CB;
+// ========================================================================
+void main(void) {
+
+    // ----- &#x5B9A;&#x6570;&#x5B9A;&#x7FA9;&#xFF08;&#x8272;&#x3084;&#x30CE;&#x30FC;&#x30DE;&#x30EB;&#x306E;&#x57FA;&#x6E96;&#x5024;&#xFF09; ----------------------------
+    const vec4 ZERO      = vec4(0.0, 0.0, 0.0, 0.0);
+    const vec4 ONE       = vec4(1.0, 1.0, 1.0, 1.0);
+    const vec4 WHITE     = ONE;
+    const vec3 NORMALTOP = vec3(0.5, 0.5, 1.0); // &#x6CD5;&#x7DDA;&#x30DE;&#x30C3;&#x30D7;&#x306E;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;
+
+    // ----- 1. &#x9802;&#x70B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x304B;&#x3089;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x305F;&#x5024;&#x306E;&#x521D;&#x671F;&#x51E6;&#x7406; ------------------
+
+    int   vertexMaterial = int(interpolationMaterialFloat); // &#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x756A;&#x53F7;&#x3092;int&#x306B;&#x5909;&#x63DB;
+    vec3  vertexNormal   = normalize(interpolationNormal);
+    vec3  vertexBinormal = normalize(interpolationBinormal);
+    vec3  vertexTangent  = normalize(interpolationTangent);
+
+    // ----- 2. &#x9762;&#x3054;&#x3068;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x60C5;&#x5831;&#xFF08;&#x914D;&#x5217;&#x304B;&#x3089;&#x62BD;&#x51FA;&#xFF09; ------------------
+
+    // &#x5404;&#x7A2E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x5C5E;&#x6027;&#x5024;&#xFF08;&#x8272;&#x3001;&#x53CD;&#x5C04;&#x7387;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x6709;&#x7121;&#x306A;&#x3069;&#xFF09;&#x3092;&#x53D6;&#x5F97;
+    vec3  materialColor;
+    float materialDiffuse;
+    vec3  materialSpecular;
+    float materialPower;
+    vec3  materialEmission;
+    vec3  materialAmbient;
+    float materialReflect;
+    float materialRoughness;
+    vec4  materialTextureColor;
+    vec3  materialTextureNormal;
+    bool  materialIsSetNormal;
+
+    {
+        // &#x6750;&#x8CEA;&#x914D;&#x5217;&#xFF08;&#x6700;&#x5927;4&#x3064;&#xFF09;&#x304B;&#x3089;&#x8A72;&#x5F53;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x9078;&#x629E;
+        if (vertexMaterial &lt; 4) {
+            // &#x6750;&#x8CEA;&#x756A;&#x53F7;&#x3054;&#x3068;&#x306B;&#x5404;&#x7A2E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3092;&#x53D6;&#x308A;&#x51FA;&#x3059;
+            // &#x4E0B;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306A;&#x5206;&#x5C90;&#x306F;&#x3001;&#x914D;&#x5217;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3067;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x3084;&#x3059;&#x304F;&#x3059;&#x308B;&#x305F;&#x3081;
+            if(vertexMaterial &lt; 2) {
+                if(vertexMaterial == 0) {
+                    materialColor         = materialsColorAndDiffuse[0].xyz;
+                    materialDiffuse       = materialsColorAndDiffuse[0].z;
+                    materialSpecular      = materialsSpecularAndPower[0].xyz;
+                    materialPower         = materialsSpecularAndPower[0].w;
+                    materialEmission      = materialsEmission[0];
+                    materialAmbient       = materialsAmbientAndReflect[0].xyz;
+                    materialReflect       = materialsAmbientAndReflect[0].w;
+                    materialTextureColor  = materialsTextureExist[0].x &gt; 0.5 ?
+                        texture2D(materialsTextureColor[0], interpolationTextureCoord) : WHITE;
+                    materialIsSetNormal   = materialsTextureExist[0].y &gt; 0.5;
+                    materialTextureNormal = materialIsSetNormal ?
+                        texture2D(materialsTextureNormal[0], interpolationTextureCoord).xyz : NORMALTOP;
+                }
+                else {
+                    // 1&#x756A;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;
+                    materialColor         = materialsColorAndDiffuse[1].xyz;
+                    materialDiffuse       = materialsColorAndDiffuse[1].z;
+                    materialSpecular      = materialsSpecularAndPower[1].xyz;
+                    materialPower         = materialsSpecularAndPower[1].w;
+                    materialEmission      = materialsEmission[1];
+                    materialAmbient       = materialsAmbientAndReflect[1].xyz;
+                    materialReflect       = materialsAmbientAndReflect[1].w;
+                    materialTextureColor  = materialsTextureExist[1].x &gt; 0.5 ?
+                        texture2D(materialsTextureColor[1], interpolationTextureCoord) : WHITE;
+                    materialIsSetNormal   = materialsTextureExist[1].y &gt; 0.5;
+                    materialTextureNormal = materialIsSetNormal ?
+                        texture2D(materialsTextureNormal[1], interpolationTextureCoord).xyz : NORMALTOP;
+                }
+            }
+            else {
+                if(vertexMaterial == 2) {
+                    // 2&#x756A;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;
+                    materialColor         = materialsColorAndDiffuse[2].xyz;
+                    materialDiffuse       = materialsColorAndDiffuse[2].z;
+                    materialSpecular      = materialsSpecularAndPower[2].xyz;
+                    materialPower         = materialsSpecularAndPower[2].w;
+                    materialEmission      = materialsEmission[2];
+                    materialAmbient       = materialsAmbientAndReflect[2].xyz;
+                    materialReflect       = materialsAmbientAndReflect[2].w;
+                    materialTextureColor  = materialsTextureExist[2].x &gt; 0.5 ?
+                        texture2D(materialsTextureColor[2], interpolationTextureCoord) : WHITE;
+                    materialIsSetNormal   = materialsTextureExist[2].y &gt; 0.5;
+                    materialTextureNormal = materialIsSetNormal ?
+                        texture2D(materialsTextureNormal[2], interpolationTextureCoord).xyz : NORMALTOP;
+                }
+                else {
+                    // 3&#x756A;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;
+                    materialColor         = materialsColorAndDiffuse[3].xyz;
+                    materialDiffuse       = materialsColorAndDiffuse[3].z;
+                    materialSpecular      = materialsSpecularAndPower[3].xyz;
+                    materialPower         = materialsSpecularAndPower[3].w;
+                    materialEmission      = materialsEmission[3];
+                    materialAmbient       = materialsAmbientAndReflect[3].xyz;
+                    materialReflect       = materialsAmbientAndReflect[3].w;
+                    materialTextureColor  = materialsTextureExist[3].x &gt; 0.5 ?
+                        texture2D(materialsTextureColor[3], interpolationTextureCoord) : WHITE;
+                    materialIsSetNormal   = materialsTextureExist[3].y &gt; 0.5;
+                    materialTextureNormal = materialIsSetNormal ?
+                        texture2D(materialsTextureNormal[3], interpolationTextureCoord).xyz : NORMALTOP;
+                }
+            }
+        }
+        // &#x30E9;&#x30D5;&#x30CD;&#x30B9;&#xFF08;&#x3056;&#x3089;&#x3056;&#x3089;&#x611F;&#xFF09;&#x306F;&#x5149;&#x6CA2;&#x5EA6;&#x304B;&#x3089;&#x8A08;&#x7B97;
+        // &#x30E9;&#x30D5;&#x30CD;&#x30B9;&#x5024;(0...1)&#x3092;&#x66AB;&#x5B9A;&#x8A08;&#x7B97;(&#x5927;&#x304D;&#x3044;&#x307B;&#x3069;&#x3056;&#x3089;&#x3056;&#x3089;&#x3057;&#x3066;&#x3044;&#x308B;)
+        materialRoughness = (100.0 - materialPower) * 0.01;
+    }
+
+    // ----- 3. &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x53CD;&#x6620;&#x30FB;&#x30CE;&#x30FC;&#x30DE;&#x30EB;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0; ------------------------
+    {
+        // &#x30AB;&#x30E9;&#x30FC;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3067;&#x8272;&#x3092;&#x639B;&#x3051;&#x308B;
+        materialColor *= materialTextureColor.xyz;
+
+        // &#x30CE;&#x30FC;&#x30DE;&#x30EB;&#x30DE;&#x30C3;&#x30D7;&#xFF08;&#x6CD5;&#x7DDA;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#xFF09;&#x3092;&#x4F7F;&#x3046;&#x5834;&#x5408;
+        if(materialIsSetNormal) {
+            // [0,1] -&gt; [-1,1]&#x306E;&#x7BC4;&#x56F2;&#x3078;&#x5909;&#x63DB;
+            materialTextureNormal = (materialTextureNormal * 2.0 - 1.0);
+            // &#x63A5;&#x7DDA;&#x7A7A;&#x9593;&#x304B;&#x3089;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x7A7A;&#x9593;&#x306B;&#x5909;&#x63DB;
+            vertexNormal = normalize(
+                -materialTextureNormal.x * vertexTangent +
+                materialTextureNormal.y * vertexBinormal +
+                materialTextureNormal.z * vertexNormal);
+        }
+    }
+
+    // ----- 4. &#x53CD;&#x5C04;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x3084;&#x8996;&#x7DDA;&#x65B9;&#x5411;&#x306E;&#x8A08;&#x7B97; ------------------------------
+
+    // &#x53CD;&#x5C04;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+    vec3 vertexReflectVector = reflect(eyeWorldDirection, normalize(matrixLocalToWorld3 * vertexNormal));
+
+    // &#x30AB;&#x30E1;&#x30E9;&#x304C;&#x5411;&#x3044;&#x3066;&#x3044;&#x308B;&#x65B9;&#x5411;&#x3092;&#x53D6;&#x5F97;
+    vec3 eyeDirection = normalize(matrixWorldToLocal4 * vec4(eyeWorldDirection, 0.0)).xyz;
+
+    // ----- 5. &#x51FA;&#x529B;&#x8272;&#x306E;&#x521D;&#x671F;&#x5316; --------------------------------------------
+    vec3 destDiffuse  = materialColor * materialEmission;
+    vec3 destSpecular = ZERO.xyz;
+    vec3 destAmbient  = materialAmbient * 0.2;
+
+    // &#x5149;&#x6E90;&#x5168;&#x4F53;&#x306E;&#x5E73;&#x5747;&#x8272;&#xFF08;&#x53CD;&#x5C04;&#x8868;&#x73FE;&#x306A;&#x3069;&#x306B;&#x4F7F;&#x3046;&#xFF09;
+    vec3 averageLightsColor = ZERO.xyz;
+
+    // ----- 6. &#x30E9;&#x30A4;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x8A08;&#x7B97; ------------------------------------------
+    {
+        // &#x5168;&#x30E9;&#x30A4;&#x30C8;&#x306B;&#x3064;&#x3044;&#x3066;&#x8A08;&#x7B97;
+        for(int i = 0; i &lt; LIGHTS_MAX; i++) {
+            int   lightMode   = int(lightsData1[i].x);
+            float lightRange  = lightsData1[i].y;
+            vec3  lightVector = vec3(lightsData1[i].zw, lightsData2[i].x);
+            vec3  lightColor  = lightsData2[i].yzw;
+
+            // &#x5E73;&#x884C;&#x5149;&#x6E90;&#x30FB;&#x70B9;&#x5149;&#x6E90;
+            if((lightMode == LIGHT_MODE_DIRECTIONAL) || (lightMode == LIGHT_MODE_POINT)) {
+                bool is_direction = lightMode == LIGHT_MODE_DIRECTIONAL;
+                // &#x5149;&#x6E90;&#x306E;&#x5411;&#x304D;&#x3084;&#x4F4D;&#x7F6E;&#x3092;&#x6C42;&#x3081;&#x308B;
+                // &#x5149;&#x6E90;&#x306E;&#x7A2E;&#x985E;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x3068;&#x5149;&#x3078;&#x306E;&#x65B9;&#x5411;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x306E;&#x8A08;&#x7B97;&#x3092;&#x5909;&#x3048;&#x308B;
+                // lightsVector &#x306F;&#x3001;&#x70B9;&#x5149;&#x6E90;&#x306A;&#x3089;&#x4F4D;&#x7F6E;&#x3092;&#x3001;&#x5E73;&#x884C;&#x5149;&#x6E90;&#x306A;&#x3089;&#x65B9;&#x5411;&#x3092;&#x6307;&#x3059;&#x5024;
+                vec3 lightDirection = is_direction ?
+                    normalize(matrixWorldToLocal4 * vec4(lightVector, 0.0)).xyz :
+                    normalize(matrixWorldToLocal4 * vec4(interpolationPosition - lightVector, 1.0)).xyz;
+                float d = is_direction ? -1.0 : length(lightVector - interpolationPosition);
+
+                if(d &lt; lightRange) {
+                    // &#x8DDD;&#x96E2;&#x6E1B;&#x8870;
+                    float rate = is_direction ? 1.0 : pow(1.0 - (d / lightRange), 0.5);
+                    // &#x62E1;&#x6563;&#x53CD;&#x5C04;&#xFF08;&#x30E9;&#x30F3;&#x30D0;&#x30FC;&#x30C8;&#x53CD;&#x5C04;&#xFF09;
+                    float diffuse = clamp(((dot(vertexNormal, lightDirection) * 0.9) + 0.1) * materialDiffuse, 0.0, 1.0);
+                    destDiffuse  += lightColor * materialColor.xyz * diffuse * rate;
+                    // &#x93E1;&#x9762;&#x53CD;&#x5C04;&#xFF08;&#x30D6;&#x30EA;&#x30F3;&#x30FB;&#x30D5;&#x30A9;&#x30F3;&#xFF09;
+                    vec3  halfLightEye = normalize(lightDirection + eyeDirection);
+                    float specular     = pow(clamp(dot(vertexNormal, halfLightEye), 0.0, 1.0), materialPower);
+                    destSpecular      += lightColor * materialSpecular.xyz * specular * rate;
+                }
+            }
+            // &#x30A2;&#x30F3;&#x30D3;&#x30A8;&#x30F3;&#x30C8;&#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x74B0;&#x5883;&#x5149;&#xFF09;
+            else if(lightMode == LIGHT_MODE_AMBIENT) {
+                destDiffuse += lightColor * materialColor.xyz;
+                destAmbient += lightColor * materialAmbient.xyz;
+            }
+
+            // &#x5149;&#x306E;&#x5E73;&#x5747;&#x8272;&#xFF08;&#x53CD;&#x5C04;&#x30FB;&#x74B0;&#x5883;&#x30A8;&#x30D5;&#x30A7;&#x30AF;&#x30C8;&#x7528;&#xFF09;
+            averageLightsColor += lightColor;
+
+            // &#x5B9F;&#x969B;&#x306B;&#x4F7F;&#x3046;&#x5149;&#x6E90;&#x6570;&#x5206;&#x3060;&#x3051;&#x30EB;&#x30FC;&#x30D7;
+            if(i == lightsLength) {
+                break;
+            }
+        }
+        // &#x5E73;&#x5747;&#x8272;&#x3092;&#x6B63;&#x898F;&#x5316;
+        if(0 &lt; lightsLength) {
+            averageLightsColor /= vec3(lightsLength, lightsLength, lightsLength);
+        }
+    }
+
+    // ----- 7. &#x53CD;&#x5C04;&#x8868;&#x73FE;&#xFF08;&#x30EA;&#x30D5;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x6A21;&#x69D8;&#x4F5C;&#x6210;&#xFF09;-----------------------
+    vec3 destColor = ZERO.xyz;
+
+    {
+        // &#x30A2;&#x30F3;&#x30D3;&#x30A8;&#x30F3;&#x30C8;&#x5149;
+        destColor += destAmbient;
+
+        // &#x62E1;&#x6563;&#x53CD;&#x5C04;&#xFF08;&#x53CD;&#x5C04;&#x7387;&#x304C;&#x9AD8;&#x3044;&#x307B;&#x3069;&#x5F31;&#x304F;&#x3059;&#x308B;&#xFF09;
+        destColor += clamp(destDiffuse * (1.0 - materialReflect * 0.8), 0.0, 1.0);
+
+        // &#x93E1;&#x9762;&#x53CD;&#x5C04;
+        destColor += destSpecular;
+
+        // &#x53CD;&#x5C04;&#x306E;&#x30A8;&#x30D5;&#x30A7;&#x30AF;&#x30C8;&#xFF08;&#x7269;&#x4F53;&#x306B;&#x5468;&#x56F2;&#x306E;&#x8272;&#x304C;&#x5199;&#x308A;&#x8FBC;&#x3080;&#xFF09;
+        if(materialReflect &gt; 0.0001) {
+            // &#x30EA;&#x30D5;&#x30EC;&#x30AF;&#x30C8;&#x7528;&#x306E;&#x7C21;&#x6613;&#x30CE;&#x30A4;&#x30BA;&#x6A21;&#x69D8;&#x3092;&#x8A08;&#x7B97;&#xFF08;&#x30E9;&#x30D5;&#x30CD;&#x30B9;&#x3067;&#x6A21;&#x69D8;&#x306E;&#x30DC;&#x30B1;&#x65B9;&#x3092;&#x5236;&#x5FA1;&#xFF09;
+            float x = vertexReflectVector.y;
+            float x1 = mix(-0.1, -0.5, materialRoughness);
+            float x2 = mix(0.01,  0.5, materialRoughness);
+            float c1 = mix(-0.3,  0.5, materialRoughness);
+            float c2 = mix( 0.9,  0.6, materialRoughness);
+            float c3 = mix( 0.3,  0.4, materialRoughness);
+            float c4 = mix( 1.2,  0.8, materialRoughness);
+            float c5 = mix( 0.3,  0.5, materialRoughness);
+
+            x = x &lt; x1 ? mix( c1, c2, (x + 1.0) * (1.0 / (1.0 + x1))) :
+                x &lt; 0.0 ? mix( c2, c3, (x - x1) * (1.0 / -x1)) :
+                x &lt; x2  ? mix( c3, c4, x * (1.0 / x2)) :
+                          mix( c4, c5, (x - x2) * (1.0 / (1.0 - x2))) ;
+
+            // &#x5149;&#x6CA2;&#x30FB;&#x30E9;&#x30D5;&#x30CD;&#x30B9;&#x306E;&#x5F71;&#x97FF;&#x3082;&#x53CD;&#x6620;&#x3057;&#x305F;&#x8272;&#x6A21;&#x69D8;
+            //  &#x30EA;&#x30D5;&#x30EC;&#x30AF;&#x30C8;&#x304C;&#x5927;&#x304D;&#x3044;&#x307B;&#x3069;&#x306F;&#x3063;&#x304D;&#x308A;&#x5F37;&#x304F;&#x3046;&#x3064;&#x308A;&#x3053;&#x3080;
+            //  &#x6620;&#x308A;&#x8FBC;&#x3080;&#x6A21;&#x69D8;&#x306F;&#x3001;&#x5468;&#x308A;&#x306E;&#x5149;&#x306E;&#x8272;&#x306B;&#x5F71;&#x97FF;&#x3059;&#x308B;
+            vec3 reflectColor = vec3(x, x, x) * materialReflect * averageLightsColor;
+
+            // &#x6620;&#x308A;&#x8FBC;&#x3080;&#x6A21;&#x69D8;&#x306E;&#x8272;
+            //  &#x30E9;&#x30D5;&#x30CD;&#x30B9;&#x304C;&#x5927;&#x304D;&#x3044;&#x307B;&#x3069;&#x3001;&#x7269;&#x4F53;&#x306E;&#x8272;&#x3067;&#x6620;&#x308A;&#x8FBC;&#x3080;
+            //  &#x30E9;&#x30D5;&#x30CD;&#x30B9;&#x304C;&#x5C0F;&#x3055;&#x3044;&#x307B;&#x3069;&#x3001;&#x30B9;&#x30DA;&#x30AD;&#x30E5;&#x30E9;&#x306E;&#x8272;&#x3067;&#x6620;&#x308A;&#x8FBC;&#x3080;
+            reflectColor *= materialRoughness * materialColor + (1.0 - materialRoughness) * materialSpecular;
+
+            destColor += reflectColor;
+        }
+    }
+
+    // ----- 8. &#x51FA;&#x529B;&#xFF08;&#x30D4;&#x30AF;&#x30BB;&#x30EB;&#x8272;&#x306E;&#x6700;&#x7D42;&#x6C7A;&#x5B9A;&#xFF09;-------------------------------
+    gl_FragColor = vec4(destColor, 1.0);
+}</code>
+</code></pre></div>
+        <a data-ice="link" href="manual/DEMO2.html"></a>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

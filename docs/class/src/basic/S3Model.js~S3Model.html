@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">S3Model | s3js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A JavaScript library."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="s3js"><meta property="twitter:description" content="A JavaScript library."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/natade-jp/js-s3js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3">S3</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#basic">basic</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Camera.js~S3Camera.html">S3Camera</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html">S3Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Scene.js~S3Scene.html">S3Scene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html">S3Texture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3VPSMatrix">S3VPSMatrix</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#gl">gl</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html">S3GLArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLLight.js~S3GLLight.html">S3GLLight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMaterial.js~S3GLMaterial.html">S3GLMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMesh.js~S3GLMesh.html">S3GLMesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLModel.js~S3GLModel.html">S3GLModel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLProgram.js~S3GLProgram.html">S3GLProgram</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLScene.js~S3GLScene.html">S3GLScene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html">S3GLShader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTexture.js~S3GLTexture.html">S3GLTexture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndex.js~S3GLTriangleIndex.html">S3GLTriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndexData.js~S3GLTriangleIndexData.html">S3GLTriangleIndexData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLVertex.js~S3GLVertex.html">S3GLVertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayDataType">S3GLArrayDataType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLUniformBindFunctions">S3GLUniformBindFunctions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputData">S3GLProgramBindInputData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataSingle">S3GLProgramBindInputDataSingle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataTable">S3GLProgramBindInputDataTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLSceneUniform">S3GLSceneUniform</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashEntry">S3GLFuncTextureCashEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashTable">S3GLFuncTextureCashTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFaceAttribute">S3GLFaceAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLVertexAttribute">S3GLVertexAttribute</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#loader">loader</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoader">S3MeshLoader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderJSON">S3MeshLoaderJSON</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderMQO">S3MeshLoaderMQO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderOBJ">S3MeshLoaderOBJ</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderDataIOFunvction">S3MeshLoaderDataIOFunvction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterial">S3MeshLoaderMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterialListEntry">S3MeshLoaderMaterialListEntry</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math">math</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Matrix.js~S3Matrix.html">S3Matrix</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Plane.js~S3Plane.html">S3Plane</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3Math">S3Math</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tools/CameraController.js~CameraController.html">CameraController</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3Model from &apos;<span><a href="file/src/basic/S3Model.js.html#lineNumber9">s3js/src/basic/S3Model.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/src/basic/S3Model.js.html#lineNumber9">source</a></span></span>
+</div>
+
+<div class="self-detail detail">
+  <h1 data-ice="name">S3Model</h1>
+
+  
+
+  
+  
+  
+  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/src/gl/S3GLModel.js~S3GLModel.html">S3GLModel</a></span></div></div>
+  
+  
+  
+  
+  
+
+  
+  
+  <div class="description" data-ice="description"><p>3DCG&#x30B7;&#x30FC;&#x30F3;&#x306B;&#x914D;&#x7F6E;&#x3059;&#x308B;&#x300C;&#x30E2;&#x30C7;&#x30EB;&#x300D;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9; (mutable)
+&#x4F4D;&#x7F6E;&#x30FB;&#x56DE;&#x8EE2;&#x30FB;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#x30FB;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;&#x5F62;&#x72B6;&#xFF09;&#x306A;&#x3069;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x5909;&#x63DB;&#x30FB;&#x914D;&#x7F6E;&#x60C5;&#x5831;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+  
+
+  
+
+  
+
+  
+
+  
+</div>
+
+
+
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x60C5;&#x5831;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x3066;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002; (mutable)</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-member-angles">angles</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#xFF09;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-member-mesh">mesh</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x304C;&#x6301;&#x3064;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;&#x5F62;&#x72B6;&#x30C7;&#x30FC;&#x30BF;&#xFF09;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-member-position">position</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x7CFB;&#x3067;&#x306E;&#x4F4D;&#x7F6E;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-member-scale">scale</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x62E1;&#x5927;&#x7E2E;&#x5C0F;&#x7387;&#xFF08;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#xFF09;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-addRotateX">addRotateX</a></span></span><span class="code" data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>X&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306B;&#x56DE;&#x8EE2;&#xFF08;&#x76F8;&#x5BFE;&#x5024;&#xFF09;&#x3092;&#x52A0;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-addRotateY">addRotateY</a></span></span><span class="code" data-ice="signature">(y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Y&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306B;&#x56DE;&#x8EE2;&#xFF08;&#x76F8;&#x5BFE;&#x5024;&#xFF09;&#x3092;&#x52A0;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-addRotateZ">addRotateZ</a></span></span><span class="code" data-ice="signature">(z: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Z&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306B;&#x56DE;&#x8EE2;&#xFF08;&#x76F8;&#x5BFE;&#x5024;&#xFF09;&#x3092;&#x52A0;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-getAngle">getAngle</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#xFF09;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-getMesh">getMesh</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-getPosition">getPosition</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x7CFB;&#x3067;&#x306E;&#x4F4D;&#x7F6E;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-getScale">getScale</a></span></span><span class="code" data-ice="signature">(): <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#xFF08;&#x62E1;&#x5927;&#x7E2E;&#x5C0F;&#x7387;&#xFF09;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-setAngle">setAngle</a></span></span><span class="code" data-ice="signature">(angles: <span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-setMesh">setMesh</a></span></span><span class="code" data-ice="signature">(mesh: <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-setPosition">setPosition</a></span></span><span class="code" data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span>, y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, z: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x7CFB;&#x3067;&#x306E;&#x4F4D;&#x7F6E;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>S3Vector&#x3067;&#x306E;&#x4E00;&#x62EC;&#x6307;&#x5B9A;&#x3001;&#x307E;&#x305F;&#x306F;x, y, z&#x500B;&#x5225;&#x6307;&#x5B9A;</li>
+</ul>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-setRotateX">setRotateX</a></span></span><span class="code" data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>X&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#x3092;&#x7D76;&#x5BFE;&#x5024;&#x3067;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-setRotateY">setRotateY</a></span></span><span class="code" data-ice="signature">(y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Y&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#x3092;&#x7D76;&#x5BFE;&#x5024;&#x3067;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-setRotateZ">setRotateZ</a></span></span><span class="code" data-ice="signature">(z: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Z&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#x3092;&#x7D76;&#x5BFE;&#x5024;&#x3067;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-setScale">setScale</a></span></span><span class="code" data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span>, y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, z: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#xFF08;&#x62E1;&#x5927;&#x7E2E;&#x5C0F;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>1&#x5F15;&#x6570;&#x306E;&#x5834;&#x5408;&#x3001;&#x6570;&#x5024;&#x306A;&#x3089;&#x7B49;&#x500D;&#x3001;S3Vector&#x306A;&#x3089;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x6307;&#x5B9A;</li>
+<li>3&#x5F15;&#x6570;&#x306E;&#x5834;&#x5408;&#x306F;(x, y, z)&#x3092;&#x500B;&#x5225;&#x6307;&#x5B9A;</li>
+</ul>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Private Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html#instance-method-_init">_init</a></span></span><span class="code" data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x5404;&#x7A2E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber13">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x60C5;&#x5831;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x3066;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002; (mutable)</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-angles">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">angles</span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber26">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#xFF09;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-mesh">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">mesh</span><span class="code" data-ice="signature">: <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber44">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x304C;&#x6301;&#x3064;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;&#x5F62;&#x72B6;&#x30C7;&#x30FC;&#x30BF;&#xFF09;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-position">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">position</span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber38">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x7CFB;&#x3067;&#x306E;&#x4F4D;&#x7F6E;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-scale">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">scale</span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber32">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x62E1;&#x5927;&#x7E2E;&#x5C0F;&#x7387;&#xFF08;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#xFF09;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-addRotateX">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">addRotateX</span><span class="code" data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber142">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>X&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306B;&#x56DE;&#x8EE2;&#xFF08;&#x76F8;&#x5BFE;&#x5024;&#xFF09;&#x3092;&#x52A0;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x52A0;&#x7B97;&#x3059;&#x308B;&#x89D2;&#x5EA6;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-addRotateY">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">addRotateY</span><span class="code" data-ice="signature">(y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber150">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Y&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306B;&#x56DE;&#x8EE2;&#xFF08;&#x76F8;&#x5BFE;&#x5024;&#xFF09;&#x3092;&#x52A0;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">y</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x52A0;&#x7B97;&#x3059;&#x308B;&#x89D2;&#x5EA6;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-addRotateZ">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">addRotateZ</span><span class="code" data-ice="signature">(z: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber158">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Z&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306B;&#x56DE;&#x8EE2;&#xFF08;&#x76F8;&#x5BFE;&#x5024;&#xFF09;&#x3092;&#x52A0;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">z</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x52A0;&#x7B97;&#x3059;&#x308B;&#x89D2;&#x5EA6;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-getAngle">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">getAngle</span><span class="code" data-ice="signature">(): <span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber126">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#xFF09;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>&#x73FE;&#x5728;&#x306E;&#x56DE;&#x8EE2;&#x89D2;</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-getMesh">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">getMesh</span><span class="code" data-ice="signature">(): <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber59">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>&#x73FE;&#x5728;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-getPosition">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">getPosition</span><span class="code" data-ice="signature">(): <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber118">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x7CFB;&#x3067;&#x306E;&#x4F4D;&#x7F6E;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>&#x73FE;&#x5728;&#x306E;&#x4F4D;&#x7F6E;</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-getScale">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">getScale</span><span class="code" data-ice="signature">(): <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber91">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#xFF08;&#x62E1;&#x5927;&#x7E2E;&#x5C0F;&#x7387;&#xFF09;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>&#x73FE;&#x5728;&#x306E;&#x30B9;&#x30B1;&#x30FC;&#x30EB;</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setAngle">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setAngle</span><span class="code" data-ice="signature">(angles: <span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber134">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">angles</td>
+      <td data-ice="type" class="code"><span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x65B0;&#x3057;&#x3044;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setMesh">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setMesh</span><span class="code" data-ice="signature">(mesh: <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber51">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">mesh</td>
+      <td data-ice="type" class="code"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x65B0;&#x3057;&#x3044;&#x30E1;&#x30C3;&#x30B7;&#x30E5;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setPosition">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setPosition</span><span class="code" data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span>, y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, z: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber102">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x7CFB;&#x3067;&#x306E;&#x4F4D;&#x7F6E;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>S3Vector&#x3067;&#x306E;&#x4E00;&#x62EC;&#x6307;&#x5B9A;&#x3001;&#x307E;&#x305F;&#x306F;x, y, z&#x500B;&#x5225;&#x6307;&#x5B9A;</li>
+</ul>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>X&#x5EA7;&#x6A19; or S3Vector</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">y</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Y&#x5EA7;&#x6A19;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">z</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Z&#x5EA7;&#x6A19;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setRotateX">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setRotateX</span><span class="code" data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber166">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>X&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#x3092;&#x7D76;&#x5BFE;&#x5024;&#x3067;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x65B0;&#x3057;&#x3044;&#x89D2;&#x5EA6;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setRotateY">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setRotateY</span><span class="code" data-ice="signature">(y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber174">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Y&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#x3092;&#x7D76;&#x5BFE;&#x5024;&#x3067;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">y</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x65B0;&#x3057;&#x3044;&#x89D2;&#x5EA6;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setRotateZ">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setRotateZ</span><span class="code" data-ice="signature">(z: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber182">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Z&#x8EF8;&#x307E;&#x308F;&#x308A;&#x306E;&#x56DE;&#x8EE2;&#x89D2;&#x3092;&#x7D76;&#x5BFE;&#x5024;&#x3067;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">z</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x65B0;&#x3057;&#x3044;&#x89D2;&#x5EA6;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setScale">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setScale</span><span class="code" data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span>, y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, z: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber71">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#xFF08;&#x62E1;&#x5927;&#x7E2E;&#x5C0F;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>1&#x5F15;&#x6570;&#x306E;&#x5834;&#x5408;&#x3001;&#x6570;&#x5024;&#x306A;&#x3089;&#x7B49;&#x500D;&#x3001;S3Vector&#x306A;&#x3089;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x6307;&#x5B9A;</li>
+<li>3&#x5F15;&#x6570;&#x306E;&#x5834;&#x5408;&#x306F;(x, y, z)&#x3092;&#x500B;&#x5225;&#x6307;&#x5B9A;</li>
+</ul>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span> | <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>X&#x30B9;&#x30B1;&#x30FC;&#x30EB; or S3Vector</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">y</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Y&#x30B9;&#x30B1;&#x30FC;&#x30EB;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">z</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Z&#x30B9;&#x30B1;&#x30FC;&#x30EB;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<h2 data-ice="title">Private Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_init">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_init</span><span class="code" data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/basic/S3Model.js.html#lineNumber21">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>&#x30E2;&#x30C7;&#x30EB;&#x5404;&#x7A2E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

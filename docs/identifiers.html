@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">Reference | s3js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A JavaScript library."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="s3js"><meta property="twitter:description" content="A JavaScript library."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/natade-jp/js-s3js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3">S3</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#basic">basic</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Camera.js~S3Camera.html">S3Camera</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html">S3Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Scene.js~S3Scene.html">S3Scene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html">S3Texture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3VPSMatrix">S3VPSMatrix</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#gl">gl</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html">S3GLArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLLight.js~S3GLLight.html">S3GLLight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMaterial.js~S3GLMaterial.html">S3GLMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMesh.js~S3GLMesh.html">S3GLMesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLModel.js~S3GLModel.html">S3GLModel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLProgram.js~S3GLProgram.html">S3GLProgram</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLScene.js~S3GLScene.html">S3GLScene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html">S3GLShader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTexture.js~S3GLTexture.html">S3GLTexture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndex.js~S3GLTriangleIndex.html">S3GLTriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndexData.js~S3GLTriangleIndexData.html">S3GLTriangleIndexData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLVertex.js~S3GLVertex.html">S3GLVertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayDataType">S3GLArrayDataType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLUniformBindFunctions">S3GLUniformBindFunctions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputData">S3GLProgramBindInputData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataSingle">S3GLProgramBindInputDataSingle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataTable">S3GLProgramBindInputDataTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLSceneUniform">S3GLSceneUniform</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashEntry">S3GLFuncTextureCashEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashTable">S3GLFuncTextureCashTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFaceAttribute">S3GLFaceAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLVertexAttribute">S3GLVertexAttribute</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#loader">loader</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoader">S3MeshLoader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderJSON">S3MeshLoaderJSON</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderMQO">S3MeshLoaderMQO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderOBJ">S3MeshLoaderOBJ</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderDataIOFunvction">S3MeshLoaderDataIOFunvction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterial">S3MeshLoaderMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterialListEntry">S3MeshLoaderMaterialListEntry</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math">math</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Matrix.js~S3Matrix.html">S3Matrix</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Plane.js~S3Plane.html">S3Plane</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3Math">S3Math</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tools/CameraController.js~CameraController.html">CameraController</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1>References</h1>
+
+<div class="identifiers-wrap">
+  <div>
+    
+  <div data-ice="dirSummaryWrap">
+      
+      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-S3">S3</a></span></span><span class="code" data-ice="signature">: {&quot;System&quot;: <span>*</span>, &quot;GLSystem&quot;: <span>*</span>, &quot;Math&quot;: <span>*</span>, &quot;Angles&quot;: <span>*</span>, &quot;Vector&quot;: <span>*</span>, &quot;Matrix&quot;: <span>*</span>, &quot;Plane&quot;: <span>*</span>, &quot;SYSTEM_MODE&quot;: <span>*</span>, &quot;DEPTH_MODE&quot;: <span>*</span>, &quot;DIMENSION_MODE&quot;: <span>*</span>, &quot;VECTOR_MODE&quot;: <span>*</span>, &quot;FRONT_FACE&quot;: <span>*</span>, &quot;CULL_MODE&quot;: <span>*</span>, &quot;LIGHT_MODE&quot;: <span>*</span>, &quot;MeshLoader&quot;: <span>*</span>, &quot;CameraController&quot;: <span>*</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+    </div>
+<div data-ice="dirSummaryWrap">
+      <h2 data-ice="dirPath" id="basic">basic</h2>
+      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Camera.js~S3Camera.html">S3Camera</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x30B7;&#x30FC;&#x30F3;&#x306E;&#x30AB;&#x30E1;&#x30E9;&#xFF08;&#x8996;&#x70B9;&#xFF09;&#x60C5;&#x5831;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;
+&#x8996;&#x70B9;&#x5EA7;&#x6A19;&#x3001;&#x6CE8;&#x8996;&#x70B9;&#x3001;&#x8996;&#x91CE;&#x89D2;&#x3001;&#x63CF;&#x753B;&#x7BC4;&#x56F2;&#x3001;&#x5404;&#x7A2E;&#x884C;&#x5217;&#x6F14;&#x7B97;&#x306A;&#x3069;&#x3092;&#x4FDD;&#x6301;&#x30FB;&#x64CD;&#x4F5C;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x30B7;&#x30FC;&#x30F3;&#x7528;&#x306E;&#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x7167;&#x660E;&#xFF09;&#x60C5;&#x5831;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;
+&#x5404;&#x7A2E;&#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x74B0;&#x5883;&#x5149;&#x30FB;&#x5E73;&#x884C;&#x5149;&#x6E90;&#x30FB;&#x70B9;&#x5149;&#x6E90;&#x306A;&#x3069;&#xFF09;&#x306E;&#x30E2;&#x30FC;&#x30C9;&#x30FB;&#x5F37;&#x3055;&#x30FB;&#x65B9;&#x5411;&#x30FB;&#x8272;&#x306A;&#x3069;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x7528;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08;&#x7D20;&#x6750;&#xFF09;&#x60C5;&#x5831;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;(mutable)
+&#x62E1;&#x6563;&#x53CD;&#x5C04;&#x8272;&#x3001;&#x81EA;&#x5DF1;&#x7167;&#x660E;&#x3001;&#x93E1;&#x9762;&#x53CD;&#x5C04;&#x3001;&#x74B0;&#x5883;&#x5149;&#x3001;&#x53CD;&#x5C04;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306A;&#x3069;&#x3092;&#x4E00;&#x62EC;&#x7BA1;&#x7406;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x7528;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;&#x7ACB;&#x4F53;&#x5F62;&#x72B6;&#x30C7;&#x30FC;&#x30BF;&#xFF09;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9; (mutable)
+&#x9802;&#x70B9;&#x30FB;&#x9762;&#x30FB;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;&#x8907;&#x6570;&#x306E;&#x5F62;&#x72B6;&#x3084;&#x5C5E;&#x6027;&#x3092;&#x4E00;&#x3064;&#x306B;&#x307E;&#x3068;&#x3081;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html">S3Model</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x30B7;&#x30FC;&#x30F3;&#x306B;&#x914D;&#x7F6E;&#x3059;&#x308B;&#x300C;&#x30E2;&#x30C7;&#x30EB;&#x300D;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9; (mutable)
+&#x4F4D;&#x7F6E;&#x30FB;&#x56DE;&#x8EE2;&#x30FB;&#x30B9;&#x30B1;&#x30FC;&#x30EB;&#x30FB;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;&#x5F62;&#x72B6;&#xFF09;&#x306A;&#x3069;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x5909;&#x63DB;&#x30FB;&#x914D;&#x7F6E;&#x60C5;&#x5831;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Scene.js~S3Scene.html">S3Scene</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x30B7;&#x30FC;&#x30F3;&#xFF08;&#x63CF;&#x753B;&#x30B7;&#x30FC;&#x30F3;&#xFF09;&#x306E;&#x7BA1;&#x7406;&#x30AF;&#x30E9;&#x30B9;
+&#x30E2;&#x30C7;&#x30EB;&#x30FB;&#x30E9;&#x30A4;&#x30C8;&#x30FB;&#x30AB;&#x30E1;&#x30E9;&#x306A;&#x3069;&#x30B7;&#x30FC;&#x30F3;&#x69CB;&#x6210;&#x8981;&#x7D20;&#x3092;&#x4E00;&#x62EC;&#x7BA1;&#x7406;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x5168;&#x4F53;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html">S3Texture</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x7528;&#x306E;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#xFF08;&#x753B;&#x50CF;&#xFF09;&#x60C5;&#x5831;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;
+&#x753B;&#x50CF;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x3084;2&#x306E;&#x7D2F;&#x4E57;&#x5316;&#x51E6;&#x7406;&#x3001;&#x30ED;&#x30FC;&#x30C9;&#x72B6;&#x6CC1;&#x7BA1;&#x7406;&#x3001;&#x7834;&#x68C4;&#x51E6;&#x7406;&#x306A;&#x3069;&#x3092;&#x62C5;&#x5F53;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x4E09;&#x89D2;&#x5F62;&#x30DD;&#x30EA;&#x30B4;&#x30F3;&#x306E;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x60C5;&#x5831;&#x3092;&#x4FDD;&#x6301;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#xFF08;immutable&#xFF09;
+&#x5404;&#x30DD;&#x30EA;&#x30B4;&#x30F3;&#x9762;&#x3092;&#x69CB;&#x6210;&#x3059;&#x308B;&#x9802;&#x70B9;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3084;UV&#x5EA7;&#x6A19;&#x3001;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x7BA1;&#x7406;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x7528;&#x306E;&#x9802;&#x70B9;&#x30AF;&#x30E9;&#x30B9;&#xFF08;immutable&#xFF09;
+&#x5404;&#x9802;&#x70B9;&#x306E;&#x7A7A;&#x9593;&#x4E0A;&#x306E;&#x5EA7;&#x6A19;&#x60C5;&#x5831;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3VPSMatrix">S3VPSMatrix</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30AB;&#x30E1;&#x30E9;&#x306E;&#x30D3;&#x30E5;&#x30FC;&#x30FB;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30FB;&#x30D3;&#x30E5;&#x30FC;&#x30DD;&#x30FC;&#x30C8;&#x884C;&#x5217;&#x60C5;&#x5831;&#x3092;&#x307E;&#x3068;&#x3081;&#x305F;&#x578B;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+    </div>
+<div data-ice="dirSummaryWrap">
+      <h2 data-ice="dirPath" id="gl">gl</h2>
+      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html">S3GLArray</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x7528;&#x306E;&#x914D;&#x5217;&#xFF08;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#xFF09;&#x3092;&#x751F;&#x6210;&#x30FB;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x3002;&#xFF08;immutable&#xFF09;
+&#x5404;&#x7A2E;&#x578B;&#xFF08;S3Vector, S3Matrix, &#x6570;&#x5024;&#x914D;&#x5217;&#x7B49;&#xFF09;&#x3092;WebGL&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#xFF08;Float32Array/Int32Array&#xFF09;&#x306B;&#x5909;&#x63DB;&#x3057;&#x3001;
+&#x5BFE;&#x5FDC;&#x3059;&#x308B;GLSL&#x578B;&#xFF08;vec3, mat4&#x7B49;&#xFF09;&#x60C5;&#x5831;&#x3082;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLLight.js~S3GLLight.html">S3GLLight</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x30EC;&#x30F3;&#x30C0;&#x30EA;&#x30F3;&#x30B0;&#x7528;&#x306E;&#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x7167;&#x660E;&#xFF09;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x57FA;&#x672C;&#x306E;S3Light&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#x3084;&#x4E00;&#x610F;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x751F;&#x6210;&#x306A;&#x3069;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLMaterial.js~S3GLMaterial.html">S3GLMaterial</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08;&#x6750;&#x8CEA;&#xFF09;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x57FA;&#x672C;&#x306E;S3Material&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#x30FB;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x7BA1;&#x7406;&#x306A;&#x3069;WebGL&#x7528;&#x9014;&#x5411;&#x3051;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x8272;&#x3001;&#x62E1;&#x6563;/&#x53CD;&#x5C04;/&#x767A;&#x5149;/&#x74B0;&#x5883;&#x5149;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x60C5;&#x5831;&#x306A;&#x3069;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;GLSL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x3078;&#x306E;uniform&#x30C7;&#x30FC;&#x30BF;&#x5316;&#x3092;&#x62C5;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLMesh.js~S3GLMesh.html">S3GLMesh</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x7528;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;&#x7ACB;&#x4F53;&#x5F62;&#x72B6;&#x30C7;&#x30FC;&#x30BF;&#xFF09;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3059;&#x3002;
+S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5FC5;&#x8981;&#x306A;VBO&#x3084;IBO&#x60C5;&#x5831;&#x3001;GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#x30FB;&#x89E3;&#x653E;&#x6A5F;&#x80FD;&#x306A;&#x3069;&#x3092;&#x6301;&#x3061;&#x307E;&#x3059;&#x3002;
+&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x63CF;&#x753B;&#x6642;&#x306B;GL&#x306B;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3067;&#x304D;&#x308B;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x5F62;&#x5F0F;&#x3078;&#x306E;&#x5909;&#x63DB;&#x30FB;&#x7BA1;&#x7406;&#x3082;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLModel.js~S3GLModel.html">S3GLModel</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#xFF08;Model&#xFF09;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x57FA;&#x672C;&#x306E;S3Model&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x5411;&#x3051;uniform&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x751F;&#x6210;&#xFF08;getUniforms&#xFF09;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x30E2;&#x30C7;&#x30EB;&#x3054;&#x3068;&#x306E;&#x6750;&#x8CEA;&#xFF08;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF09;&#x60C5;&#x5831;&#x3092;uniform&#x30C7;&#x30FC;&#x30BF;&#x3068;&#x3057;&#x3066;&#x307E;&#x3068;&#x3081;&#x3001;GLSL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306B;&#x6E21;&#x305B;&#x308B;&#x5F62;&#x306B;&#x6574;&#x5F62;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLProgram.js~S3GLProgram.html">S3GLProgram</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#xFF08;Program&#xFF09;&#x7BA1;&#x7406;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x9802;&#x70B9;&#x30FB;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;2&#x3064;&#x306E;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3068;&#x3001;&#x305D;&#x308C;&#x3089;&#x3092;&#x30EA;&#x30F3;&#x30AF;&#x3057;&#x305F;GL&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;
+&#x5404;&#x7A2E;attribute/uniform&#x5909;&#x6570;&#x3068;&#x306E;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3084;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x5207;&#x66FF;&#x30FB;&#x7834;&#x68C4;&#x306A;&#x3069;&#x306E;&#x7BA1;&#x7406;&#x3092;&#x62C5;&#x3044;&#x307E;&#x3059;&#x3002;
+S3GLSystem&#x7D4C;&#x7531;&#x3067;&#x306E;WebGL&#x63CF;&#x753B;&#x5236;&#x5FA1;&#x306E;&#x30B3;&#x30A2;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLScene.js~S3GLScene.html">S3GLScene</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x30B7;&#x30FC;&#x30F3;&#xFF08;Scene&#xFF09;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x57FA;&#x672C;&#x306E;S3Scene&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x7528;&#x306E;uniform&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#xFF08;getUniforms&#xFF09;&#x306A;&#x3069;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x30AB;&#x30E1;&#x30E9;&#x3084;&#x30E9;&#x30A4;&#x30C8;&#x60C5;&#x5831;&#x3092;GLSL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x5411;&#x3051;&#x306B;uniform&#x5909;&#x6570;&#x3068;&#x3057;&#x3066;&#x307E;&#x3068;&#x3081;&#x3066;&#x63D0;&#x4F9B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html">S3GLShader</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x306E;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x7BA1;&#x7406;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x9802;&#x70B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#xFF0F;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x30FB;&#x578B;&#x30FB;GL&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3084;&#x7834;&#x68C4;&#x3001;&#x72B6;&#x614B;&#x53D6;&#x5F97;&#x306A;&#x3069;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x307E;&#x3059;&#x3002;
+S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5358;&#x4F53;&#x3067;&#x306F;&#x76F4;&#x63A5;&#x4F7F;&#x308F;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x8A2D;&#x8A08;&#x3067;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x30EC;&#x30F3;&#x30C0;&#x30EA;&#x30F3;&#x30B0;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3001;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x751F;&#x6210;&#x30FB;&#x7BA1;&#x7406;&#x3001;&#x304A;&#x3088;&#x3073;&#x63CF;&#x753B;&#x5236;&#x5FA1;&#x3092;&#x62C5;&#x5F53;&#x3002;
+WebGL&#x306E;&#x521D;&#x671F;&#x5316;&#x3084;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x3001;&#x30B7;&#x30FC;&#x30F3;&#x306E;&#x63CF;&#x753B;&#x306A;&#x3069;&#x306E;&#x51E6;&#x7406;&#x3092;&#x542B;&#x3080;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLTexture.js~S3GLTexture.html">S3GLTexture</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+S3Texture&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x7528;&#x306E;GLTexture&#x7BA1;&#x7406;&#x3001;GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x53D6;&#x5F97;&#xFF08;getGLData&#xFF09;&#x3001;&#x7834;&#x68C4;&#x306A;&#x3069;&#x3092;&#x62C5;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x753B;&#x50CF;&#x30C7;&#x30FC;&#x30BF;&#x3092;GPU&#x306E;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3078;&#x5909;&#x63DB;&#x3057;&#x3001;GLSL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x3078;&#x306E;uniform&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x306A;&#x3069;&#x306B;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndex.js~S3GLTriangleIndex.html">S3GLTriangleIndex</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x57FA;&#x672C;&#x306E;S3TriangleIndex&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;GL&#x7528;&#x5C5E;&#x6027;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#xFF08;S3GLTriangleIndexData&#x5316;&#xFF09;&#x306A;&#x3069;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x9802;&#x70B9;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x30FB;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x756A;&#x53F7;&#x30FB;UV&#x5EA7;&#x6A19;&#x306A;&#x3069;&#x306E;&#x60C5;&#x5831;&#x3092;&#x6301;&#x3061;&#x3001;WebGL&#x5411;&#x3051;&#x51E6;&#x7406;&#x306E;&#x571F;&#x53F0;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndexData.js~S3GLTriangleIndexData.html">S3GLTriangleIndexData</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x30FB;&#x5C5E;&#x6027;&#x30C7;&#x30FC;&#x30BF;&#x683C;&#x7D0D;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+&#x4E09;&#x89D2;&#x5F62;&#x3054;&#x3068;&#x306E;&#x9802;&#x70B9;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x30FB;UV&#x30FB;&#x6CD5;&#x7DDA;&#x30FB;&#x63A5;&#x7DDA;&#x30FB;&#x5F93;&#x6CD5;&#x7DDA;&#x306A;&#x3069;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;
+WebGL&#xFF08;GLSL&#xFF09;&#x7528;&#x306B;&#x6700;&#x9069;&#x5316;&#x3055;&#x308C;&#x305F;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#x3084;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x4F5C;&#x6210;&#x3082;&#x62C5;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLVertex.js~S3GLVertex.html">S3GLVertex</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x9802;&#x70B9;&#xFF08;&#x30D0;&#x30FC;&#x30C6;&#x30C3;&#x30AF;&#x30B9;&#xFF09;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+S3Vertex&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#x3084;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x5316;&#x306A;&#x3069;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x9802;&#x70B9;&#x60C5;&#x5831;&#xFF08;&#x4F4D;&#x7F6E;&#xFF09;&#x3092;GL&#x5411;&#x3051;&#x5F62;&#x5F0F;&#x306B;&#x5909;&#x63DB;&#x3057;&#x3001;&#x30D0;&#x30FC;&#x30C6;&#x30C3;&#x30AF;&#x30B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306E;attribute&#x3068;&#x9023;&#x643A;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayDataType">S3GLArrayDataType</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x914D;&#x5217;&#x3067;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x60C5;&#x5831;&#xFF08;&#x5404;&#x7A2E;TypedArray&#x578B;&#xFF09;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>&gt;&gt;&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>GLSL&#x578B;&#x540D;&#xFF08;&quot;vec3&quot;&#x3084;&quot;mat4&quot;&#x306A;&#x3069;&#xFF09;&#x3092;&#x914D;&#x5217;&#x6B21;&#x5143;&#x3084;&#x5165;&#x529B;&#x7A2E;&#x5225;&#x304B;&#x3089;&#x81EA;&#x52D5;&#x5224;&#x5B9A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x69CB;&#x9020;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span><span class="code" data-ice="signature">: <span>typeof Float32Array </span> | <span> typeof Int32Array</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>TypedArray&#x306E;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x578B;&#x5B9A;&#x7FA9;&#xFF08;Int32Array, Float32Array &#x306A;&#x3069;&#xFF09;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span><span class="code" data-ice="signature">: <span>&quot;normal&quot;</span> | <span>&quot;tangent&quot;</span> | <span>&quot;binormal&quot;</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>_getGLArrayData&#x306E;&#x8FD4;&#x5374;&#x5024;&#xFF08;IBO&#x3068;VBO&#x307E;&#x3068;&#x3081;&#x3066;&#x8FD4;&#x3059;&#x69CB;&#x9020;&#xFF09;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>IBO&#xFF08;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF09;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, <span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>VBO&#xFF08;&#x9802;&#x70B9;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF09;&#x5168;&#x4F53;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>VBO&#xFF08;&#x9802;&#x70B9;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF09;1&#x8981;&#x7D20;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array">Int32Array</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array">Float32Array</a></span> | <span>WebGLBuffer</span> | <span>WebGLTexture</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>GLSL&#x578B;&#x540D;&#x3054;&#x3068;&#x306E;WebGL&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x60C5;&#x5831;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3002;
+&#x5404;GLSL&#x578B;&#xFF08;int, float, mat4, vec3, sampler2D&#x7B49;&#xFF09;&#x306B;&#x5BFE;&#x3057;&#x3001;</p>
+<ul>
+<li>glsltype: GLSL&#x578B;&#x540D;&#xFF08;&quot;vec3&quot; &#x306A;&#x3069;&#xFF09;</li>
+<li>instance: &#x5BFE;&#x5FDC;&#x3059;&#x308B;TypedArray&#x578B;&#x307E;&#x305F;&#x306F;Image&#xFF08;&#x30B5;&#x30F3;&#x30D7;&#x30E9;&#x30FC;&#x306E;&#x5834;&#x5408;&#xFF09;</li>
+<li>size: &#x5FC5;&#x8981;&#x306A;&#x8981;&#x7D20;&#x6570;&#xFF08;&#x914D;&#x5217;&#x9577;&#xFF09;</li>
+<li>btype: &#x5185;&#x90E8;&#x7684;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x7A2E;&#x5225;&#xFF08;&quot;FLOAT&quot;, &quot;INT&quot;, &quot;TEXTURE&quot; &#x306A;&#x3069;&#xFF09;</li>
+<li>bind: WebGL&#x306E;uniform&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x95A2;&#x6570;&#xFF08;g&#x5185;&#x306E;&#x8A72;&#x5F53;&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x7528;&#xFF09;
+&#x306A;&#x3069;&#x306E;&#x60C5;&#x5831;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+</ul>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x304B;&#x3089;&#x89E3;&#x6790;&#x3057;&#x305F;&#x5909;&#x6570;&#x306E;&#x30C7;&#x30FC;&#x30BF;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLUniformBindFunctions">S3GLUniformBindFunctions</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>WebGL&#x306E;uniform&#x5909;&#x6570;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x7528;&#x95A2;&#x6570;&#x7FA4;&#x3002;
+&#x5404;&#x95A2;&#x6570;&#x306F;GLSL&#x306E;&#x578B;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x6B63;&#x3057;&#x3044;uniform&#x95A2;&#x6570;&#xFF08;uniform1iv/uniformMatrix4fv&#x7B49;&#xFF09;&#x3067;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x9001;&#x308B;&#x5F79;&#x5272;&#x3092;&#x6301;&#x3061;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputData">S3GLProgramBindInputData</a></span></span><span class="code" data-ice="signature">: <span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataSingle">S3GLProgramBindInputDataSingle</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataSingle">S3GLProgramBindInputDataSingle</a></span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataSingle">S3GLProgramBindInputDataSingle</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array">Int32Array</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array">Float32Array</a></span> | <span>WebGLBuffer</span> | <span>WebGLTexture</span> | <span><a href="class/src/gl/S3GLArray.js~S3GLArray.html">S3GLArray</a></span> | <span><a href="class/src/math/S3Matrix.js~S3Matrix.html">S3Matrix</a></span> | <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataTable">S3GLProgramBindInputDataTable</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, <span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputData">S3GLProgramBindInputData</a></span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLSceneUniform">S3GLSceneUniform</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashEntry">S3GLFuncTextureCashEntry</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashTable">S3GLFuncTextureCashTable</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>&lt;<span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, <span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashEntry">S3GLFuncTextureCashEntry</a></span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x30AD;&#x30E3;&#x30C3;&#x30B7;&#x30E5;&#x5168;&#x4F53;&#x306E;&#x578B;&#x5B9A;&#x7FA9;&#x3002;
+&#x30AD;&#x30FC;&#x304C;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;ID&#xFF08;string&#xFF09;&#x3067;&#x3001;&#x5024;&#x304C;GLFuncTextureCashEntry&#x578B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFaceAttribute">S3GLFaceAttribute</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x9762;&#xFF08;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#xFF09;&#x5358;&#x4F4D;&#x306E;&#x5C5E;&#x6027;&#x60C5;&#x5831;&#x578B;&#x3002;
+S3Vector.getTangentVector &#x3067;&#x8A08;&#x7B97;&#x3055;&#x308C;&#x305F;&#x9762;&#x306E;&#x6CD5;&#x7DDA;&#x30FB;&#x63A5;&#x7DDA;&#x30FB;&#x5F93;&#x6CD5;&#x7DDA;&#xFF08;&#x3059;&#x3079;&#x3066;S3Vector&#x578B;&#x307E;&#x305F;&#x306F;null&#xFF09;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLVertexAttribute">S3GLVertexAttribute</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x9802;&#x70B9;&#x5358;&#x4F4D;&#x306E;&#x5C5E;&#x6027;&#x60C5;&#x5831;&#x578B;&#x3002;
+&#x5404;&#x9802;&#x70B9;&#xFF08;3&#x3064;&#xFF09;&#x306E;&#x6CD5;&#x7DDA;&#x30FB;&#x63A5;&#x7DDA;&#x30FB;&#x5F93;&#x6CD5;&#x7DDA;&#xFF08;&#x3044;&#x305A;&#x308C;&#x3082;S3Vector&#x578B;&#x307E;&#x305F;&#x306F;null&#xFF09;&#x306E;&#x914D;&#x5217;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+    </div>
+<div data-ice="dirSummaryWrap">
+      <h2 data-ice="dirPath" id="loader">loader</h2>
+      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoader">S3MeshLoader</a></span></span><span class="code" data-ice="signature">: {&quot;inputData&quot;: <span>*</span>, &quot;outputData&quot;: <span>*</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30ED;&#x30FC;&#x30C0;&#x30FC;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderJSON">S3MeshLoaderJSON</a></span></span><span class="code" data-ice="signature">: {&quot;name&quot;: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, &quot;input&quot;: <span>*</span>, &quot;output&quot;: <span>*</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderMQO">S3MeshLoaderMQO</a></span></span><span class="code" data-ice="signature">: {&quot;name&quot;: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, &quot;input&quot;: <span>*</span>, &quot;output&quot;: <span>*</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Metasequoia&#xFF08;MQO&#xFF09;&#x5F62;&#x5F0F;&#x306B;&#x3088;&#x308B;3DCG&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderOBJ">S3MeshLoaderOBJ</a></span></span><span class="code" data-ice="signature">: {&quot;name&quot;: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, &quot;input&quot;: <span>*</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Wavefront OBJ&#x5F62;&#x5F0F;&#x306B;&#x3088;&#x308B;3DCG&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderDataIOFunvction">S3MeshLoaderDataIOFunvction</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x7528;&#x95A2;&#x6570;&#x5B9A;&#x7FA9;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterial">S3MeshLoaderMaterial</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x60C5;&#x5831;&#xFF08;&#x5FC5;&#x8981;&#x6642;&#x306B;&#x53C2;&#x7167;&#x3055;&#x308C;&#x308B;&#xFF09;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterialListEntry">S3MeshLoaderMaterialListEntry</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+    </div>
+<div data-ice="dirSummaryWrap">
+      <h2 data-ice="dirPath" id="math">math</h2>
+      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x7528;&#x306E;&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#x30AF;&#x30E9;&#x30B9;&#xFF08;immutable&#xFF09;
+Roll&#xFF08;Z&#x8EF8;&#xFF09;&#x3001;Pitch&#xFF08;X&#x8EF8;&#xFF09;&#x3001;Yaw&#xFF08;Y&#x8EF8;&#xFF09;&#x306E;&#x9806;&#x3067;&#x89D2;&#x5EA6;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x5404;&#x5024;&#x306F;&#x5E38;&#x306B;&#x5468;&#x671F;&#x7684;&#xFF08;-180&#xFF5E;180&#x5EA6;&#xFF09;&#x306B;&#x7BA1;&#x7406;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/math/S3Matrix.js~S3Matrix.html">S3Matrix</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x7528;&#x306E;4x4&#x884C;&#x5217;&#x30AF;&#x30E9;&#x30B9;
+&#x4E3B;&#x306B;&#x5909;&#x63DB;&#x884C;&#x5217;&#x3084;&#x5C04;&#x5F71;&#x884C;&#x5217;&#x306A;&#x3069;&#x306B;&#x4F7F;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/math/S3Plane.js~S3Plane.html">S3Plane</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x7528;&#x306E;&#x5E73;&#x9762;&#x30AF;&#x30E9;&#x30B9;
+&#x6CD5;&#x7DDA;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x3068;&#x8DDD;&#x96E2;&#x307E;&#x305F;&#x306F;&#x5E73;&#x9762;&#x4E0A;&#x306E;1&#x70B9;&#x304B;&#x3089;&#x5E73;&#x9762;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>3DCG&#x7528;&#x306E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x30AF;&#x30E9;&#x30B9;&#xFF08;immutable&#xFF09;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-S3Math">S3Math</a></span></span><span class="code" data-ice="signature">: {&quot;EPSILON&quot;: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, &quot;clamp&quot;: <span>*</span>, &quot;step&quot;: <span>*</span>, &quot;mix&quot;: <span>*</span>, &quot;smoothstep&quot;: <span>*</span>, &quot;equals&quot;: <span>*</span>, &quot;mod&quot;: <span>*</span>, &quot;sign&quot;: <span>*</span>, &quot;fract&quot;: <span>*</span>, &quot;rsqrt&quot;: <span>*</span>, &quot;radius&quot;: <span>*</span>, &quot;degrees&quot;: <span>*</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x6570;&#x5B66;&#x7684;&#x306A;&#x4FBF;&#x5229;&#x95A2;&#x6570;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;
+&#x5404;&#x7A2E;&#x6F14;&#x7B97;&#xFF08;&#x30AF;&#x30E9;&#x30F3;&#x30D7;&#x3001;&#x30B9;&#x30C6;&#x30C3;&#x30D7;&#x95A2;&#x6570;&#x3001;&#x88DC;&#x9593;&#x3001;&#x7B49;&#x4FA1;&#x5224;&#x5B9A;&#x3001;&#x4E09;&#x89D2;&#x95A2;&#x6570;&#x5909;&#x63DB;&#x7B49;&#xFF09;&#x3092;&#x307E;&#x3068;&#x3081;&#x305F;&#x9759;&#x7684;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-typedef">T</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+    </div>
+<div data-ice="dirSummaryWrap">
+      <h2 data-ice="dirPath" id="tools">tools</h2>
+      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-class">C</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/tools/CameraController.js~CameraController.html">CameraController</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>&#x30AB;&#x30E1;&#x30E9;&#x64CD;&#x4F5C;&#x7528;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;
+&#x30BF;&#x30C3;&#x30C1;&#x64CD;&#x4F5C;&#x3084;&#x30DE;&#x30A6;&#x30B9;&#x64CD;&#x4F5C;&#x3092;&#x7528;&#x3044;&#x3066;3DCG&#x30B7;&#x30FC;&#x30F3;&#x306E;&#x30AB;&#x30E1;&#x30E9;&#x306E;&#x79FB;&#x52D5;&#x30FB;&#x56DE;&#x8EE2;&#x30FB;&#x30BA;&#x30FC;&#x30E0;&#x30A4;&#x30F3;/&#x30A2;&#x30A6;&#x30C8;&#x306A;&#x3069;&#x3092;&#x5236;&#x5FA1;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3059;&#x3002;
+InputDetect &#x306E;&#x5165;&#x529B;&#x60C5;&#x5831;&#x3092;&#x3082;&#x3068;&#x306B;&#x3001;&#x30AB;&#x30E1;&#x30E9;&#x306E;&#x79FB;&#x52D5;&#x30FB;&#x56DE;&#x8EE2;&#x30FB;&#x8DDD;&#x96E2;&#x5909;&#x66F4;&#xFF08;&#x30BA;&#x30FC;&#x30E0;&#xFF09;&#x3092;&#x81EA;&#x52D5;&#x3067;&#x8A08;&#x7B97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+    </div>
+</div>
+
+  <div class="identifier-dir-tree" data-ice="dirTreeWrap">
+    <div class="identifier-dir-tree-header">Directories</div>
+    <div class="identifier-dir-tree-content" data-ice="dirTree"><div style="padding-left: 0em"><a href="#basic">basic</a></div>
+<div style="padding-left: 0em"><a href="#gl">gl</a></div>
+<div style="padding-left: 0em"><a href="#loader">loader</a></div>
+<div style="padding-left: 0em"><a href="#math">math</a></div>
+<div style="padding-left: 0em"><a href="#tools">tools</a></div></div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

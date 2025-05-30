@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/gl/S3GLProgram.js | s3js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A JavaScript library."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="s3js"><meta property="twitter:description" content="A JavaScript library."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/natade-jp/js-s3js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3">S3</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#basic">basic</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Camera.js~S3Camera.html">S3Camera</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html">S3Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Scene.js~S3Scene.html">S3Scene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html">S3Texture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3VPSMatrix">S3VPSMatrix</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#gl">gl</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html">S3GLArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLLight.js~S3GLLight.html">S3GLLight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMaterial.js~S3GLMaterial.html">S3GLMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMesh.js~S3GLMesh.html">S3GLMesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLModel.js~S3GLModel.html">S3GLModel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLProgram.js~S3GLProgram.html">S3GLProgram</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLScene.js~S3GLScene.html">S3GLScene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html">S3GLShader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTexture.js~S3GLTexture.html">S3GLTexture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndex.js~S3GLTriangleIndex.html">S3GLTriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndexData.js~S3GLTriangleIndexData.html">S3GLTriangleIndexData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLVertex.js~S3GLVertex.html">S3GLVertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayDataType">S3GLArrayDataType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLUniformBindFunctions">S3GLUniformBindFunctions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputData">S3GLProgramBindInputData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataSingle">S3GLProgramBindInputDataSingle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataTable">S3GLProgramBindInputDataTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLSceneUniform">S3GLSceneUniform</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashEntry">S3GLFuncTextureCashEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashTable">S3GLFuncTextureCashTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFaceAttribute">S3GLFaceAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLVertexAttribute">S3GLVertexAttribute</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#loader">loader</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoader">S3MeshLoader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderJSON">S3MeshLoaderJSON</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderMQO">S3MeshLoaderMQO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderOBJ">S3MeshLoaderOBJ</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderDataIOFunvction">S3MeshLoaderDataIOFunvction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterial">S3MeshLoaderMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterialListEntry">S3MeshLoaderMaterialListEntry</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math">math</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Matrix.js~S3Matrix.html">S3Matrix</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Plane.js~S3Plane.html">S3Plane</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3Math">S3Math</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tools/CameraController.js~CameraController.html">CameraController</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/gl/S3GLProgram.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&#xFEFF;import S3Matrix from &quot;../math/S3Matrix.js&quot;;
+import S3Vector from &quot;../math/S3Vector.js&quot;;
+import S3GLShader from &quot;./S3GLShader.js&quot;;
+import S3GLSystem from &quot;./S3GLSystem.js&quot;;
+import S3GLArray from &quot;./S3GLArray.js&quot;;
+import S3GLMesh from &quot;./S3GLMesh.js&quot;;
+
+/**
+ * @typedef {Int32Array|Float32Array|WebGLBuffer|WebGLTexture|S3GLArray|S3Matrix|S3Vector|number} S3GLProgramBindInputDataSingle bindData&#x306E;&#x5165;&#x529B;&#x30C7;&#x30FC;&#x30BF;(&#x5358;&#x4F53;)
+ */
+
+/**
+ * @typedef {S3GLProgramBindInputDataSingle|Array&lt;S3GLProgramBindInputDataSingle&gt;} S3GLProgramBindInputData bindData&#x306E;&#x5165;&#x529B;&#x30C7;&#x30FC;&#x30BF;(&#x914D;&#x5217;&#x53EF;)
+ */
+
+/**
+ * @typedef {Object.&lt;string, S3GLProgramBindInputData&gt;} S3GLProgramBindInputDataTable
+ */
+
+/**
+ * @typedef {Object} S3GLProgramUniforms
+ * @property {S3GLProgramBindInputDataTable} uniforms
+ */
+
+/**
+ * WebGL&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#xFF08;Program&#xFF09;&#x7BA1;&#x7406;&#x30AF;&#x30E9;&#x30B9;&#x3002;
+ * &#x9802;&#x70B9;&#x30FB;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;2&#x3064;&#x306E;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3068;&#x3001;&#x305D;&#x308C;&#x3089;&#x3092;&#x30EA;&#x30F3;&#x30AF;&#x3057;&#x305F;GL&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;
+ * &#x5404;&#x7A2E;attribute/uniform&#x5909;&#x6570;&#x3068;&#x306E;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3084;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x5207;&#x66FF;&#x30FB;&#x7834;&#x68C4;&#x306A;&#x3069;&#x306E;&#x7BA1;&#x7406;&#x3092;&#x62C5;&#x3044;&#x307E;&#x3059;&#x3002;
+ * S3GLSystem&#x7D4C;&#x7531;&#x3067;&#x306E;WebGL&#x63CF;&#x753B;&#x5236;&#x5FA1;&#x306E;&#x30B3;&#x30A2;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
+ */
+export default class S3GLProgram {
+	/**
+	 * WebGL&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {S3GLSystem} sys GL&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+	 * @param {number} id &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x4E00;&#x610F;&#x8B58;&#x5225;ID
+	 */
+	constructor(sys, id) {
+		this._init(sys, id);
+	}
+
+	/**
+	 * &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x5185;&#x90E8;&#x521D;&#x671F;&#x5316;&#x3002;
+	 * &#x5909;&#x6570;&#x60C5;&#x5831;&#x30FB;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x72B6;&#x614B;&#x30FB;&#x30EA;&#x30F3;&#x30AF;&#x6E08;&#x307F;&#x30D5;&#x30E9;&#x30B0;&#x7B49;&#x3092;&#x30EA;&#x30BB;&#x30C3;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @private
+	 * @param {S3GLSystem} sys
+	 * @param {number} id
+	 */
+	_init(sys, id) {
+		/**
+		 * &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x4E00;&#x610F;ID
+		 * @type {number}
+		 */
+		this.id = id;
+
+		/**
+		 * GL&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+		 * @type {S3GLSystem}
+		 */
+		this.sys = sys;
+
+		/**
+		 * &#x9802;&#x70B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+		 * @type {?S3GLShader}
+		 */
+		this.vertex = null;
+
+		/**
+		 * &#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+		 * @type {?S3GLShader}
+		 */
+		this.fragment = null;
+
+		/**
+		 * &#x9802;&#x70B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x304C;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x4E2D;&#x304B;&#x3069;&#x3046;&#x304B;
+		 * @type {boolean}
+		 */
+		this.isDLVertex = false;
+
+		/**
+		 * &#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x304C;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x4E2D;&#x304B;&#x3069;&#x3046;&#x304B;
+		 * @type {boolean}
+		 */
+		this.isDLFragment = false;
+
+		/**
+		 * &#x30EA;&#x30F3;&#x30AF;&#x6E08;&#x307F;GL&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;
+		 * @type {?WebGLProgram}
+		 */
+		this.program = null;
+
+		/**
+		 * GL&#x4E0A;&#x3067;&#x30EA;&#x30F3;&#x30AF;&#x6E08;&#x307F;&#x304B;&#x3069;&#x3046;&#x304B;
+		 * @type {boolean}
+		 */
+		this.is_linked = false;
+
+		/**
+		 * &#x30A8;&#x30E9;&#x30FC;&#x767A;&#x751F;&#x6E08;&#x307F;&#x304B;&#x3069;&#x3046;&#x304B;
+		 * @type {boolean}
+		 */
+		this.is_error = false;
+
+		/**
+		 * &#x6709;&#x52B9;&#x5316;&#x6E08;&#x307F;&#x306E;attribute&#x30ED;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x756A;&#x53F7;&#x7BA1;&#x7406;
+		 * @type {Object&lt;number, boolean&gt;}
+		 */
+		this.enable_vertex_number = {};
+
+		/**
+		 * &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x5909;&#x6570;&#x7BA1;&#x7406;&#x69CB;&#x9020;&#x4F53;
+		 * @type {Object&lt;string, S3GLShaderData&gt;}
+		 */
+		this.variable = {};
+
+		const _this = this;
+
+		/**
+		 * &#x6B21;&#x306B;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x4E88;&#x5B9A;&#x306E;&#x30A2;&#x30AF;&#x30C6;&#x30A3;&#x30D6;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x756A;&#x53F7;
+		 * @type {number}
+		 */
+		this.activeTextureId = 0;
+
+		/**
+		 * WebGL&#x306E;uniform&#x5909;&#x6570;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x7528;&#x95A2;&#x6570;&#x7FA4;&#x3002;
+		 * &#x5404;&#x95A2;&#x6570;&#x306F;GLSL&#x306E;&#x578B;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x6B63;&#x3057;&#x3044;uniform&#x95A2;&#x6570;&#xFF08;uniform1iv/uniformMatrix4fv&#x7B49;&#xFF09;&#x3067;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x9001;&#x308B;&#x5F79;&#x5272;&#x3092;&#x6301;&#x3061;&#x307E;&#x3059;&#x3002;
+		 *
+		 * @typedef {Object} S3GLUniformBindFunctions
+		 * @property {function(WebGLUniformLocation, Int32Array):void}  uniform1iv  1&#x6B21;&#x5143;&#x6574;&#x6570;&#x914D;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Int32Array):void}  uniform2iv  2&#x6B21;&#x5143;&#x6574;&#x6570;&#x914D;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Int32Array):void}  uniform3iv  3&#x6B21;&#x5143;&#x6574;&#x6570;&#x914D;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Int32Array):void}  uniform4iv  4&#x6B21;&#x5143;&#x6574;&#x6570;&#x914D;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Float32Array):void} uniform1fv  1&#x6B21;&#x5143;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x914D;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Float32Array):void} uniform2fv  2&#x6B21;&#x5143;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x914D;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Float32Array):void} uniform3fv  3&#x6B21;&#x5143;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x914D;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Float32Array):void} uniform4fv  4&#x6B21;&#x5143;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x914D;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Float32Array):void} uniformMatrix2fv  2x2&#x884C;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Float32Array):void} uniformMatrix3fv  3x3&#x884C;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, Float32Array):void} uniformMatrix4fv  4x4&#x884C;&#x5217;&#x3092;&#x9001;&#x4FE1;
+		 * @property {function(WebGLUniformLocation, WebGLTexture):void} uniformSampler2D   2D&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#xFF08;sampler2D&#xFF09;&#x3092;&#x9001;&#x4FE1;
+		 */
+
+		/**
+		 * GLSL&#x306E;uniform&#x5909;&#x6570;&#x578B;&#x3054;&#x3068;&#x306B;&#x9069;&#x5207;&#x306A;WebGL&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x95A2;&#x6570;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;
+		 * @type {S3GLUniformBindFunctions}
+		 */
+		const g = {
+			/**
+			 * 1&#x6B21;&#x5143;&#x6574;&#x6570;&#x914D;&#x5217; uniform1iv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Int32Array} value
+			 */
+			uniform1iv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniform1iv(location, value);
+				}
+			},
+
+			/**
+			 * 2&#x6B21;&#x5143;&#x6574;&#x6570;&#x914D;&#x5217; uniform2iv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Int32Array} value
+			 */
+			uniform2iv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniform2iv(location, value);
+				}
+			},
+
+			/**
+			 * 3&#x6B21;&#x5143;&#x6574;&#x6570;&#x914D;&#x5217; uniform3iv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Int32Array} value
+			 */
+			uniform3iv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniform3iv(location, value);
+				}
+			},
+
+			/**
+			 * 4&#x6B21;&#x5143;&#x6574;&#x6570;&#x914D;&#x5217; uniform4iv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Int32Array} value
+			 */
+			uniform4iv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniform4iv(location, value);
+				}
+			},
+
+			/**
+			 * 1&#x6B21;&#x5143;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x914D;&#x5217; uniform1fv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Float32Array} value
+			 */
+			uniform1fv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniform1fv(location, value);
+				}
+			},
+
+			/**
+			 * 2&#x6B21;&#x5143;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x914D;&#x5217; uniform2fv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Float32Array} value
+			 */
+			uniform2fv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniform2fv(location, value);
+				}
+			},
+
+			/**
+			 * 3&#x6B21;&#x5143;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x914D;&#x5217; uniform3fv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Float32Array} value
+			 */
+			uniform3fv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniform3fv(location, value);
+				}
+			},
+
+			/**
+			 * 4&#x6B21;&#x5143;&#x6D6E;&#x52D5;&#x5C0F;&#x6570;&#x70B9;&#x914D;&#x5217; uniform4fv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Float32Array} value
+			 */
+			uniform4fv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniform4fv(location, value);
+				}
+			},
+
+			/**
+			 * 2x2&#x884C;&#x5217; uniformMatrix2fv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Float32Array} value
+			 */
+			uniformMatrix2fv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniformMatrix2fv(location, false, value);
+				}
+			},
+
+			/**
+			 * 3x3&#x884C;&#x5217; uniformMatrix3fv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Float32Array} value
+			 */
+			uniformMatrix3fv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniformMatrix3fv(location, false, value);
+				}
+			},
+
+			/**
+			 * 4x4&#x884C;&#x5217; uniformMatrix4fv
+			 * @param {WebGLUniformLocation} location
+			 * @param {Float32Array} value
+			 */
+			uniformMatrix4fv: function (location, value) {
+				if (sys.getGL()) {
+					sys.getGL().uniformMatrix4fv(location, false, value);
+				}
+			},
+
+			/**
+			 * &#x30B5;&#x30F3;&#x30D7;&#x30E9;&#x30FC;2D&#xFF08;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#xFF09; uniformSampler2D
+			 * @param {WebGLUniformLocation} location
+			 * @param {WebGLTexture} value
+			 */
+			uniformSampler2D: function (location, value) {
+				const gl = sys.getGL();
+				if (gl) {
+					gl.activeTexture(gl.TEXTURE0 + _this.activeTextureId);
+					gl.bindTexture(gl.TEXTURE_2D, value);
+					gl.uniform1i(location, _this.activeTextureId);
+					_this.activeTextureId++;
+				}
+			}
+		};
+
+		/**
+		 * GLSL&#x578B;&#x540D;&#x3054;&#x3068;&#x306E;WebGL&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x60C5;&#x5831;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3002;
+		 * &#x5404;GLSL&#x578B;&#xFF08;int, float, mat4, vec3, sampler2D&#x7B49;&#xFF09;&#x306B;&#x5BFE;&#x3057;&#x3001;
+		 * - glsltype: GLSL&#x578B;&#x540D;&#xFF08;&quot;vec3&quot; &#x306A;&#x3069;&#xFF09;
+		 * - instance: &#x5BFE;&#x5FDC;&#x3059;&#x308B;TypedArray&#x578B;&#x307E;&#x305F;&#x306F;Image&#xFF08;&#x30B5;&#x30F3;&#x30D7;&#x30E9;&#x30FC;&#x306E;&#x5834;&#x5408;&#xFF09;
+		 * - size: &#x5FC5;&#x8981;&#x306A;&#x8981;&#x7D20;&#x6570;&#xFF08;&#x914D;&#x5217;&#x9577;&#xFF09;
+		 * - btype: &#x5185;&#x90E8;&#x7684;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x7A2E;&#x5225;&#xFF08;&quot;FLOAT&quot;, &quot;INT&quot;, &quot;TEXTURE&quot; &#x306A;&#x3069;&#xFF09;
+		 * - bind: WebGL&#x306E;uniform&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x95A2;&#x6570;&#xFF08;g&#x5185;&#x306E;&#x8A72;&#x5F53;&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x7528;&#xFF09;
+		 * &#x306A;&#x3069;&#x306E;&#x60C5;&#x5831;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;
+		 *
+		 * @typedef {Object} S3GLProgramGLSLTypeInfo
+		 * @property {string} glsltype GLSL&#x578B;&#x540D;&#xFF08;&#x4F8B;&#xFF1A;&quot;vec3&quot;&#xFF09;
+		 * @property {(typeof Float32Array | typeof Int32Array | Image)} instance &#x5BFE;&#x5FDC;TypedArray&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x307E;&#x305F;&#x306F;Image
+		 * @property {number} size &#x8981;&#x7D20;&#x6570;&#xFF08;float&#x306A;&#x3089;1, mat4&#x306A;&#x3089;16&#x306A;&#x3069;&#xFF09;
+		 * @property {string} btype &#x5185;&#x90E8;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x533A;&#x5206;&#xFF08;&quot;FLOAT&quot;, &quot;INT&quot;, &quot;TEXTURE&quot;&#x7B49;&#xFF09;
+		 * @property {function(WebGLUniformLocation, *):void} bind uniform&#x5909;&#x6570;&#x3078;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x95A2;&#x6570;
+		 */
+
+		/**
+		 * GLSL&#x578B;&#x3054;&#x3068;&#x306E;WebGL&#x60C5;&#x5831;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3002;
+		 * &#x5909;&#x6570;&#x578B;&#x3092;&#x30AD;&#x30FC;&#x3068;&#x3057;&#x3001;&#x578B;&#x3054;&#x3068;&#x306E;&#x8A73;&#x7D30;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#xFF08;GLSL&#x578B;&#x540D;/&#x914D;&#x5217;&#x578B;/&#x8981;&#x7D20;&#x6570;/&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x95A2;&#x6570;&#x306A;&#x3069;&#xFF09;&#x3092;&#x683C;&#x7D0D;&#x3057;&#x307E;&#x3059;&#x3002;
+		 * @type {Object&lt;string, S3GLProgramGLSLTypeInfo&gt;}
+		 */
+		const info = {
+			int: { glsltype: &quot;int&quot;, instance: Int32Array, size: 1, btype: &quot;INT&quot;, bind: g.uniform1iv },
+			float: { glsltype: &quot;float&quot;, instance: Float32Array, size: 1, btype: &quot;FLOAT&quot;, bind: g.uniform1fv },
+			bool: { glsltype: &quot;bool&quot;, instance: Int32Array, size: 1, btype: &quot;INT&quot;, bind: g.uniform1iv },
+			mat2: { glsltype: &quot;mat2&quot;, instance: Float32Array, size: 4, btype: &quot;FLOAT&quot;, bind: g.uniformMatrix2fv },
+			mat3: { glsltype: &quot;mat3&quot;, instance: Float32Array, size: 9, btype: &quot;FLOAT&quot;, bind: g.uniformMatrix3fv },
+			mat4: { glsltype: &quot;mat4&quot;, instance: Float32Array, size: 16, btype: &quot;FLOAT&quot;, bind: g.uniformMatrix4fv },
+			vec2: { glsltype: &quot;vec2&quot;, instance: Float32Array, size: 2, btype: &quot;FLOAT&quot;, bind: g.uniform2fv },
+			vec3: { glsltype: &quot;vec3&quot;, instance: Float32Array, size: 3, btype: &quot;FLOAT&quot;, bind: g.uniform3fv },
+			vec4: { glsltype: &quot;vec4&quot;, instance: Float32Array, size: 4, btype: &quot;FLOAT&quot;, bind: g.uniform4fv },
+			ivec2: { glsltype: &quot;ivec2&quot;, instance: Int32Array, size: 2, btype: &quot;INT&quot;, bind: g.uniform2iv },
+			ivec3: { glsltype: &quot;ivec3&quot;, instance: Int32Array, size: 3, btype: &quot;INT&quot;, bind: g.uniform3iv },
+			ivec4: { glsltype: &quot;ivec4&quot;, instance: Int32Array, size: 4, btype: &quot;INT&quot;, bind: g.uniform4iv },
+			bvec2: { glsltype: &quot;bvec2&quot;, instance: Int32Array, size: 2, btype: &quot;INT&quot;, bind: g.uniform2iv },
+			bvec3: { glsltype: &quot;bvec3&quot;, instance: Int32Array, size: 3, btype: &quot;INT&quot;, bind: g.uniform3iv },
+			bvec4: { glsltype: &quot;bvec4&quot;, instance: Int32Array, size: 4, btype: &quot;INT&quot;, bind: g.uniform4iv },
+			sampler2D: { glsltype: &quot;sampler2D&quot;, instance: Image, size: 1, btype: &quot;TEXTURE&quot;, bind: g.uniformSampler2D },
+			samplerCube: { glsltype: &quot;samplerCube&quot;, instance: Image, size: 1, btype: &quot;TEXTURE&quot;, bind: null }
+		};
+
+		/**
+		 * &#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x304B;&#x3089;&#x89E3;&#x6790;&#x3057;&#x305F;&#x5909;&#x6570;&#x306E;&#x30C7;&#x30FC;&#x30BF;
+		 *
+		 * - info &#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30AD;&#x30FC;&#xFF08;&quot;int&quot;, &quot;float&quot;, &quot;vec3&quot;&#x306A;&#x3069;&#xFF09;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3001;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x306F;&#x30B3;&#x30D4;&#x30FC;&#x3055;&#x308C;&#x308B;
+		 *
+		 * @typedef {Object} S3GLShaderData
+		 * @property {string} glsltype GLSL&#x578B;&#x540D;&#xFF08;&#x4F8B;&#xFF1A;&quot;vec3&quot;&#xFF09;
+		 * @property {(typeof Float32Array | typeof Int32Array | Image)} instance &#x5BFE;&#x5FDC;TypedArray&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x307E;&#x305F;&#x306F;Image
+		 * @property {number} size &#x8981;&#x7D20;&#x6570;&#xFF08;float&#x306A;&#x3089;1, mat4&#x306A;&#x3089;16&#x306A;&#x3069;&#xFF09;
+		 * @property {string} btype &#x5185;&#x90E8;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x533A;&#x5206;&#xFF08;&quot;FLOAT&quot;, &quot;INT&quot;, &quot;TEXTURE&quot;&#x7B49;&#xFF09;
+		 * @property {function(WebGLUniformLocation, *):void} bind uniform&#x5909;&#x6570;&#x3078;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x95A2;&#x6570;
+		 * @property {string} name &#x5909;&#x6570;&#x540D;&#xFF08;&#x4F8B;&#xFF1A;&quot;M&quot;&#xFF09;
+		 * @property {string} modifiers &#x5BA3;&#x8A00;&#x4FEE;&#x98FE;&#x5B50;&#xFF08;&#x4F8B;&#xFF1A;&quot;uniform&quot;&#xFF09;
+		 * @property {boolean} is_array &#x914D;&#x5217;&#x304B;&#x3069;&#x3046;&#x304B;&#xFF08;&#x4F8B;&#xFF1A;`true`&#x306A;&#x3089;&#x914D;&#x5217;&#x578B;&#xFF09;
+		 * @property {Array&lt;GLint|WebGLUniformLocation&gt;} location
+		 */
+
+		/**
+		 * &#x9802;&#x70B9;&#x30FB;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x5185;&#x306E;attribute/uniform&#x5BA3;&#x8A00;&#x3092;&#x81EA;&#x52D5;&#x89E3;&#x6790;&#x3057;&#x3001;
+		 * &#x5909;&#x6570;&#x578B;&#x30FB;&#x30ED;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306A;&#x3069;&#x3092;&#x5185;&#x90E8;&#x60C5;&#x5831;&#x3068;&#x3057;&#x3066;&#x767B;&#x9332;&#x3057;&#x307E;&#x3059;&#x3002;
+		 * &#xFF08;&#x901A;&#x5E38;&#x306F;getProgram&#x3067;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x307E;&#x3059;&#xFF09;
+		 * @param {string} code &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;GLSL&#x30BD;&#x30FC;&#x30B9;
+		 * @param {Object&lt;string, S3GLShaderData&gt;} variable &#x5185;&#x90E8;&#x5909;&#x6570;&#x60C5;&#x5831;&#x7BA1;&#x7406;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;
+		 * @private
+		 */
+		this.analysisShader = function (code, variable) {
+			// &#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x9664;&#x53BB;&#x3059;&#x308B;
+			code = code.replace(/\/\/.*/g, &quot;&quot;);
+			code = code.replace(/\/\*([^*]|\*[^/])*\*\//g, &quot;&quot;);
+			// 1&#x884C;&#x305A;&#x3064;&#x89E3;&#x6790;
+			const codelines = code.split(&quot;\n&quot;);
+			for (let i = 0; i &lt; codelines.length; i++) {
+				// uniform vec4 lights[4]; &#x3068;&#x3059;&#x308B;&#x3068;&#x3001; uniform,vec4,lights,[4]&#x3067;&#x533A;&#x5207;&#x3089;&#x308C;&#x308B;
+				const data = codelines[i].match(/(attribute|uniform)\s+(\w+)\s+(\w+)\s*(\[\s*\w+\s*\])?;/);
+				if (data === null) {
+					continue;
+				}
+				// &#x898B;&#x3064;&#x3051;&#x305F;&#x3089;&#x5909;&#x6570;&#x540D;&#x3084;&#x3001;&#x578B;&#x3092;&#x8A18;&#x9332;&#x3057;&#x3066;&#x304A;&#x304F;
+				// &#x914D;&#x5217;&#x6570;&#x306E;&#x8ABF;&#x67FB;&#x306F;&#x3001;&#x5B9A;&#x6570;&#x306A;&#x3069;&#x3092;&#x4F7F;&#x7528;&#x3055;&#x308C;&#x308B;&#x3068;&#x7C21;&#x5358;&#x306B;&#x8ABF;&#x3079;&#x3089;&#x308C;&#x306A;&#x3044;&#x305F;&#x3081;&#x53D6;&#x5F97;&#x3067;&#x304D;&#x306A;&#x3044;
+				// &#x305D;&#x306E;&#x305F;&#x3081;&#x81EA;&#x52D5;&#x3067;&#x30C6;&#x30B9;&#x30C8;&#x3067;&#x304D;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;bind&#x3059;&#x308B;&#x969B;&#x306B;&#x3001;&#x6B63;&#x3057;&#x3044;&#x914D;&#x5217;&#x6570;&#x306E;&#x914D;&#x5217;&#x3092;bind&#x3059;&#x308B;&#x3053;&#x3068;
+
+				/**
+				 * uniform or attribute
+				 */
+				const text_space = data[1];
+
+				/**
+				 * vec4 ...
+				 */
+				const text_type = data[2];
+
+				/**
+				 * &#x5909;&#x6570;&#x540D;
+				 */
+				const text_variable = data[3];
+
+				/**
+				 * &#x914D;&#x5217;&#x6570;
+				 */
+				const text_array = data[4];
+
+				/**
+				 * &#x914D;&#x5217;&#x304B;&#x3069;&#x3046;&#x304B;
+				 */
+				const is_array = text_array !== undefined;
+
+				// &#x578B;&#x306B;&#x5FDC;&#x3058;&#x305F;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;
+				// data[1] ... uniform, data[2] ... mat4, data[3] ... M
+				const targetinfo = info[text_type];
+
+				variable[text_variable] = {
+					glsltype: targetinfo.glsltype, // vec3, mat4 &#x306A;&#x3069;
+					instance: targetinfo.instance, // Float32Array, Int32Array, Image &#x306A;&#x3069;
+					size: targetinfo.size, // 1, 2, 3, 4, 16 &#x306A;&#x3069;
+					btype: targetinfo.btype, // FLOAT, INT, TEXTURE &#x306A;&#x3069;
+					bind: targetinfo.bind, // bind&#x95A2;&#x6570;&#xFF08;uniform1fv&#x306A;&#x3069;&#xFF09;
+					name: text_variable, // &#x5909;&#x6570;&#x540D;&#xFF08;&#x4F8B;&#xFF1A;&quot;M&quot;&#xFF09;
+					modifiers: text_space, // uniform, attribute &#x306A;&#x3069;&#x306E;&#x4FEE;&#x98FE;&#x5B50;
+					is_array: is_array, // &#x914D;&#x5217;&#x304B;&#x3069;&#x3046;&#x304B;
+					location: [] // &#x30ED;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x756A;&#x53F7;&#xFF08;GL&#x306E;uniformLocation&#x3084;attributeLocation&#xFF09;
+				};
+			}
+			return;
+		};
+	}
+
+	/**
+	 * &#x4F7F;&#x7528;&#x3059;&#x308B;&#x30A2;&#x30AF;&#x30C6;&#x30A3;&#x30D6;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x756A;&#x53F7;&#x3092;&#x30EA;&#x30BB;&#x30C3;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;bind&#x524D;&#x306B;&#x6BCE;&#x56DE;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3001;TEXTURE&#x30E6;&#x30CB;&#x30C3;&#x30C8;ID&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;
+	 */
+	resetActiveTextureId() {
+		this.activeTextureId = 0;
+	}
+
+	/**
+	 * &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x3059;&#x3067;&#x306B;GL&#x4E0A;&#x3067;&#x30EA;&#x30F3;&#x30AF;&#x6E08;&#x307F;&#x304B;&#x3069;&#x3046;&#x304B;&#x5224;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @returns {boolean} &#x30EA;&#x30F3;&#x30AF;&#x6E08;&#x307F;&#x306A;&#x3089;true
+	 */
+	isLinked() {
+		return this.is_linked;
+	}
+
+	/**
+	 * &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x30FB;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x5168;&#x3066;&#x89E3;&#x653E;&#x3057;&#x3001;GL&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3082;&#x7834;&#x68C4;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * &#x4EE5;&#x5F8C;&#x3053;&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306F;&#x518D;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;
+	 * @returns {boolean} &#x6B63;&#x5E38;&#x7D42;&#x4E86;&#x6642;true&#x3001;GL&#x672A;&#x8A2D;&#x5B9A;&#x6642;false
+	 */
+	dispose() {
+		const gl = this.sys.getGL();
+		if (gl === null) {
+			return false;
+		}
+		if (this.is_linked) {
+			this.disuseProgram();
+			this.sys.glfunc.deleteProgram(this.program, this.vertex.getShader(), this.fragment.getShader());
+			this.program = null;
+			this.is_linked = false;
+		}
+		if (this.vertex !== null) {
+			this.vertex.dispose();
+			this.vertex = null;
+		}
+		if (this.fragment !== null) {
+			this.fragment.dispose();
+			this.fragment = null;
+		}
+		this._init(this.sys, this.id);
+		return true;
+	}
+
+	/**
+	 * &#x9802;&#x70B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;&#x65E2;&#x5B58;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x72B6;&#x614B;&#x306A;&#x3089;&#x8A2D;&#x5B9A;&#x4E0D;&#x53EF;&#x3002;
+	 * @param {string} shader_code GLSL&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x307E;&#x305F;&#x306F;URL
+	 * @returns {boolean} &#x6210;&#x529F;&#x6642;true&#x3001;&#x30EA;&#x30F3;&#x30AF;&#x6E08;&#x307F;&#x307E;&#x305F;&#x306F;DL&#x4E2D;&#x306F;false
+	 */
+	setVertexShader(shader_code) {
+		if (this.isLinked()) {
+			return false;
+		}
+		if (this.vertex !== null) {
+			this.vertex.dispose();
+			this.vertex = null;
+		}
+		this.vertex = new S3GLShader(this.sys, shader_code);
+		this.is_error = false;
+		return true;
+	}
+
+	/**
+	 * &#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;&#x65E2;&#x5B58;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x72B6;&#x614B;&#x306A;&#x3089;&#x8A2D;&#x5B9A;&#x4E0D;&#x53EF;&#x3002;
+	 * @param {string} shader_code GLSL&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x307E;&#x305F;&#x306F;URL
+	 * @returns {boolean} &#x6210;&#x529F;&#x6642;true&#x3001;&#x30EA;&#x30F3;&#x30AF;&#x6E08;&#x307F;&#x307E;&#x305F;&#x306F;DL&#x4E2D;&#x306F;false
+	 */
+	setFragmentShader(shader_code) {
+		if (this.isLinked()) {
+			return false;
+		}
+		if (this.fragment !== null) {
+			this.fragment.dispose();
+			this.fragment = null;
+		}
+		this.fragment = new S3GLShader(this.sys, shader_code);
+		this.is_error = false;
+		return true;
+	}
+
+	/**
+	 * &#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;GL&#x3067;useProgram&#xFF08;&#x30A2;&#x30AF;&#x30C6;&#x30A3;&#x30D6;&#x5316;&#xFF09;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @returns {boolean} &#x6210;&#x529F;&#x6642;true
+	 */
+	useProgram() {
+		if (!this.isLinked()) {
+			return false;
+		}
+		const program = this.getProgram();
+		if (program &amp;&amp; this.sys.getGL()) {
+			this.sys.getGL().useProgram(program);
+		}
+		return true;
+	}
+
+	/**
+	 * &#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x6709;&#x52B9;&#x5316;&#x72B6;&#x614B;&#x3092;&#x89E3;&#x9664;&#x3057;&#x307E;&#x3059;&#xFF08;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x5C5E;&#x6027;&#x89E3;&#x653E;&#x306A;&#x3069;&#xFF09;&#x3002;
+	 * @returns {boolean} &#x6210;&#x529F;&#x6642;true
+	 */
+	disuseProgram() {
+		if (!this.isLinked()) {
+			return false;
+		}
+		const gl = this.sys.getGL();
+		if (gl) {
+			// enable&#x5316;&#x3057;&#x305F;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x89E3;&#x653E;&#x3059;&#x308B;
+			for (const key in this.enable_vertex_number) {
+				if (typeof key === &quot;number&quot;) {
+					gl.disableVertexAttribArray(key);
+				}
+			}
+			this.enable_vertex_number = {};
+		}
+		return true;
+	}
+
+	/**
+	 * &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;GL&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;WebGLProgram&#xFF09;&#x3092;&#x53D6;&#x5F97;&#x30FB;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x30FB;GL&#x306E;&#x6E96;&#x5099;&#x3084;&#x30EA;&#x30F3;&#x30AF;&#x72B6;&#x6CC1;&#x306A;&#x3069;&#x5168;&#x3066;&#x691C;&#x8A3C;&#x3057;&#x3001;&#x554F;&#x984C;&#x306A;&#x3051;&#x308C;&#x3070;&#x751F;&#x6210;&#x30FB;&#x8FD4;&#x5374;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @returns {?WebGLProgram} GL&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;&#x672A;&#x751F;&#x6210;&#x30FB;&#x30A8;&#x30E9;&#x30FC;&#x6642;&#x306F;null&#xFF09;
+	 */
+	getProgram() {
+		const gl = this.sys.getGL();
+		// 1&#x5EA6;&#x3067;&#x3082;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x304B;&#x3001;gl&#x30AD;&#x30E3;&#x30F3;&#x30D0;&#x30B9;&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x5834;&#x5408;
+		if (gl === null || this.is_error) {
+			return null;
+		}
+		// &#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x4E2D;&#x306A;&#x3089;&#x7121;&#x8996;&#x3059;&#x308B;
+		if (this.isDLVertex || this.isDLFragment) {
+			return null;
+		}
+		// &#x3059;&#x3067;&#x306B;&#x30EA;&#x30F3;&#x30AF;&#x6E08;&#x307F;&#x306E;&#x304C;&#x3042;&#x308C;&#x3070;&#x8FD4;&#x3059;
+		if (this.isLinked()) {
+			return this.program;
+		}
+		// &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;
+		if (this.vertex === null) {
+			console.log(&quot;do not set VERTEX_SHADER&quot;);
+			this.is_error = true;
+			return null;
+		}
+		if (this.fragment === null) {
+			console.log(&quot;do not set FRAGMENT_SHADER&quot;);
+			this.is_error = true;
+			return null;
+		}
+		const is_error_vertex = this.vertex.isError();
+		const is_error_fragment = this.fragment.isError();
+		if (is_error_vertex || is_error_fragment) {
+			console.log(&quot;shader compile error&quot;);
+			this.is_error = true;
+			return null;
+		}
+		const shader_vertex = this.vertex.getShader();
+		const shader_fragment = this.fragment.getShader();
+		if (shader_vertex === null || shader_fragment === null) {
+			// &#x307E;&#x3060;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x7D42;&#x308F;&#x3063;&#x3066;&#x306A;&#x3044;&#x53EF;&#x80FD;&#x6027;&#x3042;&#x308A;
+			return null;
+		}
+		if (this.vertex.getShaderType() !== gl.VERTEX_SHADER) {
+			console.log(&quot;VERTEX_SHADER is not VERTEX_SHADER&quot;);
+			this.is_error = true;
+			return null;
+		}
+		if (this.fragment.getShaderType() !== gl.FRAGMENT_SHADER) {
+			console.log(&quot;FRAGMENT_SHADER is not FRAGMENT_SHADER&quot;);
+			this.is_error = true;
+			return null;
+		}
+		// &#x53D6;&#x5F97;&#x3057;&#x305F;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x7528;&#x3044;&#x3066;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x30EA;&#x30F3;&#x30AF;&#x3059;&#x308B;
+		const data = this.sys.glfunc.createProgram(shader_vertex, shader_fragment);
+		if (data.is_error) {
+			this.is_error = true;
+			return null;
+		}
+		// &#x30EA;&#x30F3;&#x30AF;&#x304C;&#x6210;&#x529F;&#x3057;&#x305F;&#x3089;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x89E3;&#x6790;&#x3057;&#x3066;&#x304A;&#x304F;
+		this.is_linked = true;
+		this.program = data.program;
+		this.analysisShader(this.vertex.getCode(), this.variable);
+		this.analysisShader(this.fragment.getCode(), this.variable);
+		return this.program;
+	}
+
+	/**
+	 * attribute/uniform&#x5909;&#x6570;&#x306B;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x5185;&#x3067;&#x4F7F;&#x7528;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x5909;&#x6570;&#x540D;&#x306B;&#x5BFE;&#x3057;&#x3001;&#x5024;&#x30FB;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x30FB;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x7B49;&#x3092;&#x578B;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x7D50;&#x3073;&#x3064;&#x3051;&#x307E;&#x3059;&#x3002;
+	 * @param {string} name &#x5909;&#x6570;&#x540D;&#xFF08;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x5185;&#x3067;&#x5BA3;&#x8A00;&#x3055;&#x308C;&#x305F;&#x540D;&#x524D;&#xFF09;
+	 * @param {S3GLProgramBindInputData} data &#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3057;&#x305F;&#x3044;&#x5024;&#x3084;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306A;&#x3069;
+	 * @returns {boolean} &#x6B63;&#x5E38;&#x306B;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3067;&#x304D;&#x308C;&#x3070;true
+	 */
+	bindData(name, data) {
+		if (!this.isLinked()) {
+			return false;
+		}
+		const gl = this.sys.getGL();
+		const prg = this.getProgram();
+		const variable = this.variable[name];
+
+		// ---- check Location ----
+		if (variable === undefined) {
+			// &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3067;&#x306F;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x3082;&#x306E;&#x3092;bind&#x3057;&#x3088;&#x3046;&#x3068;&#x3057;&#x305F;&#x3002;
+			return false;
+		}
+		// &#x9577;&#x3055;&#x304C;0&#x306A;&#x3089;&#x4F4D;&#x7F6E;&#x304C;&#x672A;&#x8ABF;&#x67FB;&#x306A;&#x306E;&#x3067;&#x8ABF;&#x67FB;&#x3059;&#x308B;
+		if (variable.location.length === 0) {
+			if (variable.modifiers === &quot;attribute&quot;) {
+				variable.location[0] = gl.getAttribLocation(prg, name);
+			} else {
+				if (!variable.is_array) {
+					variable.location[0] = gl.getUniformLocation(prg, name);
+				} else {
+					if (Array.isArray(data)) {
+						// &#x914D;&#x5217;&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x914D;&#x5217;&#x306E;&#x6570;&#x3060;&#x3051;location&#x3092;&#x8ABF;&#x67FB;&#x3059;&#x308B;
+						// &#x4E88;&#x3081;&#x3001;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x5185;&#x306E;&#x914D;&#x5217;&#x6570;&#x3068;&#x4E00;&#x81F4;&#x3055;&#x305B;&#x3066;&#x304A;&#x304F;&#x3053;&#x3068;
+						for (let i = 0; i &lt; data.length; i++) {
+							variable.location[i] = gl.getUniformLocation(prg, name + &quot;[&quot; + i + &quot;]&quot;);
+						}
+					}
+				}
+			}
+		}
+		if (variable.location[0] === -1) {
+			// &#x5909;&#x6570;&#x306F;&#x5BA3;&#x8A00;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;&#x95A2;&#x6570;&#x306E;&#x4E2D;&#x3067;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x3068; -1 &#x304C;&#x304B;&#x3048;&#x308B;
+			return false;
+		}
+		// data &#x304C; bind &#x3067;&#x304D;&#x308B;&#x5F62;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x8ABF;&#x67FB;&#x3059;&#x308B;
+
+		// ---- check Type ----
+		// glsl&#x306E;&#x578B;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x81EA;&#x52D5;&#x578B;&#x5909;&#x63DB;&#x3059;&#x308B;
+
+		/**
+		 * @typedef {Int32Array|Float32Array|WebGLBuffer|WebGLTexture} S3GLProgramBindData
+		 */
+
+		/**
+		 * WebGL&#x7528;&#x306E;uniform/attribute&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x5024;&#x3068;&#x3057;&#x3066;&#x3001;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x3092;&#x81EA;&#x52D5;&#x5909;&#x63DB;&#x3059;&#x308B;&#x88DC;&#x52A9;&#x95A2;&#x6570;&#x3002;
+		 * &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x5909;&#x6570;&#x306E;&#x578B;&#xFF08;glsltype&#xFF09;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x3001;&#x6E21;&#x3055;&#x308C;&#x305F;&#x5024;&#x3092;&#x9069;&#x5207;&#x306A;TypedArray&#x3084;&#x914D;&#x5217;&#x306B;&#x6574;&#x5F62;&#x3057;&#x307E;&#x3059;&#x3002;
+		 * &#x578B;&#x4E0D;&#x4E00;&#x81F4;&#x3084;&#x672A;&#x5BFE;&#x5FDC;&#x578B;&#x306F;&#x4F8B;&#x5916;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
+		 *
+		 * @param {Int32Array|Float32Array|WebGLBuffer|WebGLTexture|S3GLArray|S3Matrix|number} data
+		 * @returns {S3GLProgramBindData}
+		 */
+		const toArraydata = function (data) {
+			if (data instanceof WebGLBuffer) {
+				// VBO&#x578B;&#x306F;&#x3001;&#x7121;&#x8996;&#x3059;&#x308B;
+				if (variable.modifiers === &quot;attribute&quot;) {
+					return data;
+				}
+			}
+			if (data instanceof WebGLTexture) {
+				// &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x578B;&#x306A;&#x3089;&#x7121;&#x8996;&#x3059;&#x308B;
+				if (variable.glsltype === &quot;sampler2D&quot;) {
+					return data;
+				}
+			}
+			if (data instanceof variable.instance) {
+				// &#x578B;&#x3068;&#x540C;&#x3058;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x554F;&#x984C;&#x306A;&#x3057;
+				return data;
+			}
+			// GL&#x7528;&#x306E;&#x578B;
+			if (data instanceof S3GLArray) {
+				if (variable.glsltype === data.glsltype) {
+					return data.data;
+				}
+			}
+			// &#x5165;&#x529B;&#x578B;&#x3068;GLSL&#x304C;&#x6570;&#x5024;&#x7CFB;&#x3067;&#x3042;&#x308C;&#x3070;
+			if (variable.instance === Float32Array || variable.instance === Int32Array) {
+				// &#x5165;&#x529B;&#x578B;&#x304C;&#x884C;&#x5217;&#x578B;&#x3067;
+				if (data instanceof S3Matrix) {
+					if (variable.glsltype === &quot;mat2&quot; || variable.glsltype === &quot;mat3&quot; || variable.glsltype === &quot;mat4&quot;) {
+						return data.toInstanceArray(variable.instance, variable.size);
+					}
+				}
+				// &#x5165;&#x529B;&#x578B;&#x304C;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x578B;
+				if (data instanceof S3Vector) {
+					if (
+						variable.glsltype === &quot;vec2&quot; ||
+						variable.glsltype === &quot;vec3&quot; ||
+						variable.glsltype === &quot;vec4&quot; ||
+						variable.glsltype === &quot;ivec2&quot; ||
+						variable.glsltype === &quot;ivec3&quot; ||
+						variable.glsltype === &quot;ivec4&quot; ||
+						variable.glsltype === &quot;bvec2&quot; ||
+						variable.glsltype === &quot;bvec3&quot; ||
+						variable.glsltype === &quot;bvec4&quot;
+					) {
+						return data.toInstanceArray(variable.instance, variable.size);
+					}
+				}
+				// &#x5165;&#x529B;&#x578B;&#x304C;&#x6570;&#x5024;&#x578B;
+				if (typeof data === &quot;number&quot;) {
+					if (variable.glsltype === &quot;int&quot; || variable.glsltype === &quot;float&quot; || variable.glsltype === &quot;bool&quot;) {
+						return new variable.instance([data]);
+					}
+				}
+			}
+			console.log(data);
+			throw &quot;not toArraydata&quot;;
+		};
+
+		// &#x5F15;&#x6570;&#x306E;&#x5024;&#x3092;Array&#x578B;&#x306B;&#x7D71;&#x4E00;&#x5316;&#x3059;&#x308B;
+		if (!variable.is_array) {
+			data = toArraydata(data);
+		} else {
+			if (Array.isArray(data)) {
+				for (let i = 0; i &lt; data.length; i++) {
+					if (variable.location[i] !== -1) {
+						// &#x914D;&#x5217;&#x306E;&#x5024;&#x304C; NULL &#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x306F;&#x8ABF;&#x67FB;&#x3057;&#x306A;&#x3044;
+						if (data[i] !== null) {
+							data[i] = toArraydata(data[i]);
+						}
+					}
+				}
+			}
+		}
+
+		// ---- bind Data ----
+		// &#x88C5;&#x98FE;&#x5B50;&#x306B;&#x3088;&#x3063;&#x3066; bind &#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x5909;&#x66F4;&#x3059;&#x308B;
+		if (variable.modifiers === &quot;attribute&quot;) {
+			if (typeof variable.location[0] === &quot;number&quot;) {
+				// bind&#x3057;&#x305F;&#x3044;&#x30C7;&#x30FC;&#x30BF;
+				gl.bindBuffer(gl.ARRAY_BUFFER, data);
+				// &#x6709;&#x52B9;&#x5316;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x6709;&#x52B9;&#x5316;&#x3059;&#x308B;
+				if (!this.enable_vertex_number[variable.location[0]]) {
+					gl.enableVertexAttribArray(variable.location[0]);
+					this.enable_vertex_number[variable.location[0]] = true;
+				}
+				// bind&#x3002;&#x578B;&#x306F;&#x9069;&#x5F53;&#x306B;&#x8A2D;&#x5B9A;
+				gl.vertexAttribPointer(
+					variable.location[0],
+					variable.size,
+					variable.btype === &quot;FLOAT&quot; ? gl.FLOAT : gl.SHORT,
+					false,
+					0,
+					0
+				);
+			} else {
+				throw &quot;error location is not number&quot;;
+			}
+		} else {
+			// uniform &#x306E;&#x8A2D;&#x5B9A;
+			if (!variable.is_array) {
+				variable.bind(variable.location[0], data);
+			} else {
+				// &#x914D;&#x5217;&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x914D;&#x5217;&#x306E;&#x6570;&#x3060;&#x3051;bind&#x3059;&#x308B;
+				if (Array.isArray(data)) {
+					for (let i = 0; i &lt; data.length; i++) {
+						if (variable.location[i] !== -1) {
+							// &#x914D;&#x5217;&#x306E;&#x5024;&#x304C; NULL &#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x306F;bind&#x3057;&#x306A;&#x3044;
+							if (data[i] !== null) {
+								variable.bind(variable.location[i], data[i]);
+							}
+						}
+					}
+				} else {
+					throw &quot;error data is not Array&quot;;
+				}
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * &#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;S3GLMesh&#xFF09;&#x5168;&#x4F53;&#x3092;&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * &#x5185;&#x90E8;&#x3067;attribute&#x5909;&#x6570;&#x3068;VBO/IBO&#x306A;&#x3069;&#x3092;&#x7D50;&#x3073;&#x4ED8;&#x3051;&#x3001;&#x5FC5;&#x8981;&#x306A;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x8A2D;&#x5B9A;&#x3082;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;
+	 * @param {S3GLMesh} s3mesh S3GLMesh &#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+	 * @returns {number} IBO&#x306E;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x6570;&#xFF08;drawElements&#x7528;&#xFF09;
+	 */
+	bindMesh(s3mesh) {
+		if (!this.isLinked()) {
+			// program&#x304C;&#x672A;&#x4F5C;&#x6210;
+			return 0;
+		}
+		const gl = this.sys.getGL();
+		if (gl === null) {
+			// gl&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;
+			return 0;
+		}
+		const gldata = s3mesh.getGLData();
+		if (gldata === null) {
+			// &#x5165;&#x529B;&#x5024;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;
+			return 0;
+		}
+		// &#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x30BB;&#x30C3;&#x30C8;
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gldata.ibo.data);
+		const index_length = gldata.ibo.array_length;
+		// &#x9802;&#x70B9;&#x3092;&#x30BB;&#x30C3;&#x30C8;(&#x3042;&#x3089;&#x304B;&#x3058;&#x3081;&#x30B3;&#x30FC;&#x30C9;&#x304B;&#x3089;&#x89E3;&#x6790;&#x3057;&#x305F; attribute &#x306B;&#x3064;&#x3044;&#x3066;&#x57CB;&#x3081;&#x308B;)
+		for (const key in this.variable) {
+			if (this.variable[key].modifiers === &quot;uniform&quot;) {
+				// uniform &#x306F;&#x5171;&#x901A;&#x8A2D;&#x5B9A;&#x306A;&#x306E;&#x3067;&#x7701;&#x7565;
+				continue;
+			}
+			// &#x4F8B;&#x3048;&#x3070;&#x3001;vbo&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x306B;&#x3042;&#x308B;&#x304C;&#x3001;gldata&#x5185;&#x306B;&#x60C5;&#x5831;&#x3092;&#x3082;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x5834;&#x5408;&#x304C;&#x3042;&#x308B;
+			// &#x305D;&#x308C;&#x306F;&#x3001;&#x30AB;&#x30E1;&#x30E9;&#x7528;&#x306E;&#x884C;&#x5217;&#x306A;&#x3069;&#x304C;&#x3042;&#x3052;&#x3089;&#x308C;&#x308B;&#x3002;
+			// &#x9006;&#x306B;&#x3001;gldata&#x5185;&#x306B;&#x60C5;&#x5831;&#x3092;&#x3082;&#x3063;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;vbo&#x5185;&#x306B;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;
+			// &#x4F7F;&#x7528;&#x3057;&#x306A;&#x3044;&#x3002;
+			if (gldata.vbo[key] === undefined) {
+				continue;
+			}
+			this.bindData(key, gldata.vbo[key].data);
+		}
+		// &#x623B;&#x308A;&#x5024;&#x3067;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x9577;&#x3055;&#x3092;&#x8FD4;&#x3059;
+		// &#x3053;&#x306E;&#x9577;&#x3055;&#x306F;&#x3001;drawElements&#x3067;&#x5FC5;&#x8981;&#x306E;&#x305F;&#x3081;
+		return index_length;
+	}
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -52,7 +52,7 @@ export default class S3GLArray {
 
 /**
  * TypedArrayのコンストラクタ型定義（Int32Array, Float32Array など）。
- * @typedef {(typeof Float32Array | typeof Int32Array)} TypedArrayConstructor
+ * @typedef {(typeof Float32Array | typeof Int32Array)} S3GLTypedArrayConstructor
  */
 
 /**
@@ -62,7 +62,7 @@ export default class S3GLArray {
  * - name:     型の名前文字列（"Float32Array"等）
  *
  * @typedef {Object} S3GLArrayDataType
- * @property {TypedArrayConstructor} instance 対応するTypedArrayのコンストラクタ
+ * @property {S3GLTypedArrayConstructor} instance 対応するTypedArrayのコンストラクタ
  * @property {string} name 型名（"Float32Array"等）
  */
 

@@ -1,5 +1,7 @@
 # S3js – シンプルな3DCG描画ライブラリ
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 JavaScriptで手軽に3Dグラフィックスを扱うための軽量3DCGライブラリです。  
 シーン・モデル・メッシュ・マテリアル・ライト・カメラの管理をシンプルなAPIで実現し、OBJ・MQO・JSON形式によるモデルのインポートも可能です。
 

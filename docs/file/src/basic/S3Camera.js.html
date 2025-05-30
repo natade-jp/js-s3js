@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/basic/S3Camera.js | s3js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A JavaScript library."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="s3js"><meta property="twitter:description" content="A JavaScript library."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/natade-jp/js-s3js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3">S3</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#basic">basic</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Camera.js~S3Camera.html">S3Camera</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html">S3Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Scene.js~S3Scene.html">S3Scene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html">S3Texture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3VPSMatrix">S3VPSMatrix</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#gl">gl</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html">S3GLArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLLight.js~S3GLLight.html">S3GLLight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMaterial.js~S3GLMaterial.html">S3GLMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMesh.js~S3GLMesh.html">S3GLMesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLModel.js~S3GLModel.html">S3GLModel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLProgram.js~S3GLProgram.html">S3GLProgram</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLScene.js~S3GLScene.html">S3GLScene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html">S3GLShader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTexture.js~S3GLTexture.html">S3GLTexture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndex.js~S3GLTriangleIndex.html">S3GLTriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndexData.js~S3GLTriangleIndexData.html">S3GLTriangleIndexData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLVertex.js~S3GLVertex.html">S3GLVertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayDataType">S3GLArrayDataType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLUniformBindFunctions">S3GLUniformBindFunctions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputData">S3GLProgramBindInputData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataSingle">S3GLProgramBindInputDataSingle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataTable">S3GLProgramBindInputDataTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLSceneUniform">S3GLSceneUniform</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashEntry">S3GLFuncTextureCashEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashTable">S3GLFuncTextureCashTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFaceAttribute">S3GLFaceAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLVertexAttribute">S3GLVertexAttribute</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#loader">loader</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoader">S3MeshLoader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderJSON">S3MeshLoaderJSON</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderMQO">S3MeshLoaderMQO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderOBJ">S3MeshLoaderOBJ</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderDataIOFunvction">S3MeshLoaderDataIOFunvction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterial">S3MeshLoaderMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterialListEntry">S3MeshLoaderMaterialListEntry</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math">math</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Matrix.js~S3Matrix.html">S3Matrix</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Plane.js~S3Plane.html">S3Plane</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3Math">S3Math</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tools/CameraController.js~CameraController.html">CameraController</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/basic/S3Camera.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&#xFEFF;import S3Math from &quot;../math/S3Math.js&quot;;
+import S3Vector from &quot;../math/S3Vector.js&quot;;
+import S3Matrix from &quot;../math/S3Matrix.js&quot;;
+import S3System from &quot;./S3System.js&quot;;
+
+/**
+ * 3DCG&#x30B7;&#x30FC;&#x30F3;&#x306E;&#x30AB;&#x30E1;&#x30E9;&#xFF08;&#x8996;&#x70B9;&#xFF09;&#x60C5;&#x5831;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;
+ * &#x8996;&#x70B9;&#x5EA7;&#x6A19;&#x3001;&#x6CE8;&#x8996;&#x70B9;&#x3001;&#x8996;&#x91CE;&#x89D2;&#x3001;&#x63CF;&#x753B;&#x7BC4;&#x56F2;&#x3001;&#x5404;&#x7A2E;&#x884C;&#x5217;&#x6F14;&#x7B97;&#x306A;&#x3069;&#x3092;&#x4FDD;&#x6301;&#x30FB;&#x64CD;&#x4F5C;&#x3057;&#x307E;&#x3059;&#x3002;
+ */
+export default class S3Camera {
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {S3System} s3system S3System&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+	 */
+	constructor(s3system) {
+		/**
+		 * &#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+		 * @type {S3System}
+		 */
+		this.sys = s3system;
+		this.init();
+	}
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x72B6;&#x614B;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#xFF08;&#x521D;&#x671F;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x306B;&#x30EA;&#x30BB;&#x30C3;&#x30C8;&#xFF09;&#x3002;
+	 */
+	init() {
+		/**
+		 * &#x4E0A;&#x4E0B;&#x65B9;&#x5411;&#x306E;&#x8996;&#x91CE;&#x89D2;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;
+		 * @type {number}
+		 */
+		this.fovY = 45;
+
+		/**
+		 * &#x8996;&#x70B9;&#xFF08;&#x30AB;&#x30E1;&#x30E9;&#x306E;&#x4F4D;&#x7F6E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF09;
+		 * @type {S3Vector}
+		 */
+		this.eye = new S3Vector(0, 0, 0);
+
+		/**
+		 * &#x6CE8;&#x8996;&#x70B9;&#xFF08;&#x30AB;&#x30E1;&#x30E9;&#x304C;&#x898B;&#x3066;&#x3044;&#x308B;&#x4F4D;&#x7F6E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF09;
+		 * @type {S3Vector}
+		 */
+		this.at = new S3Vector(0, 0, 1);
+
+		/**
+		 * &#x63CF;&#x753B;&#x7BC4;&#x56F2;&#x306E;&#x6700;&#x8FD1;&#x63A5;&#x9762;&#xFF08;&#x30CB;&#x30A2;&#x30AF;&#x30EA;&#x30C3;&#x30D7;&#xFF09;
+		 * @type {number}
+		 */
+		this.near = 1;
+
+		/**
+		 * &#x63CF;&#x753B;&#x7BC4;&#x56F2;&#x306E;&#x6700;&#x9060;&#x9762;&#xFF08;&#x30D5;&#x30A1;&#x30FC;&#x30AF;&#x30EA;&#x30C3;&#x30D7;&#xFF09;
+		 * @type {number}
+		 */
+		this.far = 1000;
+	}
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x3092;&#x7834;&#x68C4;&#x3057;&#x307E;&#x3059;&#xFF08;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x3092;&#x521D;&#x671F;&#x5316;&#xFF09;&#x3002;
+	 */
+	dispose() {
+		this.sys = null;
+		this.fovY = 0;
+		this.eye = null;
+		this.at = null;
+		this.near = 0;
+		this.far = 0;
+	}
+
+	/**
+	 * &#x3053;&#x306E;&#x30AB;&#x30E1;&#x30E9;&#x306E;&#x30AF;&#x30ED;&#x30FC;&#x30F3;&#xFF08;&#x8907;&#x88FD;&#xFF09;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @returns {S3Camera} &#x8907;&#x88FD;&#x3055;&#x308C;&#x305F;S3Camera&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+	 */
+	clone() {
+		const camera = new S3Camera(this.sys);
+		camera.fovY = this.fovY;
+		camera.eye = this.eye;
+		camera.at = this.at;
+		camera.near = this.near;
+		camera.far = this.far;
+		return camera;
+	}
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x30D3;&#x30E5;&#x30FC;&#x30FB;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30FB;&#x30D3;&#x30E5;&#x30FC;&#x30DD;&#x30FC;&#x30C8;&#x884C;&#x5217;&#x60C5;&#x5831;&#x3092;&#x307E;&#x3068;&#x3081;&#x305F;&#x578B;
+	 *
+	 * - LookAt: &#x30D3;&#x30E5;&#x30FC;&#x5909;&#x63DB;&#x884C;&#x5217;
+	 * - aspect: &#x30A2;&#x30B9;&#x30DA;&#x30AF;&#x30C8;&#x6BD4;&#xFF08;canvas&#x5E45; / &#x9AD8;&#x3055;&#xFF09;
+	 * - PerspectiveFov: &#x30D1;&#x30FC;&#x30B9;&#x30DA;&#x30AF;&#x30C6;&#x30A3;&#x30D6;&#x5C04;&#x5F71;&#x884C;&#x5217;
+	 * - Viewport: &#x30D3;&#x30E5;&#x30FC;&#x30DD;&#x30FC;&#x30C8;&#x5909;&#x63DB;&#x884C;&#x5217;
+	 *
+	 * @typedef {Object} S3VPSMatrix
+	 * @property {S3Matrix} LookAt         &#x30D3;&#x30E5;&#x30FC;&#xFF08;LookAt&#xFF09;&#x5909;&#x63DB;&#x884C;&#x5217;
+	 * @property {number} aspect           &#x30A2;&#x30B9;&#x30DA;&#x30AF;&#x30C8;&#x6BD4;
+	 * @property {S3Matrix} PerspectiveFov &#x30D1;&#x30FC;&#x30B9;&#x30DA;&#x30AF;&#x30C6;&#x30A3;&#x30D6;&#x5C04;&#x5F71;&#x884C;&#x5217;
+	 * @property {S3Matrix} Viewport       &#x30D3;&#x30E5;&#x30FC;&#x30DD;&#x30FC;&#x30C8;&#x5909;&#x63DB;&#x884C;&#x5217;
+	 */
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x30D3;&#x30E5;&#x30FC;&#x30FB;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30FB;&#x30D3;&#x30E5;&#x30FC;&#x30DD;&#x30FC;&#x30C8;&#x884C;&#x5217;&#xFF08;VPS&#xFF09;&#x3092;&#x307E;&#x3068;&#x3081;&#x3066;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * &#x901A;&#x5E38;&#x306F;&#x63CF;&#x753B;&#x3084;&#x5EA7;&#x6A19;&#x5909;&#x63DB;&#x6642;&#x306E;&#x5404;&#x7A2E;&#x884C;&#x5217;&#x4E00;&#x5F0F;&#x306E;&#x53D6;&#x5F97;&#x306B;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;
+	 *
+	 * @param {HTMLCanvasElement} canvas &#x63CF;&#x753B;&#x5148;&#x3068;&#x306A;&#x308B;canvas&#x8981;&#x7D20;
+	 * @returns {S3VPSMatrix}
+	 */
+	getVPSMatrix(canvas) {
+		const x = S3System.calcAspect(canvas.width, canvas.height);
+		// &#x30D3;&#x30E5;&#x30FC;&#x30A4;&#x30F3;&#x30B0;&#x5909;&#x63DB;&#x884C;&#x5217;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;
+		const V = this.sys.getMatrixLookAt(this.eye, this.at);
+		// &#x5C04;&#x5F71;&#x30C8;&#x30E9;&#x30F3;&#x30B9;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x884C;&#x5217;
+		const P = this.sys.getMatrixPerspectiveFov(this.fovY, x, this.near, this.far);
+		// &#x30D3;&#x30E5;&#x30FC;&#x30DD;&#x30FC;&#x30C8;&#x884C;&#x5217;
+		const S = this.sys.getMatrixViewport(0, 0, canvas.width, canvas.height);
+		return { LookAt: V, aspect: x, PerspectiveFov: P, Viewport: S };
+	}
+
+	/**
+	 * &#x63CF;&#x753B;&#x7BC4;&#x56F2;&#xFF08;&#x30CB;&#x30A2;&#x30FB;&#x30D5;&#x30A1;&#x30FC;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {number} near &#x6700;&#x8FD1;&#x63A5;&#x9762;
+	 * @param {number} far &#x6700;&#x9060;&#x9762;
+	 */
+	setDrawRange(near, far) {
+		this.near = near;
+		this.far = far;
+	}
+
+	/**
+	 * &#x4E0A;&#x4E0B;&#x65B9;&#x5411;&#x306E;&#x8996;&#x91CE;&#x89D2;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;&#x3002;
+	 * @param {number} fovY &#x8996;&#x91CE;&#x89D2;
+	 */
+	setFovY(fovY) {
+		this.fovY = fovY;
+	}
+
+	/**
+	 * &#x8996;&#x70B9;&#xFF08;eye&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {S3Vector} eye &#x65B0;&#x3057;&#x3044;&#x8996;&#x70B9;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+	 */
+	setEye(eye) {
+		this.eye = eye.clone();
+	}
+
+	/**
+	 * &#x6CE8;&#x8996;&#x70B9;&#xFF08;at&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {S3Vector} at &#x65B0;&#x3057;&#x3044;&#x6CE8;&#x8996;&#x70B9;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+	 */
+	setCenter(at) {
+		this.at = at.clone();
+	}
+
+	/**
+	 * &#x73FE;&#x5728;&#x306E;&#x8996;&#x7DDA;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF08;at&#x2192;eye&#x65B9;&#x5411;&#x306E;&#x5358;&#x4F4D;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF09;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @returns {S3Vector} &#x6B63;&#x898F;&#x5316;&#x6E08;&#x307F;&#x306E;&#x8996;&#x7DDA;&#x65B9;&#x5411;
+	 */
+	getDirection() {
+		return this.eye.getDirectionNormalized(this.at);
+	}
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x3068;&#x6CE8;&#x8996;&#x70B9;&#x306E;&#x8DDD;&#x96E2;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @returns {number} &#x8DDD;&#x96E2;
+	 */
+	getDistance() {
+		return this.at.getDistance(this.eye);
+	}
+
+	/**
+	 * &#x6CE8;&#x8996;&#x70B9;&#x304B;&#x3089;&#x4E00;&#x5B9A;&#x8DDD;&#x96E2;&#x306E;&#x4F4D;&#x7F6E;&#x306B;&#x8996;&#x70B9;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {number} distance &#x8DDD;&#x96E2;
+	 */
+	setDistance(distance) {
+		const direction = this.at.getDirectionNormalized(this.eye);
+		this.eye = this.at.add(direction.mul(distance));
+	}
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x6C34;&#x5E73;&#x65B9;&#x5411;&#xFF08;Y&#x8EF8;&#x56DE;&#x8EE2;&#xFF09;&#x306E;&#x89D2;&#x5EA6;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;&#x3002;
+	 * @returns {number} Y&#x8EF8;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x5EA6;&#xFF09;
+	 */
+	getRotateY() {
+		const ray = this.at.getDirection(this.eye);
+		return S3Math.degrees(Math.atan2(ray.x, ray.z));
+	}
+
+	/**
+	 * &#x6C34;&#x5E73;&#x65B9;&#x5411;&#xFF08;Y&#x8EF8;&#x56DE;&#x8EE2;&#xFF09;&#x306E;&#x89D2;&#x5EA6;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;&#x3002;
+	 * @param {number} deg Y&#x8EF8;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x5EA6;&#xFF09;
+	 */
+	setRotateY(deg) {
+		const rad = S3Math.radius(deg);
+		const ray = this.at.getDirection(this.eye);
+		const length = ray.setY(0).norm();
+		const cos = Math.cos(rad);
+		const sin = Math.sin(rad);
+		this.eye = new S3Vector(this.at.x + length * sin, this.eye.y, this.at.z + length * cos);
+	}
+
+	/**
+	 * Y&#x8EF8;&#x56DE;&#x8EE2;&#x89D2;&#x3092;&#x76F8;&#x5BFE;&#x7684;&#x306B;&#x52A0;&#x7B97;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;&#x3002;
+	 * @param {number} deg &#x52A0;&#x7B97;&#x3059;&#x308B;&#x89D2;&#x5EA6;&#xFF08;&#x5EA6;&#xFF09;
+	 */
+	addRotateY(deg) {
+		this.setRotateY(this.getRotateY() + deg);
+	}
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x5782;&#x76F4;&#x65B9;&#x5411;&#xFF08;X&#x8EF8;&#x56DE;&#x8EE2;&#xFF09;&#x306E;&#x89D2;&#x5EA6;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;&#x3002;
+	 * @returns {number} X&#x8EF8;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x5EA6;&#xFF09;
+	 */
+	getRotateX() {
+		const ray = this.at.getDirection(this.eye);
+		return S3Math.degrees(Math.atan2(ray.z, ray.y));
+	}
+
+	/**
+	 * &#x5782;&#x76F4;&#x65B9;&#x5411;&#xFF08;X&#x8EF8;&#x56DE;&#x8EE2;&#xFF09;&#x306E;&#x89D2;&#x5EA6;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;&#x3002;
+	 * @param {number} deg X&#x8EF8;&#x56DE;&#x8EE2;&#x89D2;&#xFF08;&#x5EA6;&#xFF09;
+	 */
+	setRotateX(deg) {
+		const rad = S3Math.radius(deg);
+		const ray = this.at.getDirection(this.eye);
+		const length = ray.setX(0).norm();
+		const cos = Math.cos(rad);
+		const sin = Math.sin(rad);
+		this.eye = new S3Vector(this.eye.x, this.at.y + length * cos, this.at.z + length * sin);
+	}
+
+	/**
+	 * X&#x8EF8;&#x56DE;&#x8EE2;&#x89D2;&#x3092;&#x76F8;&#x5BFE;&#x7684;&#x306B;&#x52A0;&#x7B97;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5EA6;&#x5358;&#x4F4D;&#xFF09;&#x3002;
+	 * @param {number} deg &#x52A0;&#x7B97;&#x3059;&#x308B;&#x89D2;&#x5EA6;&#xFF08;&#x5EA6;&#xFF09;
+	 */
+	addRotateX(deg) {
+		this.setRotateX(this.getRotateX() + deg);
+	}
+
+	/**
+	 * &#x30EF;&#x30FC;&#x30EB;&#x30C9;&#x5EA7;&#x6A19;&#x7CFB;&#x3067;&#x7D76;&#x5BFE;&#x79FB;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {S3Vector} v &#x79FB;&#x52D5;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+	 */
+	translateAbsolute(v) {
+		this.eye = this.eye.add(v);
+		this.at = this.at.add(v);
+	}
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5EA7;&#x6A19;&#x7CFB;&#x3067;&#x76F8;&#x5BFE;&#x79FB;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {S3Vector} v &#x79FB;&#x52D5;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+	 */
+	translateRelative(v) {
+		let X, Y, Z;
+		const up = new S3Vector(0.0, 1.0, 0.0);
+		// Z &#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x306E;&#x4F5C;&#x6210;
+		Z = this.eye.getDirectionNormalized(this.at);
+
+		// &#x5EA7;&#x6A19;&#x7CFB;&#x306B;&#x5408;&#x308F;&#x305B;&#x3066;&#x8A08;&#x7B97;
+		if (this.sys.dimensionmode === S3System.DIMENSION_MODE.RIGHT_HAND) {
+			// &#x53F3;&#x624B;&#x7CFB;&#x306A;&#x3089;&#x53CD;&#x8EE2;
+			Z = Z.negate();
+		}
+		// X, Y &#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x306E;&#x4F5C;&#x6210;
+		X = up.cross(Z).normalize();
+		Y = Z.cross(X);
+		// &#x79FB;&#x52D5;
+		X = X.mul(v.x);
+		Y = Y.mul(v.y);
+		Z = Z.mul(v.z);
+		this.translateAbsolute(X.add(Y).add(Z));
+	}
+
+	/**
+	 * &#x30AB;&#x30E1;&#x30E9;&#x306E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3092;&#x6587;&#x5B57;&#x5217;&#x3067;&#x51FA;&#x529B;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @returns {string} &#x8996;&#x70B9;&#x30FB;&#x6CE8;&#x8996;&#x70B9;&#x30FB;&#x8996;&#x91CE;&#x89D2;&#x306E;&#x60C5;&#x5831;&#x3092;&#x542B;&#x3080;&#x6587;&#x5B57;&#x5217;
+	 */
+	toString() {
+		return &quot;camera[\n&quot; + &quot;eye  :&quot; + this.eye + &quot;,\n&quot; + &quot;at   :&quot; + this.at + &quot;,\n&quot; + &quot;fovY :&quot; + this.fovY + &quot;]&quot;;
+	}
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

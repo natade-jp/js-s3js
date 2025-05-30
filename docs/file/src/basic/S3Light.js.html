@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/basic/S3Light.js | s3js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A JavaScript library."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="s3js"><meta property="twitter:description" content="A JavaScript library."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/natade-jp/js-s3js"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3">S3</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#basic">basic</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Camera.js~S3Camera.html">S3Camera</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Model.js~S3Model.html">S3Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Scene.js~S3Scene.html">S3Scene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html">S3Texture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3VPSMatrix">S3VPSMatrix</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#gl">gl</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html">S3GLArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLLight.js~S3GLLight.html">S3GLLight</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMaterial.js~S3GLMaterial.html">S3GLMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLMesh.js~S3GLMesh.html">S3GLMesh</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLModel.js~S3GLModel.html">S3GLModel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLProgram.js~S3GLProgram.html">S3GLProgram</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLScene.js~S3GLScene.html">S3GLScene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html">S3GLShader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTexture.js~S3GLTexture.html">S3GLTexture</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndex.js~S3GLTriangleIndex.html">S3GLTriangleIndex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLTriangleIndexData.js~S3GLTriangleIndexData.html">S3GLTriangleIndexData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/gl/S3GLVertex.js~S3GLVertex.html">S3GLVertex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayDataType">S3GLArrayDataType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLUniformBindFunctions">S3GLUniformBindFunctions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputData">S3GLProgramBindInputData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataSingle">S3GLProgramBindInputDataSingle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindInputDataTable">S3GLProgramBindInputDataTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramUniforms">S3GLProgramUniforms</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLSceneUniform">S3GLSceneUniform</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashEntry">S3GLFuncTextureCashEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFuncTextureCashTable">S3GLFuncTextureCashTable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLFaceAttribute">S3GLFaceAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLVertexAttribute">S3GLVertexAttribute</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#loader">loader</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoader">S3MeshLoader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderJSON">S3MeshLoaderJSON</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderMQO">S3MeshLoaderMQO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3MeshLoaderOBJ">S3MeshLoaderOBJ</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderDataIOFunvction">S3MeshLoaderDataIOFunvction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterial">S3MeshLoaderMaterial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3MeshLoaderMaterialListEntry">S3MeshLoaderMaterialListEntry</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math">math</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Angles.js~S3Angles.html">S3Angles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Matrix.js~S3Matrix.html">S3Matrix</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Plane.js~S3Plane.html">S3Plane</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-S3Math">S3Math</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#tools">tools</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tools/CameraController.js~CameraController.html">CameraController</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/basic/S3Light.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&#xFEFF;import S3Vector from &quot;../math/S3Vector.js&quot;;
+
+/**
+ * 3DCG&#x30B7;&#x30FC;&#x30F3;&#x7528;&#x306E;&#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x7167;&#x660E;&#xFF09;&#x60C5;&#x5831;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;
+ * &#x5404;&#x7A2E;&#x30E9;&#x30A4;&#x30C8;&#xFF08;&#x74B0;&#x5883;&#x5149;&#x30FB;&#x5E73;&#x884C;&#x5149;&#x6E90;&#x30FB;&#x70B9;&#x5149;&#x6E90;&#x306A;&#x3069;&#xFF09;&#x306E;&#x30E2;&#x30FC;&#x30C9;&#x30FB;&#x5F37;&#x3055;&#x30FB;&#x65B9;&#x5411;&#x30FB;&#x8272;&#x306A;&#x3069;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;
+ */
+export default class S3Light {
+	/**
+	 * &#x30E9;&#x30A4;&#x30C8;&#x60C5;&#x5831;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x3066;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @constructor
+	 */
+	constructor() {
+		this.init();
+	}
+
+	/**
+	 * &#x30E9;&#x30A4;&#x30C8;&#x60C5;&#x5831;&#x3092;&#x521D;&#x671F;&#x5024;&#x3067;&#x30EA;&#x30BB;&#x30C3;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * &#x30E2;&#x30FC;&#x30C9;&#x3084;&#x5F37;&#x5EA6;&#x3001;&#x7BC4;&#x56F2;&#x3001;&#x65B9;&#x5411;&#x3001;&#x8272;&#x306A;&#x3069;&#x3082;&#x521D;&#x671F;&#x72B6;&#x614B;&#x306B;&#x623B;&#x308A;&#x307E;&#x3059;&#x3002;
+	 */
+	init() {
+		/**
+		 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x7A2E;&#x985E;&#xFF08;&#x30E2;&#x30FC;&#x30C9;&#xFF09;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;S3Light.MODE&#x3092;&#x53C2;&#x7167;&#x3002;
+		 * @type {number}
+		 */
+		this.mode = S3Light.MODE.DIRECTIONAL_LIGHT;
+
+		/**
+		 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x5F37;&#x3055;&#xFF08;1.0=&#x901A;&#x5E38;&#x3001;0.0=&#x7121;&#x52B9;&#xFF09;
+		 * @type {number}
+		 */
+		this.power = 1.0;
+
+		/**
+		 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x5F71;&#x97FF;&#x7BC4;&#x56F2;&#xFF08;&#x4E3B;&#x306B;&#x70B9;&#x5149;&#x6E90;&#x3067;&#x4F7F;&#x7528;&#xFF09;
+		 * @type {number}
+		 */
+		this.range = 1000.0;
+
+		/**
+		 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x4F4D;&#x7F6E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF08;&#x4E3B;&#x306B;&#x70B9;&#x5149;&#x6E90;&#x3067;&#x4F7F;&#x7528;&#xFF09;
+		 * @type {S3Vector}
+		 */
+		this.position = new S3Vector(0.0, 0.0, 0.0);
+
+		/**
+		 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x65B9;&#x5411;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF08;&#x4E3B;&#x306B;&#x5E73;&#x884C;&#x5149;&#x6E90;&#x3067;&#x4F7F;&#x7528;&#xFF09;
+		 * @type {S3Vector}
+		 */
+		this.direction = new S3Vector(0.0, 0.0, -1.0);
+
+		/**
+		 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x8272;&#xFF08;RGB&#x5024;&#x306E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF09;
+		 * @type {S3Vector}
+		 */
+		this.color = new S3Vector(1.0, 1.0, 1.0);
+	}
+
+	/**
+	 * &#x3053;&#x306E;&#x30E9;&#x30A4;&#x30C8;&#x60C5;&#x5831;&#x306E;&#x30AF;&#x30ED;&#x30FC;&#x30F3;&#xFF08;&#x8907;&#x88FD;&#xFF09;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {typeof S3Light} [Instance] &#x30AF;&#x30E9;&#x30B9;&#x6307;&#x5B9A;&#xFF08;&#x7701;&#x7565;&#x6642;&#x306F;S3Light&#xFF09;
+	 * @returns {S3Light} &#x8907;&#x88FD;&#x3055;&#x308C;&#x305F;&#x30E9;&#x30A4;&#x30C8;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+	 */
+	clone(Instance) {
+		if (!Instance) {
+			Instance = S3Light;
+		}
+		const light = new Instance();
+		light.mode = this.mode;
+		light.power = this.power;
+		light.range = this.range;
+		light.position = this.position;
+		light.direction = this.direction;
+		light.color = this.color;
+		return light;
+	}
+
+	/**
+	 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x7A2E;&#x985E;&#xFF08;&#x30E2;&#x30FC;&#x30C9;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {number} mode S3Light.MODE&#x3067;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x308B;&#x5024;
+	 */
+	setMode(mode) {
+		this.mode = mode;
+	}
+
+	/**
+	 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x5F37;&#x3055;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+	 * @param {number} power &#x5F37;&#x5EA6;&#xFF08;&#x901A;&#x5E38;1.0&#x3001;0.0&#x3067;&#x7121;&#x52B9;&#xFF09;
+	 */
+	setPower(power) {
+		this.power = power;
+	}
+
+	/**
+	 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x5F71;&#x97FF;&#x7BC4;&#x56F2;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x70B9;&#x5149;&#x6E90;&#x7B49;&#xFF09;&#x3002;
+	 * @param {number} range &#x7BC4;&#x56F2;
+	 */
+	setRange(range) {
+		this.range = range;
+	}
+
+	/**
+	 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x4F4D;&#x7F6E;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x70B9;&#x5149;&#x6E90;&#x7B49;&#xFF09;&#x3002;
+	 * @param {S3Vector} position &#x4F4D;&#x7F6E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+	 */
+	setPosition(position) {
+		this.position = position;
+	}
+
+	/**
+	 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x65B9;&#x5411;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5E73;&#x884C;&#x5149;&#x6E90;&#x7B49;&#xFF09;&#x3002;
+	 * @param {S3Vector} direction &#x65B9;&#x5411;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+	 */
+	setDirection(direction) {
+		this.direction = direction;
+	}
+
+	/**
+	 * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x8272;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;RGB&#xFF09;&#x3002;
+	 * @param {S3Vector} color &#x8272;&#x30D9;&#x30AF;&#x30C8;&#x30EB;
+	 */
+	setColor(color) {
+		this.color = color;
+	}
+}
+
+/**
+ * &#x30E9;&#x30A4;&#x30C8;&#x306E;&#x7A2E;&#x985E;&#xFF08;&#x30E2;&#x30FC;&#x30C9;&#xFF09;&#x5B9A;&#x6570;
+ * @enum {number}
+ */
+S3Light.MODE = {
+	/** &#x30E9;&#x30A4;&#x30C8;&#x7121;&#x52B9; */
+	NONE: 0,
+	/** &#x74B0;&#x5883;&#x5149; */
+	AMBIENT_LIGHT: 1,
+	/** &#x5E73;&#x884C;&#x5149;&#x6E90; */
+	DIRECTIONAL_LIGHT: 2,
+	/** &#x70B9;&#x5149;&#x6E90; */
+	POINT_LIGHT: 3
+};
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -3861,7 +3861,7 @@
 
 	/**
 	 * TypedArrayのコンストラクタ型定義（Int32Array, Float32Array など）。
-	 * @typedef {(typeof Float32Array | typeof Int32Array)} TypedArrayConstructor
+	 * @typedef {(typeof Float32Array | typeof Int32Array)} S3GLTypedArrayConstructor
 	 */
 
 	/**
@@ -3871,7 +3871,7 @@
 	 * - name:     型の名前文字列（"Float32Array"等）
 	 *
 	 * @typedef {Object} S3GLArrayDataType
-	 * @property {TypedArrayConstructor} instance 対応するTypedArrayのコンストラクタ
+	 * @property {S3GLTypedArrayConstructor} instance 対応するTypedArrayのコンストラクタ
 	 * @property {string} name 型名（"Float32Array"等）
 	 */
 
@@ -5981,7 +5981,7 @@
 			const that = this;
 
 			/**
-			 * @typedef {Object} GLFuncTextureCashEntry
+			 * @typedef {Object} S3GLFuncTextureCashEntry
 			 * @property {WebGLTexture} texture WebGLテクスチャオブジェクト
 			 * @property {number} count このテクスチャの参照カウント
 			 */
@@ -5989,7 +5989,7 @@
 			/**
 			 * テクスチャキャッシュ全体の型定義。
 			 * キーがテクスチャID（string）で、値がGLFuncTextureCashEntry型になります。
-			 * @typedef {Object.<string, GLFuncTextureCashEntry>} GLFuncTextureCashTable
+			 * @typedef {Object.<string, S3GLFuncTextureCashEntry>} S3GLFuncTextureCashTable
 			 */
 
 			/**
@@ -5998,7 +5998,7 @@
 			 * { texture: WebGLTexture, count: number } のオブジェクト構造で、
 			 * 生成済みWebGLTextureの使い回しや参照カウント管理に利用します。
 			 *
-			 * @type {GLFuncTextureCashTable}
+			 * @type {S3GLFuncTextureCashTable}
 			 */
 			const glfunc_texture_cash = {};
 
@@ -6692,7 +6692,7 @@
 			/**
 			 * デフォルトのマテリアル情報（必要時に参照される）
 			 *
-			 * @typedef {Object} MeshLoaderMaterial
+			 * @typedef {Object} S3MeshLoaderMaterial
 			 * @property {string} name 名前
 			 * @property {S3Vector} color 拡散反射色
 			 * @property {number} diffuse 拡散係数
@@ -6706,13 +6706,13 @@
 			 */
 
 			/**
-			 * @typedef {Object} MeshLoaderMaterialListEntry
-			 * @property {MeshLoaderMaterial|S3Material} material マテリアル情報（S3Material型またはDefaultMaterialオブジェクト）
+			 * @typedef {Object} S3MeshLoaderMaterialListEntry
+			 * @property {S3MeshLoaderMaterial|S3Material} material マテリアル情報（S3Material型またはDefaultMaterialオブジェクト）
 			 * @property {Array<Array<number>>} list そのマテリアルに属する三角形インデックス配列
 			 */
 
 			/**
-			 * @type {MeshLoaderMaterial}
+			 * @type {S3MeshLoaderMaterial}
 			 */
 			const DefaultMaterial = {
 				name: "s3default",
@@ -6728,7 +6728,7 @@
 			};
 
 			/**
-			 * @type {Array<MeshLoaderMaterialListEntry>}
+			 * @type {Array<S3MeshLoaderMaterialListEntry>}
 			 */
 			const material_vertexlist = [];
 			const material_length = material.length !== 0 ? material.length : 1;
@@ -7315,22 +7315,14 @@
 
 	/**
 	 * メッシュデータの入出力用関数定義
-	 * @typedef {Object} MeshLoaderDataIOFunvction
+	 * @typedef {Object} S3MeshLoaderDataIOFunvction
 	 * @property {string} name 入出力形式の名前（"JSON", "MQO", "OBJ"など）
 	 * @property {function(S3System, S3Mesh, string, string=): boolean} input テキストをインスタンスへ変換する
 	 * @property {function(S3Mesh): string} [output] インスタンスをテキストへ出力する
 	 */
 
 	/**
-	 * メッシュデータの入出力用関数定義オブジェクト
-	 * @typedef {Object} MeshLoaderDataIOFunvctions
-	 * @property {MeshLoaderDataIOFunvction} JSON
-	 * @property {MeshLoaderDataIOFunvction} MQO
-	 * @property {MeshLoaderDataIOFunvction} OBJ
-	 */
-
-	/**
-	 * @type {Array<MeshLoaderDataIOFunvction>}
+	 * @type {Array<S3MeshLoaderDataIOFunvction>}
 	 */
 	const DATA_IO_FUNCTION = [S3MeshLoaderJSON, S3MeshLoaderMQO, S3MeshLoaderOBJ];
 

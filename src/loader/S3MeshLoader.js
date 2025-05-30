@@ -6,22 +6,14 @@ import S3MeshLoaderOBJ from "./S3MeshLoaderOBJ.js";
 
 /**
  * メッシュデータの入出力用関数定義
- * @typedef {Object} MeshLoaderDataIOFunvction
+ * @typedef {Object} S3MeshLoaderDataIOFunvction
  * @property {string} name 入出力形式の名前（"JSON", "MQO", "OBJ"など）
  * @property {function(S3System, S3Mesh, string, string=): boolean} input テキストをインスタンスへ変換する
  * @property {function(S3Mesh): string} [output] インスタンスをテキストへ出力する
  */
 
 /**
- * メッシュデータの入出力用関数定義オブジェクト
- * @typedef {Object} MeshLoaderDataIOFunvctions
- * @property {MeshLoaderDataIOFunvction} JSON
- * @property {MeshLoaderDataIOFunvction} MQO
- * @property {MeshLoaderDataIOFunvction} OBJ
- */
-
-/**
- * @type {Array<MeshLoaderDataIOFunvction>}
+ * @type {Array<S3MeshLoaderDataIOFunvction>}
  */
 const DATA_IO_FUNCTION = [S3MeshLoaderJSON, S3MeshLoaderMQO, S3MeshLoaderOBJ];
 

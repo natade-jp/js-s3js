@@ -1,0 +1,236 @@
+{
+  "coverage": "89.93%",
+  "expectCount": 467,
+  "actualCount": 420,
+  "files": {
+    "src/basic/S3Camera.js": {
+      "expectCount": 28,
+      "actualCount": 28,
+      "undocumentLines": []
+    },
+    "src/basic/S3Light.js": {
+      "expectCount": 16,
+      "actualCount": 16,
+      "undocumentLines": []
+    },
+    "src/basic/S3Material.js": {
+      "expectCount": 24,
+      "actualCount": 24,
+      "undocumentLines": []
+    },
+    "src/basic/S3Mesh.js": {
+      "expectCount": 18,
+      "actualCount": 16,
+      "undocumentLines": [
+        16,
+        90
+      ]
+    },
+    "src/basic/S3Model.js": {
+      "expectCount": 21,
+      "actualCount": 21,
+      "undocumentLines": []
+    },
+    "src/basic/S3Scene.js": {
+      "expectCount": 13,
+      "actualCount": 13,
+      "undocumentLines": []
+    },
+    "src/basic/S3System.js": {
+      "expectCount": 60,
+      "actualCount": 48,
+      "undocumentLines": [
+        73,
+        74,
+        75,
+        76,
+        184,
+        201,
+        203,
+        204,
+        205,
+        206,
+        207,
+        264
+      ]
+    },
+    "src/basic/S3Texture.js": {
+      "expectCount": 10,
+      "actualCount": 10,
+      "undocumentLines": []
+    },
+    "src/basic/S3TriangleIndex.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "src/basic/S3Vertex.js": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        13
+      ]
+    },
+    "src/gl/S3GLArray.js": {
+      "expectCount": 6,
+      "actualCount": 3,
+      "undocumentLines": [
+        22,
+        32,
+        33
+      ]
+    },
+    "src/gl/S3GLLight.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/gl/S3GLMaterial.js": {
+      "expectCount": 5,
+      "actualCount": 4,
+      "undocumentLines": [
+        20
+      ]
+    },
+    "src/gl/S3GLMesh.js": {
+      "expectCount": 19,
+      "actualCount": 19,
+      "undocumentLines": []
+    },
+    "src/gl/S3GLModel.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "src/gl/S3GLProgram.js": {
+      "expectCount": 25,
+      "actualCount": 25,
+      "undocumentLines": []
+    },
+    "src/gl/S3GLScene.js": {
+      "expectCount": 11,
+      "actualCount": 11,
+      "undocumentLines": []
+    },
+    "src/gl/S3GLShader.js": {
+      "expectCount": 13,
+      "actualCount": 8,
+      "undocumentLines": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    "src/gl/S3GLSystem.js": {
+      "expectCount": 37,
+      "actualCount": 34,
+      "undocumentLines": [
+        291,
+        406,
+        407
+      ]
+    },
+    "src/gl/S3GLTexture.js": {
+      "expectCount": 8,
+      "actualCount": 7,
+      "undocumentLines": [
+        49
+      ]
+    },
+    "src/gl/S3GLTriangleIndex.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/gl/S3GLTriangleIndexData.js": {
+      "expectCount": 10,
+      "actualCount": 10,
+      "undocumentLines": []
+    },
+    "src/gl/S3GLVertex.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/loader/S3MeshLoader.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/loader/S3MeshLoaderJSON.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        26
+      ]
+    },
+    "src/loader/S3MeshLoaderMQO.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/loader/S3MeshLoaderOBJ.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/math/S3Angles.js": {
+      "expectCount": 15,
+      "actualCount": 15,
+      "undocumentLines": []
+    },
+    "src/math/S3Math.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/math/S3Matrix.js": {
+      "expectCount": 32,
+      "actualCount": 16,
+      "undocumentLines": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ]
+    },
+    "src/math/S3Plane.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "src/math/S3Vector.js": {
+      "expectCount": 36,
+      "actualCount": 36,
+      "undocumentLines": []
+    },
+    "src/S3.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        12
+      ]
+    },
+    "src/tools/CameraController.js": {
+      "expectCount": 10,
+      "actualCount": 9,
+      "undocumentLines": [
+        54
+      ]
+    }
+  }
+}

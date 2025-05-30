@@ -101,7 +101,7 @@ const S3MeshLoaderJSON = {
 		/**
 		 * デフォルトのマテリアル情報（必要時に参照される）
 		 *
-		 * @typedef {Object} MeshLoaderMaterial
+		 * @typedef {Object} S3MeshLoaderMaterial
 		 * @property {string} name 名前
 		 * @property {S3Vector} color 拡散反射色
 		 * @property {number} diffuse 拡散係数
@@ -115,13 +115,13 @@ const S3MeshLoaderJSON = {
 		 */
 
 		/**
-		 * @typedef {Object} MeshLoaderMaterialListEntry
-		 * @property {MeshLoaderMaterial|S3Material} material マテリアル情報（S3Material型またはDefaultMaterialオブジェクト）
+		 * @typedef {Object} S3MeshLoaderMaterialListEntry
+		 * @property {S3MeshLoaderMaterial|S3Material} material マテリアル情報（S3Material型またはDefaultMaterialオブジェクト）
 		 * @property {Array<Array<number>>} list そのマテリアルに属する三角形インデックス配列
 		 */
 
 		/**
-		 * @type {MeshLoaderMaterial}
+		 * @type {S3MeshLoaderMaterial}
 		 */
 		const DefaultMaterial = {
 			name: "s3default",
@@ -137,7 +137,7 @@ const S3MeshLoaderJSON = {
 		};
 
 		/**
-		 * @type {Array<MeshLoaderMaterialListEntry>}
+		 * @type {Array<S3MeshLoaderMaterialListEntry>}
 		 */
 		const material_vertexlist = [];
 		const material_length = material.length !== 0 ? material.length : 1;

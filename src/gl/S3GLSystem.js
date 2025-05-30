@@ -45,7 +45,7 @@ export default class S3GLSystem extends S3System {
 		const that = this;
 
 		/**
-		 * @typedef {Object} GLFuncTextureCashEntry
+		 * @typedef {Object} S3GLFuncTextureCashEntry
 		 * @property {WebGLTexture} texture WebGLテクスチャオブジェクト
 		 * @property {number} count このテクスチャの参照カウント
 		 */
@@ -53,7 +53,7 @@ export default class S3GLSystem extends S3System {
 		/**
 		 * テクスチャキャッシュ全体の型定義。
 		 * キーがテクスチャID（string）で、値がGLFuncTextureCashEntry型になります。
-		 * @typedef {Object.<string, GLFuncTextureCashEntry>} GLFuncTextureCashTable
+		 * @typedef {Object.<string, S3GLFuncTextureCashEntry>} S3GLFuncTextureCashTable
 		 */
 
 		/**
@@ -62,7 +62,7 @@ export default class S3GLSystem extends S3System {
 		 * { texture: WebGLTexture, count: number } のオブジェクト構造で、
 		 * 生成済みWebGLTextureの使い回しや参照カウント管理に利用します。
 		 *
-		 * @type {GLFuncTextureCashTable}
+		 * @type {S3GLFuncTextureCashTable}
 		 */
 		const glfunc_texture_cash = {};
 

@@ -1,0 +1,52 @@
+[
+  {
+    "name": "S3GLSystem#_bind",
+    "filePath": "src/gl/S3GLSystem.js",
+    "lines": [
+      {
+        "lineNumber": 471,
+        "line": "\t/**"
+      },
+      {
+        "lineNumber": 472,
+        "line": "\t * モデル・uniforms・名前と値を与えた場合のデータバインド処理を実行します。"
+      },
+      {
+        "lineNumber": 473,
+        "line": "\t * - 2引数: シェーダ変数名とデータをバインド"
+      },
+      {
+        "lineNumber": 474,
+        "line": "\t * - 1引数: S3GLModelならメッシュ情報をバインド"
+      },
+      {
+        "lineNumber": 475,
+        "line": "\t * - 1引数: uniforms情報ならすべてのuniformsをバインド"
+      },
+      {
+        "lineNumber": 476,
+        "line": "\t *"
+      },
+      {
+        "lineNumber": 477,
+        "line": "\t * @param {...any} args バインド対象"
+      },
+      {
+        "lineNumber": 478,
+        "line": "\t * @returns {number} 0以上は成功、モデルの場合はIBOインデックス数（モデルの場合）"
+      },
+      {
+        "lineNumber": 479,
+        "line": "\t */"
+      },
+      {
+        "lineNumber": 480,
+        "line": "\t_bind() {"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "args"
+    ]
+  }
+]

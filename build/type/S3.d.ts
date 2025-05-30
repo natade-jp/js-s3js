@@ -2,7 +2,7 @@ export { S3 as default };
 /**
  * TypedArrayのコンストラクタ型定義（Int32Array, Float32Array など）。
  */
-export type TypedArrayConstructor = (typeof Float32Array | typeof Int32Array);
+export type S3GLTypedArrayConstructor = (typeof Float32Array | typeof Int32Array);
 /**
  * WebGL配列で利用できるデータ型情報（各種TypedArray型）。
  *
@@ -13,7 +13,7 @@ export type S3GLArrayDataType = {
     /**
      * 対応するTypedArrayのコンストラクタ
      */
-    instance: TypedArrayConstructor;
+    instance: S3GLTypedArrayConstructor;
     /**
      * 型名（"Float32Array"等）
      */
@@ -53,7 +53,7 @@ export type S3GLProgramUniforms = {
 /**
  * メッシュデータの入出力用関数定義
  */
-export type MeshLoaderDataIOFunvction = {
+export type S3MeshLoaderDataIOFunvction = {
     /**
      * 入出力形式の名前（"JSON", "MQO", "OBJ"など）
      */
@@ -66,14 +66,6 @@ export type MeshLoaderDataIOFunvction = {
      * インスタンスをテキストへ出力する
      */
     output?: (arg0: S3Mesh) => string;
-};
-/**
- * メッシュデータの入出力用関数定義オブジェクト
- */
-export type MeshLoaderDataIOFunvctions = {
-    JSON: MeshLoaderDataIOFunvction;
-    MQO: MeshLoaderDataIOFunvction;
-    OBJ: MeshLoaderDataIOFunvction;
 };
 declare namespace S3 {
     export { S3System as System };

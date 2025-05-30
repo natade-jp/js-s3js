@@ -1,0 +1,24 @@
+{
+	"source": "./src/",
+	"destination": "./docs/",
+	"includes": ["\\.m?js$"],
+	"excludes": ["\\.test\\.m?js$"],
+	"index": "./README.md",
+	"outputAST": false,
+	"plugins": [
+		{
+			"name": "esdoc-standard-plugin",
+			"option": {
+				"unexportedIdentifier": { "enable": false },
+				"manual": {
+					"files": [
+						"./docs/manual_md/ARCHITECTURE.md",
+						"./docs/manual_md/WEBGL.md",
+						"./docs/manual_md/DEMO1.md",
+						"./docs/manual_md/DEMO2.md"
+					]
+				}
+			}
+		}
+	]
+}
