@@ -2,7 +2,7 @@
 
 以下で実際を確認できます。
 
-- [demo2](../demo/sample1.html)
+- [demo2](../demo/sample2.html)
 
 ## sample2.mjs
 
