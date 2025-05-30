@@ -1,9 +1,9 @@
 {
 	"name": "s3js",
 	"version": "0.0.1",
-	"description": "A JavaScript library.",
+	"description": "Simple JavaScript 3D engine for rendering and manipulating scenes..",
 	"keywords": [
-		"3dcg"
+		"3d", "graphics", "engine", "javascript", "webgl"
 	],
 	"author": "natade-jp <natade3@gmail.com> (https://github.com/natade-jp)",
 	"repository": {
