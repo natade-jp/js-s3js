@@ -27,6 +27,9 @@ import S3GLMesh from "./S3GLMesh.js";
  * 頂点・フラグメント2つのシェーダーと、それらをリンクしたGLプログラムオブジェクトを保持し、
  * 各種attribute/uniform変数とのバインドや、プログラム切替・破棄などの管理を担います。
  * S3GLSystem経由でのWebGL描画制御のコアとなります。
+ *
+ * @class
+ * @module S3
  */
 export default class S3GLProgram {
 	/**

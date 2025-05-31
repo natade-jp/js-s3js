@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -121,7 +121,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>S3 3DCG&#x30A8;&#x30F3;&#x30B8;&#x30F3;&#x306E;&#x30E1;&#x30A4;&#x30F3;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</p>
+</div>
       </div>
     </td>
     <td>
@@ -208,7 +209,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>JSON&#x5F62;&#x5F0F;&#x306B;&#x3088;&#x308B;3DCG&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</p>
+</div>
       </div>
     </td>
     <td>
@@ -291,18 +293,144 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/S3.js.html#lineNumber12">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/S3.js.html#lineNumber44">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3 from &apos;<span><a href="file/src/S3.js.html#lineNumber12">s3js/src/S3.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3 from &apos;<span><a href="file/src/S3.js.html#lineNumber44">s3js/src/S3.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>S3 3DCG&#x30A8;&#x30F3;&#x30B8;&#x30F3;&#x306E;&#x30E1;&#x30A4;&#x30F3;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</p>
+<p>&#x4E3B;&#x8981;&#x30AF;&#x30E9;&#x30B9;&#x3084;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;&#xFF08;System, Math, Vector, Matrix, Plane, Loader, Controller&#x306A;&#x3069;&#xFF09;&#x3092;
+&#x3072;&#x3068;&#x3064;&#x306E;&#x540D;&#x524D;&#x7A7A;&#x9593;&#x306B;&#x96C6;&#x7D04;&#x3057;&#x3066;&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x5404;&#x7A2E;&#x5B9A;&#x6570;&#x30FB;&#x5217;&#x6319;&#x4F53;&#x3084;&#x30ED;&#x30FC;&#x30C0;&#x30FB;&#x30C4;&#x30FC;&#x30EB;&#x3078;&#x306E;&#x30B7;&#x30E7;&#x30FC;&#x30C8;&#x30AB;&#x30C3;&#x30C8;&#x3082;&#x542B;&#x307E;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+</div>
 
   
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">System</td>
+      <td data-ice="type" class="code"><span>typeof S3System</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>3DCG&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x7BA1;&#x7406;&#x30AF;&#x30E9;&#x30B9;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">GLSystem</td>
+      <td data-ice="type" class="code"><span>typeof S3GLSystem</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>WebGL&#x7528;&#x62E1;&#x5F35;&#x30B7;&#x30B9;&#x30C6;&#x30E0;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">Math</td>
+      <td data-ice="type" class="code"><span>typeof S3Math</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x6570;&#x5B66;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">Angles</td>
+      <td data-ice="type" class="code"><span>typeof S3Angles</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30AA;&#x30A4;&#x30E9;&#x30FC;&#x89D2;&#x30AF;&#x30E9;&#x30B9;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">Vector</td>
+      <td data-ice="type" class="code"><span>typeof S3Vector</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x30AF;&#x30E9;&#x30B9;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">Matrix</td>
+      <td data-ice="type" class="code"><span>typeof S3Matrix</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x884C;&#x5217;&#x30AF;&#x30E9;&#x30B9;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">Plane</td>
+      <td data-ice="type" class="code"><span>typeof S3Plane</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x5E73;&#x9762;&#x30AF;&#x30E9;&#x30B9;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">SYSTEM_MODE</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x63CF;&#x753B;&#x30E2;&#x30FC;&#x30C9;&#x5B9A;&#x6570;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">DEPTH_MODE</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x6DF1;&#x5EA6;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x30E2;&#x30FC;&#x30C9;&#x5B9A;&#x6570;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">DIMENSION_MODE</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x5EA7;&#x6A19;&#x7CFB;&#x30E2;&#x30FC;&#x30C9;&#x5B9A;&#x6570;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">VECTOR_MODE</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x30E2;&#x30FC;&#x30C9;&#x5B9A;&#x6570;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">FRONT_FACE</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x9762;&#x306E;&#x524D;&#x9762;&#x5224;&#x5B9A;&#x30E2;&#x30FC;&#x30C9;&#x5B9A;&#x6570;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">CULL_MODE</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30AB;&#x30EA;&#x30F3;&#x30B0;&#x30E2;&#x30FC;&#x30C9;&#x5B9A;&#x6570;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">LIGHT_MODE</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x30E2;&#x30FC;&#x30C9;&#x5B9A;&#x6570;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">MeshLoader</td>
+      <td data-ice="type" class="code"><span>typeof S3MeshLoader</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x30ED;&#x30FC;&#x30C0;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">CameraController</td>
+      <td data-ice="type" class="code"><span>typeof CameraController</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30AB;&#x30E1;&#x30E9;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   
@@ -315,7 +443,18 @@
 
   
 
-  
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">import S3 from &quot;S3.js&quot;;
+const sys = new S3.System();
+const mesh = sys.createMesh();
+// &#x3082;&#x3057;&#x304F;&#x306F;
+const glsys = new S3.GLSystem();</code></pre>
+    </div>
+</div>
 
   
 
@@ -334,11 +473,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/math/S3Math.js.html#lineNumber5">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/math/S3Math.js.html#lineNumber8">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3Math from &apos;<span><a href="file/src/math/S3Math.js.html#lineNumber5">s3js/src/math/S3Math.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3Math from &apos;<span><a href="file/src/math/S3Math.js.html#lineNumber8">s3js/src/math/S3Math.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>&#x6570;&#x5B66;&#x7684;&#x306A;&#x4FBF;&#x5229;&#x95A2;&#x6570;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;
@@ -379,11 +518,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/loader/S3MeshLoader.js.html#lineNumber31">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/loader/S3MeshLoader.js.html#lineNumber34">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3MeshLoader from &apos;<span><a href="file/src/loader/S3MeshLoader.js.html#lineNumber31">s3js/src/loader/S3MeshLoader.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3MeshLoader from &apos;<span><a href="file/src/loader/S3MeshLoader.js.html#lineNumber34">s3js/src/loader/S3MeshLoader.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>3DCG&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30ED;&#x30FC;&#x30C0;&#x30FC;</p>
@@ -431,18 +570,57 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/loader/S3MeshLoaderJSON.js.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/loader/S3MeshLoaderJSON.js.html#lineNumber46">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3MeshLoaderJSON from &apos;<span><a href="file/src/loader/S3MeshLoaderJSON.js.html#lineNumber26">s3js/src/loader/S3MeshLoaderJSON.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3MeshLoaderJSON from &apos;<span><a href="file/src/loader/S3MeshLoaderJSON.js.html#lineNumber46">s3js/src/loader/S3MeshLoaderJSON.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>JSON&#x5F62;&#x5F0F;&#x306B;&#x3088;&#x308B;3DCG&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</p>
+<ul>
+<li>&#x9802;&#x70B9;&#x914D;&#x5217;&#xFF08;Vertices&#xFF09;&#x3084;&#x9762;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x914D;&#x5217;&#xFF08;Indexes&#xFF09;&#x3092;&#x6301;&#x3064;JSON&#x30C7;&#x30FC;&#x30BF;&#x3092;
+S3Mesh&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3078;&#x5909;&#x63DB;&#xFF08;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#xFF09;&#x3001;&#x307E;&#x305F;&#x306F;S3Mesh&#x304B;&#x3089;JSON&#x5F62;&#x5F0F;&#x3067;&#x51FA;&#x529B;&#xFF08;&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;&#xFF09;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x4E09;&#x89D2;&#x5F62;&#x30FB;&#x56DB;&#x89D2;&#x5F62;&#x306A;&#x3069;&#x8907;&#x6570;&#x9802;&#x70B9;&#x6570;&#x306E;&#x9762;&#x3001;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x540D;&#x3054;&#x3068;&#x306E;&#x7BA1;&#x7406;&#x306B;&#x5BFE;&#x5FDC;&#x3002;</li>
+<li>&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x6587;&#x5B57;&#x5217;&#x307E;&#x305F;&#x306F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x5F62;&#x5F0F;&#x306E;&#x4E21;&#x65B9;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3002;</li>
+<li>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30ED;&#x30FC;&#x30C0;&#x672C;&#x4F53;&#xFF08;S3MeshLoader&#xFF09;&#x7D4C;&#x7531;&#x3067;&#x3082;&#x5229;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</li>
+</ul>
+</div>
 
   
 
-  <div data-ice="properties">
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">name</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x5F62;&#x5F0F;&#x540D;&#xFF08;&quot;JSON&quot;&#xFF09;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">input</td>
+      <td data-ice="type" class="code"><span>function(S3System, S3Mesh, string</span> | <span>Object):boolean</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>JSON&#x30C7;&#x30FC;&#x30BF;&#x304B;&#x3089;S3Mesh&#x3078;&#x5909;&#x63DB;&#xFF08;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#xFF09;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">output</td>
+      <td data-ice="type" class="code"><span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(prm1: <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>S3Mesh&#x304B;&#x3089;JSON&#x5F62;&#x5F0F;&#x3078;&#x5909;&#x63DB;&#xFF08;&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;&#xFF09;</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
 </div>
 
   
@@ -455,7 +633,17 @@
 
   
 
-  
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">// &#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;
+S3MeshLoaderJSON.input(sys, mesh, &apos;{&quot;Vertices&quot;:[[0,0,0]],&quot;Indexes&quot;:{&quot;mat1&quot;:[[0,0,0]]}}&apos;);
+// &#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;
+const json = S3MeshLoaderJSON.output(mesh);</code></pre>
+    </div>
+</div>
 
   
 

@@ -5,6 +5,9 @@ import S3Light from "./S3Light.js";
 /**
  * 3DCGシーン（描画シーン）の管理クラス
  * モデル・ライト・カメラなどシーン構成要素を一括管理します。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Scene {
 	/**

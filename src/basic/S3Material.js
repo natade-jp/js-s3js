@@ -5,6 +5,9 @@ import S3Vector from "../math/S3Vector.js";
 /**
  * 3DCG用のマテリアル（素材）情報を管理するクラス(mutable)
  * 拡散反射色、自己照明、鏡面反射、環境光、反射、テクスチャなどを一括管理します。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Material {
 	/**
@@ -14,7 +17,7 @@ export default class S3Material {
 	 */
 	constructor(s3system, name) {
 		/**
-		 * システム管理用
+		 * システムインスタンス
 		 * @type {S3System}
 		 */
 		this.sys = s3system;

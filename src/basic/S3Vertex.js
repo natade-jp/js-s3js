@@ -3,6 +3,9 @@
 /**
  * 3DCG用の頂点クラス（immutable）
  * 各頂点の空間上の座標情報を管理するシンプルなクラスです。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Vertex {
 	/**
@@ -10,6 +13,10 @@ export default class S3Vertex {
 	 * @param {S3Vector} position 頂点の座標ベクトル
 	 */
 	constructor(position) {
+		/**
+		 * 頂点の座標ベクトル
+		 * @type {S3Vector}
+		 */
 		this.position = position;
 	}
 

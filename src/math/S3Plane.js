@@ -3,6 +3,9 @@
 /**
  * 3DCG用の平面クラス
  * 法線ベクトルと距離または平面上の1点から平面を定義します。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Plane {
 	/**

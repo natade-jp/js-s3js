@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -97,13 +97,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLShader from &apos;<span><a href="file/src/gl/S3GLShader.js.html#lineNumber8">s3js/src/gl/S3GLShader.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLShader from &apos;<span><a href="file/src/gl/S3GLShader.js.html#lineNumber11">s3js/src/gl/S3GLShader.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/gl/S3GLShader.js.html#lineNumber8">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/gl/S3GLShader.js.html#lineNumber11">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -194,13 +194,14 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html#instance-member-code">code</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html#instance-member-code">code</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;GLSL&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3002;GLSL&#x30B3;&#x30FC;&#x30C9;&#x6587;&#x5B57;&#x5217;&#x3001;&#x307E;&#x305F;&#x306F;&#x672A;&#x30ED;&#x30FC;&#x30C9;&#x6642;&#x306F;null&#x3002;</p>
+</div>
       </div>
     </td>
     <td>
@@ -228,7 +229,8 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3084;&#x751F;&#x6210;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x5834;&#x5408;&#x306B;true&#x3002;</p>
+</div>
       </div>
     </td>
     <td>
@@ -250,13 +252,14 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html#instance-member-shader">shader</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html#instance-member-shader">shader</a></span></span><span class="code" data-ice="signature">: <span>WebGLShader</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6E08;&#x307F;WebGLShader&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3002;&#x672A;&#x751F;&#x6210;&#x307E;&#x305F;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x6642;&#x306F;null&#x3002;</p>
+</div>
       </div>
     </td>
     <td>
@@ -278,13 +281,14 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html#instance-member-sharder_type">sharder_type</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html#instance-member-sharder_type">sharder_type</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x578B;&#x3002;gl.VERTEX_SHADER&#xFF08;35633&#xFF09;&#x304B;gl.FRAGMENT_SHADER&#xFF08;35632&#xFF09;&#x3001;&#x672A;&#x8A2D;&#x5B9A;&#x6642;&#x306F;-1&#x3002;</p>
+</div>
       </div>
     </td>
     <td>
@@ -306,13 +310,14 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html#instance-member-sys">sys</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLShader.js~S3GLShader.html#instance-member-sys">sys</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>GL&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;</p>
+</div>
       </div>
     </td>
     <td>
@@ -534,7 +539,7 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber14">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 
@@ -601,18 +606,19 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     
     
     
-    <span class="code" data-ice="name">code</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">code</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber27">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber39">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;GLSL&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3002;GLSL&#x30B3;&#x30FC;&#x30C9;&#x6587;&#x5B57;&#x5217;&#x3001;&#x307E;&#x305F;&#x306F;&#x672A;&#x30ED;&#x30FC;&#x30C9;&#x6642;&#x306F;null&#x3002;</p>
+</div>
 
   
 
@@ -648,14 +654,15 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber30">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber57">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3084;&#x751F;&#x6210;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x5834;&#x5408;&#x306B;true&#x3002;</p>
+</div>
 
   
 
@@ -687,18 +694,19 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     
     
     
-    <span class="code" data-ice="name">shader</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">shader</span><span class="code" data-ice="signature">: <span>WebGLShader</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber45">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6E08;&#x307F;WebGLShader&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3002;&#x672A;&#x751F;&#x6210;&#x307E;&#x305F;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x6642;&#x306F;null&#x3002;</p>
+</div>
 
   
 
@@ -730,18 +738,19 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     
     
     
-    <span class="code" data-ice="name">sharder_type</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">sharder_type</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber29">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x578B;&#x3002;gl.VERTEX_SHADER&#xFF08;35633&#xFF09;&#x304B;gl.FRAGMENT_SHADER&#xFF08;35632&#xFF09;&#x3001;&#x672A;&#x8A2D;&#x5B9A;&#x6642;&#x306F;-1&#x3002;</p>
+</div>
 
   
 
@@ -773,18 +782,19 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     
     
     
-    <span class="code" data-ice="name">sys</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">sys</span><span class="code" data-ice="signature">: <span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>GL&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;</p>
+</div>
 
   
 
@@ -823,7 +833,7 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber126">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber153">source</a></span></span>
     </span>
   </h3>
 
@@ -881,7 +891,7 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber63">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber90">source</a></span></span>
     </span>
   </h3>
 
@@ -938,7 +948,7 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber73">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber100">source</a></span></span>
     </span>
   </h3>
 
@@ -997,7 +1007,7 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber111">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber138">source</a></span></span>
     </span>
   </h3>
 
@@ -1055,7 +1065,7 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber55">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber82">source</a></span></span>
     </span>
   </h3>
 
@@ -1114,7 +1124,7 @@ S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber25">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLShader.js.html#lineNumber28">source</a></span></span>
     </span>
   </h3>
 

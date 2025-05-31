@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -103,6 +103,9 @@
  * WebGL&#x306E;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x7BA1;&#x7406;&#x30AF;&#x30E9;&#x30B9;&#x3002;
  * &#x9802;&#x70B9;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#xFF0F;&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x30FB;&#x578B;&#x30FB;GL&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3084;&#x7834;&#x68C4;&#x3001;&#x72B6;&#x614B;&#x53D6;&#x5F97;&#x306A;&#x3069;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x307E;&#x3059;&#x3002;
  * S3GLProgram &#x5185;&#x90E8;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3001;&#x5358;&#x4F53;&#x3067;&#x306F;&#x76F4;&#x63A5;&#x4F7F;&#x308F;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x8A2D;&#x8A08;&#x3067;&#x3059;&#x3002;
+ *
+ * @class
+ * @module S3
  */
 export default class S3GLShader {
 	/**
@@ -122,10 +125,34 @@ export default class S3GLShader {
 	 * @param {string} code &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;GLSL&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3001;&#x307E;&#x305F;&#x306F;GLSL&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;URL&#xFF08;1&#x884C;&#x306E;&#x5834;&#x5408;&#x306F;&#x81EA;&#x52D5;&#x5224;&#x5225;&#xFF09;
 	 */
 	_init(sys, code) {
+		/**
+		 * GL&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;
+		 * @type {S3GLSystem}
+		 */
 		this.sys = sys;
+
+		/**
+		 * &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;GLSL&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3002;GLSL&#x30B3;&#x30FC;&#x30C9;&#x6587;&#x5B57;&#x5217;&#x3001;&#x307E;&#x305F;&#x306F;&#x672A;&#x30ED;&#x30FC;&#x30C9;&#x6642;&#x306F;null&#x3002;
+		 * @type {string|null}
+		 */
 		this.code = null;
+
+		/**
+		 * &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6E08;&#x307F;WebGLShader&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3002;&#x672A;&#x751F;&#x6210;&#x307E;&#x305F;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x6642;&#x306F;null&#x3002;
+		 * @type {?WebGLShader}
+		 */
 		this.shader = null;
+
+		/**
+		 * &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x578B;&#x3002;gl.VERTEX_SHADER&#xFF08;35633&#xFF09;&#x304B;gl.FRAGMENT_SHADER&#xFF08;35632&#xFF09;&#x3001;&#x672A;&#x8A2D;&#x5B9A;&#x6642;&#x306F;-1&#x3002;
+		 * @type {number}
+		 */
 		this.sharder_type = -1;
+
+		/**
+		 * &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3084;&#x751F;&#x6210;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x5834;&#x5408;&#x306B;true&#x3002;
+		 * @type {boolean}
+		 */
 		this.is_error = false;
 		const that = this;
 

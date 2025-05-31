@@ -96,6 +96,9 @@ declare namespace S3 {
  * WebGL用の配列（バッファ）を生成・管理するクラス。（immutable）
  * 各種型（S3Vector, S3Matrix, 数値配列等）をWebGLバッファ（Float32Array/Int32Array）に変換し、
  * 対応するGLSL型（vec3, mat4等）情報も保持します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3GLArray {
     /**
@@ -107,11 +110,24 @@ declare class S3GLArray {
      * @param {S3GLArrayDataType} datatype 使用するバッファ型（S3GLArray.datatype）
      */
     constructor(data: number[] | number | S3Vector | S3Matrix | Float32Array | Int32Array, dimension: number, datatype: S3GLArrayDataType);
-    data: any;
+    /**
+     * 本体データ（TypedArray: Float32Array または Int32Array）
+     * @type {Float32Array|Int32Array}
+     */
+    data: Float32Array | Int32Array;
+    /**
+     * 配列の次元（要素数やGLSL型を決定するための値）
+     * 例: 3 → vec3, 16 → mat4
+     * @type {number}
+     */
     dimension: number;
+    /**
+     * 配列のデータ型情報（TypedArray種別や型名などを格納したオブジェクト）
+     * @type {S3GLArrayDataType}
+     */
     datatype: S3GLArrayDataType;
     /**
-     * GLSL型（vec3, mat4など）
+     * GLSLの型名（vec3, mat4, float等）
      * @type {string}
      */
     glsltype: string;
@@ -126,6 +142,9 @@ declare namespace S3GLArray {
 /**
  * 3DCG用の4x4行列クラス
  * 主に変換行列や射影行列などに使用されます。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Matrix {
     /**
@@ -150,21 +169,37 @@ declare class S3Matrix {
      * @param {Number} [m33]
      */
     constructor(m00?: number, m01?: number, m02?: number, m03?: number, m10?: number, m11?: number, m12?: number, m13?: number, m20?: number, m21?: number, m22?: number, m23?: number, m30?: number, m31?: number, m32?: number, m33?: number, ...args: any[]);
+    /** @type {number} */
     m00: number;
+    /** @type {number} */
     m01: number;
+    /** @type {number} */
     m02: number;
+    /** @type {number} */
     m03: number;
+    /** @type {number} */
     m10: number;
+    /** @type {number} */
     m11: number;
+    /** @type {number} */
     m12: number;
+    /** @type {number} */
     m13: number;
+    /** @type {number} */
     m20: number;
+    /** @type {number} */
     m21: number;
+    /** @type {number} */
     m22: number;
+    /** @type {number} */
     m23: number;
+    /** @type {number} */
     m30: number;
+    /** @type {number} */
     m31: number;
+    /** @type {number} */
     m32: number;
+    /** @type {number} */
     m33: number;
     /**
      * 2つの行列が等しいか判定します。
@@ -246,6 +281,9 @@ declare class S3Matrix {
 }
 /**
  * 3DCG用のベクトルクラス（immutable）
+ *
+ * @class
+ * @module S3
  */
 declare class S3Vector {
     /**
@@ -518,6 +556,9 @@ declare namespace S3Vector {
  * 3DCGのための座標変換やシーン管理、基本的な生成処理・ユーティリティ関数などをまとめて提供します。
  * 頂点やメッシュ、マテリアルなど各種オブジェクトのファクトリ機能も持ちます。
  *
+ * @class
+ * @module S3
+ *
  */
 declare class S3System {
     /**
@@ -535,6 +576,52 @@ declare class S3System {
      */
     static calcAspect(width: number, height: number): number;
     /**
+     * 現在のシステムモード（OpenGL/DirectX）
+     * @type {number}
+     * @see S3System.SYSTEM_MODE
+     */
+    systemmode: number;
+    /**
+     * 深度バッファのモード（OpenGL/DirectX）
+     * @type {number}
+     * @see S3System.DEPTH_MODE
+     */
+    depthmode: number;
+    /**
+     * 座標系モード（右手系/左手系）
+     * @type {number}
+     * @see S3System.DIMENSION_MODE
+     */
+    dimensionmode: number;
+    /**
+     * ベクトル型のモード（VECTOR4x1 / VECTOR1x4）
+     * @type {number}
+     * @see S3System.VECTOR_MODE
+     */
+    vectormode: number;
+    /**
+     * 前面判定の面の向き（時計回り/反時計回り）
+     * @type {number}
+     * @see S3System.FRONT_FACE
+     */
+    frontface: number;
+    /**
+     * カリングモード（面の非表示除去方法）
+     * @type {number}
+     * @see S3System.CULL_MODE
+     */
+    cullmode: number;
+    /**
+     * 背景色（RGBAベクトル）
+     * @type {S3Vector}
+     */
+    backgroundColor: S3Vector;
+    /**
+     * 描画に使うcanvas要素
+     * @type {HTMLCanvasElement}
+     */
+    canvas: HTMLCanvasElement;
+    /**
      * 内部状態を初期化します（描画モードや背景色のリセット）。
      * @private
      */
@@ -544,10 +631,12 @@ declare class S3System {
      * @returns {string} 新しいID文字列
      */
     _createID(): string;
-    _CREATE_ID1: number;
-    _CREATE_ID2: number;
-    _CREATE_ID3: number;
-    _CREATE_ID4: number;
+    /**
+     * 内部で一意なIDを発行するためのカウンタ配列
+     * @type {number[]} [4]
+     * @private
+     */
+    private _CREATE_ID;
     /**
      * 画像やテキストファイルをダウンロードします。
      * 画像拡張子ならImage要素、それ以外はテキストとして取得しコールバックします。
@@ -572,7 +661,6 @@ declare class S3System {
      * @param {S3Vector} color RGBAで指定する背景色
      */
     setBackgroundColor(color: S3Vector): void;
-    backgroundColor: S3Vector;
     /**
      * 背景色を取得します。
      * @returns {S3Vector} 現在の背景色（RGBA）
@@ -584,12 +672,6 @@ declare class S3System {
      * @param {number} mode S3System.SYSTEM_MODE で定義される値
      */
     setSystemMode(mode: number): void;
-    systemmode: number;
-    depthmode: number;
-    dimensionmode: number;
-    vectormode: number;
-    frontface: number;
-    cullmode: number;
     /**
      * 深度（Z値の扱い）のモードを設定します。
      * @param {number} depthmode S3System.DEPTH_MODE
@@ -620,9 +702,8 @@ declare class S3System {
      * @param {HTMLCanvasElement} canvas 使用するcanvas要素
      */
     setCanvas(canvas: HTMLCanvasElement): void;
-    canvas: HTMLCanvasElement;
     /**
-     * 2D描画ユーティリティ
+     * 2D描画用のユーティリティオブジェクト（drawLine, drawLinePolygonなど）
      * @property {CanvasRenderingContext2D} context 2D描画コンテキスト
      * @property {function(S3Vector, S3Vector):void} drawLine 2点間の直線を描画
      * @property {function(S3Vector, S3Vector, S3Vector):void} drawLinePolygon 3点から三角形（線のみ）を描画
@@ -894,6 +975,9 @@ declare namespace S3System {
 /**
  * 3DCG用メッシュ（立体形状データ）を管理するクラス (mutable)
  * 頂点・面・マテリアルを保持し、複数の形状や属性を一つにまとめます。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Mesh {
     /**
@@ -901,7 +985,17 @@ declare class S3Mesh {
      * @param {S3System} s3system S3Systemインスタンス
      */
     constructor(s3system: S3System);
+    /**
+     * システムインスタンス
+     * @type {S3System}
+     */
     sys: S3System;
+    /**
+     * 三角形インデックス追加時に面の頂点順序（表裏）を反転するかどうかを指定します。
+     * true の場合は addTriangleIndex() で自動的に面を裏返して追加します。
+     * @type {boolean}
+     */
+    is_inverse: boolean;
     /**
      * メッシュの内部状態を初期化します。
      */
@@ -947,7 +1041,6 @@ declare class S3Mesh {
      * @param {boolean} inverse 反転するならtrue
      */
     setInverseTriangle(inverse: boolean): void;
-    is_inverse: boolean;
     /**
      * メッシュが保持する頂点配列を取得します。
      * @returns {Array<S3Vertex>} 頂点配列
@@ -984,6 +1077,10 @@ declare class S3Mesh {
  * WebGLレンダリングシステムを管理するクラス。
  * シェーダー、テクスチャ、バッファオブジェクトの生成・管理、および描画制御を担当。
  * WebGLの初期化やプログラムのセットアップ、シーンの描画などの処理を含む。
+ *
+ * @class
+ * @extends S3System
+ * @module S3
  */
 declare class S3GLSystem extends S3System {
     /** @type {?S3GLProgram} 現在使用中のプログラム */
@@ -996,6 +1093,10 @@ declare class S3GLSystem extends S3System {
     program_list: Array<S3GLProgram>;
     /** @type {number} プログラムリストの識別ID */
     program_listId: number;
+    /** @type {?string} ダミーテクスチャのID文字列 */
+    _textureDummyId: string | null;
+    /** @type {?WebGLTexture} ダミーテクスチャのWebGLTextureオブジェクト */
+    _textureDummyData: WebGLTexture | null;
     /**
      * WebGLバッファ、テクスチャ、シェーダを作成・削除するユーティリティ関数群。
      */
@@ -1113,8 +1214,6 @@ declare class S3GLSystem extends S3System {
      * @returns {WebGLTexture} ダミーテクスチャのWebGLTextureオブジェクト
      */
     _getDummyTexture(): WebGLTexture;
-    _textureDummyId: string;
-    _textureDummyData: WebGLTexture;
     /**
      * 深度バッファのテストモードをWebGLで有効化します。
      * 通常は自動的に呼ばれます。
@@ -1222,6 +1321,9 @@ declare namespace S3Math {
  * 3DCG用のオイラー角クラス（immutable）
  * Roll（Z軸）、Pitch（X軸）、Yaw（Y軸）の順で角度を保持します。
  * 各値は常に周期的（-180～180度）に管理されます。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Angles {
     /**
@@ -1316,6 +1418,9 @@ declare namespace S3Angles {
 /**
  * 3DCG用の平面クラス
  * 法線ベクトルと距離または平面上の1点から平面を定義します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Plane {
     /**
@@ -1361,6 +1466,9 @@ declare class S3Plane {
 /**
  * 3DCGシーン用のライト（照明）情報を管理するクラス
  * 各種ライト（環境光・平行光源・点光源など）のモード・強さ・方向・色などを保持します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Light {
     /**
@@ -1479,6 +1587,11 @@ declare class CameraController {
      */
     moveTranslateRelative: number;
     /**
+     * コントローラが管理・操作するカメラインスタンス
+     * @type {S3Camera}
+     */
+    camera: S3Camera;
+    /**
      * カメラコントローラで操作するcanvas要素を登録し、入力イベントを設定します。
      * @param {HTMLElement} element 対象となるcanvas要素など
      */
@@ -1488,7 +1601,6 @@ declare class CameraController {
      * @param {S3Camera} camera 操作対象のカメラ
      */
     setCamera(camera: S3Camera): void;
-    camera: S3Camera;
     /**
      * 現在のカメラを取得し、入力に基づく移動・回転・ズームなどを反映して返します。
      *
@@ -1500,6 +1612,9 @@ declare class CameraController {
 /**
  * 3DCGシーンに配置する「モデル」を管理するクラス (mutable)
  * 位置・回転・スケール・メッシュ（形状）などモデルの変換・配置情報を保持します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Model {
     /**
@@ -1608,6 +1723,9 @@ declare class S3Model {
 /**
  * 3DCG用の頂点クラス（immutable）
  * 各頂点の空間上の座標情報を管理するシンプルなクラスです。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Vertex {
     /**
@@ -1615,6 +1733,10 @@ declare class S3Vertex {
      * @param {S3Vector} position 頂点の座標ベクトル
      */
     constructor(position: S3Vector);
+    /**
+     * 頂点の座標ベクトル
+     * @type {S3Vector}
+     */
     position: S3Vector;
     /**
      * 頂点インスタンスのクローン（複製）を作成します。
@@ -1626,6 +1748,9 @@ declare class S3Vertex {
 /**
  * 3DCGシーン（描画シーン）の管理クラス
  * モデル・ライト・カメラなどシーン構成要素を一括管理します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Scene {
     /**
@@ -1686,6 +1811,9 @@ declare class S3Scene {
 /**
  * 三角形ポリゴンのインデックス情報を保持するクラス（immutable）
  * 各ポリゴン面を構成する頂点インデックスやUV座標、マテリアルインデックスを管理します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3TriangleIndex {
     /**
@@ -1741,6 +1869,9 @@ declare class S3TriangleIndex {
 /**
  * 3DCG用のテクスチャ（画像）情報を管理するクラス
  * 画像のセットや2の累乗化処理、ロード状況管理、破棄処理などを担当します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Texture {
     /**
@@ -1795,6 +1926,9 @@ declare class S3Texture {
 /**
  * 3DCG用のマテリアル（素材）情報を管理するクラス(mutable)
  * 拡散反射色、自己照明、鏡面反射、環境光、反射、テクスチャなどを一括管理します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Material {
     /**
@@ -1804,7 +1938,7 @@ declare class S3Material {
      */
     constructor(s3system: S3System, name?: string);
     /**
-     * システム管理用
+     * システムインスタンス
      * @type {S3System}
      */
     sys: S3System;
@@ -1916,6 +2050,9 @@ declare class S3Material {
 /**
  * 3DCGシーンのカメラ（視点）情報を管理するクラス
  * 視点座標、注視点、視野角、描画範囲、各種行列演算などを保持・操作します。
+ *
+ * @class
+ * @module S3
  */
 declare class S3Camera {
     /**
@@ -2105,6 +2242,9 @@ declare class S3Camera {
  * 頂点・フラグメント2つのシェーダーと、それらをリンクしたGLプログラムオブジェクトを保持し、
  * 各種attribute/uniform変数とのバインドや、プログラム切替・破棄などの管理を担います。
  * S3GLSystem経由でのWebGL描画制御のコアとなります。
+ *
+ * @class
+ * @module S3
  */
 declare class S3GLProgram {
     /**
@@ -2308,6 +2448,10 @@ declare class S3GLProgram {
  * WebGL描画用のシーン（Scene）クラス。
  * 基本のS3Sceneを拡張し、WebGL用のuniformデータ生成（getUniforms）などの機能を追加します。
  * カメラやライト情報をGLSLシェーダ向けにuniform変数としてまとめて提供します。
+ *
+ * @class
+ * @extends S3Scene
+ * @module S3
  */
 declare class S3GLScene extends S3Scene {
     /**
@@ -2352,18 +2496,13 @@ declare class S3GLScene extends S3Scene {
     getUniforms(): import("./S3").S3GLProgramUniforms;
 }
 /**
- * The script is part of SenkoJS.
- *
- * AUTHOR:
- *  natade (http://twitter.com/natadea)
- *
- * LICENSE:
- *  The MIT license https://opensource.org/licenses/MIT
- */
-/**
  * WebGL描画用の頂点（バーテックス）クラス。
  * S3Vertexを拡張し、GL用データ生成やハッシュ化などを提供します。
  * 頂点情報（位置）をGL向け形式に変換し、バーテックスシェーダのattributeと連携できます。
+ *
+ * @class
+ * @extends S3Vertex
+ * @module S3
  */
 declare class S3GLVertex extends S3Vertex {
     /**
@@ -2393,6 +2532,10 @@ declare class S3GLVertex extends S3Vertex {
  * WebGL描画用の三角形インデックスクラス。
  * 基本のS3TriangleIndexを拡張し、GL用属性データ生成（S3GLTriangleIndexData化）などを追加しています。
  * 頂点インデックス・マテリアル番号・UV座標などの情報を持ち、WebGL向け処理の土台となります。
+ *
+ * @class
+ * @extends S3TriangleIndex
+ * @module S3
  */
 declare class S3GLTriangleIndex extends S3TriangleIndex {
     /**
@@ -2417,6 +2560,10 @@ declare class S3GLTriangleIndex extends S3TriangleIndex {
  * WebGL描画用のテクスチャクラス。
  * S3Textureを拡張し、WebGL用のGLTexture管理、GL用データ取得（getGLData）、破棄などを担います。
  * 画像データをGPUのテクスチャへ変換し、GLSLシェーダへのuniformバインドなどに利用します。
+ *
+ * @class
+ * @extends S3Texture
+ * @module S3
  */
 declare class S3GLTexture extends S3Texture {
     /**
@@ -2448,6 +2595,10 @@ declare class S3GLTexture extends S3Texture {
  * WebGL描画用のモデル（Model）クラス。
  * 基本のS3Modelを拡張し、WebGL向けuniformデータの生成（getUniforms）機能を追加します。
  * モデルごとの材質（マテリアル）情報をuniformデータとしてまとめ、GLSLシェーダに渡せる形に整形します。
+ *
+ * @class
+ * @extends S3Model
+ * @module S3
  */
 declare class S3GLModel extends S3Model {
     /**
@@ -2471,6 +2622,10 @@ declare class S3GLModel extends S3Model {
  * WebGL用のメッシュ（立体形状データ）を管理するクラスです。
  * S3Meshを拡張し、WebGL描画に必要なVBOやIBO情報、GL用データ生成・解放機能などを持ちます。
  * モデルの描画時にGLにバインドできるバッファ形式への変換・管理も行います。
+ *
+ * @class
+ * @extends S3Mesh
+ * @module S3
  */
 declare class S3GLMesh extends S3Mesh {
     /**
@@ -2743,6 +2898,10 @@ declare class S3GLMesh extends S3Mesh {
  * WebGL描画用のマテリアル（材質）クラス。
  * 基本のS3Materialを拡張し、GL用データ生成・ハッシュ管理などWebGL用途向けの機能を追加します。
  * 色、拡散/反射/発光/環境光、テクスチャ情報などを保持し、GLSLシェーダへのuniformデータ化を担います。
+ *
+ * @class
+ * @extends S3Material
+ * @module S3
  */
 declare class S3GLMaterial extends S3Material {
     /**
@@ -2751,6 +2910,10 @@ declare class S3GLMaterial extends S3Material {
      * @param {string} name マテリアル名（一意識別のためGLハッシュにも使用）
      */
     constructor(s3glsystem: S3GLSystem, name: string);
+    /**
+     * S3GLSystem アクセス用
+     * @type {S3GLSystem}
+     */
     _s3gl: S3GLSystem;
     /**
      * このマテリアルの一意なハッシュ文字列を取得します。
@@ -2781,6 +2944,10 @@ declare class S3GLMaterial extends S3Material {
 /**
  * WebGLレンダリング用のライト（照明）クラス。
  * 基本のS3Lightを拡張し、GL用データ生成や一意ハッシュ生成などのメソッドを提供します。
+ *
+ * @class
+ * @extends S3Light
+ * @module S3
  */
 declare class S3GLLight extends S3Light {
     /**
@@ -2862,6 +3029,9 @@ declare class InputDetect {
  * WebGLのシェーダー管理クラス。
  * 頂点シェーダ／フラグメントシェーダのソースコード・型・GLオブジェクトを保持し、コンパイルや破棄、状態取得などの機能を提供します。
  * S3GLProgram 内部で利用され、単体では直接使わないことが多い設計です。
+ *
+ * @class
+ * @module S3
  */
 declare class S3GLShader {
     /**
@@ -2878,10 +3048,30 @@ declare class S3GLShader {
      * @param {string} code シェーダーのGLSLソースコード、またはGLSLファイルのURL（1行の場合は自動判別）
      */
     private _init;
+    /**
+     * GLシステムインスタンス
+     * @type {S3GLSystem}
+     */
     sys: S3GLSystem;
-    code: string;
-    shader: WebGLShader;
+    /**
+     * シェーダーのGLSLソースコード。GLSLコード文字列、または未ロード時はnull。
+     * @type {string|null}
+     */
+    code: string | null;
+    /**
+     * コンパイル済みWebGLShaderオブジェクト。未生成またはエラー時はnull。
+     * @type {?WebGLShader}
+     */
+    shader: WebGLShader | null;
+    /**
+     * シェーダーの型。gl.VERTEX_SHADER（35633）かgl.FRAGMENT_SHADER（35632）、未設定時は-1。
+     * @type {number}
+     */
     sharder_type: number;
+    /**
+     * コンパイルや生成エラーが発生した場合にtrue。
+     * @type {boolean}
+     */
     is_error: boolean;
     /**
      * このシェーダーでエラーが発生しているか判定します。
@@ -2917,6 +3107,9 @@ declare class S3GLShader {
  * WebGL描画用の三角形インデックス・属性データ格納クラス。
  * 三角形ごとの頂点インデックス・UV・法線・接線・従法線などを保持し、
  * WebGL（GLSL）用に最適化されたデータ生成やハッシュ作成も担います。
+ *
+ * @class
+ * @module S3
  */
 declare class S3GLTriangleIndexData {
     /**

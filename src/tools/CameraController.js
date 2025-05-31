@@ -36,6 +36,12 @@ export default class CameraController {
 		 * @type {number}
 		 */
 		this.moveTranslateRelative = 0.1;
+
+		/**
+		 * コントローラが管理・操作するカメラインスタンス
+		 * @type {S3Camera}
+		 */
+		this.camera = null;
 	}
 
 	/**

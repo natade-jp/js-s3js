@@ -5,6 +5,9 @@ import S3Matrix from "../math/S3Matrix.js";
  * WebGL用の配列（バッファ）を生成・管理するクラス。（immutable）
  * 各種型（S3Vector, S3Matrix, 数値配列等）をWebGLバッファ（Float32Array/Int32Array）に変換し、
  * 対応するGLSL型（vec3, mat4等）情報も保持します。
+ *
+ * @class
+ * @module S3
  */
 export default class S3GLArray {
 	/**
@@ -19,6 +22,10 @@ export default class S3GLArray {
 		// 引数の情報(S3GLArray.datatype.instance)を用いて、
 		// JS用配列を、WEBGL用配列に変換して保存する
 		if (data instanceof datatype.instance) {
+			/**
+			 * 本体データ（TypedArray: Float32Array または Int32Array）
+			 * @type {Float32Array|Int32Array}
+			 */
 			this.data = data;
 		} else if (data instanceof S3Vector || data instanceof S3Matrix) {
 			this.data = data.toInstanceArray(datatype.instance, dimension);
@@ -29,7 +36,18 @@ export default class S3GLArray {
 		} else {
 			throw "IllegalArgumentException";
 		}
+
+		/**
+		 * 配列の次元（要素数やGLSL型を決定するための値）
+		 * 例: 3 → vec3, 16 → mat4
+		 * @type {number}
+		 */
 		this.dimension = dimension;
+
+		/**
+		 * 配列のデータ型情報（TypedArray種別や型名などを格納したオブジェクト）
+		 * @type {S3GLArrayDataType}
+		 */
 		this.datatype = datatype;
 
 		let instance = "";
@@ -42,8 +60,9 @@ export default class S3GLArray {
 		}
 
 		// GLSL型（vec3, mat4など）を自動判別し、型名文字列として保存
+
 		/**
-		 * GLSL型（vec3, mat4など）
+		 * GLSLの型名（vec3, mat4, float等）
 		 * @type {string}
 		 */
 		this.glsltype = S3GLArray.gltypetable[datatype.name][instance][dimension];

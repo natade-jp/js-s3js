@@ -23,6 +23,26 @@ import S3Vector from "../math/S3Vector.js";
 	};
 */
 
+/**
+ * JSON形式による3DCGメッシュデータの入出力ユーティリティ
+ *
+ * - 頂点配列（Vertices）や面インデックス配列（Indexes）を持つJSONデータを
+ *   S3Meshインスタンスへ変換（インポート）、またはS3MeshからJSON形式で出力（エクスポート）します。
+ * - 三角形・四角形など複数頂点数の面、マテリアル名ごとの管理に対応。
+ * - テキスト文字列またはオブジェクト形式の両方をサポート。
+ * - メッシュローダ本体（S3MeshLoader）経由でも利用されます。
+ *
+ * @namespace S3MeshLoaderJSON
+ * @property {string} name - メッシュデータの入出力形式名（"JSON"）
+ * @property {function(S3System, S3Mesh, string|Object):boolean} input - JSONデータからS3Meshへ変換（インポート）
+ * @property {function(S3Mesh):string} output - S3MeshからJSON形式へ変換（エクスポート）
+ *
+ * @example
+ * // インポート
+ * S3MeshLoaderJSON.input(sys, mesh, '{"Vertices":[[0,0,0]],"Indexes":{"mat1":[[0,0,0]]}}');
+ * // エクスポート
+ * const json = S3MeshLoaderJSON.output(mesh);
+ */
 const S3MeshLoaderJSON = {
 	/**
 	 * メッシュデータの入出力形式名

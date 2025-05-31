@@ -3,6 +3,9 @@
 /**
  * 三角形ポリゴンのインデックス情報を保持するクラス（immutable）
  * 各ポリゴン面を構成する頂点インデックスやUV座標、マテリアルインデックスを管理します。
+ *
+ * @class
+ * @module S3
  */
 export default class S3TriangleIndex {
 	/**

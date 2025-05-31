@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -97,13 +97,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLLight from &apos;<span><a href="file/src/gl/S3GLLight.js.html#lineNumber9">s3js/src/gl/S3GLLight.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLLight from &apos;<span><a href="file/src/gl/S3GLLight.js.html#lineNumber13">s3js/src/gl/S3GLLight.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/gl/S3GLLight.js.html#lineNumber9">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/gl/S3GLLight.js.html#lineNumber13">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -113,7 +113,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span> &#x2192; S3GLLight</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>*</span> &#x2192; S3GLLight</div></div>
   
   
   
@@ -276,420 +276,7 @@
 </table>
 </div>
 
-<div class="inherited-summary" data-ice="inheritedSummary"><h2>Inherited Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span></td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-member-color">color</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x8272;&#xFF08;RGB&#x5024;&#x306E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF09;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-member-direction">direction</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x65B9;&#x5411;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF08;&#x4E3B;&#x306B;&#x5E73;&#x884C;&#x5149;&#x6E90;&#x3067;&#x4F7F;&#x7528;&#xFF09;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-member-mode">mode</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x7A2E;&#x985E;&#xFF08;&#x30E2;&#x30FC;&#x30C9;&#xFF09;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;S3Light.MODE&#x3092;&#x53C2;&#x7167;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-member-position">position</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x4F4D;&#x7F6E;&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF08;&#x4E3B;&#x306B;&#x70B9;&#x5149;&#x6E90;&#x3067;&#x4F7F;&#x7528;&#xFF09;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-member-power">power</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x5F37;&#x3055;&#xFF08;1.0=&#x901A;&#x5E38;&#x3001;0.0=&#x7121;&#x52B9;&#xFF09;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-member-range">range</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x5F71;&#x97FF;&#x7BC4;&#x56F2;&#xFF08;&#x4E3B;&#x306B;&#x70B9;&#x5149;&#x6E90;&#x3067;&#x4F7F;&#x7528;&#xFF09;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-clone">clone</a></span></span><span class="code" data-ice="signature">(Instance: <span>typeof S3Light</span>): <span><a href="class/src/basic/S3Light.js~S3Light.html">S3Light</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x3053;&#x306E;&#x30E9;&#x30A4;&#x30C8;&#x60C5;&#x5831;&#x306E;&#x30AF;&#x30ED;&#x30FC;&#x30F3;&#xFF08;&#x8907;&#x88FD;&#xFF09;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-init">init</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x60C5;&#x5831;&#x3092;&#x521D;&#x671F;&#x5024;&#x3067;&#x30EA;&#x30BB;&#x30C3;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;
-&#x30E2;&#x30FC;&#x30C9;&#x3084;&#x5F37;&#x5EA6;&#x3001;&#x7BC4;&#x56F2;&#x3001;&#x65B9;&#x5411;&#x3001;&#x8272;&#x306A;&#x3069;&#x3082;&#x521D;&#x671F;&#x72B6;&#x614B;&#x306B;&#x623B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-setColor">setColor</a></span></span><span class="code" data-ice="signature">(color: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x8272;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;RGB&#xFF09;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-setDirection">setDirection</a></span></span><span class="code" data-ice="signature">(direction: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x65B9;&#x5411;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x5E73;&#x884C;&#x5149;&#x6E90;&#x7B49;&#xFF09;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-setMode">setMode</a></span></span><span class="code" data-ice="signature">(mode: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x7A2E;&#x985E;&#xFF08;&#x30E2;&#x30FC;&#x30C9;&#xFF09;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-setPosition">setPosition</a></span></span><span class="code" data-ice="signature">(position: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x4F4D;&#x7F6E;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x70B9;&#x5149;&#x6E90;&#x7B49;&#xFF09;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-setPower">setPower</a></span></span><span class="code" data-ice="signature">(power: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x5F37;&#x3055;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-setRange">setRange</a></span></span><span class="code" data-ice="signature">(range: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E9;&#x30A4;&#x30C8;&#x306E;&#x5F71;&#x97FF;&#x7BC4;&#x56F2;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#xFF08;&#x70B9;&#x5149;&#x6E90;&#x7B49;&#xFF09;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+
 
 
 
@@ -707,7 +294,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLLight.js.html#lineNumber14">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLLight.js.html#lineNumber18">source</a></span></span>
     </span>
   </h3>
 
@@ -718,7 +305,7 @@
 &#x5404;&#x7A2E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x306F;S3Light&#x306E;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x304C;&#x30BB;&#x30C3;&#x30C8;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-constructor-constructor">S3Light#constructor</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -756,7 +343,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLLight.js.html#lineNumber23">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLLight.js.html#lineNumber27">source</a></span></span>
     </span>
   </h3>
 
@@ -767,7 +354,7 @@
 &#x3059;&#x3079;&#x3066;&#x306E;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x304C;&#x30B3;&#x30D4;&#x30FC;&#x3055;&#x308C;&#x305F;S3GLLight&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Light.js~S3Light.html#instance-method-clone">S3Light#clone</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -814,7 +401,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLLight.js.html#lineNumber57">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLLight.js.html#lineNumber61">source</a></span></span>
     </span>
   </h3>
 
@@ -873,7 +460,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLLight.js.html#lineNumber33">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLLight.js.html#lineNumber37">source</a></span></span>
     </span>
   </h3>
 

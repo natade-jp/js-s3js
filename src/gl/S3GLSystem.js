@@ -18,6 +18,10 @@ import S3GLVertex from "./S3GLVertex.js";
  * WebGLレンダリングシステムを管理するクラス。
  * シェーダー、テクスチャ、バッファオブジェクトの生成・管理、および描画制御を担当。
  * WebGLの初期化やプログラムのセットアップ、シーンの描画などの処理を含む。
+ *
+ * @class
+ * @extends S3System
+ * @module S3
  */
 export default class S3GLSystem extends S3System {
 	/**
@@ -41,6 +45,15 @@ export default class S3GLSystem extends S3System {
 
 		/** @type {number} プログラムリストの識別ID */
 		this.program_listId = 0;
+
+		/** @type {HTMLCanvasElement} 描画に使うcanvas要素 */
+		this.canvas = null;
+
+		/** @type {?string} ダミーテクスチャのID文字列 */
+		this._textureDummyId = undefined;
+
+		/** @type {?WebGLTexture} ダミーテクスチャのWebGLTextureオブジェクト */
+		this._textureDummyData = undefined;
 
 		const that = this;
 
@@ -288,6 +301,7 @@ export default class S3GLSystem extends S3System {
 		const gl = /** @type {WebGLRenderingContext} */ (
 			canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
 		);
+
 		this.canvas = canvas;
 		this.gl = gl;
 	}

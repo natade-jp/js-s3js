@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -97,13 +97,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLMesh from &apos;<span><a href="file/src/gl/S3GLMesh.js.html#lineNumber16">s3js/src/gl/S3GLMesh.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLMesh from &apos;<span><a href="file/src/gl/S3GLMesh.js.html#lineNumber20">s3js/src/gl/S3GLMesh.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/gl/S3GLMesh.js.html#lineNumber16">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/gl/S3GLMesh.js.html#lineNumber20">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -113,7 +113,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span> &#x2192; S3GLMesh</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>*</span> &#x2192; S3GLMesh</div></div>
   
   
   
@@ -703,477 +703,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
 </table>
 </div>
 
-<div class="inherited-summary" data-ice="inheritedSummary"><h2>Inherited Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-member-is_complete">is_complete</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x78BA;&#x5B9A;&#x6E08;&#x307F;&#x304B;&#x3069;&#x3046;&#x304B;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-member-is_inverse">is_inverse</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-member-src">src</a></span></span><span class="code" data-ice="signature">: {vertex: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span>&gt;, triangleindex: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span>&gt;, material: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span>&gt;}</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306E;&#x69CB;&#x6210;&#x8981;&#x7D20;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-member-sys">sys</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-addMaterial">addMaterial</a></span></span><span class="code" data-ice="signature">(material: <span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span>&gt;)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08;S3Material&#x307E;&#x305F;&#x306F;&#x305D;&#x306E;&#x914D;&#x5217;&#xFF09;&#x3092;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-addTriangleIndex">addTriangleIndex</a></span></span><span class="code" data-ice="signature">(ti: <span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span>&gt;)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#xFF08;S3TriangleIndex&#x307E;&#x305F;&#x306F;&#x305D;&#x306E;&#x914D;&#x5217;&#xFF09;&#x3092;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;
-&#x53CD;&#x8EE2;&#x30E2;&#x30FC;&#x30C9;&#x6642;&#x306F;&#x9762;&#x3092;&#x88CF;&#x8FD4;&#x3057;&#x3066;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-addVertex">addVertex</a></span></span><span class="code" data-ice="signature">(vertex: <span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span>&gt;)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x9802;&#x70B9;&#xFF08;S3Vertex&#x307E;&#x305F;&#x306F;&#x305D;&#x306E;&#x914D;&#x5217;&#xFF09;&#x3092;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-clone">clone</a></span></span><span class="code" data-ice="signature">(Instance: <span>typeof S3Mesh</span>): <span><a href="class/src/basic/S3Mesh.js~S3Mesh.html">S3Mesh</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x3053;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306E;&#x30AF;&#x30ED;&#x30FC;&#x30F3;&#xFF08;&#x8907;&#x88FD;&#xFF09;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-dispose">dispose</a></span></span><span class="code" data-ice="signature">(): <span>void</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x958B;&#x653E;&#x3057;&#x307E;&#x3059;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-getMaterialArray">getMaterialArray</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3Material.js~S3Material.html">S3Material</a></span>&gt;</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x4FDD;&#x6301;&#x3059;&#x308B;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x914D;&#x5217;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-getTriangleIndexArray">getTriangleIndexArray</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3TriangleIndex.js~S3TriangleIndex.html">S3TriangleIndex</a></span>&gt;</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x4FDD;&#x6301;&#x3059;&#x308B;&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x914D;&#x5217;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-getVertexArray">getVertexArray</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span><a href="class/src/basic/S3Vertex.js~S3Vertex.html">S3Vertex</a></span>&gt;</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x4FDD;&#x6301;&#x3059;&#x308B;&#x9802;&#x70B9;&#x914D;&#x5217;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-isComplete">isComplete</a></span></span><span class="code" data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x78BA;&#x5B9A;&#x6E08;&#x307F;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-setComplete">setComplete</a></span></span><span class="code" data-ice="signature">(is_complete: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306E;&#x78BA;&#x5B9A;&#x72B6;&#x614B;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-setInverseTriangle">setInverseTriangle</a></span></span><span class="code" data-ice="signature">(inverse: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x306E;&#x9806;&#x5E8F;&#x3092;&#x53CD;&#x8EE2;&#x3059;&#x308B;&#x30E2;&#x30FC;&#x30C9;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
-&#x53CD;&#x8EE2;&#x6642;&#x306F;addTriangleIndex&#x3067;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x9762;&#x3092;&#x88CF;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-_init">_init</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306E;&#x5185;&#x90E8;&#x72B6;&#x614B;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+
 
 
 
@@ -1191,7 +721,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber21">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber25">source</a></span></span>
     </span>
   </h3>
 
@@ -1201,7 +731,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
   <div data-ice="description"><p>S3GLMesh&#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-constructor-constructor">S3Mesh#constructor</a></span></div>
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -1255,7 +785,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber42">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber46">source</a></span></span>
     </span>
   </h3>
 
@@ -1299,7 +829,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber48">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber52">source</a></span></span>
     </span>
   </h3>
 
@@ -1345,7 +875,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber32">source</a></span></span>
     </span>
   </h3>
 
@@ -1392,7 +922,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber110">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber114">source</a></span></span>
     </span>
   </h3>
 
@@ -1402,7 +932,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
   <div data-ice="description"><p>&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08; S3GLMaterial &#x307E;&#x305F;&#x306F;&#x305D;&#x306E;&#x914D;&#x5217;&#xFF09;&#x3092;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-addMaterial">S3Mesh#addMaterial</a></span></div>
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -1453,7 +983,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber101">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber105">source</a></span></span>
     </span>
   </h3>
 
@@ -1464,7 +994,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
 &#x53CD;&#x8EE2;&#x30E2;&#x30FC;&#x30C9;&#x6642;&#x306F;&#x9762;&#x3092;&#x88CF;&#x8FD4;&#x3057;&#x3066;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-addTriangleIndex">S3Mesh#addTriangleIndex</a></span></div>
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -1515,7 +1045,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber91">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber95">source</a></span></span>
     </span>
   </h3>
 
@@ -1525,7 +1055,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
   <div data-ice="description"><p>&#x9802;&#x70B9;&#xFF08; S3GLVertex &#x307E;&#x305F;&#x306F;&#x305D;&#x306E;&#x914D;&#x5217;&#xFF09;&#x3092;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-addVertex">S3Mesh#addVertex</a></span></div>
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -1576,7 +1106,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber55">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber59">source</a></span></span>
     </span>
   </h3>
 
@@ -1586,7 +1116,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
   <div data-ice="description"><p>&#x3053;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x306E;&#x30AF;&#x30ED;&#x30FC;&#x30F3;&#xFF08;&#x8907;&#x88FD;&#xFF09;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-clone">S3Mesh#clone</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -1633,7 +1163,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber136">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber140">source</a></span></span>
     </span>
   </h3>
 
@@ -1691,7 +1221,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber498">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber502">source</a></span></span>
     </span>
   </h3>
 
@@ -1702,7 +1232,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
 &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3092;&#x542B;&#x3080;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x306E;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3082;&#x89E3;&#x653E;&#x5BFE;&#x8C61;&#x3067;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-dispose">S3Mesh#dispose</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -1748,7 +1278,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber540">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber544">source</a></span></span>
     </span>
   </h3>
 
@@ -1807,7 +1337,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber82">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber86">source</a></span></span>
     </span>
   </h3>
 
@@ -1817,7 +1347,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
   <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x4FDD;&#x6301;&#x3059;&#x308B;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x914D;&#x5217;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-getMaterialArray">S3Mesh#getMaterialArray</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -1864,7 +1394,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber73">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber77">source</a></span></span>
     </span>
   </h3>
 
@@ -1874,7 +1404,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
   <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x4FDD;&#x6301;&#x3059;&#x308B;&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x914D;&#x5217;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-getTriangleIndexArray">S3Mesh#getTriangleIndexArray</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -1921,7 +1451,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber64">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
@@ -1931,7 +1461,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
   <div data-ice="description"><p>&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x4FDD;&#x6301;&#x3059;&#x308B;&#x9802;&#x70B9;&#x914D;&#x5217;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-getVertexArray">S3Mesh#getVertexArray</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -1978,7 +1508,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber119">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber123">source</a></span></span>
     </span>
   </h3>
 
@@ -2035,7 +1565,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber127">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber131">source</a></span></span>
     </span>
   </h3>
 
@@ -2098,7 +1628,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber355">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber359">source</a></span></span>
     </span>
   </h3>
 
@@ -2161,7 +1691,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber35">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLMesh.js.html#lineNumber39">source</a></span></span>
     </span>
   </h3>
 
@@ -2172,7 +1702,7 @@ S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5F
 &#x901A;&#x5E38;&#x306F;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x304B;&#x3089;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x547C;&#x3070;&#x308C;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-method-_init">S3Mesh#_init</a></span></div>
+  
 
   <div data-ice="properties">
 </div>

@@ -5,6 +5,9 @@ import S3Mesh from "./S3Mesh.js";
 /**
  * 3DCGシーンに配置する「モデル」を管理するクラス (mutable)
  * 位置・回転・スケール・メッシュ（形状）などモデルの変換・配置情報を保持します。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Model {
 	/**

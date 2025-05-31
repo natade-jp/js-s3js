@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -97,13 +97,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLTexture from &apos;<span><a href="file/src/gl/S3GLTexture.js.html#lineNumber9">s3js/src/gl/S3GLTexture.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLTexture from &apos;<span><a href="file/src/gl/S3GLTexture.js.html#lineNumber13">s3js/src/gl/S3GLTexture.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/gl/S3GLTexture.js.html#lineNumber9">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/gl/S3GLTexture.js.html#lineNumber13">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -113,7 +113,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/basic/S3Texture.js~S3Texture.html">S3Texture</a></span> &#x2192; S3GLTexture</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>*</span> &#x2192; S3GLTexture</div></div>
   
   
   
@@ -229,7 +229,8 @@ S3Texture&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x7528;&#x306E;GLTexture&
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x304C;&#x7834;&#x68C4;&#x3055;&#x308C;&#x305F;&#x304B;&#x3069;&#x3046;&#x304B;</p>
+</div>
       </div>
     </td>
     <td>
@@ -380,250 +381,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
 </table>
 </div>
 
-<div class="inherited-summary" data-ice="inheritedSummary"><h2>Inherited Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/basic/S3Texture.js~S3Texture.html">S3Texture</a></span></td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-member-image">image</a></span></span><span class="code" data-ice="signature">: <span>ImageData</span> | <span>HTMLImageElement</span> | <span>HTMLCanvasElement</span> | <span>HTMLVideoElement</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x753B;&#x50CF;&#x672C;&#x4F53;&#xFF08;ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement&#x306A;&#x3069;&#xFF09;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-member-is_dispose">is_dispose</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x304C;&#x7834;&#x68C4;&#x3055;&#x308C;&#x305F;&#x304B;&#x3069;&#x3046;&#x304B;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-member-is_loadimage">is_loadimage</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x753B;&#x50CF;&#x304C;&#x30ED;&#x30FC;&#x30C9;&#x6E08;&#x307F;&#x304B;&#x3069;&#x3046;&#x304B;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-member-sys">sys</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-member-url">url</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306E;URL&#x3084;ID</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-method-dispose">dispose</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3092;&#x7834;&#x68C4;&#x3057;&#x307E;&#x3059;&#x3002;&#x518D;&#x5229;&#x7528;&#x306F;&#x4E0D;&#x53EF;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-method-setImage">setImage</a></span></span><span class="code" data-ice="signature">(image: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>ImageData</span> | <span>HTMLImageElement</span> | <span>HTMLCanvasElement</span> | <span>HTMLVideoElement</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x753B;&#x50CF;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<ul>
-<li>&#x753B;&#x50CF;&#x304C;2&#x306E;&#x7D2F;&#x4E57;&#x3067;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x81EA;&#x52D5;&#x3067;&#x30EA;&#x30B5;&#x30A4;&#x30BA;&#x3057;&#x307E;&#x3059;&#x3002;</li>
-<li>&#x6587;&#x5B57;&#x5217;&#x306E;&#x5834;&#x5408;&#x306F;URL&#x3068;&#x3057;&#x3066;&#x753B;&#x50CF;&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;</li>
-<li>&#x8A2D;&#x5B9A;&#x53EF;&#x80FD;&#x306A;&#x5F62;&#x5F0F;: ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement, URL(string)</li>
-</ul>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-method-_init">_init</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x60C5;&#x5831;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;&#x30ED;&#x30FC;&#x30C9;&#x30D5;&#x30E9;&#x30B0;&#x3084;&#x753B;&#x50CF;&#x60C5;&#x5831;&#x3092;&#x30EA;&#x30BB;&#x30C3;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+
 
 
 
@@ -641,7 +399,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber16">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber20">source</a></span></span>
     </span>
   </h3>
 
@@ -651,7 +409,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
   <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-constructor-constructor">S3Texture#constructor</a></span></div>
+  
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -712,7 +470,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber30">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber34">source</a></span></span>
     </span>
   </h3>
 
@@ -756,7 +514,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber57">source</a></span></span>
     </span>
   </h3>
 
@@ -766,7 +524,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
   <div data-ice="description"><p>&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x304C;&#x7834;&#x68C4;&#x3055;&#x308C;&#x305F;&#x304B;&#x3069;&#x3046;&#x304B;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-member-is_dispose">S3Texture#is_dispose</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -802,7 +560,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber24">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber28">source</a></span></span>
     </span>
   </h3>
 
@@ -849,7 +607,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber47">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
@@ -860,7 +618,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
 dispose&#x5F8C;&#x306F;&#x518D;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-method-dispose">S3Texture#dispose</a></span></div>
+  
 
   <div data-ice="properties">
 </div>
@@ -894,7 +652,7 @@ dispose&#x5F8C;&#x306F;&#x518D;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x305B;&
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber63">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber71">source</a></span></span>
     </span>
   </h3>
 
@@ -955,7 +713,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber38">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLTexture.js.html#lineNumber42">source</a></span></span>
     </span>
   </h3>
 
@@ -966,7 +724,7 @@ dispose&#x6E08;&#x307F;&#x3001;&#x3082;&#x3057;&#x304F;&#x306F;&#x672A;&#x30ED;&
 &#x901A;&#x5E38;&#x306F;&#x5185;&#x90E8;&#x7528;&#xFF08;&#x518D;&#x521D;&#x671F;&#x5316;&#x3084;&#x7D99;&#x627F;&#x5148;&#x3067;&#x306E;&#x5229;&#x7528;&#x76EE;&#x7684;&#xFF09;&#x3002;</p>
 </div>
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/basic/S3Texture.js~S3Texture.html#instance-method-_init">S3Texture#_init</a></span></div>
+  
 
   <div data-ice="properties">
 </div>

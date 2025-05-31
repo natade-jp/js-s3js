@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -97,13 +97,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3Vertex from &apos;<span><a href="file/src/basic/S3Vertex.js.html#lineNumber7">s3js/src/basic/S3Vertex.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3Vertex from &apos;<span><a href="file/src/basic/S3Vertex.js.html#lineNumber10">s3js/src/basic/S3Vertex.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/basic/S3Vertex.js.html#lineNumber7">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/basic/S3Vertex.js.html#lineNumber10">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -114,7 +114,7 @@
   
   
   
-  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/src/gl/S3GLVertex.js~S3GLVertex.html">S3GLVertex</a></span></div></div>
+  
   
   
   
@@ -193,13 +193,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Vertex.js~S3Vertex.html#instance-member-position">position</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Vertex.js~S3Vertex.html#instance-member-position">position</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x9802;&#x70B9;&#x306E;&#x5EA7;&#x6A19;&#x30D9;&#x30AF;&#x30C8;&#x30EB;</p>
+</div>
       </div>
     </td>
     <td>
@@ -265,7 +266,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Vertex.js.html#lineNumber12">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Vertex.js.html#lineNumber15">source</a></span></span>
     </span>
   </h3>
 
@@ -325,18 +326,19 @@
     
     
     
-    <span class="code" data-ice="name">position</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">position</span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Vertex.js.html#lineNumber13">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Vertex.js.html#lineNumber20">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x9802;&#x70B9;&#x306E;&#x5EA7;&#x6A19;&#x30D9;&#x30AF;&#x30C8;&#x30EB;</p>
+</div>
 
   
 
@@ -375,7 +377,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Vertex.js.html#lineNumber21">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Vertex.js.html#lineNumber28">source</a></span></span>
     </span>
   </h3>
 

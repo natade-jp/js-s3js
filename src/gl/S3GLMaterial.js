@@ -7,6 +7,10 @@ import S3GLTexture from "./S3GLTexture.js";
  * WebGL描画用のマテリアル（材質）クラス。
  * 基本のS3Materialを拡張し、GL用データ生成・ハッシュ管理などWebGL用途向けの機能を追加します。
  * 色、拡散/反射/発光/環境光、テクスチャ情報などを保持し、GLSLシェーダへのuniformデータ化を担います。
+ *
+ * @class
+ * @extends S3Material
+ * @module S3
  */
 export default class S3GLMaterial extends S3Material {
 	/**
@@ -17,6 +21,11 @@ export default class S3GLMaterial extends S3Material {
 	constructor(s3glsystem, name) {
 		// @ts-ignore
 		super(s3glsystem, name);
+
+		/**
+		 * S3GLSystem アクセス用
+		 * @type {S3GLSystem}
+		 */
 		this._s3gl = s3glsystem;
 	}
 

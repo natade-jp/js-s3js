@@ -27,6 +27,9 @@ const DATA_IO_FUNCTION = [S3MeshLoaderJSON, S3MeshLoaderMQO, S3MeshLoaderOBJ];
  *   - ファイルの拡張子や種類ごとにパースしてS3Meshを構築
  *   - S3Meshを指定形式でテキスト化
  *   - 各形式への入出力用コールバックを内部で管理
+ *
+ * @class
+ * @module S3
  */
 const S3MeshLoader = {
 	/**

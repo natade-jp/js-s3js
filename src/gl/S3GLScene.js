@@ -9,6 +9,10 @@ import S3Vector from "../math/S3Vector.js";
  * WebGL描画用のシーン（Scene）クラス。
  * 基本のS3Sceneを拡張し、WebGL用のuniformデータ生成（getUniforms）などの機能を追加します。
  * カメラやライト情報をGLSLシェーダ向けにuniform変数としてまとめて提供します。
+ *
+ * @class
+ * @extends S3Scene
+ * @module S3
  */
 export default class S3GLScene extends S3Scene {
 	/**

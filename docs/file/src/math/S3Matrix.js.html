@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -103,6 +103,9 @@ import S3Vector from &quot;./S3Vector.js&quot;;
 /**
  * 3DCG&#x7528;&#x306E;4x4&#x884C;&#x5217;&#x30AF;&#x30E9;&#x30B9;
  * &#x4E3B;&#x306B;&#x5909;&#x63DB;&#x884C;&#x5217;&#x3084;&#x5C04;&#x5F71;&#x884C;&#x5217;&#x306A;&#x3069;&#x306B;&#x4F7F;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;
+ *
+ * @class
+ * @module S3
  */
 export default class S3Matrix {
 	/**
@@ -146,21 +149,37 @@ export default class S3Matrix {
 	) {
 		// row 4
 		if (arguments.length === 0) {
+			/** @type {number} */
 			this.m00 = 0.0;
+			/** @type {number} */
 			this.m01 = 0.0;
+			/** @type {number} */
 			this.m02 = 0.0;
+			/** @type {number} */
 			this.m03 = 0.0;
+			/** @type {number} */
 			this.m10 = 0.0;
+			/** @type {number} */
 			this.m11 = 0.0;
+			/** @type {number} */
 			this.m12 = 0.0;
+			/** @type {number} */
 			this.m13 = 0.0;
+			/** @type {number} */
 			this.m20 = 0.0;
+			/** @type {number} */
 			this.m21 = 0.0;
+			/** @type {number} */
 			this.m22 = 0.0;
+			/** @type {number} */
 			this.m23 = 0.0;
+			/** @type {number} */
 			this.m30 = 0.0;
+			/** @type {number} */
 			this.m31 = 0.0;
+			/** @type {number} */
 			this.m32 = 0.0;
+			/** @type {number} */
 			this.m33 = 0.0;
 		} else if (arguments.length === 9) {
 			// 3x3&#x884C;&#x5217;

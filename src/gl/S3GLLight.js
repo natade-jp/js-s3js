@@ -5,6 +5,10 @@ import S3GLArray from "./S3GLArray.js";
 /**
  * WebGLレンダリング用のライト（照明）クラス。
  * 基本のS3Lightを拡張し、GL用データ生成や一意ハッシュ生成などのメソッドを提供します。
+ *
+ * @class
+ * @extends S3Light
+ * @module S3
  */
 export default class S3GLLight extends S3Light {
 	/**

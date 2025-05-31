@@ -3,6 +3,9 @@
 /**
  * 3DCG用のテクスチャ（画像）情報を管理するクラス
  * 画像のセットや2の累乗化処理、ロード状況管理、破棄処理などを担当します。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Texture {
 	/**

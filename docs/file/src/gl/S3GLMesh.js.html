@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -111,6 +111,10 @@ import S3GLTriangleIndexData from &quot;./S3GLTriangleIndexData.js&quot;;
  * WebGL&#x7528;&#x306E;&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#xFF08;&#x7ACB;&#x4F53;&#x5F62;&#x72B6;&#x30C7;&#x30FC;&#x30BF;&#xFF09;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x3067;&#x3059;&#x3002;
  * S3Mesh&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x63CF;&#x753B;&#x306B;&#x5FC5;&#x8981;&#x306A;VBO&#x3084;IBO&#x60C5;&#x5831;&#x3001;GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#x30FB;&#x89E3;&#x653E;&#x6A5F;&#x80FD;&#x306A;&#x3069;&#x3092;&#x6301;&#x3061;&#x307E;&#x3059;&#x3002;
  * &#x30E2;&#x30C7;&#x30EB;&#x306E;&#x63CF;&#x753B;&#x6642;&#x306B;GL&#x306B;&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x3067;&#x304D;&#x308B;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x5F62;&#x5F0F;&#x3078;&#x306E;&#x5909;&#x63DB;&#x30FB;&#x7BA1;&#x7406;&#x3082;&#x884C;&#x3044;&#x307E;&#x3059;&#x3002;
+ *
+ * @class
+ * @extends S3Mesh
+ * @module S3
  */
 export default class S3GLMesh extends S3Mesh {
 	/**
@@ -237,7 +241,7 @@ export default class S3GLMesh extends S3Mesh {
 		const triangleindex_list = this.getTriangleIndexArray();
 
 		/**
-		 * @typedef {Object} S3NormalVector
+		 * @typedef {Object} S3GLNormalVector
 		 * @property {S3Vector} normal &#x5E73;&#x9762;&#x306E;&#x6CD5;&#x7DDA;
 		 * @property {S3Vector} tangent UV&#x5EA7;&#x6A19;&#x306B;&#x3088;&#x308B;&#x63A5;&#x7DDA;
 		 * @property {S3Vector} binormal UV&#x5EA7;&#x6A19;&#x306B;&#x3088;&#x308B;&#x5F93;&#x6CD5;&#x7DDA;
@@ -245,12 +249,12 @@ export default class S3GLMesh extends S3Mesh {
 
 		/**
 		 * &#x4E09;&#x89D2;&#x5F62;&#x3054;&#x3068;&#x306E;WebGL&#x5C5E;&#x6027;&#x30C7;&#x30FC;&#x30BF;&#x30EA;&#x30B9;&#x30C8;
-		 * @type {Array&lt;S3GLTriangleIndexData &amp; { face : S3NormalVector }&gt;}
+		 * @type {Array&lt;S3GLTriangleIndexData &amp; { face : S3GLNormalVector }&gt;}
 		 */
 		const tid_list = [];
 
 		/**
-		 * @typedef {&quot;normal&quot;|&quot;tangent&quot;|&quot;binormal&quot;} NormalListKey
+		 * @typedef {&quot;normal&quot;|&quot;tangent&quot;|&quot;binormal&quot;} S3GLNormalListKey
 		 */
 
 		/**
@@ -344,7 +348,7 @@ export default class S3GLMesh extends S3Mesh {
 
 				// &#x52A0;&#x7B97;&#x3059;&#x308B;
 				for (const vector_name in normallist) {
-					const key = /** @type {NormalListKey} */ (vector_name);
+					const key = /** @type {S3GLNormalListKey} */ (vector_name);
 					if (triangledata.face[key] !== null) {
 						// &#x30C7;&#x30FC;&#x30BF;&#x304C;&#x5165;&#x3063;&#x3066;&#x3044;&#x305F;&#x3089;&#x52A0;&#x7B97;&#x3059;&#x308B;
 						const id = triangledata.face[key].toHash(3);
@@ -362,7 +366,7 @@ export default class S3GLMesh extends S3Mesh {
 			for (const index in vertexdata_list) {
 				const vertexdata = vertexdata_list[index];
 				for (const vector_name in normallist) {
-					const key = /** @type {NormalListKey} */ (vector_name);
+					const key = /** @type {S3GLNormalListKey} */ (vector_name);
 					// &#x3042;&#x307E;&#x308A;&#x306B;&#x5C0F;&#x3055;&#x3044;&#x3068;&#x3001;0&#x3067;&#x5272;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308B;&#x305F;&#x3081;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;
 					if (vertexdata[key].normFast() &gt; 0.000001) {
 						vertexdata[key] = vertexdata[key].normalize();
@@ -389,7 +393,7 @@ export default class S3GLMesh extends S3Mesh {
 				const index = triangleindex.index[j];
 				const vertexdata = vertexdata_list[index];
 				for (const vector_name in normallist) {
-					const key = /** @type {NormalListKey} */ (vector_name);
+					const key = /** @type {S3GLNormalListKey} */ (vector_name);
 					let targetdata;
 					if (triangledata.face[key]) {
 						// &#x9762;&#x3067;&#x8A08;&#x7B97;&#x3057;&#x305F;&#x5024;&#x304C;&#x5165;&#x3063;&#x3066;&#x3044;&#x308B;&#x306A;&#x3089;&#x3001;

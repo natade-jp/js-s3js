@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -105,6 +105,10 @@ import S3Model from &quot;../basic/S3Model.js&quot;;
  * WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#xFF08;Model&#xFF09;&#x30AF;&#x30E9;&#x30B9;&#x3002;
  * &#x57FA;&#x672C;&#x306E;S3Model&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x5411;&#x3051;uniform&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x751F;&#x6210;&#xFF08;getUniforms&#xFF09;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;
  * &#x30E2;&#x30C7;&#x30EB;&#x3054;&#x3068;&#x306E;&#x6750;&#x8CEA;&#xFF08;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF09;&#x60C5;&#x5831;&#x3092;uniform&#x30C7;&#x30FC;&#x30BF;&#x3068;&#x3057;&#x3066;&#x307E;&#x3068;&#x3081;&#x3001;GLSL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x306B;&#x6E21;&#x305B;&#x308B;&#x5F62;&#x306B;&#x6574;&#x5F62;&#x3057;&#x307E;&#x3059;&#x3002;
+ *
+ * @class
+ * @extends S3Model
+ * @module S3
  */
 export default class S3GLModel extends S3Model {
 	/**

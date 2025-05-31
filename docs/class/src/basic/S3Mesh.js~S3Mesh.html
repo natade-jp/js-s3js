@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -97,13 +97,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3Mesh from &apos;<span><a href="file/src/basic/S3Mesh.js.html#lineNumber10">s3js/src/basic/S3Mesh.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3Mesh from &apos;<span><a href="file/src/basic/S3Mesh.js.html#lineNumber13">s3js/src/basic/S3Mesh.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/basic/S3Mesh.js.html#lineNumber10">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/basic/S3Mesh.js.html#lineNumber13">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -114,7 +114,7 @@
   
   
   
-  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/src/gl/S3GLMesh.js~S3GLMesh.html">S3GLMesh</a></span></div></div>
+  
   
   
   
@@ -222,13 +222,15 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-member-is_inverse">is_inverse</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-member-is_inverse">is_inverse</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x8FFD;&#x52A0;&#x6642;&#x306B;&#x9762;&#x306E;&#x9802;&#x70B9;&#x9806;&#x5E8F;&#xFF08;&#x8868;&#x88CF;&#xFF09;&#x3092;&#x53CD;&#x8EE2;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+true &#x306E;&#x5834;&#x5408;&#x306F; addTriangleIndex() &#x3067;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x9762;&#x3092;&#x88CF;&#x8FD4;&#x3057;&#x3066;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
       </div>
     </td>
     <td>
@@ -279,13 +281,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-member-sys">sys</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3Mesh.js~S3Mesh.html#instance-member-sys">sys</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;</p>
+</div>
       </div>
     </td>
     <td>
@@ -678,7 +681,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber15">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber18">source</a></span></span>
     </span>
   </h3>
 
@@ -742,7 +745,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber38">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber53">source</a></span></span>
     </span>
   </h3>
 
@@ -782,18 +785,20 @@
     
     
     
-    <span class="code" data-ice="name">is_inverse</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">is_inverse</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber90">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber30">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x4E09;&#x89D2;&#x5F62;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x8FFD;&#x52A0;&#x6642;&#x306B;&#x9762;&#x306E;&#x9802;&#x70B9;&#x9806;&#x5E8F;&#xFF08;&#x8868;&#x88CF;&#xFF09;&#x3092;&#x53CD;&#x8EE2;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;
+true &#x306E;&#x5834;&#x5408;&#x306F; addTriangleIndex() &#x3067;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x9762;&#x3092;&#x88CF;&#x8FD4;&#x3057;&#x3066;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+</div>
 
   
 
@@ -829,7 +834,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber43">source</a></span></span>
     </span>
   </h3>
 
@@ -869,18 +874,19 @@
     
     
     
-    <span class="code" data-ice="name">sys</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">sys</span><span class="code" data-ice="signature">: <span><a href="class/src/basic/S3System.js~S3System.html">S3System</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber16">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber23">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;</p>
+</div>
 
   
 
@@ -919,7 +925,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber162">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber177">source</a></span></span>
     </span>
   </h3>
 
@@ -980,7 +986,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber142">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber157">source</a></span></span>
     </span>
   </h3>
 
@@ -1042,7 +1048,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber121">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber136">source</a></span></span>
     </span>
   </h3>
 
@@ -1103,7 +1109,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber64">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber79">source</a></span></span>
     </span>
   </h3>
 
@@ -1177,7 +1183,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber45">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber60">source</a></span></span>
     </span>
   </h3>
 
@@ -1233,7 +1239,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber113">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber128">source</a></span></span>
     </span>
   </h3>
 
@@ -1290,7 +1296,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber105">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber120">source</a></span></span>
     </span>
   </h3>
 
@@ -1347,7 +1353,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber97">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber112">source</a></span></span>
     </span>
   </h3>
 
@@ -1404,7 +1410,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber55">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber70">source</a></span></span>
     </span>
   </h3>
 
@@ -1461,7 +1467,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber79">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber94">source</a></span></span>
     </span>
   </h3>
 
@@ -1522,7 +1528,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber88">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber103">source</a></span></span>
     </span>
   </h3>
 
@@ -1586,7 +1592,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber23">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3Mesh.js.html#lineNumber38">source</a></span></span>
     </span>
   </h3>
 

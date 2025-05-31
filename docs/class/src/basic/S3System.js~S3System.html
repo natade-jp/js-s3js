@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -97,13 +97,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3System from &apos;<span><a href="file/src/basic/S3System.js.html#lineNumber49">s3js/src/basic/S3System.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3System from &apos;<span><a href="file/src/basic/S3System.js.html#lineNumber52">s3js/src/basic/S3System.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/basic/S3System.js.html#lineNumber49">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/basic/S3System.js.html#lineNumber52">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -114,7 +114,7 @@
   
   
   
-  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/src/gl/S3GLSystem.js~S3GLSystem.html">S3GLSystem</a></span></div></div>
+  
   
   
   
@@ -259,13 +259,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-backgroundColor">backgroundColor</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-backgroundColor">backgroundColor</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x80CC;&#x666F;&#x8272;&#xFF08;RGBA&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -287,13 +288,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-canvas">canvas</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-canvas">canvas</a></span></span><span class="code" data-ice="signature">: <span>HTMLCanvasElement</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x63CF;&#x753B;&#x306B;&#x4F7F;&#x3046;canvas&#x8981;&#x7D20;</p>
+</div>
       </div>
     </td>
     <td>
@@ -321,7 +323,7 @@
       <div>
         
         
-        <div data-ice="description"><p>2D&#x63CF;&#x753B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</p>
+        <div data-ice="description"><p>2D&#x63CF;&#x753B;&#x7528;&#x306E;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;drawLine, drawLinePolygon&#x306A;&#x3069;&#xFF09;</p>
 </div>
       </div>
     </td>
@@ -344,13 +346,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-cullmode">cullmode</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-cullmode">cullmode</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x30AB;&#x30EA;&#x30F3;&#x30B0;&#x30E2;&#x30FC;&#x30C9;&#xFF08;&#x9762;&#x306E;&#x975E;&#x8868;&#x793A;&#x9664;&#x53BB;&#x65B9;&#x6CD5;&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -372,13 +375,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-depthmode">depthmode</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-depthmode">depthmode</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x6DF1;&#x5EA6;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x306E;&#x30E2;&#x30FC;&#x30C9;&#xFF08;OpenGL/DirectX&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -400,13 +404,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-dimensionmode">dimensionmode</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-dimensionmode">dimensionmode</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x5EA7;&#x6A19;&#x7CFB;&#x30E2;&#x30FC;&#x30C9;&#xFF08;&#x53F3;&#x624B;&#x7CFB;/&#x5DE6;&#x624B;&#x7CFB;&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -428,13 +433,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-frontface">frontface</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-frontface">frontface</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x524D;&#x9762;&#x5224;&#x5B9A;&#x306E;&#x9762;&#x306E;&#x5411;&#x304D;&#xFF08;&#x6642;&#x8A08;&#x56DE;&#x308A;/&#x53CD;&#x6642;&#x8A08;&#x56DE;&#x308A;&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -456,13 +462,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-systemmode">systemmode</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-systemmode">systemmode</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x73FE;&#x5728;&#x306E;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30E2;&#x30FC;&#x30C9;&#xFF08;OpenGL/DirectX&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -484,13 +491,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-vectormode">vectormode</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-vectormode">vectormode</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x578B;&#x306E;&#x30E2;&#x30FC;&#x30C9;&#xFF08;VECTOR4x1 / VECTOR1x4&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -518,97 +526,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-_CREATE_ID1">_CREATE_ID1</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-_CREATE_ID">_CREATE_ID</a></span></span><span class="code" data-ice="signature">: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span><span>[]</span></span></span>
         </p>
       </div>
       <div>
         
         
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-_CREATE_ID2">_CREATE_ID2</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-_CREATE_ID3">_CREATE_ID3</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/basic/S3System.js~S3System.html#instance-member-_CREATE_ID4">_CREATE_ID4</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
+        <div data-ice="description"><p>&#x5185;&#x90E8;&#x3067;&#x4E00;&#x610F;&#x306A;ID&#x3092;&#x767A;&#x884C;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x914D;&#x5217;</p>
+</div>
       </div>
     </td>
     <td>
@@ -1899,7 +1824,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber429">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber488">source</a></span></span>
     </span>
   </h3>
 
@@ -1980,7 +1905,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber418">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber477">source</a></span></span>
     </span>
   </h3>
 
@@ -2055,7 +1980,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber54">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber57">source</a></span></span>
     </span>
   </h3>
 
@@ -2099,18 +2024,19 @@
     
     
     
-    <span class="code" data-ice="name">backgroundColor</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">backgroundColor</span><span class="code" data-ice="signature">: <span><a href="class/src/math/S3Vector.js~S3Vector.html">S3Vector</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber184">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber104">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x80CC;&#x666F;&#x8272;&#xFF08;RGBA&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#xFF09;</p>
+</div>
 
   
 
@@ -2142,18 +2068,19 @@
     
     
     
-    <span class="code" data-ice="name">canvas</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">canvas</span><span class="code" data-ice="signature">: <span>HTMLCanvasElement</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber264">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber110">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x63CF;&#x753B;&#x306B;&#x4F7F;&#x3046;canvas&#x8981;&#x7D20;</p>
+</div>
 
   
 
@@ -2189,14 +2116,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber275">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber334">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>2D&#x63CF;&#x753B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;</p>
+  <div data-ice="description"><p>2D&#x63CF;&#x753B;&#x7528;&#x306E;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF08;drawLine, drawLinePolygon&#x306A;&#x3069;&#xFF09;</p>
 </div>
 
   
@@ -2281,18 +2208,19 @@
     
     
     
-    <span class="code" data-ice="name">cullmode</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">cullmode</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber207">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber98">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x30AB;&#x30EA;&#x30F3;&#x30B0;&#x30E2;&#x30FC;&#x30C9;&#xFF08;&#x9762;&#x306E;&#x975E;&#x8868;&#x793A;&#x9664;&#x53BB;&#x65B9;&#x6CD5;&#xFF09;</p>
+</div>
 
   
 
@@ -2313,7 +2241,7 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="S3System.CULL_MODE">S3System.CULL_MODE</a></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -2324,18 +2252,19 @@
     
     
     
-    <span class="code" data-ice="name">depthmode</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">depthmode</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber203">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber70">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x6DF1;&#x5EA6;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x306E;&#x30E2;&#x30FC;&#x30C9;&#xFF08;OpenGL/DirectX&#xFF09;</p>
+</div>
 
   
 
@@ -2356,7 +2285,7 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="S3System.DEPTH_MODE">S3System.DEPTH_MODE</a></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -2367,18 +2296,19 @@
     
     
     
-    <span class="code" data-ice="name">dimensionmode</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">dimensionmode</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber204">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber77">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x5EA7;&#x6A19;&#x7CFB;&#x30E2;&#x30FC;&#x30C9;&#xFF08;&#x53F3;&#x624B;&#x7CFB;/&#x5DE6;&#x624B;&#x7CFB;&#xFF09;</p>
+</div>
 
   
 
@@ -2399,7 +2329,7 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="S3System.DIMENSION_MODE">S3System.DIMENSION_MODE</a></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -2410,18 +2340,19 @@
     
     
     
-    <span class="code" data-ice="name">frontface</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">frontface</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber206">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber91">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x524D;&#x9762;&#x5224;&#x5B9A;&#x306E;&#x9762;&#x306E;&#x5411;&#x304D;&#xFF08;&#x6642;&#x8A08;&#x56DE;&#x308A;/&#x53CD;&#x6642;&#x8A08;&#x56DE;&#x308A;&#xFF09;</p>
+</div>
 
   
 
@@ -2442,7 +2373,7 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="S3System.FRONT_FACE">S3System.FRONT_FACE</a></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -2453,18 +2384,19 @@
     
     
     
-    <span class="code" data-ice="name">systemmode</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">systemmode</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber201">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber63">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x73FE;&#x5728;&#x306E;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30E2;&#x30FC;&#x30C9;&#xFF08;OpenGL/DirectX&#xFF09;</p>
+</div>
 
   
 
@@ -2485,7 +2417,7 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="S3System.SYSTEM_MODE">S3System.SYSTEM_MODE</a></span></li></ul></div>
   
 </div>
 <div class="detail" data-ice="detail">
@@ -2496,18 +2428,19 @@
     
     
     
-    <span class="code" data-ice="name">vectormode</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">vectormode</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber205">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber84">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x30D9;&#x30AF;&#x30C8;&#x30EB;&#x578B;&#x306E;&#x30E2;&#x30FC;&#x30C9;&#xFF08;VECTOR4x1 / VECTOR1x4&#xFF09;</p>
+</div>
 
   
 
@@ -2528,160 +2461,32 @@
 
   
 
-  
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="S3System.VECTOR_MODE">S3System.VECTOR_MODE</a></span></li></ul></div>
   
 </div>
 <h2 data-ice="title">Private Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_CREATE_ID1">
+  <h3 data-ice="anchor" id="instance-member-_CREATE_ID">
     <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">_CREATE_ID1</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span class="code" data-ice="name">_CREATE_ID</span><span class="code" data-ice="signature">: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span><span>[]</span></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber73">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber135">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
-
-  
-
-  <div data-ice="properties">
+  <div data-ice="description"><p>&#x5185;&#x90E8;&#x3067;&#x4E00;&#x610F;&#x306A;ID&#x3092;&#x767A;&#x884C;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x914D;&#x5217;</p>
 </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_CREATE_ID2">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">_CREATE_ID2</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber74">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_CREATE_ID3">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">_CREATE_ID3</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber75">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_CREATE_ID4">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">_CREATE_ID4</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber76">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
 
   
 
@@ -2720,7 +2525,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber748">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber807">source</a></span></span>
     </span>
   </h3>
 
@@ -2764,7 +2569,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber944">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber1003">source</a></span></span>
     </span>
   </h3>
 
@@ -2821,7 +2626,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber936">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber995">source</a></span></span>
     </span>
   </h3>
 
@@ -2878,7 +2683,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber928">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber987">source</a></span></span>
     </span>
   </h3>
 
@@ -2952,7 +2757,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber919">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber978">source</a></span></span>
     </span>
   </h3>
 
@@ -3009,7 +2814,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber911">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber970">source</a></span></span>
     </span>
   </h3>
 
@@ -3066,7 +2871,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber903">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber962">source</a></span></span>
     </span>
   </h3>
 
@@ -3123,7 +2928,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber895">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber954">source</a></span></span>
     </span>
   </h3>
 
@@ -3197,7 +3002,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber886">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber945">source</a></span></span>
     </span>
   </h3>
 
@@ -3306,7 +3111,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber872">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber931">source</a></span></span>
     </span>
   </h3>
 
@@ -3380,7 +3185,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber783">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber842">source</a></span></span>
     </span>
   </h3>
 
@@ -3441,7 +3246,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber840">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber899">source</a></span></span>
     </span>
   </h3>
 
@@ -3502,7 +3307,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber191">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber250">source</a></span></span>
     </span>
   </h3>
 
@@ -3559,7 +3364,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber526">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber585">source</a></span></span>
     </span>
   </h3>
 
@@ -3616,7 +3421,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber489">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber548">source</a></span></span>
     </span>
   </h3>
 
@@ -3704,7 +3509,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber441">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber500">source</a></span></span>
     </span>
   </h3>
 
@@ -3799,7 +3604,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber608">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber667">source</a></span></span>
     </span>
   </h3>
 
@@ -3873,7 +3678,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber637">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber696">source</a></span></span>
     </span>
   </h3>
 
@@ -3947,7 +3752,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber666">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber725">source</a></span></span>
     </span>
   </h3>
 
@@ -4021,7 +3826,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber721">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber780">source</a></span></span>
     </span>
   </h3>
 
@@ -4109,7 +3914,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber582">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber641">source</a></span></span>
     </span>
   </h3>
 
@@ -4197,7 +4002,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber554">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber613">source</a></span></span>
     </span>
   </h3>
 
@@ -4285,7 +4090,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber376">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber435">source</a></span></span>
     </span>
   </h3>
 
@@ -4396,7 +4201,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber733">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber792">source</a></span></span>
     </span>
   </h3>
 
@@ -4470,7 +4275,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber696">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber755">source</a></span></span>
     </span>
   </h3>
 
@@ -4549,7 +4354,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber708">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber767">source</a></span></span>
     </span>
   </h3>
 
@@ -4628,7 +4433,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber183">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber238">source</a></span></span>
     </span>
   </h3>
 
@@ -4689,7 +4494,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber261">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber320">source</a></span></span>
     </span>
   </h3>
 
@@ -4750,7 +4555,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber253">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber312">source</a></span></span>
     </span>
   </h3>
 
@@ -4811,7 +4616,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber221">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber280">source</a></span></span>
     </span>
   </h3>
 
@@ -4872,7 +4677,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber229">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber288">source</a></span></span>
     </span>
   </h3>
 
@@ -4933,7 +4738,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber245">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber304">source</a></span></span>
     </span>
   </h3>
 
@@ -4994,7 +4799,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber200">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber259">source</a></span></span>
     </span>
   </h3>
 
@@ -5056,7 +4861,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber237">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber296">source</a></span></span>
     </span>
   </h3>
 
@@ -5117,7 +4922,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber341">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber400">source</a></span></span>
     </span>
   </h3>
 
@@ -5207,7 +5012,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber759">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber818">source</a></span></span>
     </span>
   </h3>
 
@@ -5295,7 +5100,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber71">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber128">source</a></span></span>
     </span>
   </h3>
 
@@ -5352,7 +5157,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber865">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber924">source</a></span></span>
     </span>
   </h3>
 
@@ -5425,7 +5230,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber113">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber168">source</a></span></span>
     </span>
   </h3>
 
@@ -5494,7 +5299,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber816">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber875">source</a></span></span>
     </span>
   </h3>
 
@@ -5562,7 +5367,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber62">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber119">source</a></span></span>
     </span>
   </h3>
 
@@ -5606,7 +5411,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber171">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber226">source</a></span></span>
     </span>
   </h3>
 
@@ -5680,7 +5485,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber154">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/basic/S3System.js.html#lineNumber209">source</a></span></span>
     </span>
   </h3>
 

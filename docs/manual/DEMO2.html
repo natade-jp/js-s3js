@@ -258,7 +258,7 @@ const gl = new S3DGLTest();
  * - 50ms&#x3054;&#x3068;&#x306B;&#x63CF;&#x753B;&#x3092;&#x66F4;&#x65B0;
  */
 const createWebGLPanel2 = function() {
-    const panel = new GuiBlocks.SCanvas();
+    const panel = new GuiBlocks.Canvas();
     panel.putMe(&quot;webglpanel&quot;, GuiBlocks.PUT_TYPE.IN);
     panel.setUnit(GuiBlocks.UNIT_TYPE.PX);
     panel.setPixelSize(1280, 720);
@@ -283,16 +283,16 @@ const createWebGLPanel2 = function() {
  * - &#x300C;load&#x300D;&#x30DC;&#x30BF;&#x30F3;&#x3067;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x5207;&#x308A;&#x66FF;&#x3048;&#x304C;&#x53EF;&#x80FD;
  */
 const createOperationPanel = function() {
-    const filepanel = new GuiBlocks.SPanel(&quot;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&quot;);
+    const filepanel = new GuiBlocks.Panel(&quot;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&quot;);
     filepanel.putMe(&quot;operationpanel&quot;, GuiBlocks.PUT_TYPE.IN);
 
-    const filebox = new GuiBlocks.SComboBox([
+    const filebox = new GuiBlocks.ComboBox([
         &quot;./resource/teapot.mqo&quot;,
         &quot;./resource/bumptest.mqo&quot;
     ]);
     filebox.putMe(filepanel, GuiBlocks.PUT_TYPE.IN);
 
-    const loadbutton = new GuiBlocks.SButton(&quot;load&quot;);
+    const loadbutton = new GuiBlocks.Button(&quot;load&quot;);
     loadbutton.putMe(filebox, GuiBlocks.PUT_TYPE.NEWLINE);
     loadbutton.addListener(function () {
         const filename = filebox.getSelectedItem();

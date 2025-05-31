@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -122,6 +122,26 @@ import S3Vector from &quot;../math/S3Vector.js&quot;;
 	};
 */
 
+/**
+ * JSON&#x5F62;&#x5F0F;&#x306B;&#x3088;&#x308B;3DCG&#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x30E6;&#x30FC;&#x30C6;&#x30A3;&#x30EA;&#x30C6;&#x30A3;
+ *
+ * - &#x9802;&#x70B9;&#x914D;&#x5217;&#xFF08;Vertices&#xFF09;&#x3084;&#x9762;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x914D;&#x5217;&#xFF08;Indexes&#xFF09;&#x3092;&#x6301;&#x3064;JSON&#x30C7;&#x30FC;&#x30BF;&#x3092;
+ *   S3Mesh&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3078;&#x5909;&#x63DB;&#xFF08;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#xFF09;&#x3001;&#x307E;&#x305F;&#x306F;S3Mesh&#x304B;&#x3089;JSON&#x5F62;&#x5F0F;&#x3067;&#x51FA;&#x529B;&#xFF08;&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;&#xFF09;&#x3057;&#x307E;&#x3059;&#x3002;
+ * - &#x4E09;&#x89D2;&#x5F62;&#x30FB;&#x56DB;&#x89D2;&#x5F62;&#x306A;&#x3069;&#x8907;&#x6570;&#x9802;&#x70B9;&#x6570;&#x306E;&#x9762;&#x3001;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#x540D;&#x3054;&#x3068;&#x306E;&#x7BA1;&#x7406;&#x306B;&#x5BFE;&#x5FDC;&#x3002;
+ * - &#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x6587;&#x5B57;&#x5217;&#x307E;&#x305F;&#x306F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x5F62;&#x5F0F;&#x306E;&#x4E21;&#x65B9;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3002;
+ * - &#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30ED;&#x30FC;&#x30C0;&#x672C;&#x4F53;&#xFF08;S3MeshLoader&#xFF09;&#x7D4C;&#x7531;&#x3067;&#x3082;&#x5229;&#x7528;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;
+ *
+ * @namespace S3MeshLoaderJSON
+ * @property {string} name - &#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x5F62;&#x5F0F;&#x540D;&#xFF08;&quot;JSON&quot;&#xFF09;
+ * @property {function(S3System, S3Mesh, string|Object):boolean} input - JSON&#x30C7;&#x30FC;&#x30BF;&#x304B;&#x3089;S3Mesh&#x3078;&#x5909;&#x63DB;&#xFF08;&#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;&#xFF09;
+ * @property {function(S3Mesh):string} output - S3Mesh&#x304B;&#x3089;JSON&#x5F62;&#x5F0F;&#x3078;&#x5909;&#x63DB;&#xFF08;&#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;&#xFF09;
+ *
+ * @example
+ * // &#x30A4;&#x30F3;&#x30DD;&#x30FC;&#x30C8;
+ * S3MeshLoaderJSON.input(sys, mesh, &apos;{&quot;Vertices&quot;:[[0,0,0]],&quot;Indexes&quot;:{&quot;mat1&quot;:[[0,0,0]]}}&apos;);
+ * // &#x30A8;&#x30AF;&#x30B9;&#x30DD;&#x30FC;&#x30C8;
+ * const json = S3MeshLoaderJSON.output(mesh);
+ */
 const S3MeshLoaderJSON = {
 	/**
 	 * &#x30E1;&#x30C3;&#x30B7;&#x30E5;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x51FA;&#x529B;&#x5F62;&#x5F0F;&#x540D;

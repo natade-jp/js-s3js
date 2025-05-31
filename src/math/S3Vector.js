@@ -3,6 +3,9 @@ import S3Matrix from "./S3Matrix.js";
 
 /**
  * 3DCG用のベクトルクラス（immutable）
+ *
+ * @class
+ * @module S3
  */
 export default class S3Vector {
 	/**

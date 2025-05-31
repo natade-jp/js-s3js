@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -106,6 +106,10 @@ import S3GLTexture from &quot;./S3GLTexture.js&quot;;
  * WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x30DE;&#x30C6;&#x30EA;&#x30A2;&#x30EB;&#xFF08;&#x6750;&#x8CEA;&#xFF09;&#x30AF;&#x30E9;&#x30B9;&#x3002;
  * &#x57FA;&#x672C;&#x306E;S3Material&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x751F;&#x6210;&#x30FB;&#x30CF;&#x30C3;&#x30B7;&#x30E5;&#x7BA1;&#x7406;&#x306A;&#x3069;WebGL&#x7528;&#x9014;&#x5411;&#x3051;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;
  * &#x8272;&#x3001;&#x62E1;&#x6563;/&#x53CD;&#x5C04;/&#x767A;&#x5149;/&#x74B0;&#x5883;&#x5149;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x60C5;&#x5831;&#x306A;&#x3069;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x3001;GLSL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x3078;&#x306E;uniform&#x30C7;&#x30FC;&#x30BF;&#x5316;&#x3092;&#x62C5;&#x3044;&#x307E;&#x3059;&#x3002;
+ *
+ * @class
+ * @extends S3Material
+ * @module S3
  */
 export default class S3GLMaterial extends S3Material {
 	/**
@@ -116,6 +120,11 @@ export default class S3GLMaterial extends S3Material {
 	constructor(s3glsystem, name) {
 		// @ts-ignore
 		super(s3glsystem, name);
+
+		/**
+		 * S3GLSystem &#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x7528;
+		 * @type {S3GLSystem}
+		 */
 		this._s3gl = s3glsystem;
 	}
 

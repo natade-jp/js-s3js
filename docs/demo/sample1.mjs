@@ -65,7 +65,7 @@ const main = function() {
 
 	// --- GUIパネル（描画用キャンバス）を作成 ---
 	// 640x480ピクセルの描画パネル（HTML canvas）を作成
-	const panel = new GuiBlocks.SCanvas();
+	const panel = new GuiBlocks.Canvas();
 	// id="scomponent" の要素内にこのパネルを追加
 	panel.putMe("scomponent", GuiBlocks.PUT_TYPE.IN);
 	// サイズ単位をピクセルで設定

@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -97,13 +97,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLArray from &apos;<span><a href="file/src/gl/S3GLArray.js.html#lineNumber9">s3js/src/gl/S3GLArray.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import S3GLArray from &apos;<span><a href="file/src/gl/S3GLArray.js.html#lineNumber12">s3js/src/gl/S3GLArray.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/gl/S3GLArray.js.html#lineNumber9">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/gl/S3GLArray.js.html#lineNumber12">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -195,13 +195,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html#instance-member-data">data</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html#instance-member-data">data</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array">Float32Array</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array">Int32Array</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x672C;&#x4F53;&#x30C7;&#x30FC;&#x30BF;&#xFF08;TypedArray: Float32Array &#x307E;&#x305F;&#x306F; Int32Array&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -223,13 +224,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html#instance-member-datatype">datatype</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html#instance-member-datatype">datatype</a></span></span><span class="code" data-ice="signature">: <span><a href="typedef/index.html#static-typedef-S3GLArrayDataType">S3GLArrayDataType</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x914D;&#x5217;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x60C5;&#x5831;&#xFF08;TypedArray&#x7A2E;&#x5225;&#x3084;&#x578B;&#x540D;&#x306A;&#x3069;&#x3092;&#x683C;&#x7D0D;&#x3057;&#x305F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF09;</p>
+</div>
       </div>
     </td>
     <td>
@@ -251,13 +253,15 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html#instance-member-dimension">dimension</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/gl/S3GLArray.js~S3GLArray.html#instance-member-dimension">dimension</a></span></span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>&#x914D;&#x5217;&#x306E;&#x6B21;&#x5143;&#xFF08;&#x8981;&#x7D20;&#x6570;&#x3084;GLSL&#x578B;&#x3092;&#x6C7A;&#x5B9A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x5024;&#xFF09;
+&#x4F8B;: 3 &#x2192; vec3, 16 &#x2192; mat4</p>
+</div>
       </div>
     </td>
     <td>
@@ -285,7 +289,7 @@
       <div>
         
         
-        <div data-ice="description"><p>GLSL&#x578B;&#xFF08;vec3, mat4&#x306A;&#x3069;&#xFF09;</p>
+        <div data-ice="description"><p>GLSL&#x306E;&#x578B;&#x540D;&#xFF08;vec3, mat4, float&#x7B49;&#xFF09;</p>
 </div>
       </div>
     </td>
@@ -317,7 +321,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber18">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber21">source</a></span></span>
     </span>
   </h3>
 
@@ -392,18 +396,19 @@
     
     
     
-    <span class="code" data-ice="name">data</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">data</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array">Float32Array</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array">Int32Array</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber22">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber29">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x672C;&#x4F53;&#x30C7;&#x30FC;&#x30BF;&#xFF08;TypedArray: Float32Array &#x307E;&#x305F;&#x306F; Int32Array&#xFF09;</p>
+</div>
 
   
 
@@ -435,18 +440,19 @@
     
     
     
-    <span class="code" data-ice="name">datatype</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">datatype</span><span class="code" data-ice="signature">: <span><a href="typedef/index.html#static-typedef-S3GLArrayDataType">S3GLArrayDataType</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber33">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x914D;&#x5217;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x60C5;&#x5831;&#xFF08;TypedArray&#x7A2E;&#x5225;&#x3084;&#x578B;&#x540D;&#x306A;&#x3069;&#x3092;&#x683C;&#x7D0D;&#x3057;&#x305F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#xFF09;</p>
+</div>
 
   
 
@@ -478,18 +484,20 @@
     
     
     
-    <span class="code" data-ice="name">dimension</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">dimension</span><span class="code" data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber32">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber45">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>&#x914D;&#x5217;&#x306E;&#x6B21;&#x5143;&#xFF08;&#x8981;&#x7D20;&#x6570;&#x3084;GLSL&#x578B;&#x3092;&#x6C7A;&#x5B9A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x5024;&#xFF09;
+&#x4F8B;: 3 &#x2192; vec3, 16 &#x2192; mat4</p>
+</div>
 
   
 
@@ -525,14 +533,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gl/S3GLArray.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>GLSL&#x578B;&#xFF08;vec3, mat4&#x306A;&#x3069;&#xFF09;</p>
+  <div data-ice="description"><p>GLSL&#x306E;&#x578B;&#x540D;&#xFF08;vec3, mat4, float&#x7B49;&#xFF09;</p>
 </div>
 
   

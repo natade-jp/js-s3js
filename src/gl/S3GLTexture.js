@@ -5,6 +5,10 @@ import S3GLSystem from "./S3GLSystem.js";
  * WebGL描画用のテクスチャクラス。
  * S3Textureを拡張し、WebGL用のGLTexture管理、GL用データ取得（getGLData）、破棄などを担います。
  * 画像データをGPUのテクスチャへ変換し、GLSLシェーダへのuniformバインドなどに利用します。
+ *
+ * @class
+ * @extends S3Texture
+ * @module S3
  */
 export default class S3GLTexture extends S3Texture {
 	/**
@@ -46,6 +50,10 @@ export default class S3GLTexture extends S3Texture {
 	 */
 	dispose() {
 		if (!this.is_dispose) {
+			/**
+			 * テクスチャが破棄されたかどうか
+			 * @type {boolean}
+			 */
 			this.is_dispose = true;
 			if (this.gldata !== null) {
 				this._s3gl.glfunc.deleteTexture(this.url);

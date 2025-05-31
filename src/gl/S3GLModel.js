@@ -6,6 +6,10 @@ import S3Model from "../basic/S3Model.js";
  * WebGL描画用のモデル（Model）クラス。
  * 基本のS3Modelを拡張し、WebGL向けuniformデータの生成（getUniforms）機能を追加します。
  * モデルごとの材質（マテリアル）情報をuniformデータとしてまとめ、GLSLシェーダに渡せる形に整形します。
+ *
+ * @class
+ * @extends S3Model
+ * @module S3
  */
 export default class S3GLModel extends S3Model {
 	/**

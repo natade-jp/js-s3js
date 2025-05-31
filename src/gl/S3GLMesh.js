@@ -12,6 +12,10 @@ import S3GLTriangleIndexData from "./S3GLTriangleIndexData.js";
  * WebGL用のメッシュ（立体形状データ）を管理するクラスです。
  * S3Meshを拡張し、WebGL描画に必要なVBOやIBO情報、GL用データ生成・解放機能などを持ちます。
  * モデルの描画時にGLにバインドできるバッファ形式への変換・管理も行います。
+ *
+ * @class
+ * @extends S3Mesh
+ * @module S3
  */
 export default class S3GLMesh extends S3Mesh {
 	/**
@@ -138,7 +142,7 @@ export default class S3GLMesh extends S3Mesh {
 		const triangleindex_list = this.getTriangleIndexArray();
 
 		/**
-		 * @typedef {Object} S3NormalVector
+		 * @typedef {Object} S3GLNormalVector
 		 * @property {S3Vector} normal 平面の法線
 		 * @property {S3Vector} tangent UV座標による接線
 		 * @property {S3Vector} binormal UV座標による従法線
@@ -146,12 +150,12 @@ export default class S3GLMesh extends S3Mesh {
 
 		/**
 		 * 三角形ごとのWebGL属性データリスト
-		 * @type {Array<S3GLTriangleIndexData & { face : S3NormalVector }>}
+		 * @type {Array<S3GLTriangleIndexData & { face : S3GLNormalVector }>}
 		 */
 		const tid_list = [];
 
 		/**
-		 * @typedef {"normal"|"tangent"|"binormal"} NormalListKey
+		 * @typedef {"normal"|"tangent"|"binormal"} S3GLNormalListKey
 		 */
 
 		/**
@@ -245,7 +249,7 @@ export default class S3GLMesh extends S3Mesh {
 
 				// 加算する
 				for (const vector_name in normallist) {
-					const key = /** @type {NormalListKey} */ (vector_name);
+					const key = /** @type {S3GLNormalListKey} */ (vector_name);
 					if (triangledata.face[key] !== null) {
 						// データが入っていたら加算する
 						const id = triangledata.face[key].toHash(3);
@@ -263,7 +267,7 @@ export default class S3GLMesh extends S3Mesh {
 			for (const index in vertexdata_list) {
 				const vertexdata = vertexdata_list[index];
 				for (const vector_name in normallist) {
-					const key = /** @type {NormalListKey} */ (vector_name);
+					const key = /** @type {S3GLNormalListKey} */ (vector_name);
 					// あまりに小さいと、0で割ることになるためチェックする
 					if (vertexdata[key].normFast() > 0.000001) {
 						vertexdata[key] = vertexdata[key].normalize();
@@ -290,7 +294,7 @@ export default class S3GLMesh extends S3Mesh {
 				const index = triangleindex.index[j];
 				const vertexdata = vertexdata_list[index];
 				for (const vector_name in normallist) {
-					const key = /** @type {NormalListKey} */ (vector_name);
+					const key = /** @type {S3GLNormalListKey} */ (vector_name);
 					let targetdata;
 					if (triangledata.face[key]) {
 						// 面で計算した値が入っているなら、

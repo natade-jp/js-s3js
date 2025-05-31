@@ -6,6 +6,9 @@ import S3System from "./S3System.js";
 /**
  * 3DCGシーンのカメラ（視点）情報を管理するクラス
  * 視点座標、注視点、視野角、描画範囲、各種行列演算などを保持・操作します。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Camera {
 	/**

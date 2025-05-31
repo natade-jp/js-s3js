@@ -6,6 +6,9 @@ import S3System from "./S3System.js";
 /**
  * 3DCG用メッシュ（立体形状データ）を管理するクラス (mutable)
  * 頂点・面・マテリアルを保持し、複数の形状や属性を一つにまとめます。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Mesh {
 	/**
@@ -13,7 +16,19 @@ export default class S3Mesh {
 	 * @param {S3System} s3system S3Systemインスタンス
 	 */
 	constructor(s3system) {
+		/**
+		 * システムインスタンス
+		 * @type {S3System}
+		 */
 		this.sys = s3system;
+
+		/**
+		 * 三角形インデックス追加時に面の頂点順序（表裏）を反転するかどうかを指定します。
+		 * true の場合は addTriangleIndex() で自動的に面を裏返して追加します。
+		 * @type {boolean}
+		 */
+		this.is_inverse = false;
+
 		this._init();
 	}
 

@@ -6,6 +6,10 @@ import S3Vector from "../math/S3Vector.js";
  * WebGL描画用の三角形インデックスクラス。
  * 基本のS3TriangleIndexを拡張し、GL用属性データ生成（S3GLTriangleIndexData化）などを追加しています。
  * 頂点インデックス・マテリアル番号・UV座標などの情報を持ち、WebGL向け処理の土台となります。
+ *
+ * @class
+ * @extends S3TriangleIndex
+ * @module S3
  */
 export default class S3GLTriangleIndex extends S3TriangleIndex {
 	/**

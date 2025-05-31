@@ -7,6 +7,9 @@ import S3GLVertex from "./S3GLVertex.js";
  * WebGL描画用の三角形インデックス・属性データ格納クラス。
  * 三角形ごとの頂点インデックス・UV・法線・接線・従法線などを保持し、
  * WebGL（GLSL）用に最適化されたデータ生成やハッシュ作成も担います。
+ *
+ * @class
+ * @module S3
  */
 export default class S3GLTriangleIndexData {
 	/**

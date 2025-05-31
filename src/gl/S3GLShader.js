@@ -4,6 +4,9 @@
  * WebGLのシェーダー管理クラス。
  * 頂点シェーダ／フラグメントシェーダのソースコード・型・GLオブジェクトを保持し、コンパイルや破棄、状態取得などの機能を提供します。
  * S3GLProgram 内部で利用され、単体では直接使わないことが多い設計です。
+ *
+ * @class
+ * @module S3
  */
 export default class S3GLShader {
 	/**
@@ -23,10 +26,34 @@ export default class S3GLShader {
 	 * @param {string} code シェーダーのGLSLソースコード、またはGLSLファイルのURL（1行の場合は自動判別）
 	 */
 	_init(sys, code) {
+		/**
+		 * GLシステムインスタンス
+		 * @type {S3GLSystem}
+		 */
 		this.sys = sys;
+
+		/**
+		 * シェーダーのGLSLソースコード。GLSLコード文字列、または未ロード時はnull。
+		 * @type {string|null}
+		 */
 		this.code = null;
+
+		/**
+		 * コンパイル済みWebGLShaderオブジェクト。未生成またはエラー時はnull。
+		 * @type {?WebGLShader}
+		 */
 		this.shader = null;
+
+		/**
+		 * シェーダーの型。gl.VERTEX_SHADER（35633）かgl.FRAGMENT_SHADER（35632）、未設定時は-1。
+		 * @type {number}
+		 */
 		this.sharder_type = -1;
+
+		/**
+		 * コンパイルや生成エラーが発生した場合にtrue。
+		 * @type {boolean}
+		 */
 		this.is_error = false;
 		const that = this;
 

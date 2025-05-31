@@ -9,6 +9,38 @@ import S3Matrix from "./math/S3Matrix.js";
 import S3Plane from "./math/S3Plane.js";
 import CameraController from "./tools/CameraController.js";
 
+/**
+ * S3 3DCGエンジンのメイン名前空間オブジェクト
+ *
+ * 主要クラスやユーティリティ（System, Math, Vector, Matrix, Plane, Loader, Controllerなど）を
+ * ひとつの名前空間に集約してエクスポートします。
+ * 各種定数・列挙体やローダ・ツールへのショートカットも含まれます。
+ *
+ * @namespace S3
+ * @property {typeof S3System} System 3DCGシステム管理クラス
+ * @property {typeof S3GLSystem} GLSystem WebGL用拡張システム
+ * @property {typeof S3Math} Math 数学ユーティリティ
+ * @property {typeof S3Angles} Angles オイラー角クラス
+ * @property {typeof S3Vector} Vector ベクトルクラス
+ * @property {typeof S3Matrix} Matrix 行列クラス
+ * @property {typeof S3Plane} Plane 平面クラス
+ * @property {Object} SYSTEM_MODE 描画モード定数
+ * @property {Object} DEPTH_MODE 深度バッファモード定数
+ * @property {Object} DIMENSION_MODE 座標系モード定数
+ * @property {Object} VECTOR_MODE ベクトルモード定数
+ * @property {Object} FRONT_FACE 面の前面判定モード定数
+ * @property {Object} CULL_MODE カリングモード定数
+ * @property {Object} LIGHT_MODE ライトモード定数
+ * @property {typeof S3MeshLoader} MeshLoader メッシュデータローダ
+ * @property {typeof CameraController} CameraController カメラコントローラー
+ *
+ * @example
+ * import S3 from "S3.js";
+ * const sys = new S3.System();
+ * const mesh = sys.createMesh();
+ * // もしくは
+ * const glsys = new S3.GLSystem();
+ */
 const S3 = {
 	System: S3System,
 	GLSystem: S3GLSystem,

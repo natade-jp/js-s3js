@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -117,6 +117,10 @@ import S3GLVertex from &quot;./S3GLVertex.js&quot;;
  * WebGL&#x30EC;&#x30F3;&#x30C0;&#x30EA;&#x30F3;&#x30B0;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x3002;
  * &#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x30FC;&#x3001;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3001;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x751F;&#x6210;&#x30FB;&#x7BA1;&#x7406;&#x3001;&#x304A;&#x3088;&#x3073;&#x63CF;&#x753B;&#x5236;&#x5FA1;&#x3092;&#x62C5;&#x5F53;&#x3002;
  * WebGL&#x306E;&#x521D;&#x671F;&#x5316;&#x3084;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x3001;&#x30B7;&#x30FC;&#x30F3;&#x306E;&#x63CF;&#x753B;&#x306A;&#x3069;&#x306E;&#x51E6;&#x7406;&#x3092;&#x542B;&#x3080;&#x3002;
+ *
+ * @class
+ * @extends S3System
+ * @module S3
  */
 export default class S3GLSystem extends S3System {
 	/**
@@ -140,6 +144,15 @@ export default class S3GLSystem extends S3System {
 
 		/** @type {number} &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x8B58;&#x5225;ID */
 		this.program_listId = 0;
+
+		/** @type {HTMLCanvasElement} &#x63CF;&#x753B;&#x306B;&#x4F7F;&#x3046;canvas&#x8981;&#x7D20; */
+		this.canvas = null;
+
+		/** @type {?string} &#x30C0;&#x30DF;&#x30FC;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306E;ID&#x6587;&#x5B57;&#x5217; */
+		this._textureDummyId = undefined;
+
+		/** @type {?WebGLTexture} &#x30C0;&#x30DF;&#x30FC;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x306E;WebGLTexture&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8; */
+		this._textureDummyData = undefined;
 
 		const that = this;
 
@@ -387,6 +400,7 @@ export default class S3GLSystem extends S3System {
 		const gl = /** @type {WebGLRenderingContext} */ (
 			canvas.getContext(&quot;webgl&quot;) || canvas.getContext(&quot;experimental-webgl&quot;)
 		);
+
 		this.canvas = canvas;
 		this.gl = gl;
 	}

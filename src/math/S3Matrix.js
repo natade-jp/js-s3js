@@ -4,6 +4,9 @@ import S3Vector from "./S3Vector.js";
 /**
  * 3DCG用の4x4行列クラス
  * 主に変換行列や射影行列などに使用されます。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Matrix {
 	/**
@@ -47,21 +50,37 @@ export default class S3Matrix {
 	) {
 		// row 4
 		if (arguments.length === 0) {
+			/** @type {number} */
 			this.m00 = 0.0;
+			/** @type {number} */
 			this.m01 = 0.0;
+			/** @type {number} */
 			this.m02 = 0.0;
+			/** @type {number} */
 			this.m03 = 0.0;
+			/** @type {number} */
 			this.m10 = 0.0;
+			/** @type {number} */
 			this.m11 = 0.0;
+			/** @type {number} */
 			this.m12 = 0.0;
+			/** @type {number} */
 			this.m13 = 0.0;
+			/** @type {number} */
 			this.m20 = 0.0;
+			/** @type {number} */
 			this.m21 = 0.0;
+			/** @type {number} */
 			this.m22 = 0.0;
+			/** @type {number} */
 			this.m23 = 0.0;
+			/** @type {number} */
 			this.m30 = 0.0;
+			/** @type {number} */
 			this.m31 = 0.0;
+			/** @type {number} */
 			this.m32 = 0.0;
+			/** @type {number} */
 			this.m33 = 0.0;
 		} else if (arguments.length === 9) {
 			// 3x3行列

@@ -45,6 +45,9 @@ import S3Vertex from "./S3Vertex.js";
  * 3DCGのための座標変換やシーン管理、基本的な生成処理・ユーティリティ関数などをまとめて提供します。
  * 頂点やメッシュ、マテリアルなど各種オブジェクトのファクトリ機能も持ちます。
  *
+ * @class
+ * @module S3
+ *
  */
 export default class S3System {
 	/**
@@ -52,6 +55,60 @@ export default class S3System {
 	 * 描画モードや背景色などを初期化します。
 	 */
 	constructor() {
+		/**
+		 * 現在のシステムモード（OpenGL/DirectX）
+		 * @type {number}
+		 * @see S3System.SYSTEM_MODE
+		 */
+		this.systemmode = S3System.SYSTEM_MODE.OPEN_GL;
+
+		/**
+		 * 深度バッファのモード（OpenGL/DirectX）
+		 * @type {number}
+		 * @see S3System.DEPTH_MODE
+		 */
+		this.depthmode = S3System.DEPTH_MODE.OPEN_GL;
+
+		/**
+		 * 座標系モード（右手系/左手系）
+		 * @type {number}
+		 * @see S3System.DIMENSION_MODE
+		 */
+		this.dimensionmode = S3System.DIMENSION_MODE.RIGHT_HAND;
+
+		/**
+		 * ベクトル型のモード（VECTOR4x1 / VECTOR1x4）
+		 * @type {number}
+		 * @see S3System.VECTOR_MODE
+		 */
+		this.vectormode = S3System.VECTOR_MODE.VECTOR4x1;
+
+		/**
+		 * 前面判定の面の向き（時計回り/反時計回り）
+		 * @type {number}
+		 * @see S3System.FRONT_FACE
+		 */
+		this.frontface = S3System.FRONT_FACE.COUNTER_CLOCKWISE;
+
+		/**
+		 * カリングモード（面の非表示除去方法）
+		 * @type {number}
+		 * @see S3System.CULL_MODE
+		 */
+		this.cullmode = S3System.CULL_MODE.BACK;
+
+		/**
+		 * 背景色（RGBAベクトル）
+		 * @type {S3Vector}
+		 */
+		this.backgroundColor = new S3Vector(1.0, 1.0, 1.0, 1.0);
+
+		/**
+		 * 描画に使うcanvas要素
+		 * @type {HTMLCanvasElement}
+		 */
+		this.canvas = null;
+
 		this._init();
 	}
 
@@ -69,36 +126,34 @@ export default class S3System {
 	 * @returns {string} 新しいID文字列
 	 */
 	_createID() {
-		if (typeof this._CREATE_ID1 === "undefined") {
-			this._CREATE_ID1 = 0;
-			this._CREATE_ID2 = 0;
-			this._CREATE_ID3 = 0;
-			this._CREATE_ID4 = 0;
+		if (!this._CREATE_ID) {
+			/**
+			 * 内部で一意なIDを発行するためのカウンタ配列
+			 * @type {number[]} [4]
+			 * @private
+			 */
+			this._CREATE_ID = [0, 0, 0, 0];
 		}
 		const id =
-			"" +
-			this._CREATE_ID4.toString(16) +
+			this._CREATE_ID[3].toString(16) +
 			":" +
-			this._CREATE_ID3.toString(16) +
+			this._CREATE_ID[2].toString(16) +
 			":" +
-			this._CREATE_ID2.toString(16) +
+			this._CREATE_ID[1].toString(16) +
 			":" +
-			this._CREATE_ID1.toString(16);
-		this._CREATE_ID1++;
-		if (this._CREATE_ID1 === 0x100000000) {
-			this._CREATE_ID1 = 0;
-			this._CREATE_ID2++;
-			if (this._CREATE_ID2 === 0x100000000) {
-				this._CREATE_ID2 = 0;
-				this._CREATE_ID3++;
-				if (this._CREATE_ID3 === 0x100000000) {
-					this._CREATE_ID3 = 0;
-					this._CREATE_ID4++;
-					if (this._CREATE_ID4 === 0x100000000) {
-						this._CREATE_ID4 = 0;
-						throw "createID";
-					}
+			this._CREATE_ID[0].toString(16);
+		this._CREATE_ID[0]++;
+		for (let i = 0; i < 4; i++) {
+			if (this._CREATE_ID[i] === 0x100000000) {
+				this._CREATE_ID[i] = 0;
+				if (i < 3) {
+					this._CREATE_ID[i + 1]++;
+				} else {
+					// 全てのカウンタがオーバーフローした場合
+					throw "createID";
 				}
+			} else {
+				break;
 			}
 		}
 		return id;
@@ -181,6 +236,10 @@ export default class S3System {
 	 * @param {S3Vector} color RGBAで指定する背景色
 	 */
 	setBackgroundColor(color) {
+		/**
+		 * 背景色（RGBAベクトル）
+		 * @type {S3Vector}
+		 */
 		this.backgroundColor = color;
 	}
 
@@ -264,7 +323,7 @@ export default class S3System {
 		this.canvas = canvas;
 
 		/**
-		 * 2D描画ユーティリティ
+		 * 2D描画用のユーティリティオブジェクト（drawLine, drawLinePolygonなど）
 		 * @property {CanvasRenderingContext2D} context 2D描画コンテキスト
 		 * @property {function(S3Vector, S3Vector):void} drawLine 2点間の直線を描画
 		 * @property {function(S3Vector, S3Vector, S3Vector):void} drawLinePolygon 3点から三角形（線のみ）を描画

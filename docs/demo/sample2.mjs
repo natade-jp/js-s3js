@@ -151,7 +151,7 @@ const gl = new S3DGLTest();
  * - 50msごとに描画を更新
  */
 const createWebGLPanel2 = function() {
-	const panel = new GuiBlocks.SCanvas();
+	const panel = new GuiBlocks.Canvas();
 	panel.putMe("webglpanel", GuiBlocks.PUT_TYPE.IN);
 	panel.setUnit(GuiBlocks.UNIT_TYPE.PX);
 	panel.setPixelSize(1280, 720);
@@ -176,16 +176,16 @@ const createWebGLPanel2 = function() {
  * - 「load」ボタンでモデルの切り替えが可能
  */
 const createOperationPanel = function() {
-	const filepanel = new GuiBlocks.SPanel("ファイル");
+	const filepanel = new GuiBlocks.Panel("ファイル");
 	filepanel.putMe("operationpanel", GuiBlocks.PUT_TYPE.IN);
 
-	const filebox = new GuiBlocks.SComboBox([
+	const filebox = new GuiBlocks.ComboBox([
 		"./resource/teapot.mqo",
 		"./resource/bumptest.mqo"
 	]);
 	filebox.putMe(filepanel, GuiBlocks.PUT_TYPE.IN);
 
-	const loadbutton = new GuiBlocks.SButton("load");
+	const loadbutton = new GuiBlocks.Button("load");
 	loadbutton.putMe(filebox, GuiBlocks.PUT_TYPE.NEWLINE);
 	loadbutton.addListener(function () {
 		const filename = filebox.getSelectedItem();

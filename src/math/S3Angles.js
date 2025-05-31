@@ -2,6 +2,9 @@
  * 3DCG用のオイラー角クラス（immutable）
  * Roll（Z軸）、Pitch（X軸）、Yaw（Y軸）の順で角度を保持します。
  * 各値は常に周期的（-180～180度）に管理されます。
+ *
+ * @class
+ * @module S3
  */
 export default class S3Angles {
 	/**

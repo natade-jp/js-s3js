@@ -1,14 +1,4 @@
-﻿/**
- * The script is part of SenkoJS.
- *
- * AUTHOR:
- *  natade (http://twitter.com/natadea)
- *
- * LICENSE:
- *  The MIT license https://opensource.org/licenses/MIT
- */
-
-import S3Vertex from "../basic/S3Vertex.js";
+﻿import S3Vertex from "../basic/S3Vertex.js";
 import S3Vector from "../math/S3Vector.js";
 import S3GLArray from "./S3GLArray.js";
 
@@ -16,6 +6,10 @@ import S3GLArray from "./S3GLArray.js";
  * WebGL描画用の頂点（バーテックス）クラス。
  * S3Vertexを拡張し、GL用データ生成やハッシュ化などを提供します。
  * 頂点情報（位置）をGL向け形式に変換し、バーテックスシェーダのattributeと連携できます。
+ *
+ * @class
+ * @extends S3Vertex
+ * @module S3
  */
 export default class S3GLVertex extends S3Vertex {
 	/**

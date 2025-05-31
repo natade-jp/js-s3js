@@ -58,12 +58,12 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLArrayGLTypeTable">S3GLArrayGLTypeTable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLTypedArrayConstructor">S3GLTypedArrayConstructor</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLLightGLData">S3GLLightGLData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-NormalListKey">NormalListKey</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshArrayData">S3GLMeshArrayData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshIBOData">S3GLMeshIBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOData">S3GLMeshVBOData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLMeshVBOElement">S3GLMeshVBOElement</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3NormalVector">S3NormalVector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalListKey">S3GLNormalListKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLNormalVector">S3GLNormalVector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramBindData">S3GLProgramBindData</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLProgramGLSLTypeInfo">S3GLProgramGLSLTypeInfo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-S3GLShaderData">S3GLShaderData</a></span></span></li>
@@ -104,6 +104,10 @@ import S3GLSystem from &quot;./S3GLSystem.js&quot;;
  * WebGL&#x63CF;&#x753B;&#x7528;&#x306E;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x30AF;&#x30E9;&#x30B9;&#x3002;
  * S3Texture&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;WebGL&#x7528;&#x306E;GLTexture&#x7BA1;&#x7406;&#x3001;GL&#x7528;&#x30C7;&#x30FC;&#x30BF;&#x53D6;&#x5F97;&#xFF08;getGLData&#xFF09;&#x3001;&#x7834;&#x68C4;&#x306A;&#x3069;&#x3092;&#x62C5;&#x3044;&#x307E;&#x3059;&#x3002;
  * &#x753B;&#x50CF;&#x30C7;&#x30FC;&#x30BF;&#x3092;GPU&#x306E;&#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x3078;&#x5909;&#x63DB;&#x3057;&#x3001;GLSL&#x30B7;&#x30A7;&#x30FC;&#x30C0;&#x3078;&#x306E;uniform&#x30D0;&#x30A4;&#x30F3;&#x30C9;&#x306A;&#x3069;&#x306B;&#x5229;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;
+ *
+ * @class
+ * @extends S3Texture
+ * @module S3
  */
 export default class S3GLTexture extends S3Texture {
 	/**
@@ -145,6 +149,10 @@ export default class S3GLTexture extends S3Texture {
 	 */
 	dispose() {
 		if (!this.is_dispose) {
+			/**
+			 * &#x30C6;&#x30AF;&#x30B9;&#x30C1;&#x30E3;&#x304C;&#x7834;&#x68C4;&#x3055;&#x308C;&#x305F;&#x304B;&#x3069;&#x3046;&#x304B;
+			 * @type {boolean}
+			 */
 			this.is_dispose = true;
 			if (this.gldata !== null) {
 				this._s3gl.glfunc.deleteTexture(this.url);

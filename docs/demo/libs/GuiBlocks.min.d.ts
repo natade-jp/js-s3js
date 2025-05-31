@@ -39,21 +39,21 @@ export type SColorPickerData = {
     L: SColorPickerDataElement;
 };
 declare namespace GuiBlocks {
-    export { SButton };
-    export { SCanvas };
-    export { SCheckBox };
+    export { SButton as Button };
+    export { SCanvas as Canvas };
+    export { SCheckBox as CheckBox };
     export { NTColor as Color };
-    export { SColorPicker };
-    export { SComboBox };
-    export { SFileLoadButton };
-    export { SFileSaveButton };
-    export { SGroupBox };
-    export { SImagePanel };
-    export { SLabel };
-    export { SPanel };
-    export { SProgressBar };
-    export { SSlidePanel };
-    export { SSlider };
+    export { SColorPicker as ColorPicker };
+    export { SComboBox as ComboBox };
+    export { SFileLoadButton as FileLoadButton };
+    export { SFileSaveButton as FileSaveButton };
+    export { SGroupBox as GroupBox };
+    export { SImagePanel as ImagePanel };
+    export { SLabel as Label };
+    export { SPanel as Panel };
+    export { SProgressBar as ProgressBar };
+    export { SSlidePanel as SlidePanel };
+    export { SSlider as Slider };
     import PUT_TYPE = SBase.PUT_TYPE;
     export { PUT_TYPE };
     import UNIT_TYPE = SBase.UNIT_TYPE;
@@ -143,6 +143,7 @@ declare class SCanvas extends SBase {
     context: CanvasRenderingContext2D;
     /**
      * キャンバスをクリアします。
+     * @returns {void}
      */
     clear(): void;
     /**
@@ -985,6 +986,7 @@ declare class SGroupBox extends SBase {
     getContainerElement(): HTMLDivElement;
     /**
      * グループ内のすべての子要素を削除します。
+     * @returns {void}
      */
     clear(): void;
 }
@@ -1008,6 +1010,7 @@ declare class SImagePanel extends SBase {
     /**
      * パネル内の全ての要素を削除します。
      * 画像をクリアする用途で使用します。
+     * @returns {void}
      */
     clear(): void;
     /**
@@ -1240,6 +1243,7 @@ declare class SSlidePanel extends SBase {
     getContainerElement(): HTMLDivElement;
     /**
      * コンテンツ領域をクリアします。
+     * @returns {void}
      */
     clear(): void;
 }
