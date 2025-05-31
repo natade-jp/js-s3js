@@ -37,9 +37,8 @@ const scene = s3system.createScene();
 const camera = s3system.createCamera();
 scene.setCamera(camera);
 
-// 4. モデル生成（OBJファイルを読み込む例）
-import S3MeshLoader from "./loader/S3MeshLoader.js";
-const mesh = S3.MeshLoader.inputData(s3system, "model.obj", "OBJ");
+// 4. モデル生成
+const mesh = S3.MeshLoader.inputData(s3system, "model.obj");
 const model = s3system.createModel();
 model.setMesh(mesh);
 scene.addModel(model);

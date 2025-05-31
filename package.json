@@ -1,6 +1,6 @@
 {
 	"name": "s3js",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Simple JavaScript 3D engine for rendering and manipulating scenes..",
 	"keywords": [
 		"3d", "graphics", "engine", "javascript", "webgl"

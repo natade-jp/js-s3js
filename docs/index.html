@@ -127,9 +127,8 @@ const scene = s3system.createScene();
 const camera = s3system.createCamera();
 scene.setCamera(camera);
 
-// 4. &#x30E2;&#x30C7;&#x30EB;&#x751F;&#x6210;&#xFF08;OBJ&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3080;&#x4F8B;&#xFF09;
-import S3MeshLoader from &quot;./loader/S3MeshLoader.js&quot;;
-const mesh = S3.MeshLoader.inputData(s3system, &quot;model.obj&quot;, &quot;OBJ&quot;);
+// 4. &#x30E2;&#x30C7;&#x30EB;&#x751F;&#x6210;
+const mesh = S3.MeshLoader.inputData(s3system, &quot;model.obj&quot;);
 const model = s3system.createModel();
 model.setMesh(mesh);
 scene.addModel(model);
